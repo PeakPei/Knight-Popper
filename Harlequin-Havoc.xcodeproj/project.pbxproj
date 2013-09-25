@@ -17,18 +17,18 @@
 		9027C51F17F2B4800056EFA4 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 9027C51A17F2B4800056EFA4 /* InfoPlist.strings */; };
 		9027C52117F2B4800056EFA4 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 9027C51E17F2B4800056EFA4 /* Images.xcassets */; };
 		9027C53317F2B9740056EFA4 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 9027C53217F2B9740056EFA4 /* main.m */; };
-		9027C55817F2B97D0056EFA4 /* HPActionCategories.m in Sources */ = {isa = PBXBuildFile; fileRef = 9027C53717F2B97D0056EFA4 /* HPActionCategories.m */; };
-		9027C55917F2B97D0056EFA4 /* HPPlayerNode.m in Sources */ = {isa = PBXBuildFile; fileRef = 9027C53917F2B97D0056EFA4 /* HPPlayerNode.m */; };
-		9027C55A17F2B97D0056EFA4 /* HPProjectileNode.m in Sources */ = {isa = PBXBuildFile; fileRef = 9027C53B17F2B97D0056EFA4 /* HPProjectileNode.m */; };
-		9027C55B17F2B97D0056EFA4 /* HPTargetNode.m in Sources */ = {isa = PBXBuildFile; fileRef = 9027C53D17F2B97D0056EFA4 /* HPTargetNode.m */; };
-		9027C55C17F2B97D0056EFA4 /* HPAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 9027C53F17F2B97D0056EFA4 /* HPAppDelegate.m */; };
-		9027C55D17F2B97D0056EFA4 /* HPTextureManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 9027C54217F2B97D0056EFA4 /* HPTextureManager.m */; };
-		9027C55E17F2B97D0056EFA4 /* HPGameScene.m in Sources */ = {isa = PBXBuildFile; fileRef = 9027C54717F2B97D0056EFA4 /* HPGameScene.m */; };
-		9027C55F17F2B97D0056EFA4 /* HPGameViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9027C54917F2B97D0056EFA4 /* HPGameViewController.m */; };
-		9027C56017F2B97D0056EFA4 /* HPScene.m in Sources */ = {isa = PBXBuildFile; fileRef = 9027C54B17F2B97D0056EFA4 /* HPScene.m */; };
-		9027C56117F2B97D0056EFA4 /* HPStateViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9027C54D17F2B97D0056EFA4 /* HPStateViewController.m */; };
-		9027C56217F2B97D0056EFA4 /* HPMainMenuScene.m in Sources */ = {isa = PBXBuildFile; fileRef = 9027C55017F2B97D0056EFA4 /* HPMainMenuScene.m */; };
-		9027C56317F2B97D0056EFA4 /* HPMainMenuViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9027C55217F2B97D0056EFA4 /* HPMainMenuViewController.m */; };
+		9027C55817F2B97D0056EFA4 /* HHActionCategories.m in Sources */ = {isa = PBXBuildFile; fileRef = 9027C53717F2B97D0056EFA4 /* HHActionCategories.m */; };
+		9027C55917F2B97D0056EFA4 /* HHPlayerNode.m in Sources */ = {isa = PBXBuildFile; fileRef = 9027C53917F2B97D0056EFA4 /* HHPlayerNode.m */; };
+		9027C55A17F2B97D0056EFA4 /* HHProjectileNode.m in Sources */ = {isa = PBXBuildFile; fileRef = 9027C53B17F2B97D0056EFA4 /* HHProjectileNode.m */; };
+		9027C55B17F2B97D0056EFA4 /* HHTargetNode.m in Sources */ = {isa = PBXBuildFile; fileRef = 9027C53D17F2B97D0056EFA4 /* HHTargetNode.m */; };
+		9027C55C17F2B97D0056EFA4 /* HHAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 9027C53F17F2B97D0056EFA4 /* HHAppDelegate.m */; };
+		9027C55D17F2B97D0056EFA4 /* HHTextureManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 9027C54217F2B97D0056EFA4 /* HHTextureManager.m */; };
+		9027C55E17F2B97D0056EFA4 /* HHGameScene.m in Sources */ = {isa = PBXBuildFile; fileRef = 9027C54717F2B97D0056EFA4 /* HHGameScene.m */; };
+		9027C55F17F2B97D0056EFA4 /* HHGameViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9027C54917F2B97D0056EFA4 /* HHGameViewController.m */; };
+		9027C56017F2B97D0056EFA4 /* HHScene.m in Sources */ = {isa = PBXBuildFile; fileRef = 9027C54B17F2B97D0056EFA4 /* HHScene.m */; };
+		9027C56117F2B97D0056EFA4 /* HHStateViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9027C54D17F2B97D0056EFA4 /* HHStateViewController.m */; };
+		9027C56217F2B97D0056EFA4 /* HHMainMenuScene.m in Sources */ = {isa = PBXBuildFile; fileRef = 9027C55017F2B97D0056EFA4 /* HHMainMenuScene.m */; };
+		9027C56317F2B97D0056EFA4 /* HHMainMenuViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9027C55217F2B97D0056EFA4 /* HHMainMenuViewController.m */; };
 		9027C56417F2B97D0056EFA4 /* Random.m in Sources */ = {isa = PBXBuildFile; fileRef = 9027C55517F2B97D0056EFA4 /* Random.m */; };
 		9027C56517F2B97D0056EFA4 /* UIApplication+AppDimensions.m in Sources */ = {isa = PBXBuildFile; fileRef = 9027C55717F2B97D0056EFA4 /* UIApplication+AppDimensions.m */; };
 		9027C56717F2BA710056EFA4 /* background~ipad.png in Resources */ = {isa = PBXBuildFile; fileRef = 9027C56617F2BA710056EFA4 /* background~ipad.png */; };
@@ -65,31 +65,31 @@
 		9027C52417F2B4DB0056EFA4 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main_iPad.storyboard; sourceTree = "<group>"; };
 		9027C52617F2B4DB0056EFA4 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main_iPhone.storyboard; sourceTree = "<group>"; };
 		9027C53217F2B9740056EFA4 /* main.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
-		9027C53617F2B97D0056EFA4 /* HPActionCategories.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HPActionCategories.h; sourceTree = "<group>"; };
-		9027C53717F2B97D0056EFA4 /* HPActionCategories.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HPActionCategories.m; sourceTree = "<group>"; };
-		9027C53817F2B97D0056EFA4 /* HPPlayerNode.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HPPlayerNode.h; sourceTree = "<group>"; };
-		9027C53917F2B97D0056EFA4 /* HPPlayerNode.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HPPlayerNode.m; sourceTree = "<group>"; };
-		9027C53A17F2B97D0056EFA4 /* HPProjectileNode.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HPProjectileNode.h; sourceTree = "<group>"; };
-		9027C53B17F2B97D0056EFA4 /* HPProjectileNode.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HPProjectileNode.m; sourceTree = "<group>"; };
-		9027C53C17F2B97D0056EFA4 /* HPTargetNode.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HPTargetNode.h; sourceTree = "<group>"; };
-		9027C53D17F2B97D0056EFA4 /* HPTargetNode.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HPTargetNode.m; sourceTree = "<group>"; };
-		9027C53E17F2B97D0056EFA4 /* HPAppDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HPAppDelegate.h; sourceTree = "<group>"; };
-		9027C53F17F2B97D0056EFA4 /* HPAppDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HPAppDelegate.m; sourceTree = "<group>"; };
-		9027C54117F2B97D0056EFA4 /* HPTextureManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HPTextureManager.h; sourceTree = "<group>"; };
-		9027C54217F2B97D0056EFA4 /* HPTextureManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HPTextureManager.m; sourceTree = "<group>"; };
+		9027C53617F2B97D0056EFA4 /* HHActionCategories.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HHActionCategories.h; sourceTree = "<group>"; };
+		9027C53717F2B97D0056EFA4 /* HHActionCategories.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HHActionCategories.m; sourceTree = "<group>"; };
+		9027C53817F2B97D0056EFA4 /* HHPlayerNode.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HHPlayerNode.h; sourceTree = "<group>"; };
+		9027C53917F2B97D0056EFA4 /* HHPlayerNode.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HHPlayerNode.m; sourceTree = "<group>"; };
+		9027C53A17F2B97D0056EFA4 /* HHProjectileNode.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HHProjectileNode.h; sourceTree = "<group>"; };
+		9027C53B17F2B97D0056EFA4 /* HHProjectileNode.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HHProjectileNode.m; sourceTree = "<group>"; };
+		9027C53C17F2B97D0056EFA4 /* HHTargetNode.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HHTargetNode.h; sourceTree = "<group>"; };
+		9027C53D17F2B97D0056EFA4 /* HHTargetNode.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HHTargetNode.m; sourceTree = "<group>"; };
+		9027C53E17F2B97D0056EFA4 /* HHAppDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HHAppDelegate.h; sourceTree = "<group>"; };
+		9027C53F17F2B97D0056EFA4 /* HHAppDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HHAppDelegate.m; sourceTree = "<group>"; };
+		9027C54117F2B97D0056EFA4 /* HHTextureManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HHTextureManager.h; sourceTree = "<group>"; };
+		9027C54217F2B97D0056EFA4 /* HHTextureManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HHTextureManager.m; sourceTree = "<group>"; };
 		9027C54317F2B97D0056EFA4 /* TextureIDs.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TextureIDs.h; sourceTree = "<group>"; };
-		9027C54617F2B97D0056EFA4 /* HPGameScene.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HPGameScene.h; sourceTree = "<group>"; };
-		9027C54717F2B97D0056EFA4 /* HPGameScene.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HPGameScene.m; sourceTree = "<group>"; };
-		9027C54817F2B97D0056EFA4 /* HPGameViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HPGameViewController.h; sourceTree = "<group>"; };
-		9027C54917F2B97D0056EFA4 /* HPGameViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HPGameViewController.m; sourceTree = "<group>"; };
-		9027C54A17F2B97D0056EFA4 /* HPScene.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HPScene.h; sourceTree = "<group>"; };
-		9027C54B17F2B97D0056EFA4 /* HPScene.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HPScene.m; sourceTree = "<group>"; };
-		9027C54C17F2B97D0056EFA4 /* HPStateViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HPStateViewController.h; sourceTree = "<group>"; };
-		9027C54D17F2B97D0056EFA4 /* HPStateViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HPStateViewController.m; sourceTree = "<group>"; };
-		9027C54F17F2B97D0056EFA4 /* HPMainMenuScene.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HPMainMenuScene.h; sourceTree = "<group>"; };
-		9027C55017F2B97D0056EFA4 /* HPMainMenuScene.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HPMainMenuScene.m; sourceTree = "<group>"; };
-		9027C55117F2B97D0056EFA4 /* HPMainMenuViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HPMainMenuViewController.h; sourceTree = "<group>"; };
-		9027C55217F2B97D0056EFA4 /* HPMainMenuViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HPMainMenuViewController.m; sourceTree = "<group>"; };
+		9027C54617F2B97D0056EFA4 /* HHGameScene.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HHGameScene.h; sourceTree = "<group>"; };
+		9027C54717F2B97D0056EFA4 /* HHGameScene.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HHGameScene.m; sourceTree = "<group>"; };
+		9027C54817F2B97D0056EFA4 /* HHGameViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HHGameViewController.h; sourceTree = "<group>"; };
+		9027C54917F2B97D0056EFA4 /* HHGameViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HHGameViewController.m; sourceTree = "<group>"; };
+		9027C54A17F2B97D0056EFA4 /* HHScene.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HHScene.h; sourceTree = "<group>"; };
+		9027C54B17F2B97D0056EFA4 /* HHScene.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HHScene.m; sourceTree = "<group>"; };
+		9027C54C17F2B97D0056EFA4 /* HHStateViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HHStateViewController.h; sourceTree = "<group>"; };
+		9027C54D17F2B97D0056EFA4 /* HHStateViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HHStateViewController.m; sourceTree = "<group>"; };
+		9027C54F17F2B97D0056EFA4 /* HHMainMenuScene.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HHMainMenuScene.h; sourceTree = "<group>"; };
+		9027C55017F2B97D0056EFA4 /* HHMainMenuScene.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HHMainMenuScene.m; sourceTree = "<group>"; };
+		9027C55117F2B97D0056EFA4 /* HHMainMenuViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HHMainMenuViewController.h; sourceTree = "<group>"; };
+		9027C55217F2B97D0056EFA4 /* HHMainMenuViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HHMainMenuViewController.m; sourceTree = "<group>"; };
 		9027C55417F2B97D0056EFA4 /* Random.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Random.h; sourceTree = "<group>"; };
 		9027C55517F2B97D0056EFA4 /* Random.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Random.m; sourceTree = "<group>"; };
 		9027C55617F2B97D0056EFA4 /* UIApplication+AppDimensions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIApplication+AppDimensions.h"; sourceTree = "<group>"; };
@@ -280,8 +280,8 @@
 		9027C53417F2B97D0056EFA4 /* Classes */ = {
 			isa = PBXGroup;
 			children = (
-				9027C53E17F2B97D0056EFA4 /* HPAppDelegate.h */,
-				9027C53F17F2B97D0056EFA4 /* HPAppDelegate.m */,
+				9027C53E17F2B97D0056EFA4 /* HHAppDelegate.h */,
+				9027C53F17F2B97D0056EFA4 /* HHAppDelegate.m */,
 				9027C53517F2B97D0056EFA4 /* Entities */,
 				9027C54017F2B97D0056EFA4 /* Model */,
 				9027C54417F2B97D0056EFA4 /* States */,
@@ -293,14 +293,14 @@
 		9027C53517F2B97D0056EFA4 /* Entities */ = {
 			isa = PBXGroup;
 			children = (
-				9027C53617F2B97D0056EFA4 /* HPActionCategories.h */,
-				9027C53717F2B97D0056EFA4 /* HPActionCategories.m */,
-				9027C53817F2B97D0056EFA4 /* HPPlayerNode.h */,
-				9027C53917F2B97D0056EFA4 /* HPPlayerNode.m */,
-				9027C53A17F2B97D0056EFA4 /* HPProjectileNode.h */,
-				9027C53B17F2B97D0056EFA4 /* HPProjectileNode.m */,
-				9027C53C17F2B97D0056EFA4 /* HPTargetNode.h */,
-				9027C53D17F2B97D0056EFA4 /* HPTargetNode.m */,
+				9027C53617F2B97D0056EFA4 /* HHActionCategories.h */,
+				9027C53717F2B97D0056EFA4 /* HHActionCategories.m */,
+				9027C53817F2B97D0056EFA4 /* HHPlayerNode.h */,
+				9027C53917F2B97D0056EFA4 /* HHPlayerNode.m */,
+				9027C53A17F2B97D0056EFA4 /* HHProjectileNode.h */,
+				9027C53B17F2B97D0056EFA4 /* HHProjectileNode.m */,
+				9027C53C17F2B97D0056EFA4 /* HHTargetNode.h */,
+				9027C53D17F2B97D0056EFA4 /* HHTargetNode.m */,
 			);
 			path = Entities;
 			sourceTree = "<group>";
@@ -308,8 +308,8 @@
 		9027C54017F2B97D0056EFA4 /* Model */ = {
 			isa = PBXGroup;
 			children = (
-				9027C54117F2B97D0056EFA4 /* HPTextureManager.h */,
-				9027C54217F2B97D0056EFA4 /* HPTextureManager.m */,
+				9027C54117F2B97D0056EFA4 /* HHTextureManager.h */,
+				9027C54217F2B97D0056EFA4 /* HHTextureManager.m */,
 				9027C54317F2B97D0056EFA4 /* TextureIDs.h */,
 			);
 			path = Model;
@@ -318,10 +318,10 @@
 		9027C54417F2B97D0056EFA4 /* States */ = {
 			isa = PBXGroup;
 			children = (
-				9027C54A17F2B97D0056EFA4 /* HPScene.h */,
-				9027C54B17F2B97D0056EFA4 /* HPScene.m */,
-				9027C54C17F2B97D0056EFA4 /* HPStateViewController.h */,
-				9027C54D17F2B97D0056EFA4 /* HPStateViewController.m */,
+				9027C54A17F2B97D0056EFA4 /* HHScene.h */,
+				9027C54B17F2B97D0056EFA4 /* HHScene.m */,
+				9027C54C17F2B97D0056EFA4 /* HHStateViewController.h */,
+				9027C54D17F2B97D0056EFA4 /* HHStateViewController.m */,
 				9027C54517F2B97D0056EFA4 /* Game */,
 				9027C54E17F2B97D0056EFA4 /* Main Menu */,
 			);
@@ -331,10 +331,10 @@
 		9027C54517F2B97D0056EFA4 /* Game */ = {
 			isa = PBXGroup;
 			children = (
-				9027C54617F2B97D0056EFA4 /* HPGameScene.h */,
-				9027C54717F2B97D0056EFA4 /* HPGameScene.m */,
-				9027C54817F2B97D0056EFA4 /* HPGameViewController.h */,
-				9027C54917F2B97D0056EFA4 /* HPGameViewController.m */,
+				9027C54617F2B97D0056EFA4 /* HHGameScene.h */,
+				9027C54717F2B97D0056EFA4 /* HHGameScene.m */,
+				9027C54817F2B97D0056EFA4 /* HHGameViewController.h */,
+				9027C54917F2B97D0056EFA4 /* HHGameViewController.m */,
 			);
 			path = Game;
 			sourceTree = "<group>";
@@ -342,10 +342,10 @@
 		9027C54E17F2B97D0056EFA4 /* Main Menu */ = {
 			isa = PBXGroup;
 			children = (
-				9027C54F17F2B97D0056EFA4 /* HPMainMenuScene.h */,
-				9027C55017F2B97D0056EFA4 /* HPMainMenuScene.m */,
-				9027C55117F2B97D0056EFA4 /* HPMainMenuViewController.h */,
-				9027C55217F2B97D0056EFA4 /* HPMainMenuViewController.m */,
+				9027C54F17F2B97D0056EFA4 /* HHMainMenuScene.h */,
+				9027C55017F2B97D0056EFA4 /* HHMainMenuScene.m */,
+				9027C55117F2B97D0056EFA4 /* HHMainMenuViewController.h */,
+				9027C55217F2B97D0056EFA4 /* HHMainMenuViewController.m */,
 			);
 			path = "Main Menu";
 			sourceTree = "<group>";
@@ -405,7 +405,7 @@
 		9027C4C617F2B30B0056EFA4 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				CLASSPREFIX = HP;
+				CLASSPREFIX = HH;
 				LastUpgradeCheck = 0500;
 				ORGANIZATIONNAME = QUT;
 				TargetAttributes = {
@@ -461,20 +461,20 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				9027C56317F2B97D0056EFA4 /* HPMainMenuViewController.m in Sources */,
-				9027C55C17F2B97D0056EFA4 /* HPAppDelegate.m in Sources */,
-				9027C55D17F2B97D0056EFA4 /* HPTextureManager.m in Sources */,
-				9027C56117F2B97D0056EFA4 /* HPStateViewController.m in Sources */,
+				9027C56317F2B97D0056EFA4 /* HHMainMenuViewController.m in Sources */,
+				9027C55C17F2B97D0056EFA4 /* HHAppDelegate.m in Sources */,
+				9027C55D17F2B97D0056EFA4 /* HHTextureManager.m in Sources */,
+				9027C56117F2B97D0056EFA4 /* HHStateViewController.m in Sources */,
 				9027C56417F2B97D0056EFA4 /* Random.m in Sources */,
-				9027C55917F2B97D0056EFA4 /* HPPlayerNode.m in Sources */,
-				9027C56217F2B97D0056EFA4 /* HPMainMenuScene.m in Sources */,
-				9027C55817F2B97D0056EFA4 /* HPActionCategories.m in Sources */,
-				9027C55B17F2B97D0056EFA4 /* HPTargetNode.m in Sources */,
-				9027C55E17F2B97D0056EFA4 /* HPGameScene.m in Sources */,
-				9027C56017F2B97D0056EFA4 /* HPScene.m in Sources */,
-				9027C55A17F2B97D0056EFA4 /* HPProjectileNode.m in Sources */,
+				9027C55917F2B97D0056EFA4 /* HHPlayerNode.m in Sources */,
+				9027C56217F2B97D0056EFA4 /* HHMainMenuScene.m in Sources */,
+				9027C55817F2B97D0056EFA4 /* HHActionCategories.m in Sources */,
+				9027C55B17F2B97D0056EFA4 /* HHTargetNode.m in Sources */,
+				9027C55E17F2B97D0056EFA4 /* HHGameScene.m in Sources */,
+				9027C56017F2B97D0056EFA4 /* HHScene.m in Sources */,
+				9027C55A17F2B97D0056EFA4 /* HHProjectileNode.m in Sources */,
 				9027C53317F2B9740056EFA4 /* main.m in Sources */,
-				9027C55F17F2B97D0056EFA4 /* HPGameViewController.m in Sources */,
+				9027C55F17F2B97D0056EFA4 /* HHGameViewController.m in Sources */,
 				9027C56517F2B97D0056EFA4 /* UIApplication+AppDimensions.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -695,6 +695,7 @@
 				9027C50C17F2B30C0056EFA4 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		9027C50D17F2B30C0056EFA4 /* Build configuration list for PBXNativeTarget "Harlequin-HavocTests" */ = {
 			isa = XCConfigurationList;
@@ -703,6 +704,7 @@
 				9027C50F17F2B30C0056EFA4 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

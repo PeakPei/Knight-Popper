@@ -6,9 +6,9 @@
 //  Copyright (c) 2013 QUT. All rights reserved.
 //
 
-#import "HPAppDelegate.h"
+#import "HHAppDelegate.h"
 
-@implementation HPAppDelegate
+@implementation HHAppDelegate
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {

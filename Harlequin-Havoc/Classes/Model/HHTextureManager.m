@@ -1,16 +1,16 @@
 //
 //  HPTextureManager.m
-//  Knight Popper
+//  Harlequin-Havoc
 //
 //  Created by Morgan on 23/09/13.
 //  Copyright (c) 2013 QUT. All rights reserved.
 //
 
-#import "HPTextureManager.h"
+#import "HHTextureManager.h"
 
 #pragma mark - Interface
 
-@interface HPTextureManager ()
+@interface HHTextureManager ()
 
 @property NSMutableDictionary* textures;
 
@@ -18,7 +18,7 @@
 
 #pragma mark - Implementation
 
-@implementation HPTextureManager
+@implementation HHTextureManager
 
 - (id)init {
     if (self = [super init]) {

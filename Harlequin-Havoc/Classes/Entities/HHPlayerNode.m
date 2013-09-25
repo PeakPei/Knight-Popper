@@ -1,17 +1,17 @@
 //
 //  HPPlayerNode.m
-//  Knight Popper
+//  Harlequin-Havoc
 //
 //  Created by Morgan on 24/09/13.
 //  Copyright (c) 2013 QUT. All rights reserved.
 //
 
-#import "HPPlayerNode.h"
-#import "HPActionCategories.h"
+#import "HHPlayerNode.h"
+#import "HHActionCategories.h"
 
 #pragma mark - Interface
 
-@interface HPPlayerNode ()
+@interface HHPlayerNode ()
 
 + (TextureID)textureIDForType:(PlayerType)type;
 
@@ -21,15 +21,15 @@
 
 #pragma mark - Implementation
 
-@implementation HPPlayerNode
+@implementation HHPlayerNode
 
-- (id)initWithType:(PlayerType)playerType textures:(HPTextureManager*)textures {
-    TextureID identifier = [HPPlayerNode textureIDForType:playerType];
+- (id)initWithType:(PlayerType)playerType textures:(HHTextureManager*)textures {
+    TextureID identifier = [HHPlayerNode textureIDForType:playerType];
     SKTexture* texture = [textures getTexture:identifier];
     
     if (self = [super initWithTexture:texture]) {
         self.category = ActionCategoryNone;
-        self.name = [HPActionCategories nodeNameForCategory:self.category];
+        self.name = [HHActionCategories nodeNameForCategory:self.category];
         self.physicsBody = [SKPhysicsBody bodyWithRectangleOfSize:self.size];
         self.physicsBody.dynamic = NO;
     }

@@ -7,8 +7,8 @@
  */
 
 #import <SpriteKit/SpriteKit.h>
-#import "HPScene.h"
+#import "HHScene.h"
 
-@interface HPGameScene : HPScene
+@interface HHGameScene : HHScene
 
 @end

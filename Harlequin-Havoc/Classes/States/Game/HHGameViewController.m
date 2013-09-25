@@ -6,8 +6,8 @@
  * @brief The implementation of the view controller for the game state.
  */
 
-#import "HPGameViewController.h"
+#import "HHGameViewController.h"
 
-@implementation HPGameViewController
+@implementation HHGameViewController
 
 @end

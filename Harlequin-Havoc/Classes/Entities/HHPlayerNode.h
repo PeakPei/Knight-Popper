@@ -1,21 +1,21 @@
 //
 //  HPPlayerNode.h
-//  Knight Popper
+//  Harlequin-Havoc
 //
 //  Created by Morgan on 24/09/13.
 //  Copyright (c) 2013 QUT. All rights reserved.
 //
 
 #import <SpriteKit/SpriteKit.h>
-#import "HPTextureManager.h"
+#import "HHTextureManager.h"
 
-@interface HPPlayerNode : SKSpriteNode
+@interface HHPlayerNode : SKSpriteNode
 
 typedef enum type {
     PlayerTypeBlue,
     PlayerTypePink
 } PlayerType;
 
-- (id)initWithType:(PlayerType)playerType textures:(HPTextureManager*)textures;
+- (id)initWithType:(PlayerType)playerType textures:(HHTextureManager*)textures;
 
 @end

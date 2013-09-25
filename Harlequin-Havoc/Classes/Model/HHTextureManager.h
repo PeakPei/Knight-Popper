@@ -1,6 +1,6 @@
 //
 //  HPTextureManager.h
-//  Knight Popper
+//  Harlequin-Havoc
 //
 //  Created by Morgan on 23/09/13.
 //  Copyright (c) 2013 QUT. All rights reserved.
@@ -10,7 +10,7 @@
 #import <SpriteKit/SpriteKit.h>
 #import "TextureIDs.h"
 
-@interface HPTextureManager : NSObject
+@interface HHTextureManager : NSObject
 
 /**
  * @brief Initialise a texture manager with a pre-allocated size.

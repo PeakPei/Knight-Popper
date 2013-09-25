@@ -6,13 +6,13 @@
  * @brief The implementation of the view controller for the main menu state.
  */
 
-#import "HPMainMenuViewController.h"
-#import "HPMainMenuScene.h"
-#import "HPGameScene.h"
+#import "HHMainMenuViewController.h"
+#import "HHMainMenuScene.h"
+#import "HHGameScene.h"
 
 #import "UIApplication+AppDimensions.h"
 
-@implementation HPMainMenuViewController
+@implementation HHMainMenuViewController
 
 - (void)viewDidLoad {
     [super viewDidLoad];
@@ -24,20 +24,8 @@
     // Configure the scene
     CGSize landscapeSize =
         [UIApplication sizeInOrientation:UIInterfaceOrientationLandscapeLeft];
-    self.scene = [HPMainMenuScene sceneWithSize:landscapeSize];
+    self.scene = [HHMainMenuScene sceneWithSize:landscapeSize];
     [self.stateView presentScene:self.scene];
-}
-
-- (BOOL)shouldAutorotate {
-    return YES;
-}
-
-- (NSUInteger)supportedInterfaceOrientations {
-    if ([[UIDevice currentDevice] userInterfaceIdiom] == UIUserInterfaceIdiomPhone) {
-        return UIInterfaceOrientationMaskAllButUpsideDown;
-    } else {
-        return UIInterfaceOrientationMaskAll;
-    }
 }
 
 - (void)didReceiveMemoryWarning {

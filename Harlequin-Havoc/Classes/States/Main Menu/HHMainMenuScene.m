@@ -6,11 +6,11 @@
  * @brief The implementation of the scene graph for the main menu state.
  */
 
-#import "HPMainMenuScene.h"
+#import "HHMainMenuScene.h"
 
 #pragma mark - Implementation
 
-@implementation HPMainMenuScene
+@implementation HHMainMenuScene
 
 -(id)initWithSize:(CGSize)size {    
     if (self = [super initWithSize:size]) {

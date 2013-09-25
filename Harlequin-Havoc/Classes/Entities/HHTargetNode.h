@@ -1,21 +1,21 @@
 //
 //  HPTargetNode.h
-//  Knight Popper
+//  Harlequin-Havoc
 //
 //  Created by Morgan on 23/09/13.
 //  Copyright (c) 2013 QUT. All rights reserved.
 //
 
 #import <SpriteKit/SpriteKit.h>
-#import "HPTextureManager.h"
+#import "HHTextureManager.h"
 
-@interface HPTargetNode : SKSpriteNode
+@interface HHTargetNode : SKSpriteNode
 
 typedef enum type {
     TargetTypeBlueMonkey,
     TargetTypePinkMonkey
 } TargetType;
 
-- (id)initWithType:(TargetType)targetType textures:(HPTextureManager*)textures;
+- (id)initWithType:(TargetType)targetType textures:(HHTextureManager*)textures;
 
 @end

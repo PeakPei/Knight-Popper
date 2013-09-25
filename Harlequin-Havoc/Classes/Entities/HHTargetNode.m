@@ -1,20 +1,19 @@
 //
-//  HPProjectileNode.m
-//  Knight Popper
+//  HPTargetNode.m
+//  Harlequin-Havoc
 //
 //  Created by Morgan on 23/09/13.
 //  Copyright (c) 2013 QUT. All rights reserved.
 //
 
-#import "HPProjectileNode.h"
-#import "HPActionCategories.h"
-#include "TextureIDs.h"
+#import "HHTargetNode.h"
+#import "HHActionCategories.h"
 
 #pragma mark - Interface
 
-@interface HPProjectileNode ()
+@interface HHTargetNode ()
 
-+ (TextureID)textureIDForType:(ProjectileType)type;
++ (TextureID)textureIDForType:(TargetType)type;
 
 @property ActionCategory category;
 
@@ -22,26 +21,30 @@
 
 #pragma mark - Implementation
 
-@implementation HPProjectileNode
+@implementation HHTargetNode
 
-- (id)initWithType:(ProjectileType)projectileType textures:(HPTextureManager*)textures {
-    TextureID identifier = [HPProjectileNode textureIDForType:projectileType];
+- (id)initWithType:(TargetType)targetType textures:(HHTextureManager*)textures {
+    TextureID identifier = [HHTargetNode textureIDForType:targetType];
     SKTexture* texture = [textures getTexture:identifier];
     
     if (self = [super initWithTexture:texture]) {
         self.category = ActionCategoryNone;
-        self.name = [HPActionCategories nodeNameForCategory:self.category];
+        self.name = [HHActionCategories nodeNameForCategory:self.category];
         self.physicsBody = [SKPhysicsBody bodyWithRectangleOfSize:self.size];
-        self.physicsBody.dynamic = YES;
+        self.physicsBody.dynamic = NO;
     }
     return self;
 }
 
-+ (TextureID)textureIDForType:(ProjectileType)type {
++ (TextureID)textureIDForType:(TargetType)type {
     TextureID identifier;
     
     switch (type) {
-        case ProjectileTypeLollipop:
+        case TargetTypeBlueMonkey:
+            identifier = TextureIDNone;
+            break;
+            
+        case TargetTypePinkMonkey:
             identifier = TextureIDNone;
             break;
     }

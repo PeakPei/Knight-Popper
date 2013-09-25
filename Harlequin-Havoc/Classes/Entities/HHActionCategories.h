@@ -1,6 +1,6 @@
 //
 //  HPActionCategories.h
-//  Knight Popper
+//  Harlequin-Havoc
 //
 //  Created by Morgan on 24/09/13.
 //  Copyright (c) 2013 QUT. All rights reserved.
@@ -8,7 +8,7 @@
 
 #import <Foundation/Foundation.h>
 
-@interface HPActionCategories : NSObject
+@interface HHActionCategories : NSObject
 
 typedef enum Category {
     ActionCategoryNone = 0

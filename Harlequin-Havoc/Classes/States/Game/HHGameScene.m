@@ -6,9 +6,9 @@
  * @brief The implementation of the scene graph for the game state.
  */
 
-#import "HPGameScene.h"
+#import "HHGameScene.h"
 
-@implementation HPGameScene
+@implementation HHGameScene
 
 -(id)initWithSize:(CGSize)size {
     if (self = [super initWithSize:size]) {

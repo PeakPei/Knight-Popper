@@ -1,16 +1,16 @@
 //
 //  HPActionCategories.m
-//  Knight Popper
+//  Harlequin-Havoc
 //
 //  Created by Morgan on 24/09/13.
 //  Copyright (c) 2013 QUT. All rights reserved.
 //
 
-#import "HPActionCategories.h"
+#import "HHActionCategories.h"
 
 #pragma mark - Implementation
 
-@implementation HPActionCategories
+@implementation HHActionCategories
 
 + (NSString*)nodeNameForCategory:(ActionCategory)category {
     NSString* nodeName;

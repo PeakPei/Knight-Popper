@@ -8,8 +8,8 @@
 
 #import <UIKit/UIKit.h>
 #import <SpriteKit/SpriteKit.h>
-#import "HPStateViewController.h"
+#import "HHStateViewController.h"
 
-@interface HPMainMenuViewController : HPStateViewController
+@interface HHMainMenuViewController : HHStateViewController
 
 @end

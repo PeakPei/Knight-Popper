@@ -1,5 +1,5 @@
 /**
- * @filename HPGameScene.m
+ * @filename HHGameScene.m
  * @author Morgan Wall
  * @date 23-9-2013
  *

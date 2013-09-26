@@ -1,5 +1,5 @@
 /**
- * @filename HPMainMenuViewController.m
+ * @filename HHMainMenuViewController.m
  * @author Morgan Wall
  * @date 23-9-2013
  *

@@ -1,10 +1,10 @@
-//
-//  KPStateViewController.m
-//  Harlequin-Havoc
-//
-//  Created by Morgan on 23/09/13.
-//  Copyright (c) 2013 QUT. All rights reserved.
-//
+/**
+ * @filename HHStateViewController.m
+ * @author Morgan Wall
+ * @date 23-9-2013
+ *
+ * @brief The implementation of the HHStateViewController class.
+ */
 
 #import "HHStateViewController.h"
 

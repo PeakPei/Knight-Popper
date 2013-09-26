@@ -1,5 +1,5 @@
 /**
- * @filename HPGameViewController.h
+ * @filename HHGameViewController.h
  * @author Morgan Wall
  * @date 23-9-2013
  *

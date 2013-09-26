@@ -1,10 +1,15 @@
-//
-//  HPTextureManager.h
-//  Harlequin-Havoc
-//
-//  Created by Morgan on 23/09/13.
-//  Copyright (c) 2013 QUT. All rights reserved.
-//
+/**
+ * @filename HHTextureManager.h
+ * @author Morgan Wall
+ * @date 23-8-2013
+ *
+ * @brief The model object used to store all the texture assets not used for
+ * animation. These assets are heavy-weight in terms of their
+ * memory requirements, hence the purpose of this class is to avoid their
+ * reallocation during execution.
+ *
+ * @note For storing textures used for animation see the SKTextureAtlas class.
+ */
 
 #import <Foundation/Foundation.h>
 #import <SpriteKit/SpriteKit.h>

@@ -1,5 +1,5 @@
 /**
- * @filename HPMainMenuScene.m
+ * @filename HHMainMenuScene.m
  * @author Morgan Wall
  * @date 23-9-2013
  *

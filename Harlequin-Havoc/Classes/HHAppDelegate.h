@@ -1,10 +1,10 @@
-//
-//  HPAppDelegate.h
-//  Harlequin-Havoc
-//
-//  Created by Morgan on 25/09/13.
-//  Copyright (c) 2013 QUT. All rights reserved.
-//
+/**
+ * @filename HHAppDelegate.h
+ * @author Morgan Wall
+ * @date 25-09-2013
+ *
+ * @brief The main delegate for the application.
+ */
 
 #import <UIKit/UIKit.h>
 

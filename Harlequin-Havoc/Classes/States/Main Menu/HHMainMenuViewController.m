@@ -1,5 +1,5 @@
 /**
- * @filename HPMainMenuViewController.m
+ * @filename HHMainMenuViewController.m
  * @author Morgan Wall
  * @date 23-9-2013
  *
@@ -9,7 +9,6 @@
 #import "HHMainMenuViewController.h"
 #import "HHMainMenuScene.h"
 #import "HHGameScene.h"
-
 #import "UIApplication+AppDimensions.h"
 
 @implementation HHMainMenuViewController

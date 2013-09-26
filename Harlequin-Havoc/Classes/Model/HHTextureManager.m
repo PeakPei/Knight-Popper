@@ -1,10 +1,10 @@
-//
-//  HPTextureManager.m
-//  Harlequin-Havoc
-//
-//  Created by Morgan on 23/09/13.
-//  Copyright (c) 2013 QUT. All rights reserved.
-//
+/**
+ * @filename HHTextureManager.m
+ * @author Morgan Wall
+ * @date 23-8-2013
+ *
+ * @brief The implementation of the HHTextureManager class.
+ */
 
 #import "HHTextureManager.h"
 

@@ -3,7 +3,10 @@
  * @author Malcolm Corney, Morgan Wall
  * @date 23-9-2013
  *
- * @brief Implementation of the Random class.
+ * @brief The implementation of the Random class.
+ *
+ * @note arc4random provides a "more" random method to generate integers.
+ * Consider reimplementation utilising this function.
  */
 
 #import "Random.h"

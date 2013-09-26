@@ -1,10 +1,10 @@
-//
-//  HPTargetNode.m
-//  Harlequin-Havoc
-//
-//  Created by Morgan on 23/09/13.
-//  Copyright (c) 2013 QUT. All rights reserved.
-//
+/**
+ * @filename HHTargetNode.m
+ * @author Morgan Wall
+ * @date 23-9-2013
+ *
+ * @brief The implementation of the HHTargetNode class.
+ */
 
 #import "HHTargetNode.h"
 #import "HHActionCategories.h"
@@ -13,8 +13,20 @@
 
 @interface HHTargetNode ()
 
+/**
+ * @brief Retrieve the unique texture identifier associated with a specific 
+ * target type.
+ *
+ * @param targetType
+ * The target type.
+ *
+ * @returns The unique texture identifier associated with the target type.
+ */
 + (TextureID)textureIDForType:(TargetType)type;
 
+/**
+ * @brief The category defining the actions handled by the node.
+ */
 @property ActionCategory category;
 
 @end

@@ -1,10 +1,8 @@
-//
-//  HPActionCategories.m
-//  Harlequin-Havoc
-//
-//  Created by Morgan on 24/09/13.
-//  Copyright (c) 2013 QUT. All rights reserved.
-//
+/**
+ * @filename HHActionCategories.h
+ * @author Morgan Wall
+ * @date 24-9-13
+ */
 
 #import "HHActionCategories.h"
 
@@ -18,6 +16,9 @@
     switch (category) {
         case ActionCategoryNone:
             nodeName = @"None";
+            break;
+        case ActionCategoryScene:
+            nodeName = @"Scene";
             break;
     }
     

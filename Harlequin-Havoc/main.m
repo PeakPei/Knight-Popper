@@ -1,10 +1,10 @@
-//
-//  main.m
-//  Harlequin-Havoc
-//
-//  Created by Morgan on 25/09/13.
-//  Copyright (c) 2013 QUT. All rights reserved.
-//
+/**
+ * @filename main.m
+ * @author Morgan Wall
+ * @date 25-9-2013
+ *
+ * @brief The initial point of execution for the application.
+ */
 
 #import <UIKit/UIKit.h>
 

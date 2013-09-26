@@ -33,6 +33,7 @@
 		9027C56917F2BA7B0056EFA4 /* background@2x~ipad.png in Resources */ = {isa = PBXBuildFile; fileRef = 9027C56817F2BA7B0056EFA4 /* background@2x~ipad.png */; };
 		9027C56A17F2BAD70056EFA4 /* Main_iPad.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9027C52317F2B4DB0056EFA4 /* Main_iPad.storyboard */; };
 		9027C56B17F2BAD70056EFA4 /* Main_iPhone.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9027C52517F2B4DB0056EFA4 /* Main_iPhone.storyboard */; };
+		905BF49C17F4675F00871C75 /* HHStateStack.m in Sources */ = {isa = PBXBuildFile; fileRef = 905BF49B17F4675F00871C75 /* HHStateStack.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -90,6 +91,9 @@
 		9027C55717F2B97D0056EFA4 /* UIApplication+AppDimensions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIApplication+AppDimensions.m"; sourceTree = "<group>"; };
 		9027C56617F2BA710056EFA4 /* background~ipad.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "background~ipad.png"; sourceTree = "<group>"; };
 		9027C56817F2BA7B0056EFA4 /* background@2x~ipad.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "background@2x~ipad.png"; sourceTree = "<group>"; };
+		905BF49A17F4675F00871C75 /* HHStateStack.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HHStateStack.h; sourceTree = "<group>"; };
+		905BF49B17F4675F00871C75 /* HHStateStack.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HHStateStack.m; sourceTree = "<group>"; };
+		905BF49D17F46C9D00871C75 /* StateIDs.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = StateIDs.h; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -310,6 +314,9 @@
 			children = (
 				9027C54A17F2B97D0056EFA4 /* HHScene.h */,
 				9027C54B17F2B97D0056EFA4 /* HHScene.m */,
+				905BF49D17F46C9D00871C75 /* StateIDs.h */,
+				905BF49A17F4675F00871C75 /* HHStateStack.h */,
+				905BF49B17F4675F00871C75 /* HHStateStack.m */,
 				9027C54C17F2B97D0056EFA4 /* HHStateViewController.h */,
 				9027C54D17F2B97D0056EFA4 /* HHStateViewController.m */,
 				9027C54517F2B97D0056EFA4 /* Game */,
@@ -455,6 +462,7 @@
 				9027C55C17F2B97D0056EFA4 /* HHAppDelegate.m in Sources */,
 				9027C55D17F2B97D0056EFA4 /* HHTextureManager.m in Sources */,
 				9027C56117F2B97D0056EFA4 /* HHStateViewController.m in Sources */,
+				905BF49C17F4675F00871C75 /* HHStateStack.m in Sources */,
 				9027C56417F2B97D0056EFA4 /* Random.m in Sources */,
 				9027C56217F2B97D0056EFA4 /* HHMainMenuScene.m in Sources */,
 				9027C55817F2B97D0056EFA4 /* HHActionCategories.m in Sources */,

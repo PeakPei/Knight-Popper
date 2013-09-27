@@ -10,7 +10,8 @@
 #define Harlequin_Havoc_TextureIDs_h
 
 typedef enum ID {
-    TextureIDNone = 0
+    TextureIDNone = 0,
+    TextureIDBackground
 } TextureID;
 
 #endif

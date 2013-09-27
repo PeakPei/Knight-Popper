@@ -23,8 +23,8 @@
     // Configure the scene
     CGSize landscapeSize =
         [UIApplication sizeInOrientation:UIInterfaceOrientationLandscapeLeft];
-    self.scene = [HHMainMenuScene sceneWithSize:landscapeSize];
-    [self.stateView presentScene:self.scene];
+//    self.scene = [HHMainMenuScene sceneWithSize:landscapeSize];
+//    [self.stateView presentScene:self.scene];
 }
 
 - (void)didReceiveMemoryWarning {

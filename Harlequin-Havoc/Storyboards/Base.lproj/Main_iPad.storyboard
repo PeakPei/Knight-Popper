@@ -4,10 +4,10 @@
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="3742"/>
     </dependencies>
     <scenes>
-        <!--Main Menu View Controller-->
+        <!--Example State View Controller-->
         <scene sceneID="tXr-a1-R10">
             <objects>
-                <viewController id="BV1-FR-VrT" customClass="HHMainMenuViewController" sceneMemberID="viewController">
+                <viewController id="BV1-FR-VrT" customClass="HHExampleStateViewController" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="GBo-zH-uaw"/>
                         <viewControllerLayoutGuide type="bottom" id="I3T-d9-JkW"/>

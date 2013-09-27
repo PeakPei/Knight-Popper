@@ -7,6 +7,7 @@
  */
 
 #import "HHStateStack.h"
+#import "HHState.h"
 
 #pragma mark - Interface
 
@@ -27,7 +28,7 @@ typedef struct PendingStackChange {
  * game's cycle since changing the state stack is unsafe whilst events,
  * updates, and draw request are being fed to its constituent components.
  */
-- (void)applyPendingStackChanges;
+//- (void)applyPendingStackChanges;
 
 /**
  * @brief The pending changes to the state stack.
@@ -42,23 +43,37 @@ typedef struct PendingStackChange {
  */
 @property NSMutableDictionary* stateFactories;
 
+/**
+ * @brief The texture manager containing the textures used by the states in
+ * the state stack.
+ */
+@property HHTextureManager* textures;
+
 @end
 
 #pragma mark - Implementation
 
 @implementation HHStateStack
 
-- (id)init {
+- (id)initWithTextureManager:(HHTextureManager*)textureManager {
     if (self = [super init]) {
         self.pendingStackChanges = [[NSMutableArray alloc] init];
         self.stateFactories = [[NSMutableDictionary alloc] init];
+        self.textures = textureManager;
     }
     return self;
 }
 
 - (void)registerState:(Class)stateClass stateID:(StateID)stateID {
-    SKNode* (^stateFactory)() = ^{
-        return [[stateClass alloc] init];
+    if (![stateClass isSubclassOfClass:[HHState class]]) {
+        [[NSException
+          exceptionWithName:@"InvalidStateClassException"
+          reason:@"The class specified is not a subclass of HHState"
+          userInfo:nil] raise];
+    }
+    
+    HHState* (^stateFactory)() = ^{
+        return [[stateClass alloc] initWithStateStack:self textureManager:self.textures];
     };
     
     [self.stateFactories setObject:stateFactory
@@ -110,7 +125,7 @@ typedef struct PendingStackChange {
         switch (stackChangeInfo.action) {
             case StateStackActionPush: {
                 if (stackChangeInfo.stateIdentifier != StateIDNone) {
-                    SKNode* (^stateFactory)() =
+                    HHState* (^stateFactory)() =
                         [self.stateFactories objectForKey:
                          [NSNumber numberWithUnsignedInt:stackChangeInfo.stateIdentifier]];
                     [self addChild:stateFactory()];
@@ -136,5 +151,6 @@ typedef struct PendingStackChange {
 
 @synthesize pendingStackChanges;
 @synthesize stateFactories;
+@synthesize textures;
 
 @end

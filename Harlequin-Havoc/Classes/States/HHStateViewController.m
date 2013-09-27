@@ -7,6 +7,7 @@
  */
 
 #import "HHStateViewController.h"
+#import "HHTextureManager.h"
 
 #pragma mark - Implementation
 
@@ -17,7 +18,7 @@
     
     // Configure the view and the scene graph
     self.stateView = (SKView*)self.view;
-    self.scene = NULL;
+    self.stateStack = NULL;
 }
 
 - (BOOL)shouldAutorotate {
@@ -35,6 +36,6 @@
 #pragma mark - Properties
 
 @synthesize stateView;
-@synthesize scene;
+@synthesize stateStack;
 
 @end

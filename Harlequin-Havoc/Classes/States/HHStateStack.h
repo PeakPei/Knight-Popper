@@ -14,6 +14,7 @@
  */
 
 #import <SpriteKit/SpriteKit.h>
+#import "HHTextureManager.h"
 #include "StateIDs.h"
 
 @interface HHStateStack : SKScene
@@ -29,6 +30,15 @@ typedef enum Action {
 } StateStackAction;
 
 /**
+ * @brief Initialise a state stack with a texture manager.
+ *
+ * @param textureManager
+ * The texture manager containing all the textures usable by the states registered 
+ * by the state stack.
+ */
+- (id)initWithTextureManager:(HHTextureManager*)textureManager;
+
+/**
  * @brief Insert a mapping of the unique state identifier to the factory
  * function used to create said state.
  *
@@ -38,6 +48,9 @@ typedef enum Action {
  *
  * @param stateID
  * The unique state identifier.
+ *
+ * @throws NSException
+ * If ::stateClass is not a subclass of HHState.
  */
 - (void)registerState:(Class)stateClass stateID:(StateID)stateID;
 
@@ -69,5 +82,7 @@ typedef enum Action {
  * @returns true if the state stack is empty, otherwise false.
  */
 - (BOOL)isEmpty;
+
+- (void)applyPendingStackChanges;
 
 @end

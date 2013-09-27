@@ -36,6 +36,10 @@ typedef struct PendingStackChange {
  */
 @property NSMutableArray* pendingStackChanges;
 
+/**
+ * @brief A mapping of unique state identifiers to the factory functions
+ * used to create said states.
+ */
 @property NSMutableDictionary* stateFactories;
 
 @end
@@ -54,7 +58,7 @@ typedef struct PendingStackChange {
 
 - (void)registerState:(Class)stateClass stateID:(StateID)stateID {
     SKNode* (^stateFactory)() = ^{
-        return [stateClass init];
+        return [[stateClass alloc] init];
     };
     
     [self.stateFactories setObject:stateFactory

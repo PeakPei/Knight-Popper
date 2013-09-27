@@ -20,23 +20,15 @@
     self.stateView.showsNodeCount = YES;
     
     HHTextureManager* textures = [[HHTextureManager alloc] initWithTextureCount:1];
-//    [textures loadTexture:@"background.png" identifier:TextureIDBackground];
+    [textures loadTexture:@"background.png" identifier:TextureIDBackground];
     
-    self.stateStack = [[HHStateStack alloc] initWithTextureManager:textures];
-    
+    // Configure the state stack
+    CGSize landscapeSize =
+    [UIApplication sizeInOrientation:UIInterfaceOrientationLandscapeLeft];
+    self.stateStack = [[HHStateStack alloc] initWithTextureManager:textures size:landscapeSize];
     [self.stateStack registerState:[HHExampleState class] stateID:StateIDExample];
     
     // Configure the scene
-    CGSize landscapeSize =
-    [UIApplication sizeInOrientation:UIInterfaceOrientationLandscapeLeft];
-    [self.stateStack setSize:landscapeSize];
-    
-    SKSpriteNode* background = [[SKSpriteNode alloc] initWithImageNamed:@"background.png"];
-    background.position = CGPointMake(CGRectGetMidX(self.stateStack.frame),CGRectGetMidY(self.stateStack.frame));
-    [background setSize:CGSizeMake(1024, 768)];
-    
-    [self.stateStack addChild:background];
-    
     [self.stateStack pushState:StateIDExample];
     [self.stateStack applyPendingStackChanges];
     

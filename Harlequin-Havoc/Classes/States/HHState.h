@@ -60,6 +60,14 @@
 - (void)clearStateScene;
 
 /**
+ * @brief Called immediately the state is presented by a view.
+ *
+ * @param view
+ * The view that is presenting the state stack containing the state.
+ */
+- (void)didMoveToView:(SKView*)view;
+
+/**
  * @brief Indicates whether the state is capable of handling events.
  */
 @property BOOL isActive;

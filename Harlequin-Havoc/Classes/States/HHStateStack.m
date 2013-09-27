@@ -55,8 +55,8 @@ typedef struct PendingStackChange {
 
 @implementation HHStateStack
 
-- (id)initWithTextureManager:(HHTextureManager*)textureManager {
-    if (self = [super init]) {
+- (id)initWithTextureManager:(HHTextureManager*)textureManager size:(CGSize)size {
+    if (self = [super initWithSize:size]) {
         self.pendingStackChanges = [[NSMutableArray alloc] init];
         self.stateFactories = [[NSMutableDictionary alloc] init];
         self.textures = textureManager;
@@ -128,7 +128,11 @@ typedef struct PendingStackChange {
                     HHState* (^stateFactory)() =
                         [self.stateFactories objectForKey:
                          [NSNumber numberWithUnsignedInt:stackChangeInfo.stateIdentifier]];
-                    [self addChild:stateFactory()];
+                    HHState* state = stateFactory();
+                    state.position =
+                        CGPointMake(CGRectGetMidX(self.frame) / 2,
+                                    CGRectGetMidY(self.frame) / 2);
+                    [self addChild:state];
                 }
                 
                 break;
@@ -143,6 +147,20 @@ typedef struct PendingStackChange {
             case StateStackActionClear:
                 [self removeAllChildren];
                 break;
+        }
+    }
+}
+
+#pragma mark - SKScene
+
+- (void)didMoveToView:(SKView*)view {
+    NSEnumerator *enumerator = [[self children] objectEnumerator];
+    id child;
+    
+    while (child = [enumerator nextObject]) {
+        // TODO: replace this with an action instead
+        if ([[child class] isSubclassOfClass:[HHState class]]) {
+            [child didMoveToView:view];
         }
     }
 }

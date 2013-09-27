@@ -35,8 +35,11 @@ typedef enum Action {
  * @param textureManager
  * The texture manager containing all the textures usable by the states registered 
  * by the state stack.
+ *
+ * @param size
+ * The bounds of the state stack.
  */
-- (id)initWithTextureManager:(HHTextureManager*)textureManager;
+- (id)initWithTextureManager:(HHTextureManager*)textureManager size:(CGSize)size;
 
 /**
  * @brief Insert a mapping of the unique state identifier to the factory

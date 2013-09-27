@@ -13,9 +13,9 @@
 - (void)buildStateScene {
     [super buildStateScene];
     
-    SKSpriteNode* background = [[SKSpriteNode alloc] initWithImageNamed:@"background.png"];
+    SKSpriteNode* background =
+        [[SKSpriteNode alloc] initWithTexture:[self.textures getTexture:TextureIDBackground]];
     background.position = CGPointMake(CGRectGetMidX(self.frame),CGRectGetMidY(self.frame));
-    [background setSize:CGSizeMake(1024, 768)];
     
     [self addChild:background];
 }

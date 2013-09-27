@@ -50,7 +50,7 @@
 
 - (void)loadTexture:(NSString*)textureName identifier:(TextureID)identifier {
     NSNumber* textureId = [NSNumber numberWithUnsignedInt:identifier];
-    if (![self.textures objectForKey:textureId]) {
+    if ([self.textures objectForKey:textureId]) {
         [[NSException
           exceptionWithName:@"TextureAlreadyStoredException"
           reason:@"The specified identifier already corresponds to a texture."

@@ -1,10 +1,10 @@
-//
-//  HHStateStack.m
-//  Harlequin-Havoc
-//
-//  Created by Morgan on 26/09/13.
-//  Copyright (c) 2013 QUT. All rights reserved.
-//
+/**
+ * @filename HHStateStack.m
+ * @author Morgan Wall
+ * @date 26-9-2013
+ *
+ * @brief The implementation of the HHStateStack class.
+ */
 
 #import "HHStateStack.h"
 
@@ -15,9 +15,10 @@
 /**
  * @brief An structure describing an impending change to the state stack.
  */
-struct PendingStackChange {
+typedef struct PendingStackChange {
     StateStackAction action;
-};
+    StateID stateIdentifier;
+} PendingStackChange;
 
 /**
  * @brief Apply any pending changes to the state stack.
@@ -52,19 +53,42 @@ struct PendingStackChange {
 }
 
 - (void)registerState:(Class)stateClass stateID:(StateID)stateID {
+    SKNode* (^stateFactory)() = ^{
+        return [stateClass init];
+    };
     
+    [self.stateFactories setObject:stateFactory
+                            forKey:[NSNumber numberWithUnsignedInt:stateID]];
 }
 
 - (void)pushState:(StateID)stateID {
+    PendingStackChange stackChange;
+    stackChange.action = StateStackActionPush;
+    stackChange.stateIdentifier = stateID;
     
+    NSValue* value =
+        [NSValue valueWithBytes:&stackChange objCType:@encode(PendingStackChange)];
+    [pendingStackChanges addObject:value];
 }
 
 - (void)popState {
+    PendingStackChange stackChange;
+    stackChange.action = StateStackActionPop;
+    stackChange.stateIdentifier = StateIDNone;
     
+    NSValue* value =
+    [NSValue valueWithBytes:&stackChange objCType:@encode(PendingStackChange)];
+    [pendingStackChanges addObject:value];
 }
 
 - (void)clearStates {
+    PendingStackChange stackChange;
+    stackChange.action = StateStackActionClear;
+    stackChange.stateIdentifier = StateIDNone;
     
+    NSValue* value =
+    [NSValue valueWithBytes:&stackChange objCType:@encode(PendingStackChange)];
+    [pendingStackChanges addObject:value];
 }
 
 - (BOOL)isEmpty {
@@ -73,10 +97,34 @@ struct PendingStackChange {
 
 - (void)applyPendingStackChanges {
     NSEnumerator *enumerator = [self.pendingStackChanges objectEnumerator];
-    id stackChange;
+    NSValue* stackChange;
     
     while (stackChange = [enumerator nextObject]) {
-        // stub
+        PendingStackChange stackChangeInfo;
+        [stackChange getValue:&stackChangeInfo];
+        
+        switch (stackChangeInfo.action) {
+            case StateStackActionPush: {
+                if (stackChangeInfo.stateIdentifier != StateIDNone) {
+                    SKNode* (^stateFactory)() =
+                        [self.stateFactories objectForKey:
+                         [NSNumber numberWithUnsignedInt:stackChangeInfo.stateIdentifier]];
+                    [self addChild:stateFactory()];
+                }
+                
+                break;
+            }
+                
+            case StateStackActionPop: {
+                SKNode* rootStateNode = [[self children] lastObject];
+                [self removeChildrenInArray:[NSArray arrayWithObject:rootStateNode]];
+                break;
+            }
+                
+            case StateStackActionClear:
+                [self removeAllChildren];
+                break;
+        }
     }
 }
 

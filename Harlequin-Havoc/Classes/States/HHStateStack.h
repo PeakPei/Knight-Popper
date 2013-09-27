@@ -1,10 +1,17 @@
-//
-//  HHStateStack.h
-//  Harlequin-Havoc
-//
-//  Created by Morgan on 26/09/13.
-//  Copyright (c) 2013 QUT. All rights reserved.
-//
+/**
+ * @filename HHStateStack.h
+ * @author Morgan Wall
+ * @date 26-9-2013
+ *
+ * @brief A class representing an active state in the game. An active state has
+ * been defined in terms of as stack, hence the active or "current" state is not
+ * limited to an individual piece. Instead a state may consist of several
+ * "stacked" pieces (e.g. the pause screen overlayed on the game screen).
+ *
+ * @note A state is an independent screen in a game which encapsulates its own
+ * logic and graphics. Based on the stack definition of an active state, the
+ * physical screen can consist of multiple independent screens at any one time.
+ */
 
 #import <SpriteKit/SpriteKit.h>
 #include "StateIDs.h"

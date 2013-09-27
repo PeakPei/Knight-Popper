@@ -165,6 +165,14 @@ typedef struct PendingStackChange {
     }
 }
 
+- (void)touchesBegan:(NSSet*)touches withEvent:(UIEvent*)event {
+    // stub
+}
+
+- (void)update:(CFTimeInterval)currentTime {
+    /* Called before each frame is rendered */
+}
+
 #pragma mark - Properties
 
 @synthesize pendingStackChanges;

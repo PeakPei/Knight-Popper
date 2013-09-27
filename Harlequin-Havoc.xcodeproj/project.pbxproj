@@ -21,12 +21,7 @@
 		9027C55B17F2B97D0056EFA4 /* HHTargetNode.m in Sources */ = {isa = PBXBuildFile; fileRef = 9027C53D17F2B97D0056EFA4 /* HHTargetNode.m */; };
 		9027C55C17F2B97D0056EFA4 /* HHAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 9027C53F17F2B97D0056EFA4 /* HHAppDelegate.m */; };
 		9027C55D17F2B97D0056EFA4 /* HHTextureManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 9027C54217F2B97D0056EFA4 /* HHTextureManager.m */; };
-		9027C55E17F2B97D0056EFA4 /* HHGameScene.m in Sources */ = {isa = PBXBuildFile; fileRef = 9027C54717F2B97D0056EFA4 /* HHGameScene.m */; };
-		9027C55F17F2B97D0056EFA4 /* HHGameViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9027C54917F2B97D0056EFA4 /* HHGameViewController.m */; };
-		9027C56017F2B97D0056EFA4 /* HHScene.m in Sources */ = {isa = PBXBuildFile; fileRef = 9027C54B17F2B97D0056EFA4 /* HHScene.m */; };
 		9027C56117F2B97D0056EFA4 /* HHStateViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9027C54D17F2B97D0056EFA4 /* HHStateViewController.m */; };
-		9027C56217F2B97D0056EFA4 /* HHMainMenuScene.m in Sources */ = {isa = PBXBuildFile; fileRef = 9027C55017F2B97D0056EFA4 /* HHMainMenuScene.m */; };
-		9027C56317F2B97D0056EFA4 /* HHMainMenuViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9027C55217F2B97D0056EFA4 /* HHMainMenuViewController.m */; };
 		9027C56417F2B97D0056EFA4 /* Random.m in Sources */ = {isa = PBXBuildFile; fileRef = 9027C55517F2B97D0056EFA4 /* Random.m */; };
 		9027C56517F2B97D0056EFA4 /* UIApplication+AppDimensions.m in Sources */ = {isa = PBXBuildFile; fileRef = 9027C55717F2B97D0056EFA4 /* UIApplication+AppDimensions.m */; };
 		9027C56717F2BA710056EFA4 /* background~ipad.png in Resources */ = {isa = PBXBuildFile; fileRef = 9027C56617F2BA710056EFA4 /* background~ipad.png */; };
@@ -76,18 +71,8 @@
 		9027C54117F2B97D0056EFA4 /* HHTextureManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HHTextureManager.h; sourceTree = "<group>"; };
 		9027C54217F2B97D0056EFA4 /* HHTextureManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HHTextureManager.m; sourceTree = "<group>"; };
 		9027C54317F2B97D0056EFA4 /* TextureIDs.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TextureIDs.h; sourceTree = "<group>"; };
-		9027C54617F2B97D0056EFA4 /* HHGameScene.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HHGameScene.h; sourceTree = "<group>"; };
-		9027C54717F2B97D0056EFA4 /* HHGameScene.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HHGameScene.m; sourceTree = "<group>"; };
-		9027C54817F2B97D0056EFA4 /* HHGameViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HHGameViewController.h; sourceTree = "<group>"; };
-		9027C54917F2B97D0056EFA4 /* HHGameViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HHGameViewController.m; sourceTree = "<group>"; };
-		9027C54A17F2B97D0056EFA4 /* HHScene.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HHScene.h; sourceTree = "<group>"; };
-		9027C54B17F2B97D0056EFA4 /* HHScene.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HHScene.m; sourceTree = "<group>"; };
 		9027C54C17F2B97D0056EFA4 /* HHStateViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HHStateViewController.h; sourceTree = "<group>"; };
 		9027C54D17F2B97D0056EFA4 /* HHStateViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HHStateViewController.m; sourceTree = "<group>"; };
-		9027C54F17F2B97D0056EFA4 /* HHMainMenuScene.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HHMainMenuScene.h; sourceTree = "<group>"; };
-		9027C55017F2B97D0056EFA4 /* HHMainMenuScene.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HHMainMenuScene.m; sourceTree = "<group>"; };
-		9027C55117F2B97D0056EFA4 /* HHMainMenuViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HHMainMenuViewController.h; sourceTree = "<group>"; };
-		9027C55217F2B97D0056EFA4 /* HHMainMenuViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HHMainMenuViewController.m; sourceTree = "<group>"; };
 		9027C55417F2B97D0056EFA4 /* Random.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Random.h; sourceTree = "<group>"; };
 		9027C55517F2B97D0056EFA4 /* Random.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Random.m; sourceTree = "<group>"; };
 		9027C55617F2B97D0056EFA4 /* UIApplication+AppDimensions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIApplication+AppDimensions.h"; sourceTree = "<group>"; };
@@ -321,8 +306,6 @@
 		9027C54417F2B97D0056EFA4 /* States */ = {
 			isa = PBXGroup;
 			children = (
-				9027C54A17F2B97D0056EFA4 /* HHScene.h */,
-				9027C54B17F2B97D0056EFA4 /* HHScene.m */,
 				905BF49D17F46C9D00871C75 /* StateIDs.h */,
 				90F3DB8217F5BD670002EC60 /* HHState.h */,
 				90F3DB8317F5BD670002EC60 /* HHState.m */,
@@ -331,32 +314,8 @@
 				9027C54C17F2B97D0056EFA4 /* HHStateViewController.h */,
 				9027C54D17F2B97D0056EFA4 /* HHStateViewController.m */,
 				90F3DB8517F5C6E80002EC60 /* Example State */,
-				9027C54517F2B97D0056EFA4 /* Game */,
-				9027C54E17F2B97D0056EFA4 /* Main Menu */,
 			);
 			path = States;
-			sourceTree = "<group>";
-		};
-		9027C54517F2B97D0056EFA4 /* Game */ = {
-			isa = PBXGroup;
-			children = (
-				9027C54617F2B97D0056EFA4 /* HHGameScene.h */,
-				9027C54717F2B97D0056EFA4 /* HHGameScene.m */,
-				9027C54817F2B97D0056EFA4 /* HHGameViewController.h */,
-				9027C54917F2B97D0056EFA4 /* HHGameViewController.m */,
-			);
-			path = Game;
-			sourceTree = "<group>";
-		};
-		9027C54E17F2B97D0056EFA4 /* Main Menu */ = {
-			isa = PBXGroup;
-			children = (
-				9027C54F17F2B97D0056EFA4 /* HHMainMenuScene.h */,
-				9027C55017F2B97D0056EFA4 /* HHMainMenuScene.m */,
-				9027C55117F2B97D0056EFA4 /* HHMainMenuViewController.h */,
-				9027C55217F2B97D0056EFA4 /* HHMainMenuViewController.m */,
-			);
-			path = "Main Menu";
 			sourceTree = "<group>";
 		};
 		9027C55317F2B97D0056EFA4 /* Utilities */ = {
@@ -483,20 +442,15 @@
 			files = (
 				90F3DB8B17F5C9130002EC60 /* HHExampleState.m in Sources */,
 				90F3DB8417F5BD670002EC60 /* HHState.m in Sources */,
-				9027C56317F2B97D0056EFA4 /* HHMainMenuViewController.m in Sources */,
 				9027C55C17F2B97D0056EFA4 /* HHAppDelegate.m in Sources */,
 				9027C55D17F2B97D0056EFA4 /* HHTextureManager.m in Sources */,
 				9027C56117F2B97D0056EFA4 /* HHStateViewController.m in Sources */,
 				90F3DB8817F5C7080002EC60 /* HHExampleStateViewController.m in Sources */,
 				905BF49C17F4675F00871C75 /* HHStateStack.m in Sources */,
 				9027C56417F2B97D0056EFA4 /* Random.m in Sources */,
-				9027C56217F2B97D0056EFA4 /* HHMainMenuScene.m in Sources */,
 				9027C55817F2B97D0056EFA4 /* HHActionCategories.m in Sources */,
 				9027C55B17F2B97D0056EFA4 /* HHTargetNode.m in Sources */,
-				9027C55E17F2B97D0056EFA4 /* HHGameScene.m in Sources */,
-				9027C56017F2B97D0056EFA4 /* HHScene.m in Sources */,
 				9027C53317F2B9740056EFA4 /* main.m in Sources */,
-				9027C55F17F2B97D0056EFA4 /* HHGameViewController.m in Sources */,
 				9027C56517F2B97D0056EFA4 /* UIApplication+AppDimensions.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

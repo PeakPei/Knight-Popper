@@ -53,15 +53,23 @@
     
     switch (type) {
         case TargetTypeBlueMonkey:
-            identifier = TextureIDNone;
+            identifier = TextureIDTarget;
             break;
             
         case TargetTypePinkMonkey:
-            identifier = TextureIDNone;
+            identifier = TextureIDTarget;
             break;
     }
     
     return identifier;
+}
+
+#pragma mark - HHSpriteNode
+
+- (ActionCategory)getActionCategory {
+    NSLog(@"test");
+    
+    return ActionCategoryTarget;
 }
 
 #pragma mark - Properties

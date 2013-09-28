@@ -11,7 +11,8 @@
 
 typedef enum ID {
     TextureIDNone = 0,
-    TextureIDBackground
+    TextureIDBackground,
+    TextureIDTarget
 } TextureID;
 
 #endif

@@ -9,6 +9,10 @@
 /* Begin PBXBuildFile section */
 		9000C15017F6B83E000B5CBA /* NSMutableArray+QueueAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = 9000C14F17F6B83E000B5CBA /* NSMutableArray+QueueAdditions.m */; };
 		9000C15317F6B9F4000B5CBA /* HHAction.m in Sources */ = {isa = PBXBuildFile; fileRef = 9000C15217F6B9F4000B5CBA /* HHAction.m */; };
+		9000C15A17F6D08F000B5CBA /* HHSpriteNode.m in Sources */ = {isa = PBXBuildFile; fileRef = 9000C15917F6D08F000B5CBA /* HHSpriteNode.m */; };
+		9000C15D17F6D39A000B5CBA /* HHTargetNode.m in Sources */ = {isa = PBXBuildFile; fileRef = 9000C15C17F6D39A000B5CBA /* HHTargetNode.m */; };
+		9000C15F17F6D44F000B5CBA /* blue_monkey_target~ipad.png in Resources */ = {isa = PBXBuildFile; fileRef = 9000C15E17F6D44F000B5CBA /* blue_monkey_target~ipad.png */; };
+		9000C16117F6D456000B5CBA /* blue_monkey_target@2x~ipad.png in Resources */ = {isa = PBXBuildFile; fileRef = 9000C16017F6D456000B5CBA /* blue_monkey_target@2x~ipad.png */; };
 		9027C4D217F2B30B0056EFA4 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9027C4D117F2B30B0056EFA4 /* Foundation.framework */; };
 		9027C4D417F2B30B0056EFA4 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9027C4D317F2B30B0056EFA4 /* CoreGraphics.framework */; };
 		9027C4D617F2B30B0056EFA4 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9027C4D517F2B30B0056EFA4 /* UIKit.framework */; };
@@ -19,7 +23,6 @@
 		9027C51F17F2B4800056EFA4 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 9027C51A17F2B4800056EFA4 /* InfoPlist.strings */; };
 		9027C52117F2B4800056EFA4 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 9027C51E17F2B4800056EFA4 /* Images.xcassets */; };
 		9027C53317F2B9740056EFA4 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 9027C53217F2B9740056EFA4 /* main.m */; };
-		9027C55B17F2B97D0056EFA4 /* HHTargetNode.m in Sources */ = {isa = PBXBuildFile; fileRef = 9027C53D17F2B97D0056EFA4 /* HHTargetNode.m */; };
 		9027C55C17F2B97D0056EFA4 /* HHAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 9027C53F17F2B97D0056EFA4 /* HHAppDelegate.m */; };
 		9027C55D17F2B97D0056EFA4 /* HHTextureManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 9027C54217F2B97D0056EFA4 /* HHTextureManager.m */; };
 		9027C56117F2B97D0056EFA4 /* HHStateViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9027C54D17F2B97D0056EFA4 /* HHStateViewController.m */; };
@@ -30,6 +33,7 @@
 		9027C56A17F2BAD70056EFA4 /* Main_iPad.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9027C52317F2B4DB0056EFA4 /* Main_iPad.storyboard */; };
 		9027C56B17F2BAD70056EFA4 /* Main_iPhone.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9027C52517F2B4DB0056EFA4 /* Main_iPhone.storyboard */; };
 		905BF49C17F4675F00871C75 /* HHStateStack.m in Sources */ = {isa = PBXBuildFile; fileRef = 905BF49B17F4675F00871C75 /* HHStateStack.m */; };
+		908076C117F6F3CE00617DF0 /* HHNode.m in Sources */ = {isa = PBXBuildFile; fileRef = 908076C017F6F3CE00617DF0 /* HHNode.m */; };
 		90F3DB8417F5BD670002EC60 /* HHState.m in Sources */ = {isa = PBXBuildFile; fileRef = 90F3DB8317F5BD670002EC60 /* HHState.m */; };
 		90F3DB8817F5C7080002EC60 /* HHExampleStateViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 90F3DB8717F5C7080002EC60 /* HHExampleStateViewController.m */; };
 		90F3DB8B17F5C9130002EC60 /* HHExampleState.m in Sources */ = {isa = PBXBuildFile; fileRef = 90F3DB8A17F5C9130002EC60 /* HHExampleState.m */; };
@@ -52,6 +56,13 @@
 		9000C14F17F6B83E000B5CBA /* NSMutableArray+QueueAdditions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSMutableArray+QueueAdditions.m"; sourceTree = "<group>"; };
 		9000C15117F6B9F4000B5CBA /* HHAction.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HHAction.h; sourceTree = "<group>"; };
 		9000C15217F6B9F4000B5CBA /* HHAction.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HHAction.m; sourceTree = "<group>"; };
+		9000C15517F6CFB0000B5CBA /* HHActionHandler.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = HHActionHandler.h; sourceTree = "<group>"; };
+		9000C15817F6D08F000B5CBA /* HHSpriteNode.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HHSpriteNode.h; sourceTree = "<group>"; };
+		9000C15917F6D08F000B5CBA /* HHSpriteNode.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HHSpriteNode.m; sourceTree = "<group>"; };
+		9000C15B17F6D39A000B5CBA /* HHTargetNode.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HHTargetNode.h; sourceTree = "<group>"; };
+		9000C15C17F6D39A000B5CBA /* HHTargetNode.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HHTargetNode.m; sourceTree = "<group>"; };
+		9000C15E17F6D44F000B5CBA /* blue_monkey_target~ipad.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "blue_monkey_target~ipad.png"; sourceTree = "<group>"; };
+		9000C16017F6D456000B5CBA /* blue_monkey_target@2x~ipad.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "blue_monkey_target@2x~ipad.png"; sourceTree = "<group>"; };
 		9027C4CE17F2B30B0056EFA4 /* Harlequin-Havoc.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Harlequin-Havoc.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		9027C4D117F2B30B0056EFA4 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		9027C4D317F2B30B0056EFA4 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -69,8 +80,6 @@
 		9027C52417F2B4DB0056EFA4 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main_iPad.storyboard; sourceTree = "<group>"; };
 		9027C52617F2B4DB0056EFA4 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main_iPhone.storyboard; sourceTree = "<group>"; };
 		9027C53217F2B9740056EFA4 /* main.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
-		9027C53C17F2B97D0056EFA4 /* HHTargetNode.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HHTargetNode.h; sourceTree = "<group>"; };
-		9027C53D17F2B97D0056EFA4 /* HHTargetNode.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HHTargetNode.m; sourceTree = "<group>"; };
 		9027C53E17F2B97D0056EFA4 /* HHAppDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HHAppDelegate.h; sourceTree = "<group>"; };
 		9027C53F17F2B97D0056EFA4 /* HHAppDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HHAppDelegate.m; sourceTree = "<group>"; };
 		9027C54117F2B97D0056EFA4 /* HHTextureManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HHTextureManager.h; sourceTree = "<group>"; };
@@ -87,6 +96,8 @@
 		905BF49A17F4675F00871C75 /* HHStateStack.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HHStateStack.h; sourceTree = "<group>"; };
 		905BF49B17F4675F00871C75 /* HHStateStack.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HHStateStack.m; sourceTree = "<group>"; };
 		905BF49D17F46C9D00871C75 /* StateIDs.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = StateIDs.h; sourceTree = "<group>"; };
+		908076BF17F6F3CE00617DF0 /* HHNode.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HHNode.h; sourceTree = "<group>"; };
+		908076C017F6F3CE00617DF0 /* HHNode.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HHNode.m; sourceTree = "<group>"; };
 		90F3DB8217F5BD670002EC60 /* HHState.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HHState.h; sourceTree = "<group>"; };
 		90F3DB8317F5BD670002EC60 /* HHState.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HHState.m; sourceTree = "<group>"; };
 		90F3DB8617F5C7080002EC60 /* HHExampleStateViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HHExampleStateViewController.h; sourceTree = "<group>"; };
@@ -124,6 +135,27 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		9000C15617F6D06A000B5CBA /* Scene Entities */ = {
+			isa = PBXGroup;
+			children = (
+				9000C15B17F6D39A000B5CBA /* HHTargetNode.h */,
+				9000C15C17F6D39A000B5CBA /* HHTargetNode.m */,
+				9000C15717F6D06A000B5CBA /* Base Entities */,
+			);
+			path = "Scene Entities";
+			sourceTree = "<group>";
+		};
+		9000C15717F6D06A000B5CBA /* Base Entities */ = {
+			isa = PBXGroup;
+			children = (
+				908076BF17F6F3CE00617DF0 /* HHNode.h */,
+				908076C017F6F3CE00617DF0 /* HHNode.m */,
+				9000C15817F6D08F000B5CBA /* HHSpriteNode.h */,
+				9000C15917F6D08F000B5CBA /* HHSpriteNode.m */,
+			);
+			path = "Base Entities";
+			sourceTree = "<group>";
+		};
 		9027C4C517F2B30B0056EFA4 = {
 			isa = PBXGroup;
 			children = (
@@ -251,6 +283,7 @@
 		9027C52E17F2B60D0056EFA4 /* iPad (Non-Retina) */ = {
 			isa = PBXGroup;
 			children = (
+				9000C15E17F6D44F000B5CBA /* blue_monkey_target~ipad.png */,
 				9027C56617F2BA710056EFA4 /* background~ipad.png */,
 			);
 			path = "iPad (Non-Retina)";
@@ -259,6 +292,7 @@
 		9027C52F17F2B60D0056EFA4 /* iPad (Retina) */ = {
 			isa = PBXGroup;
 			children = (
+				9000C16017F6D456000B5CBA /* blue_monkey_target@2x~ipad.png */,
 				9027C56817F2BA7B0056EFA4 /* background@2x~ipad.png */,
 			);
 			path = "iPad (Retina)";
@@ -284,21 +318,12 @@
 				9027C53E17F2B97D0056EFA4 /* HHAppDelegate.h */,
 				9027C53F17F2B97D0056EFA4 /* HHAppDelegate.m */,
 				90FBBE4817F651BF005EAB66 /* Actions */,
-				9027C53517F2B97D0056EFA4 /* Entities */,
 				9027C54017F2B97D0056EFA4 /* Model */,
+				9000C15617F6D06A000B5CBA /* Scene Entities */,
 				9027C54417F2B97D0056EFA4 /* States */,
 				9027C55317F2B97D0056EFA4 /* Utilities */,
 			);
 			path = Classes;
-			sourceTree = "<group>";
-		};
-		9027C53517F2B97D0056EFA4 /* Entities */ = {
-			isa = PBXGroup;
-			children = (
-				9027C53C17F2B97D0056EFA4 /* HHTargetNode.h */,
-				9027C53D17F2B97D0056EFA4 /* HHTargetNode.m */,
-			);
-			path = Entities;
 			sourceTree = "<group>";
 		};
 		9027C54017F2B97D0056EFA4 /* Model */ = {
@@ -359,6 +384,7 @@
 				90FBBE4A17F651F4005EAB66 /* HHActionCategories.m */,
 				90FBBE4C17F6520B005EAB66 /* HHActionQueue.h */,
 				90FBBE4D17F6520B005EAB66 /* HHActionQueue.m */,
+				9000C15517F6CFB0000B5CBA /* HHActionHandler.h */,
 			);
 			path = Actions;
 			sourceTree = "<group>";
@@ -446,6 +472,8 @@
 				9027C51F17F2B4800056EFA4 /* InfoPlist.strings in Resources */,
 				9027C56717F2BA710056EFA4 /* background~ipad.png in Resources */,
 				9027C56917F2BA7B0056EFA4 /* background@2x~ipad.png in Resources */,
+				9000C15F17F6D44F000B5CBA /* blue_monkey_target~ipad.png in Resources */,
+				9000C16117F6D456000B5CBA /* blue_monkey_target@2x~ipad.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -469,14 +497,16 @@
 				9000C15317F6B9F4000B5CBA /* HHAction.m in Sources */,
 				9027C55D17F2B97D0056EFA4 /* HHTextureManager.m in Sources */,
 				9027C56117F2B97D0056EFA4 /* HHStateViewController.m in Sources */,
+				9000C15D17F6D39A000B5CBA /* HHTargetNode.m in Sources */,
+				9000C15A17F6D08F000B5CBA /* HHSpriteNode.m in Sources */,
 				90F3DB8817F5C7080002EC60 /* HHExampleStateViewController.m in Sources */,
 				905BF49C17F4675F00871C75 /* HHStateStack.m in Sources */,
 				9027C56417F2B97D0056EFA4 /* Random.m in Sources */,
-				9027C55B17F2B97D0056EFA4 /* HHTargetNode.m in Sources */,
 				90FBBE4E17F6520B005EAB66 /* HHActionQueue.m in Sources */,
 				9027C53317F2B9740056EFA4 /* main.m in Sources */,
 				9027C56517F2B97D0056EFA4 /* UIApplication+AppDimensions.m in Sources */,
 				90FBBE4B17F651F4005EAB66 /* HHActionCategories.m in Sources */,
+				908076C117F6F3CE00617DF0 /* HHNode.m in Sources */,
 				9000C15017F6B83E000B5CBA /* NSMutableArray+QueueAdditions.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

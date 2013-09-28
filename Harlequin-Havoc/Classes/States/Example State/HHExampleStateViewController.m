@@ -21,6 +21,7 @@
     
     HHTextureManager* textures = [[HHTextureManager alloc] initWithTextureCount:1];
     [textures loadTexture:@"background.png" identifier:TextureIDBackground];
+    [textures loadTexture:@"blue_monkey_target.png" identifier:TextureIDTarget];
     
     // Configure the state stack
     CGSize landscapeSize =

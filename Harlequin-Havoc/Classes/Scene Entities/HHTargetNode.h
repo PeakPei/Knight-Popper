@@ -8,9 +8,10 @@
  */
 
 #import <SpriteKit/SpriteKit.h>
+#import "HHSpriteNode.h"
 #import "HHTextureManager.h"
 
-@interface HHTargetNode : SKSpriteNode
+@interface HHTargetNode : HHSpriteNode
 
 /**
  * @brief An enumeration of the types of targets.

@@ -8,6 +8,8 @@
 
 #import "HHStateStack.h"
 #import "HHState.h"
+#import "HHAction.h"
+#import "HHActionHandler.h"
 
 #pragma mark - Interface
 
@@ -28,7 +30,7 @@ typedef struct PendingStackChange {
  * game's cycle since changing the state stack is unsafe whilst events,
  * updates, and draw request are being fed to its constituent components.
  */
-//- (void)applyPendingStackChanges;
+- (void)applyPendingStackChanges;
 
 /**
  * @brief The pending changes to the state stack.
@@ -48,8 +50,6 @@ typedef struct PendingStackChange {
  * the state stack.
  */
 @property HHTextureManager* textures;
-
-- (void)applyPendingStackChanges;
 
 @end
 
@@ -176,6 +176,19 @@ typedef struct PendingStackChange {
 
 - (void)update:(CFTimeInterval)currentTime {
     [self applyPendingStackChanges];
+    
+    HHAction* moveAction = [[HHAction alloc]
+                            initWithCategory:ActionCategoryTarget
+                            action:[SKAction moveByX:1.0f y:1.0f duration:0.0]];
+    
+    NSEnumerator* enumerator = [self.children objectEnumerator];
+    id child;
+    
+    while (child = [enumerator nextObject]) {
+        if ([child conformsToProtocol:@protocol(HHActionHandler)]) {
+            [child onAction:moveAction];
+        }
+    }
     
     /* Called before each frame is rendered */
 }

@@ -14,7 +14,9 @@
 #import "HHTextureManager.h"
 #include "StateIDs.h"
 
-@interface HHState : SKNode
+#import "HHNode.h"
+
+@interface HHState : HHNode
 
 /**
  * @brief Initialise a state for a specific state stack in the game.

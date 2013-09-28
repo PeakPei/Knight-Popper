@@ -17,8 +17,6 @@
  */
 @property HHStateStack* stack;
 
-@property BOOL contentCreated;
-
 @end
 
 #pragma mark - Implementation
@@ -30,7 +28,6 @@
     if (self = [super init]) {
         self.stack = stateStack;
         self.isActive = YES;
-        self.contentCreated = NO;
         self.textures = textureManager;
     }
     return self;
@@ -48,18 +45,10 @@
     [self.stack clearStates];
 }
 
-- (void)didMoveToView:(SKView*)view {
-    if (!self.contentCreated) {
-        [self buildStateScene];
-    }
-}
+#pragma mark - HHStateStackHandler
 
-- (void)buildStateScene {
-    self.contentCreated = true;
-}
-
-- (void)clearStateScene {
-    self.contentCreated = false;
+- (void)buildState {
+    // stub
 }
 
 #pragma mark - Properties
@@ -67,6 +56,5 @@
 @synthesize isActive;
 @synthesize textures;
 @synthesize stack;
-@synthesize contentCreated;
 
 @end

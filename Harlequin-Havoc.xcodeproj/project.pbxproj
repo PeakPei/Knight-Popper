@@ -97,6 +97,7 @@
 		908076C017F6F3CE00617DF0 /* HHNode.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HHNode.m; sourceTree = "<group>"; };
 		908076C217F6F85500617DF0 /* HHApplicationViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HHApplicationViewController.h; sourceTree = "<group>"; };
 		908076C317F6F85500617DF0 /* HHApplicationViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HHApplicationViewController.m; sourceTree = "<group>"; };
+		90E0F06A17F7902D0053603C /* HHStateStackHandler.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = HHStateStackHandler.h; sourceTree = "<group>"; };
 		90F3DB8217F5BD670002EC60 /* HHState.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HHState.h; sourceTree = "<group>"; };
 		90F3DB8317F5BD670002EC60 /* HHState.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HHState.m; sourceTree = "<group>"; };
 		90F3DB8917F5C9130002EC60 /* HHExampleState.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HHExampleState.h; sourceTree = "<group>"; };
@@ -343,6 +344,7 @@
 				90F3DB8317F5BD670002EC60 /* HHState.m */,
 				905BF49A17F4675F00871C75 /* HHStateStack.h */,
 				905BF49B17F4675F00871C75 /* HHStateStack.m */,
+				90E0F06A17F7902D0053603C /* HHStateStackHandler.h */,
 				90F3DB8517F5C6E80002EC60 /* Example State */,
 			);
 			path = States;

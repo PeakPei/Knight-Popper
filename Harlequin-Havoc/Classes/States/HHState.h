@@ -13,10 +13,10 @@
 #import "HHStateStack.h"
 #import "HHTextureManager.h"
 #include "StateIDs.h"
-
 #import "HHNode.h"
+#import "HHStateStackHandler.h"
 
-@interface HHState : HHNode
+@interface HHState : HHNode <HHStateStackHandler>
 
 /**
  * @brief Initialise a state for a specific state stack in the game.
@@ -44,30 +44,6 @@
  * this state belongs.
  */
 - (void)requestStackClear;
-
-/**
- * @brief Construct the scene graph to describe a state in the game.
- *
- * @note Subclasses should override this method to construct the scene graph.
- * All subclasses must call the buildScene method on it's superclass.
- */
-- (void)buildStateScene;
-
-/**
- * @brief Deconstruct the scene graph associated with the state.
- *
- * @note Subclasses should override this method to deconstruct the scene graph.
- * All subclasses must call the buildScene method on it's superclass.
- */
-- (void)clearStateScene;
-
-/**
- * @brief Called immediately the state is presented by a view.
- *
- * @param view
- * The view that is presenting the state stack containing the state.
- */
-- (void)didMoveToView:(SKView*)view;
 
 /**
  * @brief Indicates whether the state is capable of handling events.

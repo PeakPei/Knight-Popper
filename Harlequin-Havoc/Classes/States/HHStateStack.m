@@ -10,6 +10,7 @@
 #import "HHState.h"
 #import "HHAction.h"
 #import "HHActionHandler.h"
+#import "HHStateStackHandler.h"
 
 #pragma mark - Interface
 
@@ -131,11 +132,9 @@ typedef struct PendingStackChange {
                         [self.stateFactories objectForKey:
                          [NSNumber numberWithUnsignedInt:stackChangeInfo.stateIdentifier]];
                     HHState* state = stateFactory();
-                    state.position =
-                        CGPointMake(CGRectGetMidX(self.frame) / 2,
-                                    CGRectGetMidY(self.frame) / 2);
+                    // TODO: set anchor point
+                    state.position = CGPointZero;
                     [self addChild:state];
-                    [self didMoveToView:NULL]; // TODO: this is a hack. Fix it!
                 }
                 
                 break;
@@ -158,39 +157,42 @@ typedef struct PendingStackChange {
 
 #pragma mark - SKScene
 
-- (void)didMoveToView:(SKView*)view {
-    NSEnumerator *enumerator = [[self children] objectEnumerator];
-    id child;
-    
-    while (child = [enumerator nextObject]) {
-        // TODO: replace this with an action instead
-        if ([[child class] isSubclassOfClass:[HHState class]]) {
-            [child didMoveToView:view];
-        }
-    }
-}
-
 - (void)touchesBegan:(NSSet*)touches withEvent:(UIEvent*)event {
     // stub
 }
 
 - (void)update:(CFTimeInterval)currentTime {
+    // Update the states in the state stack
+//    NSEnumerator* enumerator = [self.children objectEnumerator];
+//    HHState* child;
+//    while (child == [enumerator nextObject]) {
+//        [child update:currentTime];
+//    }
+    
+    // Apply changes to the state stack
     [self applyPendingStackChanges];
     
-    HHAction* moveAction = [[HHAction alloc]
-                            initWithCategory:ActionCategoryTarget
-                            action:[SKAction moveByX:1.0f y:1.0f duration:0.0]];
+    // Check that the state stack is not empty
+    // N.B. iOS applications do not have a concept of quitting.
+    if ([self isEmpty]) {
+        [[NSException
+          exceptionWithName:@"EmptyStackStateException"
+          reason:@"The stack state does not containing any states to render"
+          userInfo:nil] raise];
+    }
+}
+
+- (void)addChild:(SKNode *)node {
+    [super addChild:node];
     
-    NSEnumerator* enumerator = [self.children objectEnumerator];
-    id child;
-    
-    while (child = [enumerator nextObject]) {
-        if ([child conformsToProtocol:@protocol(HHActionHandler)]) {
-            [child onAction:moveAction];
-        }
+    if (![node conformsToProtocol:@protocol(HHStateStackHandler)]) {
+        [[NSException
+          exceptionWithName:@"ProtocolNotImplementedException"
+          reason:@"The object does not implement the HHStateStackHandler protocol"
+          userInfo:nil] raise];
     }
     
-    /* Called before each frame is rendered */
+    [(id)node buildState];
 }
 
 #pragma mark - Properties

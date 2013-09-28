@@ -12,23 +12,20 @@
 
 @implementation HHExampleState
 
-- (void)buildStateScene {
-    [super buildStateScene];
-    
+#pragma mark - HHState
+
+- (void)buildState {
     HHSpriteNode* background =
-        [[HHSpriteNode alloc] initWithTexture:[self.textures getTexture:TextureIDBackground]];
+    [[HHSpriteNode alloc] initWithTexture:[self.textures getTexture:TextureIDBackground]];
+    background.anchorPoint = CGPointZero;
     background.position = CGPointMake(CGRectGetMidX(self.frame),CGRectGetMidY(self.frame));
     
     HHTargetNode* target = [[HHTargetNode alloc] initWithType:TargetTypeBlueMonkey
-                                                      textures:self.textures];
+                                                     textures:self.textures];
     target.position = CGPointMake(CGRectGetMidX(self.frame),CGRectGetMidY(self.frame));
     
     [self addChild:background];
     [self addChild:target];
-}
-
-- (void)clearStateScene {
-    [super clearStateScene];
 }
 
 @end

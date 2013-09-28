@@ -25,7 +25,6 @@
 		9027C53317F2B9740056EFA4 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 9027C53217F2B9740056EFA4 /* main.m */; };
 		9027C55C17F2B97D0056EFA4 /* HHAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 9027C53F17F2B97D0056EFA4 /* HHAppDelegate.m */; };
 		9027C55D17F2B97D0056EFA4 /* HHTextureManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 9027C54217F2B97D0056EFA4 /* HHTextureManager.m */; };
-		9027C56117F2B97D0056EFA4 /* HHStateViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9027C54D17F2B97D0056EFA4 /* HHStateViewController.m */; };
 		9027C56417F2B97D0056EFA4 /* Random.m in Sources */ = {isa = PBXBuildFile; fileRef = 9027C55517F2B97D0056EFA4 /* Random.m */; };
 		9027C56517F2B97D0056EFA4 /* UIApplication+AppDimensions.m in Sources */ = {isa = PBXBuildFile; fileRef = 9027C55717F2B97D0056EFA4 /* UIApplication+AppDimensions.m */; };
 		9027C56717F2BA710056EFA4 /* background~ipad.png in Resources */ = {isa = PBXBuildFile; fileRef = 9027C56617F2BA710056EFA4 /* background~ipad.png */; };
@@ -34,8 +33,8 @@
 		9027C56B17F2BAD70056EFA4 /* Main_iPhone.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9027C52517F2B4DB0056EFA4 /* Main_iPhone.storyboard */; };
 		905BF49C17F4675F00871C75 /* HHStateStack.m in Sources */ = {isa = PBXBuildFile; fileRef = 905BF49B17F4675F00871C75 /* HHStateStack.m */; };
 		908076C117F6F3CE00617DF0 /* HHNode.m in Sources */ = {isa = PBXBuildFile; fileRef = 908076C017F6F3CE00617DF0 /* HHNode.m */; };
+		908076C417F6F85500617DF0 /* HHApplicationViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 908076C317F6F85500617DF0 /* HHApplicationViewController.m */; };
 		90F3DB8417F5BD670002EC60 /* HHState.m in Sources */ = {isa = PBXBuildFile; fileRef = 90F3DB8317F5BD670002EC60 /* HHState.m */; };
-		90F3DB8817F5C7080002EC60 /* HHExampleStateViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 90F3DB8717F5C7080002EC60 /* HHExampleStateViewController.m */; };
 		90F3DB8B17F5C9130002EC60 /* HHExampleState.m in Sources */ = {isa = PBXBuildFile; fileRef = 90F3DB8A17F5C9130002EC60 /* HHExampleState.m */; };
 		90FBBE4B17F651F4005EAB66 /* HHActionCategories.m in Sources */ = {isa = PBXBuildFile; fileRef = 90FBBE4A17F651F4005EAB66 /* HHActionCategories.m */; };
 		90FBBE4E17F6520B005EAB66 /* HHActionQueue.m in Sources */ = {isa = PBXBuildFile; fileRef = 90FBBE4D17F6520B005EAB66 /* HHActionQueue.m */; };
@@ -85,8 +84,6 @@
 		9027C54117F2B97D0056EFA4 /* HHTextureManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HHTextureManager.h; sourceTree = "<group>"; };
 		9027C54217F2B97D0056EFA4 /* HHTextureManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HHTextureManager.m; sourceTree = "<group>"; };
 		9027C54317F2B97D0056EFA4 /* TextureIDs.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TextureIDs.h; sourceTree = "<group>"; };
-		9027C54C17F2B97D0056EFA4 /* HHStateViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HHStateViewController.h; sourceTree = "<group>"; };
-		9027C54D17F2B97D0056EFA4 /* HHStateViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HHStateViewController.m; sourceTree = "<group>"; };
 		9027C55417F2B97D0056EFA4 /* Random.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Random.h; sourceTree = "<group>"; };
 		9027C55517F2B97D0056EFA4 /* Random.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Random.m; sourceTree = "<group>"; };
 		9027C55617F2B97D0056EFA4 /* UIApplication+AppDimensions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIApplication+AppDimensions.h"; sourceTree = "<group>"; };
@@ -98,10 +95,10 @@
 		905BF49D17F46C9D00871C75 /* StateIDs.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = StateIDs.h; sourceTree = "<group>"; };
 		908076BF17F6F3CE00617DF0 /* HHNode.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HHNode.h; sourceTree = "<group>"; };
 		908076C017F6F3CE00617DF0 /* HHNode.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HHNode.m; sourceTree = "<group>"; };
+		908076C217F6F85500617DF0 /* HHApplicationViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HHApplicationViewController.h; sourceTree = "<group>"; };
+		908076C317F6F85500617DF0 /* HHApplicationViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HHApplicationViewController.m; sourceTree = "<group>"; };
 		90F3DB8217F5BD670002EC60 /* HHState.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HHState.h; sourceTree = "<group>"; };
 		90F3DB8317F5BD670002EC60 /* HHState.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HHState.m; sourceTree = "<group>"; };
-		90F3DB8617F5C7080002EC60 /* HHExampleStateViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HHExampleStateViewController.h; sourceTree = "<group>"; };
-		90F3DB8717F5C7080002EC60 /* HHExampleStateViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HHExampleStateViewController.m; sourceTree = "<group>"; };
 		90F3DB8917F5C9130002EC60 /* HHExampleState.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HHExampleState.h; sourceTree = "<group>"; };
 		90F3DB8A17F5C9130002EC60 /* HHExampleState.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HHExampleState.m; sourceTree = "<group>"; };
 		90FBBE4917F651F4005EAB66 /* HHActionCategories.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HHActionCategories.h; sourceTree = "<group>"; };
@@ -340,12 +337,12 @@
 			isa = PBXGroup;
 			children = (
 				905BF49D17F46C9D00871C75 /* StateIDs.h */,
+				908076C217F6F85500617DF0 /* HHApplicationViewController.h */,
+				908076C317F6F85500617DF0 /* HHApplicationViewController.m */,
 				90F3DB8217F5BD670002EC60 /* HHState.h */,
 				90F3DB8317F5BD670002EC60 /* HHState.m */,
 				905BF49A17F4675F00871C75 /* HHStateStack.h */,
 				905BF49B17F4675F00871C75 /* HHStateStack.m */,
-				9027C54C17F2B97D0056EFA4 /* HHStateViewController.h */,
-				9027C54D17F2B97D0056EFA4 /* HHStateViewController.m */,
 				90F3DB8517F5C6E80002EC60 /* Example State */,
 			);
 			path = States;
@@ -369,8 +366,6 @@
 			children = (
 				90F3DB8917F5C9130002EC60 /* HHExampleState.h */,
 				90F3DB8A17F5C9130002EC60 /* HHExampleState.m */,
-				90F3DB8617F5C7080002EC60 /* HHExampleStateViewController.h */,
-				90F3DB8717F5C7080002EC60 /* HHExampleStateViewController.m */,
 			);
 			path = "Example State";
 			sourceTree = "<group>";
@@ -496,10 +491,9 @@
 				9027C55C17F2B97D0056EFA4 /* HHAppDelegate.m in Sources */,
 				9000C15317F6B9F4000B5CBA /* HHAction.m in Sources */,
 				9027C55D17F2B97D0056EFA4 /* HHTextureManager.m in Sources */,
-				9027C56117F2B97D0056EFA4 /* HHStateViewController.m in Sources */,
+				908076C417F6F85500617DF0 /* HHApplicationViewController.m in Sources */,
 				9000C15D17F6D39A000B5CBA /* HHTargetNode.m in Sources */,
 				9000C15A17F6D08F000B5CBA /* HHSpriteNode.m in Sources */,
-				90F3DB8817F5C7080002EC60 /* HHExampleStateViewController.m in Sources */,
 				905BF49C17F4675F00871C75 /* HHStateStack.m in Sources */,
 				9027C56417F2B97D0056EFA4 /* Random.m in Sources */,
 				90FBBE4E17F6520B005EAB66 /* HHActionQueue.m in Sources */,

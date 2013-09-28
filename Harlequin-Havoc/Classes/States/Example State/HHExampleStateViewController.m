@@ -30,7 +30,6 @@
     
     // Configure the scene
     [self.stateStack pushState:StateIDExample];
-    [self.stateStack applyPendingStackChanges];
     
     [self.stateView presentScene:self.stateStack];
 }

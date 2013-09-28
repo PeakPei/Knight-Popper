@@ -86,6 +86,4 @@ typedef enum Action {
  */
 - (BOOL)isEmpty;
 
-- (void)applyPendingStackChanges;
-
 @end

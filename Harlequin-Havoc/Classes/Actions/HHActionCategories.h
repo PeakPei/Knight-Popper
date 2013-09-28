@@ -17,7 +17,12 @@
  */
 typedef enum Category {
     ActionCategoryNone = 0,
-    ActionCategoryScene = 1 << 0
+    ActionCategoryScene = 1 << 0,
+    ActionCategoryTarget = 1 << 1,
+    ActionCategoryObstacle = 1 << 2,
+    ActionCategoryBackground = 1 << 3,
+    ActionCategoryScore = 1 << 4,
+    ActionCategoryTime = 1 << 5
 } ActionCategory;
 
 /**
@@ -29,6 +34,6 @@ typedef enum Category {
  * @note The SpriteKit framework uses the name property on node objects to determine
  * whether they should handle an action or not.
  */
-+ (NSString*)nodeNameForCategory:(ActionCategory)category;
++ (NSString*)nodeNameForCategory:(unsigned int)category;
 
 @end

@@ -49,6 +49,8 @@ typedef struct PendingStackChange {
  */
 @property HHTextureManager* textures;
 
+- (void)applyPendingStackChanges;
+
 @end
 
 #pragma mark - Implementation
@@ -133,6 +135,7 @@ typedef struct PendingStackChange {
                         CGPointMake(CGRectGetMidX(self.frame) / 2,
                                     CGRectGetMidY(self.frame) / 2);
                     [self addChild:state];
+                    [self didMoveToView:NULL]; // TODO: this is a hack. Fix it!
                 }
                 
                 break;
@@ -149,6 +152,8 @@ typedef struct PendingStackChange {
                 break;
         }
     }
+    
+    [self.pendingStackChanges removeAllObjects];
 }
 
 #pragma mark - SKScene
@@ -170,6 +175,8 @@ typedef struct PendingStackChange {
 }
 
 - (void)update:(CFTimeInterval)currentTime {
+    [self applyPendingStackChanges];
+    
     /* Called before each frame is rendered */
 }
 

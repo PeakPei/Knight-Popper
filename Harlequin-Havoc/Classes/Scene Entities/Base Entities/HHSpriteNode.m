@@ -1,10 +1,10 @@
-//
-//  HHSpriteNode.m
-//  Harlequin-Havoc
-//
-//  Created by Morgan on 28/09/13.
-//  Copyright (c) 2013 QUT. All rights reserved.
-//
+/**
+ * @filename HHSpriteNode.m
+ * @author Morgan Wall
+ * @date 28-9-2013
+ *
+ * @brief The implementation of the HHSpriteNode class.
+ */
 
 #import "HHSpriteNode.h"
 #import "SKNode+TreeTraversal.h"
@@ -13,6 +13,10 @@
 
 @interface HHSpriteNode ()
 
+/**
+ * @brief Indicates whether the node has been flagged for removal (true) or 
+ * not (false).
+ */
 @property BOOL destroyed;
 
 @end
@@ -35,7 +39,7 @@
     return self;
 }
 
-#pragma mark - HHActionHandler
+#pragma mark HHActionHandler
 
 - (void)onAction:(HHAction*)action {
     if (action.category == [self getActionCategory]) {
@@ -61,7 +65,7 @@
     return ActionCategoryNone;
 }
 
-#pragma mark - HHEventHandler
+#pragma mark HHEventHandler
 
 - (BOOL)handleEvent:(UIEvent*)event touch:(UITouch *)touch {
     BOOL eventHandled = NO;
@@ -74,7 +78,7 @@
     return eventHandled;
 }
 
-#pragma mark - HHNodeRemovalHandler
+#pragma mark HHNodeRemovalHandler
 
 - (BOOL)isDestroyed {
     return self.destroyed;

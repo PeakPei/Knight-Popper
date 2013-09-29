@@ -64,7 +64,7 @@
     return identifier;
 }
 
-#pragma mark - HHSpriteNode
+#pragma mark HHSpriteNode
 
 - (ActionCategory)getActionCategory {    
     return ActionCategoryTarget;

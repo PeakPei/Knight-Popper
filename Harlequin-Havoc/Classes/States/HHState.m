@@ -1,10 +1,10 @@
-//
-//  HHState.m
-//  Harlequin-Havoc
-//
-//  Created by Morgan on 27/09/13.
-//  Copyright (c) 2013 QUT. All rights reserved.
-//
+/**
+ * @filename HHState.m
+ * @author Morgan Wall
+ * @date 27-9-2013
+ *
+ * @brief The implementation of the HHState class.
+ */
 
 #import "HHState.h"
 
@@ -49,7 +49,7 @@
     // override in subclass
 }
 
-#pragma mark - HHStateStackHandler
+#pragma mark HHStateStackHandler
 
 - (void)buildState {
     // override in subclass

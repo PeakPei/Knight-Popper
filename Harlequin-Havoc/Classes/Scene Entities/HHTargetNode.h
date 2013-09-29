@@ -7,7 +7,6 @@
  * a game state.
  */
 
-#import <SpriteKit/SpriteKit.h>
 #import "HHSpriteNode.h"
 #import "HHTextureManager.h"
 

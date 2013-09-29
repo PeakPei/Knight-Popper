@@ -9,7 +9,6 @@
  * describing, collectively, the entirety game window.
  */
 
-#import <SpriteKit/SpriteKit.h>
 #import "HHStateStack.h"
 #import "HHTextureManager.h"
 #include "StateIDs.h"
@@ -45,6 +44,12 @@
  */
 - (void)requestStackClear;
 
+/**
+ * @brief Perform any logic updates on the state for the next frame.
+ *
+ * @param deltaTime
+ * The time elapsed since the last frame.
+ */
 - (void)update:(CFTimeInterval)deltaTime;
 
 /**

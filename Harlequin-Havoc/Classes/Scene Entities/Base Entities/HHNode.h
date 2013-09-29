@@ -1,10 +1,11 @@
-//
-//  HHNode.h
-//  Harlequin-Havoc
-//
-//  Created by Morgan on 28/09/13.
-//  Copyright (c) 2013 QUT. All rights reserved.
-//
+/**
+ * @filename HHNode.h
+ * @author Morgan Wall
+ * @date 28-9-2013
+ *
+ * @brief The base class for a node stored in the state stack. This replaces the
+ * usage of the SKNode class.
+ */
 
 #import <SpriteKit/SpriteKit.h>
 #import "HHActionHandler.h"

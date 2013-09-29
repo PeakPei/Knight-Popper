@@ -8,7 +8,6 @@
  */
 
 #import "HHApplicationViewController.h"
-#import <SpriteKit/SpriteKit.h>
 #import "HHStateStack.h"
 #import "HHTextureManager.h"
 #import "UIApplication+AppDimensions.h"

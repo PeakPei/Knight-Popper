@@ -1,17 +1,19 @@
-//
-//  HHNode.m
-//  Harlequin-Havoc
-//
-//  Created by Morgan on 28/09/13.
-//  Copyright (c) 2013 QUT. All rights reserved.
-//
+/**
+ * @filename HHNode.m
+ * @author Morgan Wall
+ * @date 28-9-2013
+ *
+ * @brief The implementation of the HHNode class.
+ */
 
 #import "HHNode.h"
 #import "SKNode+TreeTraversal.h"
 
+#pragma mark - Implementation
+
 @implementation HHNode
 
-#pragma mark - HHActionHandler
+#pragma mark HHActionHandler
 
 - (void)onAction:(HHAction*)action {
     if (action.category == [self getActionCategory]) {
@@ -37,13 +39,13 @@
     return ActionCategoryNone;
 }
 
-#pragma mark - HHEventHandler
+#pragma mark HHEventHandler
 
 - (BOOL)handleEvent:(UIEvent*)event touch:(UITouch *)touch {
     return NO;
 }
 
-#pragma mark - NodeRemovalHandler
+#pragma mark NodeRemovalHandler
 
 - (BOOL)isDestroyed {
     return NO;

@@ -1,12 +1,12 @@
-//
-//  SKNode+TreeTraversal.m
-//  Harlequin-Havoc
-//
-//  Created by Morgan on 29/09/13.
-//  Copyright (c) 2013 QUT. All rights reserved.
-//
+/**
+ * @filename SKNode+TreeTraversal.m
+ * @author Morgan Wall
+ * @date 29-9-2013
+ */
 
 #import "SKNode+TreeTraversal.h"
+
+#pragma mark - Implementation
 
 @implementation SKNode (TreeTraversal)
 

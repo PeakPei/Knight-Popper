@@ -36,6 +36,17 @@ typedef struct PendingStackChange {
  */
 - (void)applyPendingStackChanges;
 
+/**
+ * @brief Process all the (touch) events that have been generated since the last
+ * frame on all the states.
+ *
+ * @param event
+ * An object representing the event to which the touches belong.
+ *
+ * @param touch
+ * A set of UITouch instances that represent the touches for the starting phase 
+ * of the event represented by event.
+ */
 - (void)handleEventOnStates:(UIEvent*)event touch:(UITouch*)touch;
 
 /**
@@ -57,10 +68,24 @@ typedef struct PendingStackChange {
  */
 @property HHTextureManager* textures;
 
+/**
+ * @brief The time since the last frame was rendered.
+ */
 @property CFTimeInterval lastFrameTime;
 
+/**
+ * @brief A queue of all the events to be handled for the next frame.
+ *
+ * @note This array is parallel to ::touchQueue.
+ */
 @property NSMutableArray* eventQueue;
 
+/**
+ * @brief A queue of collections of touch events to be handled for the next 
+ * frame. Said touch events correspond to the general events stored in ::eventQueue.
+ *
+ * @note This array is parallel to ::eventQueue.
+ */
 @property NSMutableArray* touchQueue;
 
 @end
@@ -184,7 +209,7 @@ typedef struct PendingStackChange {
     [self traversePostOrder:handleEvent];
 }
 
-#pragma mark - SKScene
+#pragma mark SKScene
 
 - (void)touchesBegan:(NSSet*)touches withEvent:(UIEvent*)event {
     // Store any events for processing
@@ -254,7 +279,7 @@ typedef struct PendingStackChange {
     [(id)node buildState];
 }
 
-#pragma mark - HHEventHandler
+#pragma mark HHEventHandler
 
 - (BOOL)handleEvent:(UIEvent*)event touch:(UITouch *)touch {
     return NO;

@@ -1,10 +1,10 @@
-//
-//  HHAction.m
-//  Harlequin-Havoc
-//
-//  Created by Morgan on 28/09/13.
-//  Copyright (c) 2013 QUT. All rights reserved.
-//
+/**
+ * @filename HHAction.h
+ * @author Morgan Wall
+ * @date 28-9-2013
+ *
+ * @brief The implemementation of the HHAction class.
+ */
 
 #import "HHAction.h"
 

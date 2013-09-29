@@ -7,7 +7,6 @@
  */
 
 #import <Foundation/Foundation.h>
-#import <SpriteKit/SpriteKit.h>
 #include "HHAction.h"
 
 @interface HHActionQueue : NSObject

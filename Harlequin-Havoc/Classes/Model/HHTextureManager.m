@@ -12,6 +12,9 @@
 
 @interface HHTextureManager ()
 
+/**
+ * The data structure used to store the loaded textures.
+ */
 @property NSMutableDictionary* textures;
 
 @end

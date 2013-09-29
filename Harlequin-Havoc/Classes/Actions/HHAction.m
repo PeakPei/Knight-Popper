@@ -22,10 +22,12 @@
 }
 
 - (id)initWithCategory:(ActionCategory)category
-           actionBlock:(void(^)(void))actionBlock {
+           actionBlock:(void(^)(SKNode*, CGFloat))actionBlock
+          timeInterval:(NSTimeInterval)timeInterval {
     if (self = [super init]) {
         _category = category;
-        _action = [SKAction runBlock:actionBlock];
+        _action = [SKAction customActionWithDuration:timeInterval
+                                         actionBlock:actionBlock];
     }
     return self;
 }

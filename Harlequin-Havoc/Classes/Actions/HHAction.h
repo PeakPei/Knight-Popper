@@ -35,7 +35,8 @@
  * A block describing an action to be distributed.
  */
 - (id)initWithCategory:(ActionCategory)category
-           actionBlock:(void(^)(void))actionBlock;
+           actionBlock:(void(^)(SKNode*, CGFloat))actionBlock
+          timeInterval:(NSTimeInterval)timeInterval;
 
 /**
  * @brief The receiver category the action is aimed at.

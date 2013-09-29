@@ -21,6 +21,13 @@
 
 @implementation HHActionQueue
 
+- (id)init {
+    if (self = [super init]) {
+        self.queue = [[NSMutableArray alloc] init];
+    }
+    return self;
+}
+
 - (void)push:(HHAction*)action {
     [self.queue enqueue:action];
 }

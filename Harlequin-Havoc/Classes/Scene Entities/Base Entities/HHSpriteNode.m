@@ -64,7 +64,14 @@
 #pragma mark - HHEventHandler
 
 - (BOOL)handleEvent:(UIEvent*)event touch:(UITouch *)touch {
-    return NO;
+    BOOL eventHandled = NO;
+    CGPoint touchLocation = [touch locationInNode:[self parent]];
+    
+    if ([self containsPoint:touchLocation]) {
+        [self destroy];
+        eventHandled = YES;
+    }
+    return eventHandled;
 }
 
 #pragma mark - HHNodeRemovalHandler

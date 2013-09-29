@@ -19,6 +19,7 @@
     SKNode* child;
     while ((child = [enumerator nextObject]) && !actionHandled) {
         actionHandled = action(child);
+        [self traversePreOrder:action];
     }
     
     return actionHandled;
@@ -30,6 +31,7 @@
     NSEnumerator* enumerator = [self.children reverseObjectEnumerator];
     SKNode* child;
     while ((child = [enumerator nextObject]) && !actionHandled) {
+        [child traversePostOrder:action];
         actionHandled = action(child);
     }
     

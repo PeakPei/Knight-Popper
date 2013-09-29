@@ -76,6 +76,7 @@ typedef struct PendingStackChange {
         self.textures = textureManager;
         self.lastFrameTime = CFAbsoluteTimeGetCurrent();
         self.eventQueue = [[NSMutableArray alloc] init];
+        self.touchQueue = [[NSMutableArray alloc] init];
     }
     return self;
 }
@@ -186,39 +187,34 @@ typedef struct PendingStackChange {
 #pragma mark - SKScene
 
 - (void)touchesBegan:(NSSet*)touches withEvent:(UIEvent*)event {
-    id value = [[[[self children] objectAtIndex:0] children] objectAtIndex:0];
+    // Store any events for processing
+    if ([touches count] > 0) {
+        [self.eventQueue enqueue:event];
     
-    if ([value conformsToProtocol:@protocol(HHNodeRemovalHandler)]) {
-        [value destroy];
+        NSMutableArray* retrievedTouches =
+        [[NSMutableArray alloc] initWithCapacity:[touches count]];
+        for (UITouch* touch in touches) {
+            [retrievedTouches enqueue:touch];
+        }
+        
+        [self.touchQueue addObject:retrievedTouches];
     }
-    
-//    if ([touches count] > 0) {
-//        [self.eventQueue enqueue:event];
-//    
-//        NSMutableArray* retrievedTouches =
-//        [[NSMutableArray alloc] initWithCapacity:[touches count]];
-//        for (UITouch* touch in touches) {
-//            [retrievedTouches enqueue:touch];
-//        }
-//        
-//        [self.touchQueue addObject:retrievedTouches];
-//    }
 }
 
 - (void)update:(CFTimeInterval)currentTime {
     CFTimeInterval deltaTime = currentTime - lastFrameTime;
     
     // Process any events
-//    NSMutableArray* touches;
-//    UIEvent* event;
-//    while (![self.eventQueue empty]) {
-//        
-//        event = [self.eventQueue dequeue];
-//        touches = [self.touchQueue dequeue];
-//        while (![touches empty]) {
-//            [self handleEventOnStates:event touch:[touches dequeue]];
-//        }
-//    }
+    NSMutableArray* touches;
+    UIEvent* event;
+    while (![self.eventQueue empty]) {
+        
+        event = [self.eventQueue dequeue];
+        touches = [self.touchQueue dequeue];
+        while (![touches empty]) {
+            [self handleEventOnStates:event touch:[touches dequeue]];
+        }
+    }
     
     // Update the states in the state stack
     NSEnumerator* enumerator = [self.children objectEnumerator];

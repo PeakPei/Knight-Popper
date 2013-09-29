@@ -186,6 +186,12 @@ typedef struct PendingStackChange {
 #pragma mark - SKScene
 
 - (void)touchesBegan:(NSSet*)touches withEvent:(UIEvent*)event {
+    id value = [[[[self children] objectAtIndex:0] children] objectAtIndex:0];
+    
+    if ([value conformsToProtocol:@protocol(HHNodeRemovalHandler)]) {
+        [value destroy];
+    }
+    
 //    if ([touches count] > 0) {
 //        [self.eventQueue enqueue:event];
 //    
@@ -217,6 +223,11 @@ typedef struct PendingStackChange {
     // Update the states in the state stack
     NSEnumerator* enumerator = [self.children objectEnumerator];
     HHState* child;
+    while (child = [enumerator nextObject]) {
+        [child executeRemovalRequests];
+    }
+    
+    enumerator = [self.children objectEnumerator];
     while (child = [enumerator nextObject]) {
         [child update:deltaTime];
     }

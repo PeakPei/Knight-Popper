@@ -7,6 +7,7 @@
 //
 
 #import "HHNode.h"
+#import "SKNode+TreeTraversal.h"
 
 @implementation HHNode
 
@@ -40,6 +41,33 @@
 
 - (BOOL)handleEvent:(UIEvent*)event touch:(UITouch *)touch {
     return NO;
+}
+
+#pragma mark - NodeRemovalHandler
+
+- (BOOL)isDestroyed {
+    return NO;
+}
+
+- (void)destroy {}
+
+- (void)executeRemovalRequests {
+    BOOL (^removalRequest)(SKNode*) = ^(SKNode* node) {
+        if ([node conformsToProtocol:@protocol(HHNodeRemovalHandler)]) {
+            if ([(id)node isDestroyed]) {
+                [(id)node removeAllChildren];
+                [(id)node removeFromParent];
+            }
+        } else {
+            [[NSException
+              exceptionWithName:@"ProtocolNotImplementedException"
+              reason:@"The object does not implement the HHNodeRemovalHandler protocol"
+              userInfo:nil] raise];
+        }
+        return NO;
+    };
+    
+    [self traversePostOrder:removalRequest];
 }
 
 @end

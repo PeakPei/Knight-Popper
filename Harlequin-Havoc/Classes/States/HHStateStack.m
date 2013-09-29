@@ -164,11 +164,11 @@ typedef struct PendingStackChange {
 
 - (void)update:(CFTimeInterval)currentTime {
     // Update the states in the state stack
-//    NSEnumerator* enumerator = [self.children objectEnumerator];
-//    HHState* child;
-//    while (child == [enumerator nextObject]) {
-//        [child update:currentTime];
-//    }
+    NSEnumerator* enumerator = [self.children objectEnumerator];
+    HHState* child;
+    while (child = [enumerator nextObject]) {
+        // stub
+    }
     
     // Apply changes to the state stack
     [self applyPendingStackChanges];

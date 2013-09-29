@@ -17,12 +17,11 @@
 - (void)buildState {
     HHSpriteNode* background =
     [[HHSpriteNode alloc] initWithTexture:[self.textures getTexture:TextureIDBackground]];
-    background.anchorPoint = CGPointZero;
-    background.position = CGPointMake(CGRectGetMidX(self.frame),CGRectGetMidY(self.frame));
+    background.position = CGPointZero;
     
     HHTargetNode* target = [[HHTargetNode alloc] initWithType:TargetTypeBlueMonkey
                                                      textures:self.textures];
-    target.position = CGPointMake(CGRectGetMidX(self.frame),CGRectGetMidY(self.frame));
+    target.position = CGPointZero;
     
     [self addChild:background];
     [self addChild:target];

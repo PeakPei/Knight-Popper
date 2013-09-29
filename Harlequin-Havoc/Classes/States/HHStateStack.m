@@ -133,7 +133,8 @@ typedef struct PendingStackChange {
                          [NSNumber numberWithUnsignedInt:stackChangeInfo.stateIdentifier]];
                     HHState* state = stateFactory();
                     // TODO: set anchor point
-                    state.position = CGPointZero;
+                    state.position = CGPointMake(CGRectGetMidX(self.frame),
+                                                 CGRectGetMidY(self.frame));
                     [self addChild:state];
                 }
                 

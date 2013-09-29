@@ -36,7 +36,7 @@ typedef struct PendingStackChange {
  */
 - (void)applyPendingStackChanges;
 
-- (void)handleEventOnStates:(UIEvent*)event;
+- (void)handleEventOnStates:(UIEvent*)event touch:(UITouch*)touch;
 
 /**
  * @brief The pending changes to the state stack.
@@ -60,6 +60,8 @@ typedef struct PendingStackChange {
 @property CFTimeInterval lastFrameTime;
 
 @property NSMutableArray* eventQueue;
+
+@property NSMutableArray* touchQueue;
 
 @end
 
@@ -143,7 +145,6 @@ typedef struct PendingStackChange {
                         [self.stateFactories objectForKey:
                          [NSNumber numberWithUnsignedInt:stackChangeInfo.stateIdentifier]];
                     HHState* state = stateFactory();
-                    // TODO: set anchor point
                     state.position = CGPointMake(CGRectGetMidX(self.frame),
                                                  CGRectGetMidY(self.frame));
                     [self addChild:state];
@@ -167,16 +168,16 @@ typedef struct PendingStackChange {
     [self.pendingStackChanges removeAllObjects];
 }
 
-- (void)handleEventOnStates:(UIEvent*)event {
+- (void)handleEventOnStates:(UIEvent*)event touch:(UITouch*)touch {
     BOOL (^handleEvent)(SKNode*) = ^(SKNode* node) {
         if (![node conformsToProtocol:@protocol(HHEventHandler)]) {
             [[NSException
               exceptionWithName:@"ProtocolNotImplementedException"
-              reason:@"The object does not implement the HHStateStackHandler protocol"
+              reason:@"The object does not implement the HHEventHandler protocol"
               userInfo:nil] raise];
         }
         
-        return [(id)node handleEvent:event];
+        return [(id)node handleEvent:event touch:touch];
     };
     
     [self traversePostOrder:handleEvent];
@@ -185,18 +186,33 @@ typedef struct PendingStackChange {
 #pragma mark - SKScene
 
 - (void)touchesBegan:(NSSet*)touches withEvent:(UIEvent*)event {
-    for (UITouch* touch in touches) {
-        [self.eventQueue enqueue:touch];
-    }
+//    if ([touches count] > 0) {
+//        [self.eventQueue enqueue:event];
+//    
+//        NSMutableArray* retrievedTouches =
+//        [[NSMutableArray alloc] initWithCapacity:[touches count]];
+//        for (UITouch* touch in touches) {
+//            [retrievedTouches enqueue:touch];
+//        }
+//        
+//        [self.touchQueue addObject:retrievedTouches];
+//    }
 }
 
 - (void)update:(CFTimeInterval)currentTime {
     CFTimeInterval deltaTime = currentTime - lastFrameTime;
     
     // Process any events
-    while (![self.eventQueue empty]) {
-        [self handleEventOnStates:[self.eventQueue dequeue]];
-    }
+//    NSMutableArray* touches;
+//    UIEvent* event;
+//    while (![self.eventQueue empty]) {
+//        
+//        event = [self.eventQueue dequeue];
+//        touches = [self.touchQueue dequeue];
+//        while (![touches empty]) {
+//            [self handleEventOnStates:event touch:[touches dequeue]];
+//        }
+//    }
     
     // Update the states in the state stack
     NSEnumerator* enumerator = [self.children objectEnumerator];
@@ -233,7 +249,7 @@ typedef struct PendingStackChange {
 
 #pragma mark - HHEventHandler
 
-- (BOOL)handleEvent:(UIEvent*)event {
+- (BOOL)handleEvent:(UIEvent*)event touch:(UITouch *)touch {
     return NO;
 }
 

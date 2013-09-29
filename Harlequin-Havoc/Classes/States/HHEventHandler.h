@@ -10,6 +10,6 @@
 
 @protocol HHEventHandler <NSObject>
 
-- (BOOL)handleEvent:(UIEvent*)event;
+- (BOOL)handleEvent:(UIEvent*)event touch:(UITouch*)touch;
 
 @end

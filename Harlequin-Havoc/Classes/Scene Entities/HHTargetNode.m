@@ -66,9 +66,7 @@
 
 #pragma mark - HHSpriteNode
 
-- (ActionCategory)getActionCategory {
-    NSLog(@"test");
-    
+- (ActionCategory)getActionCategory {    
     return ActionCategoryTarget;
 }
 

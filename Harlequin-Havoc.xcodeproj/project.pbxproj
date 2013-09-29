@@ -341,16 +341,16 @@
 		9027C54417F2B97D0056EFA4 /* States */ = {
 			isa = PBXGroup;
 			children = (
-				905BF49D17F46C9D00871C75 /* StateIDs.h */,
 				908076C217F6F85500617DF0 /* HHApplicationViewController.h */,
 				908076C317F6F85500617DF0 /* HHApplicationViewController.m */,
+				90E0F07117F7BBEF0053603C /* HHEventHandler.h */,
 				90F3DB8217F5BD670002EC60 /* HHState.h */,
 				90F3DB8317F5BD670002EC60 /* HHState.m */,
 				905BF49A17F4675F00871C75 /* HHStateStack.h */,
 				905BF49B17F4675F00871C75 /* HHStateStack.m */,
 				90E0F06A17F7902D0053603C /* HHStateStackHandler.h */,
+				905BF49D17F46C9D00871C75 /* StateIDs.h */,
 				90F3DB8517F5C6E80002EC60 /* Example State */,
-				90E0F07117F7BBEF0053603C /* HHEventHandler.h */,
 			);
 			path = States;
 			sourceTree = "<group>";

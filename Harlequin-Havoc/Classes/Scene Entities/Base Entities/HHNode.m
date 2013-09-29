@@ -38,7 +38,7 @@
 
 #pragma mark - HHEventHandler
 
-- (BOOL)handleEvent:(UIEvent*)event {
+- (BOOL)handleEvent:(UIEvent*)event touch:(UITouch *)touch {
     return NO;
 }
 

@@ -10,6 +10,8 @@
 
 @implementation HHSpriteNode
 
+#pragma mark - HHActionHandler
+
 - (void)onAction:(HHAction*)action {
     if (action.category == [self getActionCategory]) {
         [self runAction:action.action];
@@ -32,6 +34,12 @@
 
 - (ActionCategory)getActionCategory {
     return ActionCategoryNone;
+}
+
+#pragma mark - HHEventHandler
+
+- (BOOL)handleEvent:(UIEvent*)event {
+    return NO;
 }
 
 @end

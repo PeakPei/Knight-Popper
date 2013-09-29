@@ -34,6 +34,7 @@
 		905BF49C17F4675F00871C75 /* HHStateStack.m in Sources */ = {isa = PBXBuildFile; fileRef = 905BF49B17F4675F00871C75 /* HHStateStack.m */; };
 		908076C117F6F3CE00617DF0 /* HHNode.m in Sources */ = {isa = PBXBuildFile; fileRef = 908076C017F6F3CE00617DF0 /* HHNode.m */; };
 		908076C417F6F85500617DF0 /* HHApplicationViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 908076C317F6F85500617DF0 /* HHApplicationViewController.m */; };
+		90E0F07017F7B5840053603C /* SKNode+TreeTraversal.m in Sources */ = {isa = PBXBuildFile; fileRef = 90E0F06F17F7B5840053603C /* SKNode+TreeTraversal.m */; };
 		90F3DB8417F5BD670002EC60 /* HHState.m in Sources */ = {isa = PBXBuildFile; fileRef = 90F3DB8317F5BD670002EC60 /* HHState.m */; };
 		90F3DB8B17F5C9130002EC60 /* HHExampleState.m in Sources */ = {isa = PBXBuildFile; fileRef = 90F3DB8A17F5C9130002EC60 /* HHExampleState.m */; };
 		90FBBE4B17F651F4005EAB66 /* HHActionCategories.m in Sources */ = {isa = PBXBuildFile; fileRef = 90FBBE4A17F651F4005EAB66 /* HHActionCategories.m */; };
@@ -98,6 +99,9 @@
 		908076C217F6F85500617DF0 /* HHApplicationViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HHApplicationViewController.h; sourceTree = "<group>"; };
 		908076C317F6F85500617DF0 /* HHApplicationViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HHApplicationViewController.m; sourceTree = "<group>"; };
 		90E0F06A17F7902D0053603C /* HHStateStackHandler.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = HHStateStackHandler.h; sourceTree = "<group>"; };
+		90E0F06E17F7B5840053603C /* SKNode+TreeTraversal.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "SKNode+TreeTraversal.h"; sourceTree = "<group>"; };
+		90E0F06F17F7B5840053603C /* SKNode+TreeTraversal.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "SKNode+TreeTraversal.m"; sourceTree = "<group>"; };
+		90E0F07117F7BBEF0053603C /* HHEventHandler.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = HHEventHandler.h; sourceTree = "<group>"; };
 		90F3DB8217F5BD670002EC60 /* HHState.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HHState.h; sourceTree = "<group>"; };
 		90F3DB8317F5BD670002EC60 /* HHState.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HHState.m; sourceTree = "<group>"; };
 		90F3DB8917F5C9130002EC60 /* HHExampleState.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HHExampleState.h; sourceTree = "<group>"; };
@@ -346,6 +350,7 @@
 				905BF49B17F4675F00871C75 /* HHStateStack.m */,
 				90E0F06A17F7902D0053603C /* HHStateStackHandler.h */,
 				90F3DB8517F5C6E80002EC60 /* Example State */,
+				90E0F07117F7BBEF0053603C /* HHEventHandler.h */,
 			);
 			path = States;
 			sourceTree = "<group>";
@@ -357,6 +362,8 @@
 				9000C14F17F6B83E000B5CBA /* NSMutableArray+QueueAdditions.m */,
 				9027C55417F2B97D0056EFA4 /* Random.h */,
 				9027C55517F2B97D0056EFA4 /* Random.m */,
+				90E0F06E17F7B5840053603C /* SKNode+TreeTraversal.h */,
+				90E0F06F17F7B5840053603C /* SKNode+TreeTraversal.m */,
 				9027C55617F2B97D0056EFA4 /* UIApplication+AppDimensions.h */,
 				9027C55717F2B97D0056EFA4 /* UIApplication+AppDimensions.m */,
 			);
@@ -502,6 +509,7 @@
 				9027C53317F2B9740056EFA4 /* main.m in Sources */,
 				9027C56517F2B97D0056EFA4 /* UIApplication+AppDimensions.m in Sources */,
 				90FBBE4B17F651F4005EAB66 /* HHActionCategories.m in Sources */,
+				90E0F07017F7B5840053603C /* SKNode+TreeTraversal.m in Sources */,
 				908076C117F6F3CE00617DF0 /* HHNode.m in Sources */,
 				9000C15017F6B83E000B5CBA /* NSMutableArray+QueueAdditions.m in Sources */,
 			);

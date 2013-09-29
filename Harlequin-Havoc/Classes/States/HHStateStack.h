@@ -16,8 +16,9 @@
 #import <SpriteKit/SpriteKit.h>
 #import "HHTextureManager.h"
 #include "StateIDs.h"
+#import "HHEventHandler.h"
 
-@interface HHStateStack : SKScene
+@interface HHStateStack : SKScene <HHEventHandler>
 
 /**
  * @brief An enumeration of the possible operations that can be performed on the

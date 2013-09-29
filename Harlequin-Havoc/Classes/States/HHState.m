@@ -45,10 +45,14 @@
     [self.stack clearStates];
 }
 
+- (void)update:(CFTimeInterval)deltaTime {
+    // override in subclass
+}
+
 #pragma mark - HHStateStackHandler
 
 - (void)buildState {
-    // stub
+    // override in subclass
 }
 
 #pragma mark - Properties

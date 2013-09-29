@@ -45,6 +45,8 @@
  */
 - (void)requestStackClear;
 
+- (void)update:(CFTimeInterval)deltaTime;
+
 /**
  * @brief Indicates whether the state is capable of handling events.
  */

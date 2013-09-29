@@ -14,6 +14,12 @@
 
 #pragma mark - HHState
 
+- (void)update:(CFTimeInterval)deltaTime {
+    if (self.isActive) {
+        // stub (update the state only)
+    }
+}
+
 - (void)buildState {
     HHSpriteNode* background =
     [[HHSpriteNode alloc] initWithTexture:[self.textures getTexture:TextureIDBackground]];

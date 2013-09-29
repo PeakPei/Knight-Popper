@@ -8,7 +8,8 @@
 
 #import <SpriteKit/SpriteKit.h>
 #import "HHActionHandler.h"
+#import "HHEventHandler.h"
 
-@interface HHNode : SKNode <HHActionHandler>
+@interface HHNode : SKNode <HHActionHandler, HHEventHandler>
 
 @end

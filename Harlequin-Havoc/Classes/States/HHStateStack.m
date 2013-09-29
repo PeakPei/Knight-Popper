@@ -11,6 +11,9 @@
 #import "HHAction.h"
 #import "HHActionHandler.h"
 #import "HHStateStackHandler.h"
+#import "SKNode+TreeTraversal.h"
+#import "HHEventHandler.h"
+#import "NSMutableArray+QueueAdditions.h"
 
 #pragma mark - Interface
 
@@ -33,6 +36,8 @@ typedef struct PendingStackChange {
  */
 - (void)applyPendingStackChanges;
 
+- (void)handleEventOnStates:(UIEvent*)event;
+
 /**
  * @brief The pending changes to the state stack.
  *
@@ -52,6 +57,10 @@ typedef struct PendingStackChange {
  */
 @property HHTextureManager* textures;
 
+@property CFTimeInterval lastFrameTime;
+
+@property NSMutableArray* eventQueue;
+
 @end
 
 #pragma mark - Implementation
@@ -63,6 +72,8 @@ typedef struct PendingStackChange {
         self.pendingStackChanges = [[NSMutableArray alloc] init];
         self.stateFactories = [[NSMutableDictionary alloc] init];
         self.textures = textureManager;
+        self.lastFrameTime = CFAbsoluteTimeGetCurrent();
+        self.eventQueue = [[NSMutableArray alloc] init];
     }
     return self;
 }
@@ -156,18 +167,42 @@ typedef struct PendingStackChange {
     [self.pendingStackChanges removeAllObjects];
 }
 
+- (void)handleEventOnStates:(UIEvent*)event {
+    BOOL (^handleEvent)(SKNode*) = ^(SKNode* node) {
+        if (![node conformsToProtocol:@protocol(HHEventHandler)]) {
+            [[NSException
+              exceptionWithName:@"ProtocolNotImplementedException"
+              reason:@"The object does not implement the HHStateStackHandler protocol"
+              userInfo:nil] raise];
+        }
+        
+        return [(id)node handleEvent:event];
+    };
+    
+    [self traversePostOrder:handleEvent];
+}
+
 #pragma mark - SKScene
 
 - (void)touchesBegan:(NSSet*)touches withEvent:(UIEvent*)event {
-    // stub
+    for (UITouch* touch in touches) {
+        [self.eventQueue enqueue:touch];
+    }
 }
 
 - (void)update:(CFTimeInterval)currentTime {
+    CFTimeInterval deltaTime = currentTime - lastFrameTime;
+    
+    // Process any events
+    while (![self.eventQueue empty]) {
+        [self handleEventOnStates:[self.eventQueue dequeue]];
+    }
+    
     // Update the states in the state stack
     NSEnumerator* enumerator = [self.children objectEnumerator];
     HHState* child;
     while (child = [enumerator nextObject]) {
-        // stub
+        [child update:deltaTime];
     }
     
     // Apply changes to the state stack
@@ -196,10 +231,18 @@ typedef struct PendingStackChange {
     [(id)node buildState];
 }
 
+#pragma mark - HHEventHandler
+
+- (BOOL)handleEvent:(UIEvent*)event {
+    return NO;
+}
+
 #pragma mark - Properties
 
 @synthesize pendingStackChanges;
 @synthesize stateFactories;
 @synthesize textures;
+@synthesize lastFrameTime;
+@synthesize eventQueue;
 
 @end

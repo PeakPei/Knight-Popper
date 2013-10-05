@@ -8,10 +8,12 @@
  */
 
 #import "HHApplicationViewController.h"
-#import "HHStateStack.h"
-#import "HHTextureManager.h"
 #import "UIApplication+AppDimensions.h"
 #import "HHExampleState.h"
+#import "TextureIDs.h"
+#import "StateIDs.h"
+#import <SpriteStackKit/SSKStateStack.h>
+#import <SpriteStackKit/SSKTextureManager.h>
 
 #pragma mark - Interface
 
@@ -20,7 +22,7 @@
 /**
  * @brief The state stack used to describe the scene.
  */
-@property HHStateStack* stateStack;
+@property SSKStateStack* stateStack;
 
 /**
  * @brief The view associated with the view controller that is used to describe
@@ -32,7 +34,7 @@
  * @brief The texture manager containing the textures used by the states in
  * the state stack.
  */
-@property HHTextureManager* textures;
+@property SSKTextureManager* textures;
 
 @end
 
@@ -47,14 +49,14 @@
     self.stateView = (SKView*)self.view;
     
     // Load textures
-    self.textures = [[HHTextureManager alloc] initWithTextureCount:2];
+    self.textures = [[SSKTextureManager alloc] initWithTextureCount:2];
     [self.textures loadTexture:@"background.png" identifier:TextureIDBackground];
     [self.textures loadTexture:@"blue_monkey_target.png" identifier:TextureIDTarget];
     
     // Register states
     CGSize landscapeSize =
         [UIApplication sizeInOrientation:UIInterfaceOrientationLandscapeLeft];
-    self.stateStack = [[HHStateStack alloc] initWithTextureManager:self.textures
+    self.stateStack = [[SSKStateStack alloc] initWithTextureManager:self.textures
                                                               size:landscapeSize];
     [self.stateStack registerState:[HHExampleState class] stateID:StateIDExample];
     

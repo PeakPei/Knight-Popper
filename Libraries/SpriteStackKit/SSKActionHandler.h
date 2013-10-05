@@ -1,5 +1,5 @@
 /**
- * @filename HHActionHandler.h
+ * @filename SSKActionHandler.h
  * @author Morgan Wall
  * @date 28-9-2013
  *
@@ -11,10 +11,9 @@
  */
 
 #import <Foundation/Foundation.h>
-#import "HHAction.h"
-#import "HHActionCategories.h"
+#import <SpriteStackKit/SSKAction.h>
 
-@protocol HHActionHandler <NSObject>
+@protocol SSKActionHandler <NSObject>
 
 @required
 
@@ -24,13 +23,13 @@
  * @param action
  * The action to be handled.
  */
-- (void)onAction:(HHAction*)action;
+- (void)onAction:(SSKAction*)action;
 
 /**
  * @brief Retrieve the action category of the node.
  *
  * @returns the action category of the node.
  */
-- (ActionCategory)getActionCategory;
+- (unsigned int)getActionCategory;
 
 @end

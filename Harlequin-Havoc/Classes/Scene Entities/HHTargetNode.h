@@ -7,10 +7,10 @@
  * a game state.
  */
 
-#import "HHSpriteNode.h"
-#import "HHTextureManager.h"
+#import <SpriteStackKit/SSKSpriteNode.h>
+#import <SpriteStackKit/SSKTextureManager.h>
 
-@interface HHTargetNode : HHSpriteNode
+@interface HHTargetNode : SSKSpriteNode
 
 /**
  * @brief An enumeration of the types of targets.
@@ -31,6 +31,6 @@ typedef enum type {
  *
  * @returns The initialised target node object.
  */
-- (id)initWithType:(TargetType)targetType textures:(HHTextureManager*)textures;
+- (id)initWithType:(TargetType)targetType textures:(SSKTextureManager*)textures;
 
 @end

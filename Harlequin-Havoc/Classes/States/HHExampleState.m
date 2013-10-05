@@ -7,12 +7,13 @@
 //
 
 #import "HHExampleState.h"
-#import "HHSpriteNode.h"
 #import "HHTargetNode.h"
-
-#import "HHAction.h"
 #import "HHActionCategories.h"
-#import "HHActionQueue.h"
+#import "TextureIDs.h"
+#import <SpriteStackKit/SSKSpriteNode.h>
+#import <SpriteStackKit/SSKAction.h>
+#import <SpriteStackKit/SSKActionQueue.h>
+
 
 #pragma mark - Interface
 
@@ -22,7 +23,7 @@
 
 - (void)addTargetMoveActionToQueue;
 
-@property HHActionQueue* actionQueue;
+@property SSKActionQueue* actionQueue;
 
 @end
 
@@ -30,10 +31,10 @@
 
 @implementation HHExampleState
 
-- (id)initWithStateStack:(HHStateStack *)stateStack
-          textureManager:(HHTextureManager *)textureManager {
+- (id)initWithStateStack:(SSKStateStack *)stateStack
+          textureManager:(SSKTextureManager *)textureManager {
     if (self = [super initWithStateStack:stateStack textureManager:textureManager]) {
-        self.actionQueue = [[HHActionQueue alloc] init];
+        self.actionQueue = [[SSKActionQueue alloc] init];
     }
     return self;
 }
@@ -52,8 +53,8 @@
 }
 
 - (void)buildState {
-    HHSpriteNode* background =
-    [[HHSpriteNode alloc] initWithTexture:[self.textures getTexture:TextureIDBackground]];
+    SSKSpriteNode* background =
+    [[SSKSpriteNode alloc] initWithTexture:[self.textures getTexture:TextureIDBackground]];
     background.position = CGPointZero;
     
     HHTargetNode* target = [[HHTargetNode alloc] initWithType:TargetTypeBlueMonkey
@@ -71,7 +72,7 @@
         NSLog(@"X: %f Y: %f", node.position.x, node.position.y);
     };
     
-    HHAction *action = [[HHAction alloc] initWithCategory:ActionCategoryTarget
+    SSKAction *action = [[SSKAction alloc] initWithCategory:ActionCategoryTarget
                                               actionBlock:garbageAction
                                              timeInterval:0];
     [self.actionQueue push:action];
@@ -79,7 +80,7 @@
 
 - (void)addTargetMoveActionToQueue {
     SKAction *moveAction = [SKAction moveByX:3 y:3 duration:0];
-    HHAction *action = [[HHAction alloc] initWithCategory:ActionCategoryTarget
+    SSKAction *action = [[SSKAction alloc] initWithCategory:ActionCategoryTarget
                                                    action:moveAction];
     [self.actionQueue push:action];
 }

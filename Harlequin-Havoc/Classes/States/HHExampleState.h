@@ -6,8 +6,8 @@
 //  Copyright (c) 2013 QUT. All rights reserved.
 //
 
-#import "HHState.h"
+#import <SpriteStackKit/SSKState.h>
 
-@interface HHExampleState : HHState
+@interface HHExampleState : SSKState
 
 @end

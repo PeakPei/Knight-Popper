@@ -1,5 +1,5 @@
 /**
- * @filename HHStateStack.h
+ * @filename KPStateStack.h
  * @author Morgan Wall
  * @date 26-9-2013
  *
@@ -14,11 +14,10 @@
  */
 
 #import <SpriteKit/SpriteKit.h>
-#import "HHTextureManager.h"
-#include "StateIDs.h"
-#import "HHEventHandler.h"
+#import <SpriteStackKit/SSKTextureManager.h>
+#import <SpriteStackKit/SSKEventHandler.h>
 
-@interface HHStateStack : SKScene <HHEventHandler>
+@interface SSKStateStack : SKScene <SSKEventHandler>
 
 /**
  * @brief An enumeration of the possible operations that can be performed on the
@@ -40,23 +39,23 @@ typedef enum Action {
  * @param size
  * The bounds of the state stack.
  */
-- (id)initWithTextureManager:(HHTextureManager*)textureManager size:(CGSize)size;
+- (id)initWithTextureManager:(SSKTextureManager*)textureManager size:(CGSize)size;
 
 /**
  * @brief Insert a mapping of the unique state identifier to the factory
  * function used to create said state.
  *
  * @param stateClass
- * A subclass of the HHState class for which a factory method will be created
+ * A subclass of the KPState class for which a factory method will be created
  * for.
  *
  * @param stateID
  * The unique state identifier.
  *
  * @throws NSException
- * If ::stateClass is not a subclass of HHState.
+ * If ::stateClass is not a subclass of KPState.
  */
-- (void)registerState:(Class)stateClass stateID:(StateID)stateID;
+- (void)registerState:(Class)stateClass stateID:(unsigned int)stateID;
 
 /**
  * @brief Add an impending change that requests a new state of a particular
@@ -66,7 +65,7 @@ typedef enum Action {
  * @param stateID
  * The unique identifier for the type of state to be pushed onto the stack.
  */
-- (void)pushState:(StateID)stateID;
+- (void)pushState:(unsigned int)stateID;
 
 /**
  * @brief Add an impending change that requests a state to be popped from

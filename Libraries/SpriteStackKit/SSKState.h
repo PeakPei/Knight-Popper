@@ -1,5 +1,5 @@
 /**
- * @filename HHState.h
+ * @filename KPState.h
  * @author Morgan Wall
  * @date 27-9-2013
  *
@@ -9,13 +9,12 @@
  * describing, collectively, the entirety game window.
  */
 
-#import "HHStateStack.h"
-#import "HHTextureManager.h"
-#include "StateIDs.h"
-#import "HHNode.h"
-#import "HHStateStackHandler.h"
+#import <SpriteStackKit/SSKStateStack.h>
+#import <SpriteStackKit/SSKTextureManager.h>
+#import <SpriteStackKit/SSKNode.h>
+#import <SpriteStackKit/SSKStateStackHandler.h>
 
-@interface HHState : HHNode <HHStateStackHandler>
+@interface SSKState : SSKNode <SSKStateStackHandler>
 
 /**
  * @brief Initialise a state for a specific state stack in the game.
@@ -23,14 +22,14 @@
  * @param stack
  * The state stack the state is being added to.
  */
-- (id)initWithStateStack:(HHStateStack*)stateStack
-                textureManager:(HHTextureManager*)textureManager;
+- (id)initWithStateStack:(SSKStateStack*)stateStack
+                textureManager:(SSKTextureManager*)textureManager;
 
 /**
  * @brief Request that a state of a the same type as this state be pushed to
  * the state stack to which this state belongs.
  */
-- (void)requestStackPush:(StateID)stateID;
+- (void)requestStackPush:(unsigned int)stateID;
 
 /**
  * @brief Request that the state of highest priority be popped off the state
@@ -62,6 +61,6 @@
  *
  * @note This should have an encapsulation akin to protected in C++.
  */
-@property HHTextureManager* textures;
+@property SSKTextureManager* textures;
 
 @end

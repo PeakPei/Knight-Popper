@@ -1,5 +1,5 @@
 /**
- * @filename HHNodeRemovalHandler.h
+ * @filename SSKNodeRemovalHandler.h
  * @author Morgan Wall
  * @date 29-9-2013
  *
@@ -11,7 +11,7 @@
 
 #import <Foundation/Foundation.h>
 
-@protocol HHNodeRemovalHandler <NSObject>
+@protocol SSKNodeRemovalHandler <NSObject>
 
 @required
 

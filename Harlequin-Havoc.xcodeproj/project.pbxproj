@@ -7,10 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		9000C15017F6B83E000B5CBA /* NSMutableArray+QueueAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = 9000C14F17F6B83E000B5CBA /* NSMutableArray+QueueAdditions.m */; };
-		9000C15317F6B9F4000B5CBA /* HHAction.m in Sources */ = {isa = PBXBuildFile; fileRef = 9000C15217F6B9F4000B5CBA /* HHAction.m */; };
-		9000C15A17F6D08F000B5CBA /* HHSpriteNode.m in Sources */ = {isa = PBXBuildFile; fileRef = 9000C15917F6D08F000B5CBA /* HHSpriteNode.m */; };
-		9000C15D17F6D39A000B5CBA /* HHTargetNode.m in Sources */ = {isa = PBXBuildFile; fileRef = 9000C15C17F6D39A000B5CBA /* HHTargetNode.m */; };
 		9000C15F17F6D44F000B5CBA /* blue_monkey_target~ipad.png in Resources */ = {isa = PBXBuildFile; fileRef = 9000C15E17F6D44F000B5CBA /* blue_monkey_target~ipad.png */; };
 		9000C16117F6D456000B5CBA /* blue_monkey_target@2x~ipad.png in Resources */ = {isa = PBXBuildFile; fileRef = 9000C16017F6D456000B5CBA /* blue_monkey_target@2x~ipad.png */; };
 		9027C4D217F2B30B0056EFA4 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9027C4D117F2B30B0056EFA4 /* Foundation.framework */; };
@@ -24,21 +20,16 @@
 		9027C52117F2B4800056EFA4 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 9027C51E17F2B4800056EFA4 /* Images.xcassets */; };
 		9027C53317F2B9740056EFA4 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 9027C53217F2B9740056EFA4 /* main.m */; };
 		9027C55C17F2B97D0056EFA4 /* HHAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 9027C53F17F2B97D0056EFA4 /* HHAppDelegate.m */; };
-		9027C55D17F2B97D0056EFA4 /* HHTextureManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 9027C54217F2B97D0056EFA4 /* HHTextureManager.m */; };
-		9027C56417F2B97D0056EFA4 /* Random.m in Sources */ = {isa = PBXBuildFile; fileRef = 9027C55517F2B97D0056EFA4 /* Random.m */; };
-		9027C56517F2B97D0056EFA4 /* UIApplication+AppDimensions.m in Sources */ = {isa = PBXBuildFile; fileRef = 9027C55717F2B97D0056EFA4 /* UIApplication+AppDimensions.m */; };
 		9027C56717F2BA710056EFA4 /* background~ipad.png in Resources */ = {isa = PBXBuildFile; fileRef = 9027C56617F2BA710056EFA4 /* background~ipad.png */; };
 		9027C56917F2BA7B0056EFA4 /* background@2x~ipad.png in Resources */ = {isa = PBXBuildFile; fileRef = 9027C56817F2BA7B0056EFA4 /* background@2x~ipad.png */; };
 		9027C56A17F2BAD70056EFA4 /* Main_iPad.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9027C52317F2B4DB0056EFA4 /* Main_iPad.storyboard */; };
 		9027C56B17F2BAD70056EFA4 /* Main_iPhone.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9027C52517F2B4DB0056EFA4 /* Main_iPhone.storyboard */; };
-		905BF49C17F4675F00871C75 /* HHStateStack.m in Sources */ = {isa = PBXBuildFile; fileRef = 905BF49B17F4675F00871C75 /* HHStateStack.m */; };
-		908076C117F6F3CE00617DF0 /* HHNode.m in Sources */ = {isa = PBXBuildFile; fileRef = 908076C017F6F3CE00617DF0 /* HHNode.m */; };
-		90E0F07017F7B5840053603C /* SKNode+TreeTraversal.m in Sources */ = {isa = PBXBuildFile; fileRef = 90E0F06F17F7B5840053603C /* SKNode+TreeTraversal.m */; };
+		907B5B8F17FF017000DC6210 /* HHActionCategories.m in Sources */ = {isa = PBXBuildFile; fileRef = 907B5B8D17FF017000DC6210 /* HHActionCategories.m */; };
+		907B5B9417FF01AB00DC6210 /* HHExampleState.m in Sources */ = {isa = PBXBuildFile; fileRef = 907B5B9217FF01AB00DC6210 /* HHExampleState.m */; };
+		90A6650A17FFA92E00943611 /* UIApplication+AppDimensions.m in Sources */ = {isa = PBXBuildFile; fileRef = 90A6650917FFA92E00943611 /* UIApplication+AppDimensions.m */; };
+		90A6651117FFA9FC00943611 /* HHTargetNode.m in Sources */ = {isa = PBXBuildFile; fileRef = 90A6651017FFA9FC00943611 /* HHTargetNode.m */; };
 		90E0F07717F7F56C0053603C /* HHApplicationViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 90E0F07617F7F56C0053603C /* HHApplicationViewController.m */; };
-		90E0F07C17F7F5E70053603C /* HHExampleState.m in Sources */ = {isa = PBXBuildFile; fileRef = 90E0F07A17F7F5E70053603C /* HHExampleState.m */; };
-		90F3DB8417F5BD670002EC60 /* HHState.m in Sources */ = {isa = PBXBuildFile; fileRef = 90F3DB8317F5BD670002EC60 /* HHState.m */; };
-		90FBBE4B17F651F4005EAB66 /* HHActionCategories.m in Sources */ = {isa = PBXBuildFile; fileRef = 90FBBE4A17F651F4005EAB66 /* HHActionCategories.m */; };
-		90FBBE4E17F6520B005EAB66 /* HHActionQueue.m in Sources */ = {isa = PBXBuildFile; fileRef = 90FBBE4D17F6520B005EAB66 /* HHActionQueue.m */; };
+		90F1F1A617FFA68C00FBC986 /* libSpriteStackKit.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 90F1F1A517FFA68C00FBC986 /* libSpriteStackKit.a */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -52,15 +43,6 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		9000C14E17F6B83E000B5CBA /* NSMutableArray+QueueAdditions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSMutableArray+QueueAdditions.h"; sourceTree = "<group>"; };
-		9000C14F17F6B83E000B5CBA /* NSMutableArray+QueueAdditions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSMutableArray+QueueAdditions.m"; sourceTree = "<group>"; };
-		9000C15117F6B9F4000B5CBA /* HHAction.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HHAction.h; sourceTree = "<group>"; };
-		9000C15217F6B9F4000B5CBA /* HHAction.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HHAction.m; sourceTree = "<group>"; };
-		9000C15517F6CFB0000B5CBA /* HHActionHandler.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = HHActionHandler.h; sourceTree = "<group>"; };
-		9000C15817F6D08F000B5CBA /* HHSpriteNode.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HHSpriteNode.h; sourceTree = "<group>"; };
-		9000C15917F6D08F000B5CBA /* HHSpriteNode.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HHSpriteNode.m; sourceTree = "<group>"; };
-		9000C15B17F6D39A000B5CBA /* HHTargetNode.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HHTargetNode.h; sourceTree = "<group>"; };
-		9000C15C17F6D39A000B5CBA /* HHTargetNode.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HHTargetNode.m; sourceTree = "<group>"; };
 		9000C15E17F6D44F000B5CBA /* blue_monkey_target~ipad.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "blue_monkey_target~ipad.png"; sourceTree = "<group>"; };
 		9000C16017F6D456000B5CBA /* blue_monkey_target@2x~ipad.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "blue_monkey_target@2x~ipad.png"; sourceTree = "<group>"; };
 		9027C4CE17F2B30B0056EFA4 /* Harlequin-Havoc.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Harlequin-Havoc.app"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -82,35 +64,21 @@
 		9027C53217F2B9740056EFA4 /* main.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		9027C53E17F2B97D0056EFA4 /* HHAppDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HHAppDelegate.h; sourceTree = "<group>"; };
 		9027C53F17F2B97D0056EFA4 /* HHAppDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HHAppDelegate.m; sourceTree = "<group>"; };
-		9027C54117F2B97D0056EFA4 /* HHTextureManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HHTextureManager.h; sourceTree = "<group>"; };
-		9027C54217F2B97D0056EFA4 /* HHTextureManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HHTextureManager.m; sourceTree = "<group>"; };
-		9027C54317F2B97D0056EFA4 /* TextureIDs.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TextureIDs.h; sourceTree = "<group>"; };
-		9027C55417F2B97D0056EFA4 /* Random.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Random.h; sourceTree = "<group>"; };
-		9027C55517F2B97D0056EFA4 /* Random.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Random.m; sourceTree = "<group>"; };
-		9027C55617F2B97D0056EFA4 /* UIApplication+AppDimensions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIApplication+AppDimensions.h"; sourceTree = "<group>"; };
-		9027C55717F2B97D0056EFA4 /* UIApplication+AppDimensions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIApplication+AppDimensions.m"; sourceTree = "<group>"; };
 		9027C56617F2BA710056EFA4 /* background~ipad.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "background~ipad.png"; sourceTree = "<group>"; };
 		9027C56817F2BA7B0056EFA4 /* background@2x~ipad.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "background@2x~ipad.png"; sourceTree = "<group>"; };
-		905BF49A17F4675F00871C75 /* HHStateStack.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HHStateStack.h; sourceTree = "<group>"; };
-		905BF49B17F4675F00871C75 /* HHStateStack.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HHStateStack.m; sourceTree = "<group>"; };
-		908076BF17F6F3CE00617DF0 /* HHNode.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HHNode.h; sourceTree = "<group>"; };
-		908076C017F6F3CE00617DF0 /* HHNode.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HHNode.m; sourceTree = "<group>"; };
-		90E0F06A17F7902D0053603C /* HHStateStackHandler.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = HHStateStackHandler.h; sourceTree = "<group>"; };
-		90E0F06E17F7B5840053603C /* SKNode+TreeTraversal.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "SKNode+TreeTraversal.h"; sourceTree = "<group>"; };
-		90E0F06F17F7B5840053603C /* SKNode+TreeTraversal.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "SKNode+TreeTraversal.m"; sourceTree = "<group>"; };
-		90E0F07117F7BBEF0053603C /* HHEventHandler.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = HHEventHandler.h; sourceTree = "<group>"; };
-		90E0F07417F7DE190053603C /* HHNodeRemovalHandler.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = HHNodeRemovalHandler.h; sourceTree = "<group>"; };
+		907B5B8C17FF017000DC6210 /* HHActionCategories.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HHActionCategories.h; sourceTree = "<group>"; };
+		907B5B8D17FF017000DC6210 /* HHActionCategories.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HHActionCategories.m; sourceTree = "<group>"; };
+		907B5B8E17FF017000DC6210 /* TextureIDs.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TextureIDs.h; sourceTree = "<group>"; };
+		907B5B9117FF01AB00DC6210 /* HHExampleState.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HHExampleState.h; sourceTree = "<group>"; };
+		907B5B9217FF01AB00DC6210 /* HHExampleState.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HHExampleState.m; sourceTree = "<group>"; };
+		907B5B9317FF01AB00DC6210 /* StateIDs.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = StateIDs.h; sourceTree = "<group>"; };
+		90A6650817FFA92E00943611 /* UIApplication+AppDimensions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIApplication+AppDimensions.h"; sourceTree = "<group>"; };
+		90A6650917FFA92E00943611 /* UIApplication+AppDimensions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIApplication+AppDimensions.m"; sourceTree = "<group>"; };
+		90A6650F17FFA9FC00943611 /* HHTargetNode.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HHTargetNode.h; sourceTree = "<group>"; };
+		90A6651017FFA9FC00943611 /* HHTargetNode.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HHTargetNode.m; sourceTree = "<group>"; };
 		90E0F07517F7F56C0053603C /* HHApplicationViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HHApplicationViewController.h; sourceTree = "<group>"; };
 		90E0F07617F7F56C0053603C /* HHApplicationViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HHApplicationViewController.m; sourceTree = "<group>"; };
-		90E0F07917F7F5E70053603C /* HHExampleState.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HHExampleState.h; sourceTree = "<group>"; };
-		90E0F07A17F7F5E70053603C /* HHExampleState.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HHExampleState.m; sourceTree = "<group>"; };
-		90E0F07B17F7F5E70053603C /* StateIDs.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = StateIDs.h; sourceTree = "<group>"; };
-		90F3DB8217F5BD670002EC60 /* HHState.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HHState.h; sourceTree = "<group>"; };
-		90F3DB8317F5BD670002EC60 /* HHState.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HHState.m; sourceTree = "<group>"; };
-		90FBBE4917F651F4005EAB66 /* HHActionCategories.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HHActionCategories.h; sourceTree = "<group>"; };
-		90FBBE4A17F651F4005EAB66 /* HHActionCategories.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HHActionCategories.m; sourceTree = "<group>"; };
-		90FBBE4C17F6520B005EAB66 /* HHActionQueue.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HHActionQueue.h; sourceTree = "<group>"; };
-		90FBBE4D17F6520B005EAB66 /* HHActionQueue.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HHActionQueue.m; sourceTree = "<group>"; };
+		90F1F1A517FFA68C00FBC986 /* libSpriteStackKit.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libSpriteStackKit.a; path = Libraries/SpriteStackKit/libSpriteStackKit.a; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -118,6 +86,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				90F1F1A617FFA68C00FBC986 /* libSpriteStackKit.a in Frameworks */,
 				9027C4D417F2B30B0056EFA4 /* CoreGraphics.framework in Frameworks */,
 				9027C4D617F2B30B0056EFA4 /* UIKit.framework in Frameworks */,
 				9027C4D817F2B30B0056EFA4 /* SpriteKit.framework in Frameworks */,
@@ -138,28 +107,6 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		9000C15617F6D06A000B5CBA /* Scene Entities */ = {
-			isa = PBXGroup;
-			children = (
-				9000C15B17F6D39A000B5CBA /* HHTargetNode.h */,
-				9000C15C17F6D39A000B5CBA /* HHTargetNode.m */,
-				9000C15717F6D06A000B5CBA /* Base Entities */,
-			);
-			path = "Scene Entities";
-			sourceTree = "<group>";
-		};
-		9000C15717F6D06A000B5CBA /* Base Entities */ = {
-			isa = PBXGroup;
-			children = (
-				908076BF17F6F3CE00617DF0 /* HHNode.h */,
-				908076C017F6F3CE00617DF0 /* HHNode.m */,
-				9000C15817F6D08F000B5CBA /* HHSpriteNode.h */,
-				9000C15917F6D08F000B5CBA /* HHSpriteNode.m */,
-				90E0F07417F7DE190053603C /* HHNodeRemovalHandler.h */,
-			);
-			path = "Base Entities";
-			sourceTree = "<group>";
-		};
 		9027C4C517F2B30B0056EFA4 = {
 			isa = PBXGroup;
 			children = (
@@ -182,6 +129,7 @@
 		9027C4D017F2B30B0056EFA4 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				90F1F1A517FFA68C00FBC986 /* libSpriteStackKit.a */,
 				9027C4D117F2B30B0056EFA4 /* Foundation.framework */,
 				9027C4D317F2B30B0056EFA4 /* CoreGraphics.framework */,
 				9027C4D517F2B30B0056EFA4 /* UIKit.framework */,
@@ -323,76 +271,42 @@
 				9027C53F17F2B97D0056EFA4 /* HHAppDelegate.m */,
 				90E0F07517F7F56C0053603C /* HHApplicationViewController.h */,
 				90E0F07617F7F56C0053603C /* HHApplicationViewController.m */,
-				90FBBE4817F651BF005EAB66 /* Actions */,
-				9027C54017F2B97D0056EFA4 /* Model */,
-				9000C15617F6D06A000B5CBA /* Scene Entities */,
-				9027C54417F2B97D0056EFA4 /* States */,
-				9027C55317F2B97D0056EFA4 /* Utilities */,
+				907B5B8C17FF017000DC6210 /* HHActionCategories.h */,
+				907B5B8D17FF017000DC6210 /* HHActionCategories.m */,
+				907B5B8E17FF017000DC6210 /* TextureIDs.h */,
+				90A6650B17FFA9BB00943611 /* Scene Entities */,
+				907B5B9017FF01AB00DC6210 /* States */,
+				90A6650717FFA92E00943611 /* Utilities */,
 			);
 			path = Classes;
 			sourceTree = "<group>";
 		};
-		9027C54017F2B97D0056EFA4 /* Model */ = {
+		907B5B9017FF01AB00DC6210 /* States */ = {
 			isa = PBXGroup;
 			children = (
-				9027C54117F2B97D0056EFA4 /* HHTextureManager.h */,
-				9027C54217F2B97D0056EFA4 /* HHTextureManager.m */,
-				9027C54317F2B97D0056EFA4 /* TextureIDs.h */,
-			);
-			path = Model;
-			sourceTree = "<group>";
-		};
-		9027C54417F2B97D0056EFA4 /* States */ = {
-			isa = PBXGroup;
-			children = (
-				90E0F07117F7BBEF0053603C /* HHEventHandler.h */,
-				90F3DB8217F5BD670002EC60 /* HHState.h */,
-				90F3DB8317F5BD670002EC60 /* HHState.m */,
-				905BF49A17F4675F00871C75 /* HHStateStack.h */,
-				905BF49B17F4675F00871C75 /* HHStateStack.m */,
-				90E0F06A17F7902D0053603C /* HHStateStackHandler.h */,
-				90E0F07817F7F5E70053603C /* Game States */,
+				907B5B9117FF01AB00DC6210 /* HHExampleState.h */,
+				907B5B9217FF01AB00DC6210 /* HHExampleState.m */,
+				907B5B9317FF01AB00DC6210 /* StateIDs.h */,
 			);
 			path = States;
 			sourceTree = "<group>";
 		};
-		9027C55317F2B97D0056EFA4 /* Utilities */ = {
+		90A6650717FFA92E00943611 /* Utilities */ = {
 			isa = PBXGroup;
 			children = (
-				9000C14E17F6B83E000B5CBA /* NSMutableArray+QueueAdditions.h */,
-				9000C14F17F6B83E000B5CBA /* NSMutableArray+QueueAdditions.m */,
-				9027C55417F2B97D0056EFA4 /* Random.h */,
-				9027C55517F2B97D0056EFA4 /* Random.m */,
-				90E0F06E17F7B5840053603C /* SKNode+TreeTraversal.h */,
-				90E0F06F17F7B5840053603C /* SKNode+TreeTraversal.m */,
-				9027C55617F2B97D0056EFA4 /* UIApplication+AppDimensions.h */,
-				9027C55717F2B97D0056EFA4 /* UIApplication+AppDimensions.m */,
+				90A6650817FFA92E00943611 /* UIApplication+AppDimensions.h */,
+				90A6650917FFA92E00943611 /* UIApplication+AppDimensions.m */,
 			);
 			path = Utilities;
 			sourceTree = "<group>";
 		};
-		90E0F07817F7F5E70053603C /* Game States */ = {
+		90A6650B17FFA9BB00943611 /* Scene Entities */ = {
 			isa = PBXGroup;
 			children = (
-				90E0F07917F7F5E70053603C /* HHExampleState.h */,
-				90E0F07A17F7F5E70053603C /* HHExampleState.m */,
-				90E0F07B17F7F5E70053603C /* StateIDs.h */,
+				90A6650F17FFA9FC00943611 /* HHTargetNode.h */,
+				90A6651017FFA9FC00943611 /* HHTargetNode.m */,
 			);
-			path = "Game States";
-			sourceTree = "<group>";
-		};
-		90FBBE4817F651BF005EAB66 /* Actions */ = {
-			isa = PBXGroup;
-			children = (
-				9000C15117F6B9F4000B5CBA /* HHAction.h */,
-				9000C15217F6B9F4000B5CBA /* HHAction.m */,
-				90FBBE4917F651F4005EAB66 /* HHActionCategories.h */,
-				90FBBE4A17F651F4005EAB66 /* HHActionCategories.m */,
-				90FBBE4C17F6520B005EAB66 /* HHActionQueue.h */,
-				90FBBE4D17F6520B005EAB66 /* HHActionQueue.m */,
-				9000C15517F6CFB0000B5CBA /* HHActionHandler.h */,
-			);
-			path = Actions;
+			path = "Scene Entities";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -497,23 +411,13 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				90E0F07C17F7F5E70053603C /* HHExampleState.m in Sources */,
-				90F3DB8417F5BD670002EC60 /* HHState.m in Sources */,
 				9027C55C17F2B97D0056EFA4 /* HHAppDelegate.m in Sources */,
-				9000C15317F6B9F4000B5CBA /* HHAction.m in Sources */,
-				9027C55D17F2B97D0056EFA4 /* HHTextureManager.m in Sources */,
-				9000C15D17F6D39A000B5CBA /* HHTargetNode.m in Sources */,
+				90A6650A17FFA92E00943611 /* UIApplication+AppDimensions.m in Sources */,
+				907B5B9417FF01AB00DC6210 /* HHExampleState.m in Sources */,
 				90E0F07717F7F56C0053603C /* HHApplicationViewController.m in Sources */,
-				9000C15A17F6D08F000B5CBA /* HHSpriteNode.m in Sources */,
-				905BF49C17F4675F00871C75 /* HHStateStack.m in Sources */,
-				9027C56417F2B97D0056EFA4 /* Random.m in Sources */,
-				90FBBE4E17F6520B005EAB66 /* HHActionQueue.m in Sources */,
 				9027C53317F2B9740056EFA4 /* main.m in Sources */,
-				9027C56517F2B97D0056EFA4 /* UIApplication+AppDimensions.m in Sources */,
-				90FBBE4B17F651F4005EAB66 /* HHActionCategories.m in Sources */,
-				90E0F07017F7B5840053603C /* SKNode+TreeTraversal.m in Sources */,
-				908076C117F6F3CE00617DF0 /* HHNode.m in Sources */,
-				9000C15017F6B83E000B5CBA /* NSMutableArray+QueueAdditions.m in Sources */,
+				90A6651117FFA9FC00943611 /* HHTargetNode.m in Sources */,
+				907B5B8F17FF017000DC6210 /* HHActionCategories.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -603,6 +507,11 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
+				HEADER_SEARCH_PATHS = (
+					"$(inherited)",
+					/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include,
+					$SOURCE_ROOT/Libraries,
+				);
 				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = iphoneos;
@@ -637,6 +546,11 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
+				HEADER_SEARCH_PATHS = (
+					"$(inherited)",
+					/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include,
+					$SOURCE_ROOT/Libraries,
+				);
 				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				SDKROOT = iphoneos;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -651,7 +565,13 @@
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "Harlequin-Havoc/Supporting Files/Harlequin-Havoc-Prefix.pch";
+				HEADER_SEARCH_PATHS = $SOURCE_ROOT/Libraries;
 				INFOPLIST_FILE = "Harlequin-Havoc/Supporting Files/Harlequin-Havoc-Info.plist";
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"/Users/Morgan/Desktop/Harlequin-Havoc/Libraries/SpriteStackKit",
+				);
+				OTHER_LDFLAGS = "-ObjC";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SPRITEKIT_TEXTURE_ATLAS_OUTPUT = YES;
 				WRAPPER_EXTENSION = app;
@@ -665,7 +585,13 @@
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "Harlequin-Havoc/Supporting Files/Harlequin-Havoc-Prefix.pch";
+				HEADER_SEARCH_PATHS = $SOURCE_ROOT/Libraries;
 				INFOPLIST_FILE = "Harlequin-Havoc/Supporting Files/Harlequin-Havoc-Info.plist";
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"/Users/Morgan/Desktop/Harlequin-Havoc/Libraries/SpriteStackKit",
+				);
+				OTHER_LDFLAGS = "-ObjC";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SPRITEKIT_TEXTURE_ATLAS_OUTPUT = YES;
 				WRAPPER_EXTENSION = app;

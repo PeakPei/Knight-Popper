@@ -7,6 +7,7 @@
  */
 
 #import "HHTargetNode.h"
+#import "TextureIDs.h"
 #import "HHActionCategories.h"
 
 #pragma mark - Interface
@@ -14,7 +15,7 @@
 @interface HHTargetNode ()
 
 /**
- * @brief Retrieve the unique texture identifier associated with a specific 
+ * @brief Retrieve the unique texture identifier associated with a specific
  * target type.
  *
  * @param targetType
@@ -35,7 +36,7 @@
 
 @implementation HHTargetNode
 
-- (id)initWithType:(TargetType)targetType textures:(HHTextureManager*)textures {
+- (id)initWithType:(TargetType)targetType textures:(SSKTextureManager*)textures {
     TextureID identifier = [HHTargetNode textureIDForType:targetType];
     SKTexture* texture = [textures getTexture:identifier];
     
@@ -64,9 +65,9 @@
     return identifier;
 }
 
-#pragma mark HHSpriteNode
+#pragma mark SSKSpriteNode
 
-- (ActionCategory)getActionCategory {    
+- (unsigned int)getActionCategory {
     return ActionCategoryTarget;
 }
 

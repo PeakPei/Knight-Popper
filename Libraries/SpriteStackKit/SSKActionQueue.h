@@ -1,5 +1,5 @@
 /**
- * @filename HHActionQueue.h
+ * @filename KPActionQueue.h
  * @author Morgan Wall
  * @date 28-9-2013
  *
@@ -7,9 +7,9 @@
  */
 
 #import <Foundation/Foundation.h>
-#include "HHAction.h"
+#include <SpriteStackKit/SSKAction.h>
 
-@interface HHActionQueue : NSObject
+@interface SSKActionQueue : NSObject
 
 /**
  * @brief Insert an action into the queue.
@@ -17,14 +17,14 @@
  * @param action
  * The action to be inserted.
  */
-- (void)push:(HHAction*)action;
+- (void)push:(SSKAction*)action;
 
 /**
  * @brief Retrieve an action from the front of the queue.
  *
  * @returns The action at the front of the queue.
  */
-- (HHAction*)pop;
+- (SSKAction*)pop;
 
 /**
  * @brief Check if the queue contains any actions.

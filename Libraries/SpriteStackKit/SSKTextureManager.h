@@ -1,5 +1,5 @@
 /**
- * @filename HHTextureManager.h
+ * @filename KPTextureManager.h
  * @author Morgan Wall
  * @date 23-8-2013
  *
@@ -13,9 +13,8 @@
 
 #import <Foundation/Foundation.h>
 #import <SpriteKit/SpriteKit.h>
-#import "TextureIDs.h"
 
-@interface HHTextureManager : NSObject
+@interface SSKTextureManager : NSObject
 
 /**
  * @brief Initialise a texture manager with a pre-allocated size.
@@ -26,7 +25,7 @@
  * @note Any natural number can be specified for ::count. Ideally, however,
  * a slight performance gain can be made be specifying an appropriate value.
  */
-- (id)initWithTextureCount:(TextureID)count;
+- (id)initWithTextureCount:(unsigned int)count;
 
 /**
  * @brief Retrieve a texture resource.
@@ -39,7 +38,7 @@
  *
  * @returns The resource specified by ::identifier.
  */
-- (SKTexture*)getTexture:(TextureID)identifier;
+- (SKTexture*)getTexture:(unsigned int)identifier;
 
 /**
  * @brief Load a resource into the manager.
@@ -53,6 +52,6 @@
  * @throws NSException
  * If a texture is already manager with ::identifier as a unique id.
  */
-- (void)loadTexture:(NSString*)textureName identifier:(TextureID)identifier;
+- (void)loadTexture:(NSString*)textureName identifier:(unsigned int)identifier;
 
 @end

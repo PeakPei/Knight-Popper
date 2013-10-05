@@ -28,6 +28,7 @@
 		907B5B9417FF01AB00DC6210 /* HHExampleState.m in Sources */ = {isa = PBXBuildFile; fileRef = 907B5B9217FF01AB00DC6210 /* HHExampleState.m */; };
 		90A6650A17FFA92E00943611 /* UIApplication+AppDimensions.m in Sources */ = {isa = PBXBuildFile; fileRef = 90A6650917FFA92E00943611 /* UIApplication+AppDimensions.m */; };
 		90A6651117FFA9FC00943611 /* HHTargetNode.m in Sources */ = {isa = PBXBuildFile; fileRef = 90A6651017FFA9FC00943611 /* HHTargetNode.m */; };
+		90A6652F17FFB11800943611 /* Random.m in Sources */ = {isa = PBXBuildFile; fileRef = 90A6652E17FFB11800943611 /* Random.m */; };
 		90E0F07717F7F56C0053603C /* HHApplicationViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 90E0F07617F7F56C0053603C /* HHApplicationViewController.m */; };
 		90F1F1A617FFA68C00FBC986 /* libSpriteStackKit.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 90F1F1A517FFA68C00FBC986 /* libSpriteStackKit.a */; };
 /* End PBXBuildFile section */
@@ -76,6 +77,8 @@
 		90A6650917FFA92E00943611 /* UIApplication+AppDimensions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIApplication+AppDimensions.m"; sourceTree = "<group>"; };
 		90A6650F17FFA9FC00943611 /* HHTargetNode.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HHTargetNode.h; sourceTree = "<group>"; };
 		90A6651017FFA9FC00943611 /* HHTargetNode.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HHTargetNode.m; sourceTree = "<group>"; };
+		90A6652D17FFB11800943611 /* Random.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Random.h; sourceTree = "<group>"; };
+		90A6652E17FFB11800943611 /* Random.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Random.m; sourceTree = "<group>"; };
 		90E0F07517F7F56C0053603C /* HHApplicationViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HHApplicationViewController.h; sourceTree = "<group>"; };
 		90E0F07617F7F56C0053603C /* HHApplicationViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HHApplicationViewController.m; sourceTree = "<group>"; };
 		90F1F1A517FFA68C00FBC986 /* libSpriteStackKit.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libSpriteStackKit.a; path = Libraries/SpriteStackKit/libSpriteStackKit.a; sourceTree = "<group>"; };
@@ -294,6 +297,8 @@
 		90A6650717FFA92E00943611 /* Utilities */ = {
 			isa = PBXGroup;
 			children = (
+				90A6652D17FFB11800943611 /* Random.h */,
+				90A6652E17FFB11800943611 /* Random.m */,
 				90A6650817FFA92E00943611 /* UIApplication+AppDimensions.h */,
 				90A6650917FFA92E00943611 /* UIApplication+AppDimensions.m */,
 			);
@@ -415,6 +420,7 @@
 				90A6650A17FFA92E00943611 /* UIApplication+AppDimensions.m in Sources */,
 				907B5B9417FF01AB00DC6210 /* HHExampleState.m in Sources */,
 				90E0F07717F7F56C0053603C /* HHApplicationViewController.m in Sources */,
+				90A6652F17FFB11800943611 /* Random.m in Sources */,
 				9027C53317F2B9740056EFA4 /* main.m in Sources */,
 				90A6651117FFA9FC00943611 /* HHTargetNode.m in Sources */,
 				907B5B8F17FF017000DC6210 /* HHActionCategories.m in Sources */,

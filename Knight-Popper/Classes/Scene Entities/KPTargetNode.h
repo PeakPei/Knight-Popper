@@ -7,10 +7,10 @@
  * a game state.
  */
 
-#import <SpriteStackKit/SSKSpriteNode.h>
+#import "KPSpriteNode.h"
 #import <SpriteStackKit/SSKTextureManager.h>
 
-@interface KPTargetNode : SSKSpriteNode
+@interface KPTargetNode : KPSpriteNode
 
 /**
  * @brief An enumeration of the types of targets.

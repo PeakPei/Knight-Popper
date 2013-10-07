@@ -1,23 +1,29 @@
-//
-//  HHExampleState.m
-//  Knight-Popper
-//
-//  Created by Morgan on 28/09/13.
-//  Copyright (c) 2013 QUT. All rights reserved.
-//
+/**
+ * @filename KPStandardGameState.m
+ * @author Morgan Wall
+ * @date 5-10-2013
+ */
 
-#import "KPExampleState.h"
+#import "KPStandardGameState.h"
 #import "KPTargetNode.h"
 #import "KPActionCategories.h"
 #import "TextureIDs.h"
-#import <SpriteStackKit/SSKSpriteNode.h>
+#import "KPSpriteNode.h"
 #import <SpriteStackKit/SSKAction.h>
 #import <SpriteStackKit/SSKActionQueue.h>
 
-
 #pragma mark - Interface
 
-@interface KPExampleState ()
+@interface KPStandardGameState ()
+
+typedef enum layers {
+    LayerIDBackground = 0,
+    LayerIDHUD,
+    LayerIDPlayers,
+    LayerIDScenery,
+    LayerIDTargets,
+    LayerIDProjectiles
+} LayerID;
 
 - (void)addPositionDisplayActionToQueue;
 
@@ -25,16 +31,19 @@
 
 @property SSKActionQueue* actionQueue;
 
+@property NSMutableDictionary* sceneLayers;
+
 @end
 
 #pragma mark - Implementation
 
-@implementation KPExampleState
+@implementation KPStandardGameState
 
 - (id)initWithStateStack:(SSKStateStack *)stateStack
           textureManager:(SSKTextureManager *)textureManager {
     if (self = [super initWithStateStack:stateStack textureManager:textureManager]) {
         self.actionQueue = [[SSKActionQueue alloc] init];
+        self.sceneLayers = [[NSMutableDictionary alloc] init];
     }
     return self;
 }
@@ -53,15 +62,35 @@
 }
 
 - (void)buildState {
-    SSKSpriteNode* background =
-    [[SSKSpriteNode alloc] initWithTexture:[self.textures getTexture:TextureIDBackground]];
+    KPSpriteNode* background = [[KPSpriteNode alloc] initWithTexture:
+                                 [self.textures getTexture:TextureIDBackground]];
     background.position = CGPointZero;
+    
+    KPSpriteNode* leftGrassTuft = [[KPSpriteNode alloc] initWithTexture:
+                                    [self.textures getTexture:TextureIDGrassTuftLeft]];
+    leftGrassTuft.position = CGPointMake(-50, -50);
+    
+    KPSpriteNode* rightGrassTuft = [[KPSpriteNode alloc] initWithTexture:
+                                     [self.textures getTexture:TextureIDGrassTuftRight]];
+    rightGrassTuft.position = CGPointMake(50, -50);
+    
+    KPSpriteNode* pinkMonkeyHUD = [[KPSpriteNode alloc] initWithTexture:
+                                    [self.textures getTexture:TextureIDPinkMonkeyHUD]];
+    pinkMonkeyHUD.position = CGPointMake(300, 300);
+    
+    KPSpriteNode* blueMonkeyHUD = [[KPSpriteNode alloc] initWithTexture:
+                                    [self.textures getTexture:TextureIDBlueMonkeyHUD]];
+    blueMonkeyHUD.position = CGPointMake(-300, 300);
     
     KPTargetNode* target = [[KPTargetNode alloc] initWithType:TargetTypeBlueMonkey
                                                      textures:self.textures];
     target.position = CGPointZero;
     
     [self addChild:background];
+    [self addChild:pinkMonkeyHUD];
+    [self addChild:blueMonkeyHUD];
+    [self addChild:leftGrassTuft];
+    [self addChild:rightGrassTuft];
     [self addChild:target];
 }
 
@@ -88,5 +117,6 @@
 #pragma mark - Properties
 
 @synthesize actionQueue;
+@synthesize sceneLayers;
 
 @end

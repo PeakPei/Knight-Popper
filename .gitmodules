@@ -1,0 +1,3 @@
+[submodule "Libraries/Sprite-Stack-Kit"]
+	path = Libraries/Sprite-Stack-Kit
+	url = git@github.com:mwall1992/Sprite-Stack-Kit.git

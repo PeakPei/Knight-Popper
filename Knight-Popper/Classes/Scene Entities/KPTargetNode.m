@@ -54,11 +54,11 @@
     
     switch (type) {
         case TargetTypeBlueMonkey:
-            identifier = TextureIDTarget;
+            identifier = TextureIDBlueMonkeyTarget;
             break;
             
         case TargetTypePinkMonkey:
-            identifier = TextureIDTarget;
+            identifier = TextureIDPinkMonkeyTarget;
             break;
     }
     

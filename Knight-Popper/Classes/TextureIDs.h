@@ -12,7 +12,12 @@
 typedef enum ID {
     TextureIDNone = 0,
     TextureIDBackground,
-    TextureIDTarget
+    TextureIDBlueMonkeyHUD,
+    TextureIDPinkMonkeyHUD,
+    TextureIDBlueMonkeyTarget,
+    TextureIDPinkMonkeyTarget,
+    TextureIDGrassTuftLeft,
+    TextureIDGrassTuftRight
 } TextureID;
 
 #endif

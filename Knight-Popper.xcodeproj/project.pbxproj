@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		9008CB371808E928003FB55C /* libSpriteStackKit.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 9008CB321808E8A3003FB55C /* libSpriteStackKit.a */; };
 		9027C4D217F2B30B0056EFA4 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9027C4D117F2B30B0056EFA4 /* Foundation.framework */; };
 		9027C4D417F2B30B0056EFA4 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9027C4D317F2B30B0056EFA4 /* CoreGraphics.framework */; };
 		9027C4D617F2B30B0056EFA4 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9027C4D517F2B30B0056EFA4 /* UIKit.framework */; };
@@ -60,7 +61,6 @@
 		904BDC791808D60D003E7499 /* player_two_attack~iphone.png in Resources */ = {isa = PBXBuildFile; fileRef = 904BDC6A1808D60D003E7499 /* player_two_attack~iphone.png */; };
 		904BDC7A1808D60D003E7499 /* player_two_idle~iphone.png in Resources */ = {isa = PBXBuildFile; fileRef = 904BDC6B1808D60D003E7499 /* player_two_idle~iphone.png */; };
 		904BDC7B1808D60D003E7499 /* times_up~iphone.png in Resources */ = {isa = PBXBuildFile; fileRef = 904BDC6C1808D60D003E7499 /* times_up~iphone.png */; };
-		906DFD2F1802DA1E00677873 /* libSpriteStackKit.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 9028B16B1802D9B00007F488 /* libSpriteStackKit.a */; };
 		906DFD321802DA7800677873 /* KPSpriteNode.m in Sources */ = {isa = PBXBuildFile; fileRef = 906DFD311802DA7800677873 /* KPSpriteNode.m */; };
 		9088297817FFC0150016CCB6 /* KPActionCategories.m in Sources */ = {isa = PBXBuildFile; fileRef = 9088295617FFC0150016CCB6 /* KPActionCategories.m */; };
 		9088297917FFC0150016CCB6 /* KPAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 9088295817FFC0150016CCB6 /* KPAppDelegate.m */; };
@@ -111,6 +111,27 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
+		9008CB311808E8A3003FB55C /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 9008CB2C1808E8A3003FB55C /* SpriteStackKit.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 9061FAD117FEE12C008FC53B;
+			remoteInfo = SpriteStackKit;
+		};
+		9008CB331808E8A3003FB55C /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 9008CB2C1808E8A3003FB55C /* SpriteStackKit.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 9061FAE117FEE12D008FC53B;
+			remoteInfo = SpriteStackKitTests;
+		};
+		9008CB351808E922003FB55C /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 9008CB2C1808E8A3003FB55C /* SpriteStackKit.xcodeproj */;
+			proxyType = 1;
+			remoteGlobalIDString = 9061FAD017FEE12C008FC53B;
+			remoteInfo = SpriteStackKit;
+		};
 		9027C4FE17F2B30C0056EFA4 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = 9027C4C617F2B30B0056EFA4 /* Project object */;
@@ -118,30 +139,10 @@
 			remoteGlobalIDString = 9027C4CD17F2B30B0056EFA4;
 			remoteInfo = "Harlequin-Havoc";
 		};
-		9028B16A1802D9B00007F488 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 9028B1651802D9B00007F488 /* SpriteStackKit.xcodeproj */;
-			proxyType = 2;
-			remoteGlobalIDString = 9061FAD117FEE12C008FC53B;
-			remoteInfo = SpriteStackKit;
-		};
-		9028B16C1802D9B00007F488 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 9028B1651802D9B00007F488 /* SpriteStackKit.xcodeproj */;
-			proxyType = 2;
-			remoteGlobalIDString = 9061FAE117FEE12D008FC53B;
-			remoteInfo = SpriteStackKitTests;
-		};
-		906DFD2D1802DA1900677873 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 9028B1651802D9B00007F488 /* SpriteStackKit.xcodeproj */;
-			proxyType = 1;
-			remoteGlobalIDString = 9061FAD017FEE12C008FC53B;
-			remoteInfo = SpriteStackKit;
-		};
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		9008CB2C1808E8A3003FB55C /* SpriteStackKit.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = SpriteStackKit.xcodeproj; path = "Libraries/Sprite-Stack-Kit/SpriteStackKit.xcodeproj"; sourceTree = "<group>"; };
 		9027C4CE17F2B30B0056EFA4 /* Knight-Popper.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Knight-Popper.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		9027C4D117F2B30B0056EFA4 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		9027C4D317F2B30B0056EFA4 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -149,7 +150,6 @@
 		9027C4D717F2B30B0056EFA4 /* SpriteKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SpriteKit.framework; path = System/Library/Frameworks/SpriteKit.framework; sourceTree = SDKROOT; };
 		9027C4F917F2B30C0056EFA4 /* Knight-PopperTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Knight-PopperTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		9027C4FA17F2B30C0056EFA4 /* XCTest.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = XCTest.framework; path = Library/Frameworks/XCTest.framework; sourceTree = DEVELOPER_DIR; };
-		9028B1651802D9B00007F488 /* SpriteStackKit.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = SpriteStackKit.xcodeproj; path = "../Harlequin-Havoc/Libraries/Sprite-Stack-Kit/SpriteStackKit.xcodeproj"; sourceTree = "<group>"; };
 		904BDC201808D5DF003E7499 /* background-568h@2x~iphone.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "background-568h@2x~iphone.png"; sourceTree = "<group>"; };
 		904BDC221808D5EE003E7499 /* blue_pop~ipad.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "blue_pop~ipad.png"; sourceTree = "<group>"; };
 		904BDC231808D5EE003E7499 /* countdown~ipad.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "countdown~ipad.png"; sourceTree = "<group>"; };
@@ -266,7 +266,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				906DFD2F1802DA1E00677873 /* libSpriteStackKit.a in Frameworks */,
+				9008CB371808E928003FB55C /* libSpriteStackKit.a in Frameworks */,
 				9027C4D417F2B30B0056EFA4 /* CoreGraphics.framework in Frameworks */,
 				9027C4D617F2B30B0056EFA4 /* UIKit.framework in Frameworks */,
 				9027C4D817F2B30B0056EFA4 /* SpriteKit.framework in Frameworks */,
@@ -287,10 +287,19 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		9008CB2D1808E8A3003FB55C /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				9008CB321808E8A3003FB55C /* libSpriteStackKit.a */,
+				9008CB341808E8A3003FB55C /* SpriteStackKitTests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
 		9027C4C517F2B30B0056EFA4 = {
 			isa = PBXGroup;
 			children = (
-				9028B1651802D9B00007F488 /* SpriteStackKit.xcodeproj */,
+				9008CB2C1808E8A3003FB55C /* SpriteStackKit.xcodeproj */,
 				9088294B17FFC0150016CCB6 /* Knight-Popper */,
 				9088298517FFC0530016CCB6 /* Unit Tests */,
 				9027C4D017F2B30B0056EFA4 /* Frameworks */,
@@ -318,15 +327,6 @@
 				9027C4FA17F2B30C0056EFA4 /* XCTest.framework */,
 			);
 			name = Frameworks;
-			sourceTree = "<group>";
-		};
-		9028B1661802D9B00007F488 /* Products */ = {
-			isa = PBXGroup;
-			children = (
-				9028B16B1802D9B00007F488 /* libSpriteStackKit.a */,
-				9028B16D1802D9B00007F488 /* SpriteStackKitTests.xctest */,
-			);
-			name = Products;
 			sourceTree = "<group>";
 		};
 		9088294B17FFC0150016CCB6 /* Knight-Popper */ = {
@@ -609,7 +609,7 @@
 			buildRules = (
 			);
 			dependencies = (
-				906DFD2E1802DA1900677873 /* PBXTargetDependency */,
+				9008CB361808E922003FB55C /* PBXTargetDependency */,
 			);
 			name = "Knight-Popper";
 			productName = "Harlequin-Havoc";
@@ -662,8 +662,8 @@
 			projectDirPath = "";
 			projectReferences = (
 				{
-					ProductGroup = 9028B1661802D9B00007F488 /* Products */;
-					ProjectRef = 9028B1651802D9B00007F488 /* SpriteStackKit.xcodeproj */;
+					ProductGroup = 9008CB2D1808E8A3003FB55C /* Products */;
+					ProjectRef = 9008CB2C1808E8A3003FB55C /* SpriteStackKit.xcodeproj */;
 				},
 			);
 			projectRoot = "";
@@ -675,18 +675,18 @@
 /* End PBXProject section */
 
 /* Begin PBXReferenceProxy section */
-		9028B16B1802D9B00007F488 /* libSpriteStackKit.a */ = {
+		9008CB321808E8A3003FB55C /* libSpriteStackKit.a */ = {
 			isa = PBXReferenceProxy;
 			fileType = archive.ar;
 			path = libSpriteStackKit.a;
-			remoteRef = 9028B16A1802D9B00007F488 /* PBXContainerItemProxy */;
+			remoteRef = 9008CB311808E8A3003FB55C /* PBXContainerItemProxy */;
 			sourceTree = BUILT_PRODUCTS_DIR;
 		};
-		9028B16D1802D9B00007F488 /* SpriteStackKitTests.xctest */ = {
+		9008CB341808E8A3003FB55C /* SpriteStackKitTests.xctest */ = {
 			isa = PBXReferenceProxy;
 			fileType = wrapper.cfbundle;
 			path = SpriteStackKitTests.xctest;
-			remoteRef = 9028B16C1802D9B00007F488 /* PBXContainerItemProxy */;
+			remoteRef = 9008CB331808E8A3003FB55C /* PBXContainerItemProxy */;
 			sourceTree = BUILT_PRODUCTS_DIR;
 		};
 /* End PBXReferenceProxy section */
@@ -819,15 +819,15 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
+		9008CB361808E922003FB55C /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = SpriteStackKit;
+			targetProxy = 9008CB351808E922003FB55C /* PBXContainerItemProxy */;
+		};
 		9027C4FF17F2B30C0056EFA4 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			target = 9027C4CD17F2B30B0056EFA4 /* Knight-Popper */;
 			targetProxy = 9027C4FE17F2B30C0056EFA4 /* PBXContainerItemProxy */;
-		};
-		906DFD2E1802DA1900677873 /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			name = SpriteStackKit;
-			targetProxy = 906DFD2D1802DA1900677873 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 

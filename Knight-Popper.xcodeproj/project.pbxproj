@@ -14,6 +14,52 @@
 		9027C4FB17F2B30C0056EFA4 /* XCTest.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9027C4FA17F2B30C0056EFA4 /* XCTest.framework */; };
 		9027C4FC17F2B30C0056EFA4 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9027C4D117F2B30B0056EFA4 /* Foundation.framework */; };
 		9027C4FD17F2B30C0056EFA4 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9027C4D517F2B30B0056EFA4 /* UIKit.framework */; };
+		904BDC211808D5DF003E7499 /* background-568h@2x~iphone.png in Resources */ = {isa = PBXBuildFile; fileRef = 904BDC201808D5DF003E7499 /* background-568h@2x~iphone.png */; };
+		904BDC311808D5EE003E7499 /* blue_pop~ipad.png in Resources */ = {isa = PBXBuildFile; fileRef = 904BDC221808D5EE003E7499 /* blue_pop~ipad.png */; };
+		904BDC321808D5EE003E7499 /* countdown~ipad.png in Resources */ = {isa = PBXBuildFile; fileRef = 904BDC231808D5EE003E7499 /* countdown~ipad.png */; };
+		904BDC331808D5EE003E7499 /* game_timer~ipad.png in Resources */ = {isa = PBXBuildFile; fileRef = 904BDC241808D5EE003E7499 /* game_timer~ipad.png */; };
+		904BDC341808D5EE003E7499 /* gold_monkey_target~ipad.png in Resources */ = {isa = PBXBuildFile; fileRef = 904BDC251808D5EE003E7499 /* gold_monkey_target~ipad.png */; };
+		904BDC351808D5EE003E7499 /* gold_pop~ipad.png in Resources */ = {isa = PBXBuildFile; fileRef = 904BDC261808D5EE003E7499 /* gold_pop~ipad.png */; };
+		904BDC361808D5EE003E7499 /* gold_twinkle~ipad.png in Resources */ = {isa = PBXBuildFile; fileRef = 904BDC271808D5EE003E7499 /* gold_twinkle~ipad.png */; };
+		904BDC371808D5EE003E7499 /* lollipop_left_projectile~ipad.png in Resources */ = {isa = PBXBuildFile; fileRef = 904BDC281808D5EE003E7499 /* lollipop_left_projectile~ipad.png */; };
+		904BDC381808D5EE003E7499 /* lollipop_right_projectile~ipad.png in Resources */ = {isa = PBXBuildFile; fileRef = 904BDC291808D5EE003E7499 /* lollipop_right_projectile~ipad.png */; };
+		904BDC391808D5EE003E7499 /* menu_lollipop~ipad.png in Resources */ = {isa = PBXBuildFile; fileRef = 904BDC2A1808D5EE003E7499 /* menu_lollipop~ipad.png */; };
+		904BDC3A1808D5EE003E7499 /* pink_pop~ipad.png in Resources */ = {isa = PBXBuildFile; fileRef = 904BDC2B1808D5EE003E7499 /* pink_pop~ipad.png */; };
+		904BDC3B1808D5EE003E7499 /* player_one_attack~ipad.png in Resources */ = {isa = PBXBuildFile; fileRef = 904BDC2C1808D5EE003E7499 /* player_one_attack~ipad.png */; };
+		904BDC3C1808D5EE003E7499 /* player_one_idle~ipad.png in Resources */ = {isa = PBXBuildFile; fileRef = 904BDC2D1808D5EE003E7499 /* player_one_idle~ipad.png */; };
+		904BDC3D1808D5EE003E7499 /* player_two_attack~ipad.png in Resources */ = {isa = PBXBuildFile; fileRef = 904BDC2E1808D5EE003E7499 /* player_two_attack~ipad.png */; };
+		904BDC3E1808D5EE003E7499 /* player_two_idle~ipad.png in Resources */ = {isa = PBXBuildFile; fileRef = 904BDC2F1808D5EE003E7499 /* player_two_idle~ipad.png */; };
+		904BDC3F1808D5EE003E7499 /* times_up~ipad.png in Resources */ = {isa = PBXBuildFile; fileRef = 904BDC301808D5EE003E7499 /* times_up~ipad.png */; };
+		904BDC4F1808D5FE003E7499 /* blue_pop@2x~ipad.png in Resources */ = {isa = PBXBuildFile; fileRef = 904BDC401808D5FE003E7499 /* blue_pop@2x~ipad.png */; };
+		904BDC501808D5FE003E7499 /* countdown@2x~ipad.png in Resources */ = {isa = PBXBuildFile; fileRef = 904BDC411808D5FE003E7499 /* countdown@2x~ipad.png */; };
+		904BDC511808D5FE003E7499 /* game_timer@2x~ipad.png in Resources */ = {isa = PBXBuildFile; fileRef = 904BDC421808D5FE003E7499 /* game_timer@2x~ipad.png */; };
+		904BDC521808D5FE003E7499 /* gold_monkey_target@2x~ipad.png in Resources */ = {isa = PBXBuildFile; fileRef = 904BDC431808D5FE003E7499 /* gold_monkey_target@2x~ipad.png */; };
+		904BDC531808D5FE003E7499 /* gold_pop@2x~ipad.png in Resources */ = {isa = PBXBuildFile; fileRef = 904BDC441808D5FE003E7499 /* gold_pop@2x~ipad.png */; };
+		904BDC541808D5FE003E7499 /* gold_twinkle@2x~ipad.png in Resources */ = {isa = PBXBuildFile; fileRef = 904BDC451808D5FE003E7499 /* gold_twinkle@2x~ipad.png */; };
+		904BDC551808D5FE003E7499 /* lollipop_left_projectile@2x~ipad.png in Resources */ = {isa = PBXBuildFile; fileRef = 904BDC461808D5FE003E7499 /* lollipop_left_projectile@2x~ipad.png */; };
+		904BDC561808D5FE003E7499 /* lollipop_right_projectile@2x~ipad.png in Resources */ = {isa = PBXBuildFile; fileRef = 904BDC471808D5FE003E7499 /* lollipop_right_projectile@2x~ipad.png */; };
+		904BDC571808D5FE003E7499 /* menu_lollipop@2x~ipad.png in Resources */ = {isa = PBXBuildFile; fileRef = 904BDC481808D5FE003E7499 /* menu_lollipop@2x~ipad.png */; };
+		904BDC581808D5FE003E7499 /* pink_pop@2x~ipad.png in Resources */ = {isa = PBXBuildFile; fileRef = 904BDC491808D5FE003E7499 /* pink_pop@2x~ipad.png */; };
+		904BDC591808D5FE003E7499 /* player_one_attack@2x~ipad.png in Resources */ = {isa = PBXBuildFile; fileRef = 904BDC4A1808D5FE003E7499 /* player_one_attack@2x~ipad.png */; };
+		904BDC5A1808D5FE003E7499 /* player_one_idle@2x~ipad.png in Resources */ = {isa = PBXBuildFile; fileRef = 904BDC4B1808D5FE003E7499 /* player_one_idle@2x~ipad.png */; };
+		904BDC5B1808D5FE003E7499 /* player_two_attack@2x~ipad.png in Resources */ = {isa = PBXBuildFile; fileRef = 904BDC4C1808D5FE003E7499 /* player_two_attack@2x~ipad.png */; };
+		904BDC5C1808D5FE003E7499 /* player_two_idle@2x~ipad.png in Resources */ = {isa = PBXBuildFile; fileRef = 904BDC4D1808D5FE003E7499 /* player_two_idle@2x~ipad.png */; };
+		904BDC5D1808D5FE003E7499 /* times_up@2x~ipad.png in Resources */ = {isa = PBXBuildFile; fileRef = 904BDC4E1808D5FE003E7499 /* times_up@2x~ipad.png */; };
+		904BDC6D1808D60D003E7499 /* blue_pop~iphone.png in Resources */ = {isa = PBXBuildFile; fileRef = 904BDC5E1808D60D003E7499 /* blue_pop~iphone.png */; };
+		904BDC6E1808D60D003E7499 /* countdown~iphone.png in Resources */ = {isa = PBXBuildFile; fileRef = 904BDC5F1808D60D003E7499 /* countdown~iphone.png */; };
+		904BDC6F1808D60D003E7499 /* game_timer~iphone.png in Resources */ = {isa = PBXBuildFile; fileRef = 904BDC601808D60D003E7499 /* game_timer~iphone.png */; };
+		904BDC701808D60D003E7499 /* gold_monkey_target~iphone.png in Resources */ = {isa = PBXBuildFile; fileRef = 904BDC611808D60D003E7499 /* gold_monkey_target~iphone.png */; };
+		904BDC711808D60D003E7499 /* gold_pop~iphone.png in Resources */ = {isa = PBXBuildFile; fileRef = 904BDC621808D60D003E7499 /* gold_pop~iphone.png */; };
+		904BDC721808D60D003E7499 /* gold_twinkle~iphone.png in Resources */ = {isa = PBXBuildFile; fileRef = 904BDC631808D60D003E7499 /* gold_twinkle~iphone.png */; };
+		904BDC731808D60D003E7499 /* lollipop_left_projectile~iphone.png in Resources */ = {isa = PBXBuildFile; fileRef = 904BDC641808D60D003E7499 /* lollipop_left_projectile~iphone.png */; };
+		904BDC741808D60D003E7499 /* lollipop_right_projectile~iphone.png in Resources */ = {isa = PBXBuildFile; fileRef = 904BDC651808D60D003E7499 /* lollipop_right_projectile~iphone.png */; };
+		904BDC751808D60D003E7499 /* menu_lollipop~iphone.png in Resources */ = {isa = PBXBuildFile; fileRef = 904BDC661808D60D003E7499 /* menu_lollipop~iphone.png */; };
+		904BDC761808D60D003E7499 /* pink_pop~iphone.png in Resources */ = {isa = PBXBuildFile; fileRef = 904BDC671808D60D003E7499 /* pink_pop~iphone.png */; };
+		904BDC771808D60D003E7499 /* player_one_attack~iphone.png in Resources */ = {isa = PBXBuildFile; fileRef = 904BDC681808D60D003E7499 /* player_one_attack~iphone.png */; };
+		904BDC781808D60D003E7499 /* player_one_idle~iphone.png in Resources */ = {isa = PBXBuildFile; fileRef = 904BDC691808D60D003E7499 /* player_one_idle~iphone.png */; };
+		904BDC791808D60D003E7499 /* player_two_attack~iphone.png in Resources */ = {isa = PBXBuildFile; fileRef = 904BDC6A1808D60D003E7499 /* player_two_attack~iphone.png */; };
+		904BDC7A1808D60D003E7499 /* player_two_idle~iphone.png in Resources */ = {isa = PBXBuildFile; fileRef = 904BDC6B1808D60D003E7499 /* player_two_idle~iphone.png */; };
+		904BDC7B1808D60D003E7499 /* times_up~iphone.png in Resources */ = {isa = PBXBuildFile; fileRef = 904BDC6C1808D60D003E7499 /* times_up~iphone.png */; };
 		906DFD2F1802DA1E00677873 /* libSpriteStackKit.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 9028B16B1802D9B00007F488 /* libSpriteStackKit.a */; };
 		906DFD321802DA7800677873 /* KPSpriteNode.m in Sources */ = {isa = PBXBuildFile; fileRef = 906DFD311802DA7800677873 /* KPSpriteNode.m */; };
 		9088297817FFC0150016CCB6 /* KPActionCategories.m in Sources */ = {isa = PBXBuildFile; fileRef = 9088295617FFC0150016CCB6 /* KPActionCategories.m */; };
@@ -62,7 +108,6 @@
 		90E3C2E418000EF400087ED3 /* GrassTuft_Right@2x~iphone.png in Resources */ = {isa = PBXBuildFile; fileRef = 90E3C2C018000EF400087ED3 /* GrassTuft_Right@2x~iphone.png */; };
 		90E3C2E518000EF400087ED3 /* pink_monkey_HUD@2x~iphone.png in Resources */ = {isa = PBXBuildFile; fileRef = 90E3C2C118000EF400087ED3 /* pink_monkey_HUD@2x~iphone.png */; };
 		90E3C2E618000EF400087ED3 /* pink_monkey_target@2x~iphone.png in Resources */ = {isa = PBXBuildFile; fileRef = 90E3C2C218000EF400087ED3 /* pink_monkey_target@2x~iphone.png */; };
-		90E3C2E718000EF400087ED3 /* background-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 90E3C2C418000EF400087ED3 /* background-568h@2x.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -105,6 +150,52 @@
 		9027C4F917F2B30C0056EFA4 /* Knight-PopperTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Knight-PopperTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		9027C4FA17F2B30C0056EFA4 /* XCTest.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = XCTest.framework; path = Library/Frameworks/XCTest.framework; sourceTree = DEVELOPER_DIR; };
 		9028B1651802D9B00007F488 /* SpriteStackKit.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = SpriteStackKit.xcodeproj; path = "../Harlequin-Havoc/Libraries/Sprite-Stack-Kit/SpriteStackKit.xcodeproj"; sourceTree = "<group>"; };
+		904BDC201808D5DF003E7499 /* background-568h@2x~iphone.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "background-568h@2x~iphone.png"; sourceTree = "<group>"; };
+		904BDC221808D5EE003E7499 /* blue_pop~ipad.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "blue_pop~ipad.png"; sourceTree = "<group>"; };
+		904BDC231808D5EE003E7499 /* countdown~ipad.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "countdown~ipad.png"; sourceTree = "<group>"; };
+		904BDC241808D5EE003E7499 /* game_timer~ipad.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "game_timer~ipad.png"; sourceTree = "<group>"; };
+		904BDC251808D5EE003E7499 /* gold_monkey_target~ipad.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "gold_monkey_target~ipad.png"; sourceTree = "<group>"; };
+		904BDC261808D5EE003E7499 /* gold_pop~ipad.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "gold_pop~ipad.png"; sourceTree = "<group>"; };
+		904BDC271808D5EE003E7499 /* gold_twinkle~ipad.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "gold_twinkle~ipad.png"; sourceTree = "<group>"; };
+		904BDC281808D5EE003E7499 /* lollipop_left_projectile~ipad.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "lollipop_left_projectile~ipad.png"; sourceTree = "<group>"; };
+		904BDC291808D5EE003E7499 /* lollipop_right_projectile~ipad.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "lollipop_right_projectile~ipad.png"; sourceTree = "<group>"; };
+		904BDC2A1808D5EE003E7499 /* menu_lollipop~ipad.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "menu_lollipop~ipad.png"; sourceTree = "<group>"; };
+		904BDC2B1808D5EE003E7499 /* pink_pop~ipad.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "pink_pop~ipad.png"; sourceTree = "<group>"; };
+		904BDC2C1808D5EE003E7499 /* player_one_attack~ipad.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "player_one_attack~ipad.png"; sourceTree = "<group>"; };
+		904BDC2D1808D5EE003E7499 /* player_one_idle~ipad.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "player_one_idle~ipad.png"; sourceTree = "<group>"; };
+		904BDC2E1808D5EE003E7499 /* player_two_attack~ipad.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "player_two_attack~ipad.png"; sourceTree = "<group>"; };
+		904BDC2F1808D5EE003E7499 /* player_two_idle~ipad.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "player_two_idle~ipad.png"; sourceTree = "<group>"; };
+		904BDC301808D5EE003E7499 /* times_up~ipad.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "times_up~ipad.png"; sourceTree = "<group>"; };
+		904BDC401808D5FE003E7499 /* blue_pop@2x~ipad.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "blue_pop@2x~ipad.png"; sourceTree = "<group>"; };
+		904BDC411808D5FE003E7499 /* countdown@2x~ipad.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "countdown@2x~ipad.png"; sourceTree = "<group>"; };
+		904BDC421808D5FE003E7499 /* game_timer@2x~ipad.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "game_timer@2x~ipad.png"; sourceTree = "<group>"; };
+		904BDC431808D5FE003E7499 /* gold_monkey_target@2x~ipad.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "gold_monkey_target@2x~ipad.png"; sourceTree = "<group>"; };
+		904BDC441808D5FE003E7499 /* gold_pop@2x~ipad.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "gold_pop@2x~ipad.png"; sourceTree = "<group>"; };
+		904BDC451808D5FE003E7499 /* gold_twinkle@2x~ipad.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "gold_twinkle@2x~ipad.png"; sourceTree = "<group>"; };
+		904BDC461808D5FE003E7499 /* lollipop_left_projectile@2x~ipad.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "lollipop_left_projectile@2x~ipad.png"; sourceTree = "<group>"; };
+		904BDC471808D5FE003E7499 /* lollipop_right_projectile@2x~ipad.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "lollipop_right_projectile@2x~ipad.png"; sourceTree = "<group>"; };
+		904BDC481808D5FE003E7499 /* menu_lollipop@2x~ipad.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "menu_lollipop@2x~ipad.png"; sourceTree = "<group>"; };
+		904BDC491808D5FE003E7499 /* pink_pop@2x~ipad.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "pink_pop@2x~ipad.png"; sourceTree = "<group>"; };
+		904BDC4A1808D5FE003E7499 /* player_one_attack@2x~ipad.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "player_one_attack@2x~ipad.png"; sourceTree = "<group>"; };
+		904BDC4B1808D5FE003E7499 /* player_one_idle@2x~ipad.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "player_one_idle@2x~ipad.png"; sourceTree = "<group>"; };
+		904BDC4C1808D5FE003E7499 /* player_two_attack@2x~ipad.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "player_two_attack@2x~ipad.png"; sourceTree = "<group>"; };
+		904BDC4D1808D5FE003E7499 /* player_two_idle@2x~ipad.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "player_two_idle@2x~ipad.png"; sourceTree = "<group>"; };
+		904BDC4E1808D5FE003E7499 /* times_up@2x~ipad.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "times_up@2x~ipad.png"; sourceTree = "<group>"; };
+		904BDC5E1808D60D003E7499 /* blue_pop~iphone.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "blue_pop~iphone.png"; sourceTree = "<group>"; };
+		904BDC5F1808D60D003E7499 /* countdown~iphone.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "countdown~iphone.png"; sourceTree = "<group>"; };
+		904BDC601808D60D003E7499 /* game_timer~iphone.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "game_timer~iphone.png"; sourceTree = "<group>"; };
+		904BDC611808D60D003E7499 /* gold_monkey_target~iphone.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "gold_monkey_target~iphone.png"; sourceTree = "<group>"; };
+		904BDC621808D60D003E7499 /* gold_pop~iphone.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "gold_pop~iphone.png"; sourceTree = "<group>"; };
+		904BDC631808D60D003E7499 /* gold_twinkle~iphone.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "gold_twinkle~iphone.png"; sourceTree = "<group>"; };
+		904BDC641808D60D003E7499 /* lollipop_left_projectile~iphone.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "lollipop_left_projectile~iphone.png"; sourceTree = "<group>"; };
+		904BDC651808D60D003E7499 /* lollipop_right_projectile~iphone.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "lollipop_right_projectile~iphone.png"; sourceTree = "<group>"; };
+		904BDC661808D60D003E7499 /* menu_lollipop~iphone.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "menu_lollipop~iphone.png"; sourceTree = "<group>"; };
+		904BDC671808D60D003E7499 /* pink_pop~iphone.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "pink_pop~iphone.png"; sourceTree = "<group>"; };
+		904BDC681808D60D003E7499 /* player_one_attack~iphone.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "player_one_attack~iphone.png"; sourceTree = "<group>"; };
+		904BDC691808D60D003E7499 /* player_one_idle~iphone.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "player_one_idle~iphone.png"; sourceTree = "<group>"; };
+		904BDC6A1808D60D003E7499 /* player_two_attack~iphone.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "player_two_attack~iphone.png"; sourceTree = "<group>"; };
+		904BDC6B1808D60D003E7499 /* player_two_idle~iphone.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "player_two_idle~iphone.png"; sourceTree = "<group>"; };
+		904BDC6C1808D60D003E7499 /* times_up~iphone.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "times_up~iphone.png"; sourceTree = "<group>"; };
 		906DFD301802DA7800677873 /* KPSpriteNode.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KPSpriteNode.h; sourceTree = "<group>"; };
 		906DFD311802DA7800677873 /* KPSpriteNode.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KPSpriteNode.m; sourceTree = "<group>"; };
 		9088295517FFC0150016CCB6 /* KPActionCategories.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KPActionCategories.h; sourceTree = "<group>"; };
@@ -167,7 +258,6 @@
 		90E3C2C018000EF400087ED3 /* GrassTuft_Right@2x~iphone.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "GrassTuft_Right@2x~iphone.png"; sourceTree = "<group>"; };
 		90E3C2C118000EF400087ED3 /* pink_monkey_HUD@2x~iphone.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "pink_monkey_HUD@2x~iphone.png"; sourceTree = "<group>"; };
 		90E3C2C218000EF400087ED3 /* pink_monkey_target@2x~iphone.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "pink_monkey_target@2x~iphone.png"; sourceTree = "<group>"; };
-		90E3C2C418000EF400087ED3 /* background-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "background-568h@2x.png"; sourceTree = "<group>"; };
 		90F1F1A517FFA68C00FBC986 /* libSpriteStackKit.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libSpriteStackKit.a; path = Libraries/SpriteStackKit/libSpriteStackKit.a; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -399,6 +489,21 @@
 		90E3C2A318000EF300087ED3 /* iPad (Non-Retina) */ = {
 			isa = PBXGroup;
 			children = (
+				904BDC221808D5EE003E7499 /* blue_pop~ipad.png */,
+				904BDC231808D5EE003E7499 /* countdown~ipad.png */,
+				904BDC241808D5EE003E7499 /* game_timer~ipad.png */,
+				904BDC251808D5EE003E7499 /* gold_monkey_target~ipad.png */,
+				904BDC261808D5EE003E7499 /* gold_pop~ipad.png */,
+				904BDC271808D5EE003E7499 /* gold_twinkle~ipad.png */,
+				904BDC281808D5EE003E7499 /* lollipop_left_projectile~ipad.png */,
+				904BDC291808D5EE003E7499 /* lollipop_right_projectile~ipad.png */,
+				904BDC2A1808D5EE003E7499 /* menu_lollipop~ipad.png */,
+				904BDC2B1808D5EE003E7499 /* pink_pop~ipad.png */,
+				904BDC2C1808D5EE003E7499 /* player_one_attack~ipad.png */,
+				904BDC2D1808D5EE003E7499 /* player_one_idle~ipad.png */,
+				904BDC2E1808D5EE003E7499 /* player_two_attack~ipad.png */,
+				904BDC2F1808D5EE003E7499 /* player_two_idle~ipad.png */,
+				904BDC301808D5EE003E7499 /* times_up~ipad.png */,
 				90E3C2A418000EF300087ED3 /* background~ipad.png */,
 				90E3C2A518000EF300087ED3 /* blue_monkey_HUD~ipad.png */,
 				90E3C2A618000EF300087ED3 /* blue_monkey_target~ipad.png */,
@@ -413,6 +518,21 @@
 		90E3C2AB18000EF300087ED3 /* iPad (Retina) */ = {
 			isa = PBXGroup;
 			children = (
+				904BDC401808D5FE003E7499 /* blue_pop@2x~ipad.png */,
+				904BDC411808D5FE003E7499 /* countdown@2x~ipad.png */,
+				904BDC421808D5FE003E7499 /* game_timer@2x~ipad.png */,
+				904BDC431808D5FE003E7499 /* gold_monkey_target@2x~ipad.png */,
+				904BDC441808D5FE003E7499 /* gold_pop@2x~ipad.png */,
+				904BDC451808D5FE003E7499 /* gold_twinkle@2x~ipad.png */,
+				904BDC461808D5FE003E7499 /* lollipop_left_projectile@2x~ipad.png */,
+				904BDC471808D5FE003E7499 /* lollipop_right_projectile@2x~ipad.png */,
+				904BDC481808D5FE003E7499 /* menu_lollipop@2x~ipad.png */,
+				904BDC491808D5FE003E7499 /* pink_pop@2x~ipad.png */,
+				904BDC4A1808D5FE003E7499 /* player_one_attack@2x~ipad.png */,
+				904BDC4B1808D5FE003E7499 /* player_one_idle@2x~ipad.png */,
+				904BDC4C1808D5FE003E7499 /* player_two_attack@2x~ipad.png */,
+				904BDC4D1808D5FE003E7499 /* player_two_idle@2x~ipad.png */,
+				904BDC4E1808D5FE003E7499 /* times_up@2x~ipad.png */,
 				90E3C2AC18000EF300087ED3 /* background@2x~ipad.png */,
 				90E3C2AD18000EF300087ED3 /* blue_monkey_HUD@2x~ipad.png */,
 				90E3C2AE18000EF300087ED3 /* blue_monkey_target@2x~ipad.png */,
@@ -427,6 +547,21 @@
 		90E3C2B318000EF400087ED3 /* iPhone (Non-Retina) */ = {
 			isa = PBXGroup;
 			children = (
+				904BDC5E1808D60D003E7499 /* blue_pop~iphone.png */,
+				904BDC5F1808D60D003E7499 /* countdown~iphone.png */,
+				904BDC601808D60D003E7499 /* game_timer~iphone.png */,
+				904BDC611808D60D003E7499 /* gold_monkey_target~iphone.png */,
+				904BDC621808D60D003E7499 /* gold_pop~iphone.png */,
+				904BDC631808D60D003E7499 /* gold_twinkle~iphone.png */,
+				904BDC641808D60D003E7499 /* lollipop_left_projectile~iphone.png */,
+				904BDC651808D60D003E7499 /* lollipop_right_projectile~iphone.png */,
+				904BDC661808D60D003E7499 /* menu_lollipop~iphone.png */,
+				904BDC671808D60D003E7499 /* pink_pop~iphone.png */,
+				904BDC681808D60D003E7499 /* player_one_attack~iphone.png */,
+				904BDC691808D60D003E7499 /* player_one_idle~iphone.png */,
+				904BDC6A1808D60D003E7499 /* player_two_attack~iphone.png */,
+				904BDC6B1808D60D003E7499 /* player_two_idle~iphone.png */,
+				904BDC6C1808D60D003E7499 /* times_up~iphone.png */,
 				90E3C2B418000EF400087ED3 /* background~iphone.png */,
 				90E3C2B518000EF400087ED3 /* blue_monkey_HUD~iphone.png */,
 				90E3C2B618000EF400087ED3 /* blue_monkey_target~iphone.png */,
@@ -455,7 +590,7 @@
 		90E3C2C318000EF400087ED3 /* iPhone 5 (Retina) */ = {
 			isa = PBXGroup;
 			children = (
-				90E3C2C418000EF400087ED3 /* background-568h@2x.png */,
+				904BDC201808D5DF003E7499 /* background-568h@2x~iphone.png */,
 			);
 			path = "iPhone 5 (Retina)";
 			sourceTree = "<group>";
@@ -561,43 +696,88 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				904BDC4F1808D5FE003E7499 /* blue_pop@2x~ipad.png in Resources */,
+				904BDC761808D60D003E7499 /* pink_pop~iphone.png in Resources */,
 				90E3C2D718000EF400087ED3 /* pink_monkey_HUD@2x~ipad.png in Resources */,
+				904BDC561808D5FE003E7499 /* lollipop_right_projectile@2x~ipad.png in Resources */,
+				904BDC5A1808D5FE003E7499 /* player_one_idle@2x~ipad.png in Resources */,
+				904BDC741808D60D003E7499 /* lollipop_right_projectile~iphone.png in Resources */,
 				9088298017FFC0150016CCB6 /* Main_iPad.storyboard in Resources */,
+				904BDC521808D5FE003E7499 /* gold_monkey_target@2x~ipad.png in Resources */,
 				90E3C2CA18000EF400087ED3 /* iTunesArtwork@2x.png in Resources */,
 				90E3C2CF18000EF400087ED3 /* GrassTuft_Right~ipad.png in Resources */,
+				904BDC361808D5EE003E7499 /* gold_twinkle~ipad.png in Resources */,
 				90E3C2DF18000EF400087ED3 /* pink_monkey_target~iphone.png in Resources */,
+				904BDC721808D60D003E7499 /* gold_twinkle~iphone.png in Resources */,
 				90E3C2DB18000EF400087ED3 /* blue_monkey_target~iphone.png in Resources */,
+				904BDC311808D5EE003E7499 /* blue_pop~ipad.png in Resources */,
 				90E3C2D418000EF400087ED3 /* blue_monkey_target@2x~ipad.png in Resources */,
+				904BDC751808D60D003E7499 /* menu_lollipop~iphone.png in Resources */,
 				90E3C2DC18000EF400087ED3 /* GrassTuft_Left~iphone.png in Resources */,
 				90E3C2E118000EF400087ED3 /* blue_monkey_HUD@2x~iphone.png in Resources */,
+				904BDC701808D60D003E7499 /* gold_monkey_target~iphone.png in Resources */,
+				904BDC5C1808D5FE003E7499 /* player_two_idle@2x~ipad.png in Resources */,
+				904BDC591808D5FE003E7499 /* player_one_attack@2x~ipad.png in Resources */,
 				90E3C2D218000EF400087ED3 /* background@2x~ipad.png in Resources */,
+				904BDC551808D5FE003E7499 /* lollipop_left_projectile@2x~ipad.png in Resources */,
 				90E3C2C818000EF400087ED3 /* Icon@2x.png in Resources */,
+				904BDC5B1808D5FE003E7499 /* player_two_attack@2x~ipad.png in Resources */,
+				904BDC371808D5EE003E7499 /* lollipop_left_projectile~ipad.png in Resources */,
+				904BDC381808D5EE003E7499 /* lollipop_right_projectile~ipad.png in Resources */,
+				904BDC7A1808D60D003E7499 /* player_two_idle~iphone.png in Resources */,
+				904BDC331808D5EE003E7499 /* game_timer~ipad.png in Resources */,
+				904BDC3B1808D5EE003E7499 /* player_one_attack~ipad.png in Resources */,
 				90E3C2D118000EF400087ED3 /* pink_monkey_target~ipad.png in Resources */,
 				90E3C2DD18000EF400087ED3 /* GrassTuft_Right~iphone.png in Resources */,
 				90E3C2C518000EF400087ED3 /* Icon-72.png in Resources */,
+				904BDC781808D60D003E7499 /* player_one_idle~iphone.png in Resources */,
+				904BDC531808D5FE003E7499 /* gold_pop@2x~ipad.png in Resources */,
 				90E3C2E618000EF400087ED3 /* pink_monkey_target@2x~iphone.png in Resources */,
 				90E3C2E218000EF400087ED3 /* blue_monkey_target@2x~iphone.png in Resources */,
+				904BDC5D1808D5FE003E7499 /* times_up@2x~ipad.png in Resources */,
+				904BDC6E1808D60D003E7499 /* countdown~iphone.png in Resources */,
 				90E3C2D818000EF400087ED3 /* pink_monkey_target@2x~ipad.png in Resources */,
+				904BDC6D1808D60D003E7499 /* blue_pop~iphone.png in Resources */,
 				90E3C2E518000EF400087ED3 /* pink_monkey_HUD@2x~iphone.png in Resources */,
+				904BDC3F1808D5EE003E7499 /* times_up~ipad.png in Resources */,
+				904BDC3A1808D5EE003E7499 /* pink_pop~ipad.png in Resources */,
 				90E3C2D318000EF400087ED3 /* blue_monkey_HUD@2x~ipad.png in Resources */,
+				904BDC511808D5FE003E7499 /* game_timer@2x~ipad.png in Resources */,
+				904BDC711808D60D003E7499 /* gold_pop~iphone.png in Resources */,
 				90E3C2CD18000EF400087ED3 /* blue_monkey_target~ipad.png in Resources */,
 				90E3C2D618000EF400087ED3 /* GrassTuft_Right@2x~ipad.png in Resources */,
 				90E3C2DE18000EF400087ED3 /* pink_monkey_HUD~iphone.png in Resources */,
 				90E3C2C618000EF400087ED3 /* Icon-72@2x.png in Resources */,
 				90E3C2CC18000EF400087ED3 /* blue_monkey_HUD~ipad.png in Resources */,
 				9088298117FFC0150016CCB6 /* Main_iPhone.storyboard in Resources */,
-				90E3C2E718000EF400087ED3 /* background-568h@2x.png in Resources */,
+				904BDC211808D5DF003E7499 /* background-568h@2x~iphone.png in Resources */,
+				904BDC351808D5EE003E7499 /* gold_pop~ipad.png in Resources */,
 				90E3C2CB18000EF400087ED3 /* background~ipad.png in Resources */,
+				904BDC7B1808D60D003E7499 /* times_up~iphone.png in Resources */,
 				90E3C2E018000EF400087ED3 /* background@2x~iphone.png in Resources */,
+				904BDC571808D5FE003E7499 /* menu_lollipop@2x~ipad.png in Resources */,
 				90E3C2E318000EF400087ED3 /* GrassTuft_Left@2x~iphone.png in Resources */,
+				904BDC791808D60D003E7499 /* player_two_attack~iphone.png in Resources */,
+				904BDC581808D5FE003E7499 /* pink_pop@2x~ipad.png in Resources */,
+				904BDC321808D5EE003E7499 /* countdown~ipad.png in Resources */,
+				904BDC3D1808D5EE003E7499 /* player_two_attack~ipad.png in Resources */,
+				904BDC391808D5EE003E7499 /* menu_lollipop~ipad.png in Resources */,
 				9088298317FFC0150016CCB6 /* Images.xcassets in Resources */,
 				90E3C2E418000EF400087ED3 /* GrassTuft_Right@2x~iphone.png in Resources */,
 				90E3C2D018000EF400087ED3 /* pink_monkey_HUD~ipad.png in Resources */,
 				90E3C2D518000EF400087ED3 /* GrassTuft_Left@2x~ipad.png in Resources */,
+				904BDC3E1808D5EE003E7499 /* player_two_idle~ipad.png in Resources */,
+				904BDC731808D60D003E7499 /* lollipop_left_projectile~iphone.png in Resources */,
+				904BDC501808D5FE003E7499 /* countdown@2x~ipad.png in Resources */,
+				904BDC771808D60D003E7499 /* player_one_attack~iphone.png in Resources */,
 				90E3C2C918000EF400087ED3 /* iTunesArtwork.png in Resources */,
+				904BDC541808D5FE003E7499 /* gold_twinkle@2x~ipad.png in Resources */,
+				904BDC341808D5EE003E7499 /* gold_monkey_target~ipad.png in Resources */,
 				90E3C2C718000EF400087ED3 /* Icon.png in Resources */,
 				9088298217FFC0150016CCB6 /* InfoPlist.strings in Resources */,
+				904BDC6F1808D60D003E7499 /* game_timer~iphone.png in Resources */,
 				90E3C2CE18000EF400087ED3 /* GrassTuft_Left~ipad.png in Resources */,
+				904BDC3C1808D5EE003E7499 /* player_one_idle~ipad.png in Resources */,
 				90E3C2DA18000EF400087ED3 /* blue_monkey_HUD~iphone.png in Resources */,
 				90E3C2D918000EF400087ED3 /* background~iphone.png in Resources */,
 			);

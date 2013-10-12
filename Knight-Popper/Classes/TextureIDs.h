@@ -16,8 +16,22 @@ typedef enum ID {
     TextureIDPinkMonkeyHUD,
     TextureIDBlueMonkeyTarget,
     TextureIDPinkMonkeyTarget,
+    TextureIDGoldMonkeyTarget,
     TextureIDGrassTuftLeft,
-    TextureIDGrassTuftRight
+    TextureIDGrassTuftRight,
+    TextureIDBluePop,
+    TextureIDPinkPop,
+    TextureIDGoldPop,
+    TextureIDCountdown,
+    TextureIDGoldTwinkle,
+    TextureIDLollipopLeftProjectile,
+    TextureIDLollipopRightProjectile,
+    TextureIDMenuLollipop,
+    TextureIDPlayerOneAttack,
+    TextureIDPlayerOneIdle,
+    TextureIDPlayerTwoAttack,
+    TextureIDPlayerTwoIdle,
+    TextureIDTimeUp
 } TextureID;
 
 #endif

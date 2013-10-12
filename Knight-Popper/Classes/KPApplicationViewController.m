@@ -49,7 +49,7 @@
     self.stateView = (SKView*)self.view;
     
     // Load textures
-    self.textures = [[SSKTextureManager alloc] initWithTextureCount:2];
+    self.textures = [[SSKTextureManager alloc] initWithTextureCount:20];
     [self.textures loadTexture:@"background.png"
                     identifier:TextureIDBackground];
     [self.textures loadTexture:@"GrassTuft_Left.png"
@@ -64,6 +64,33 @@
                     identifier:TextureIDBlueMonkeyTarget];
     [self.textures loadTexture:@"pink_monkey_target.png"
                     identifier:TextureIDPinkMonkeyTarget];
+    [self.textures loadTexture:@"blue_pop.png"
+                    identifier:TextureIDBluePop];
+    [self.textures loadTexture:@"pink_pop.png"
+                    identifier:TextureIDPinkPop];
+    [self.textures loadTexture:@"gold_pop.png"
+                    identifier:TextureIDGoldPop];
+    [self.textures loadTexture:@"countdown.png"
+                    identifier:TextureIDCountdown];
+    [self.textures loadTexture:@"gold_twinkle.png"
+                    identifier:TextureIDGoldTwinkle];
+    [self.textures loadTexture:@"lollipop_left_projectile.png"
+                    identifier:TextureIDLollipopLeftProjectile];
+    [self.textures loadTexture:@"lollipop_right_projectile.png"
+                    identifier:TextureIDLollipopRightProjectile];
+    [self.textures loadTexture:@"menu_lollipop.png"
+                    identifier:TextureIDMenuLollipop];
+    [self.textures loadTexture:@"player_one_attack.png"
+                    identifier:TextureIDPlayerOneAttack];
+    [self.textures loadTexture:@"player_one_idle.png"
+                    identifier:TextureIDPlayerOneIdle];
+    [self.textures loadTexture:@"player_two_attack.png"
+                    identifier:TextureIDPlayerTwoAttack];
+    [self.textures loadTexture:@"player_two_idle.png"
+                    identifier:TextureIDPlayerTwoIdle];
+    [self.textures loadTexture:@"times_up.png"
+                    identifier:TextureIDTimeUp];
+    
     
     // Register states
     CGSize landscapeSize =

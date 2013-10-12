@@ -11,6 +11,7 @@
 #import "KPSpriteNode.h"
 #import <SpriteStackKit/SSKAction.h>
 #import <SpriteStackKit/SSKActionQueue.h>
+#import <SpriteStackKit/SSKSpriteAnimationNode.h>
 
 #pragma mark - Interface
 
@@ -62,9 +63,13 @@ typedef enum layers {
 }
 
 - (void)buildState {
-    KPSpriteNode* background = [[KPSpriteNode alloc] initWithTexture:
-                                 [self.textures getTexture:TextureIDBackground]];
-    background.position = CGPointZero;
+//    KPSpriteNode* background = [[KPSpriteNode alloc] initWithTexture:
+//                                 [self.textures getTexture:TextureIDBackground]];
+//    background.position = CGPointZero;
+
+//    CGRect myRect = CGRectMake(0, 0, 100, 100);
+//    SKTexture* test = [SKTexture textureWithRect:myRect inTexture:[self.textures getTexture:TextureIDBackground]];
+//    KPSpriteNode* wow = [[KPSpriteNode alloc] initWithTexture:test];
     
     KPSpriteNode* leftGrassTuft = [[KPSpriteNode alloc] initWithTexture:
                                     [self.textures getTexture:TextureIDGrassTuftLeft]];
@@ -82,23 +87,35 @@ typedef enum layers {
                                     [self.textures getTexture:TextureIDBlueMonkeyHUD]];
     blueMonkeyHUD.position = CGPointMake(-300, 300);
     
-    KPTargetNode* target = [[KPTargetNode alloc] initWithType:TargetTypeBlueMonkey
-                                                     textures:self.textures];
-    target.position = CGPointZero;
+    SSKSpriteAnimationNode* explosion =
+        [[SSKSpriteAnimationNode alloc]
+         initWithSpriteSheet:[self.textures getTexture:TextureIDBluePop]
+         columns:3 rows:2 numFrames:5 horizontalOrder:YES timePerFrame:1];
+    explosion.position = CGPointZero;
+    [explosion animate];
     
-    [self addChild:background];
+    SSKSpriteAnimationNode* testAnimation =
+    [[SSKSpriteAnimationNode alloc]
+     initWithSpriteSheet:[self.textures getTexture:TextureIDBlueMonkeyHUD]
+     columns:2 rows:2 numFrames:3 horizontalOrder:YES timePerFrame:1];
+    testAnimation.position = CGPointMake(200, -100);
+    [testAnimation animate];
+    
+//    [self addChild:wow];
     [self addChild:pinkMonkeyHUD];
     [self addChild:blueMonkeyHUD];
     [self addChild:leftGrassTuft];
     [self addChild:rightGrassTuft];
-    [self addChild:target];
+    [self addChild:explosion];
+    
+    [self addChild:testAnimation];
 }
 
 #pragma mark Helper Methods
 
 - (void)addPositionDisplayActionToQueue {
     void (^garbageAction)(SKNode*, CGFloat) = ^(SKNode* node, CGFloat elapsedTime) {
-        NSLog(@"X: %f Y: %f", node.position.x, node.position.y);
+//        NSLog(@"X: %f Y: %f", node.position.x, node.position.y);
     };
     
     SSKAction *action = [[SSKAction alloc] initWithCategory:ActionCategoryTarget

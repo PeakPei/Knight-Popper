@@ -62,7 +62,7 @@
 		90E3C2E418000EF400087ED3 /* GrassTuft_Right@2x~iphone.png in Resources */ = {isa = PBXBuildFile; fileRef = 90E3C2C018000EF400087ED3 /* GrassTuft_Right@2x~iphone.png */; };
 		90E3C2E518000EF400087ED3 /* pink_monkey_HUD@2x~iphone.png in Resources */ = {isa = PBXBuildFile; fileRef = 90E3C2C118000EF400087ED3 /* pink_monkey_HUD@2x~iphone.png */; };
 		90E3C2E618000EF400087ED3 /* pink_monkey_target@2x~iphone.png in Resources */ = {isa = PBXBuildFile; fileRef = 90E3C2C218000EF400087ED3 /* pink_monkey_target@2x~iphone.png */; };
-		90E3C2E718000EF400087ED3 /* background-568h@2x~iphone.png in Resources */ = {isa = PBXBuildFile; fileRef = 90E3C2C418000EF400087ED3 /* background-568h@2x~iphone.png */; };
+		90E3C2E718000EF400087ED3 /* background-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 90E3C2C418000EF400087ED3 /* background-568h@2x.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -167,7 +167,7 @@
 		90E3C2C018000EF400087ED3 /* GrassTuft_Right@2x~iphone.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "GrassTuft_Right@2x~iphone.png"; sourceTree = "<group>"; };
 		90E3C2C118000EF400087ED3 /* pink_monkey_HUD@2x~iphone.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "pink_monkey_HUD@2x~iphone.png"; sourceTree = "<group>"; };
 		90E3C2C218000EF400087ED3 /* pink_monkey_target@2x~iphone.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "pink_monkey_target@2x~iphone.png"; sourceTree = "<group>"; };
-		90E3C2C418000EF400087ED3 /* background-568h@2x~iphone.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "background-568h@2x~iphone.png"; sourceTree = "<group>"; };
+		90E3C2C418000EF400087ED3 /* background-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "background-568h@2x.png"; sourceTree = "<group>"; };
 		90F1F1A517FFA68C00FBC986 /* libSpriteStackKit.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libSpriteStackKit.a; path = Libraries/SpriteStackKit/libSpriteStackKit.a; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -455,7 +455,7 @@
 		90E3C2C318000EF400087ED3 /* iPhone 5 (Retina) */ = {
 			isa = PBXGroup;
 			children = (
-				90E3C2C418000EF400087ED3 /* background-568h@2x~iphone.png */,
+				90E3C2C418000EF400087ED3 /* background-568h@2x.png */,
 			);
 			path = "iPhone 5 (Retina)";
 			sourceTree = "<group>";
@@ -586,7 +586,7 @@
 				90E3C2C618000EF400087ED3 /* Icon-72@2x.png in Resources */,
 				90E3C2CC18000EF400087ED3 /* blue_monkey_HUD~ipad.png in Resources */,
 				9088298117FFC0150016CCB6 /* Main_iPhone.storyboard in Resources */,
-				90E3C2E718000EF400087ED3 /* background-568h@2x~iphone.png in Resources */,
+				90E3C2E718000EF400087ED3 /* background-568h@2x.png in Resources */,
 				90E3C2CB18000EF400087ED3 /* background~ipad.png in Resources */,
 				90E3C2E018000EF400087ED3 /* background@2x~iphone.png in Resources */,
 				90E3C2E318000EF400087ED3 /* GrassTuft_Left@2x~iphone.png in Resources */,

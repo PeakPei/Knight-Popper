@@ -8,6 +8,7 @@
 #import "KPTargetNode.h"
 #import "KPActionCategories.h"
 #import "TextureIDs.h"
+#import "SoundIDs.h"
 #import "KPSpriteNode.h"
 #import <SpriteStackKit/SSKAction.h>
 #import <SpriteStackKit/SSKActionQueue.h>
@@ -150,6 +151,8 @@ typedef enum layers {
     projectileTest.position = CGPointMake(300, 150);
     [projectileTest animate];
     [self addNodeToLayer:LayerIDProjectiles node:projectileTest];
+    
+    [self.soundManager playSound:SoundIDInGameMusic loopCount:-1 instanceId:1];
 }
 
 #pragma mark - Properties

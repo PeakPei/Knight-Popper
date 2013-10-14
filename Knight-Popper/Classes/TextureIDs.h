@@ -9,7 +9,7 @@
 #ifndef Knight_Popper_TextureIDs_h
 #define Knight_Popper_TextureIDs_h
 
-typedef enum ID {
+typedef enum textureIDs {
     TextureIDNone = 0,
     TextureIDBackground,
     TextureIDBlueMonkeyHUD,

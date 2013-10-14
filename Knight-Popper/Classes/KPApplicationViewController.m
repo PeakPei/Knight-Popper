@@ -12,8 +12,10 @@
 #import "KPStandardGameState.h"
 #import "TextureIDs.h"
 #import "StateIDs.h"
+#import "SoundIDs.h"
 #import <SpriteStackKit/SSKStateStack.h>
 #import <SpriteStackKit/SSKTextureManager.h>
+#import <SpriteStackKit/SSKSoundManager.h>
 
 #pragma mark - Interface
 
@@ -35,6 +37,11 @@
  * the state stack.
  */
 @property SSKTextureManager* textures;
+
+/**
+ * @brief The sound manager for sounds used by the states in the state stack.
+ */
+@property SSKSoundManager* soundManager;
 
 @end
 
@@ -93,6 +100,37 @@
     [self.textures loadTexture:@"game_timer.png"
                     identifier:TextureIDTimer];
     
+    // Load sounds
+    self.soundManager = [[SSKSoundManager alloc] initWithSoundCount:15];
+    [self.soundManager
+        loadSound:@"back_press" soundType:@"wav" identifier:SoundIDBackPress];
+    [self.soundManager
+        loadSound:@"balloon_pop" soundType:@"wav" identifier:SoundIDBalloonPop];
+    [self.soundManager
+        loadSound:@"countdown_1" soundType:@"wav" identifier:SoundIDCountdownOne];
+    [self.soundManager
+        loadSound:@"countdown_2" soundType:@"wav" identifier:SoundIDCountdownTwo];
+    [self.soundManager
+        loadSound:@"countdown_3" soundType:@"wav" identifier:SoundIDCountdownThree];
+    [self.soundManager
+        loadSound:@"countdown_go" soundType:@"wav" identifier:SoundIDCountdownGo];
+    [self.soundManager
+        loadSound:@"forward_press" soundType:@"wav" identifier:SoundIDForwardPress];
+    [self.soundManager
+        loadSound:@"golden_pop" soundType:@"wav" identifier:SoundIDGoldenPop];
+    [self.soundManager
+        loadSound:@"in_game_music" soundType:@"wav" identifier:SoundIDInGameMusic];
+    [self.soundManager
+        loadSound:@"lollipop_lick" soundType:@"wav" identifier:SoundIDLollipopLick];
+    [self.soundManager
+        loadSound:@"lollipop_reload" soundType:@"wav" identifier:SoundIDLollipopReload];
+    [self.soundManager
+        loadSound:@"lollipop_throw" soundType:@"wav" identifier:SoundIDLollipopThrow];
+    [self.soundManager
+        loadSound:@"menu_music" soundType:@"wav" identifier:SoundIDMenuMusic];
+    [self.soundManager
+        loadSound:@"victory" soundType:@"wav" identifier:SoundIDVictory];
+    
     // Register states
     CGSize landscapeSize =
         [UIApplication sizeInOrientation:UIInterfaceOrientationLandscapeLeft];
@@ -127,5 +165,6 @@
 @synthesize stateStack;
 @synthesize stateView;
 @synthesize textures;
+@synthesize soundManager;
 
 @end

@@ -37,10 +37,11 @@ typedef enum layers {
 
 - (id)initWithStateStack:(SSKStateStack *)stateStack
           textureManager:(SSKTextureManager *)textureManager
-            soundManager:(SSKSoundManager *)sounds {
+            musicManager:(SSKMusicManager *)music {
     unsigned int layerCount = 6;
     if (self = [super initWithStateStack:stateStack
-                          textureManager:textureManager soundManager:sounds
+                          textureManager:textureManager
+                            musicManager:music
                               layerCount:layerCount]) {
         self.actionQueue = [[SSKActionQueue alloc] init];
     }
@@ -152,7 +153,7 @@ typedef enum layers {
     [projectileTest animate];
     [self addNodeToLayer:LayerIDProjectiles node:projectileTest];
     
-    [self.soundManager playSound:SoundIDInGameMusic loopCount:-1 instanceId:1];
+    [self.musicManager playSound:SoundIDInGameMusic loopCount:-1 instanceId:1];
 }
 
 #pragma mark - Properties

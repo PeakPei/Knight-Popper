@@ -135,6 +135,7 @@
     CGSize landscapeSize =
         [UIApplication sizeInOrientation:UIInterfaceOrientationLandscapeLeft];
     self.stateStack = [[SSKStateStack alloc] initWithTextureManager:self.textures
+                                                       soundManager:self.soundManager
                                                               size:landscapeSize];
     [self.stateStack registerState:[KPStandardGameState class] stateID:StateIDExample];
     

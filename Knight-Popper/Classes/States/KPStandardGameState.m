@@ -35,10 +35,11 @@ typedef enum layers {
 @implementation KPStandardGameState
 
 - (id)initWithStateStack:(SSKStateStack *)stateStack
-          textureManager:(SSKTextureManager *)textureManager {
+          textureManager:(SSKTextureManager *)textureManager
+            soundManager:(SSKSoundManager *)sounds {
     unsigned int layerCount = 6;
     if (self = [super initWithStateStack:stateStack
-                          textureManager:textureManager
+                          textureManager:textureManager soundManager:sounds
                               layerCount:layerCount]) {
         self.actionQueue = [[SSKActionQueue alloc] init];
     }

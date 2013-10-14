@@ -37,11 +37,13 @@ typedef enum layers {
 
 - (id)initWithStateStack:(SSKStateStack *)stateStack
           textureManager:(SSKTextureManager *)textureManager
-            musicManager:(SSKMusicManager *)music {
+            musicManager:(SSKMusicManager *)music
+            soundManager:(SSKSoundActionManager *)sounds {
     unsigned int layerCount = 6;
     if (self = [super initWithStateStack:stateStack
                           textureManager:textureManager
                             musicManager:music
+                            soundManager:sounds
                               layerCount:layerCount]) {
         self.actionQueue = [[SSKActionQueue alloc] init];
     }
@@ -107,6 +109,8 @@ typedef enum layers {
     leftPlayerThrowTest.position = CGPointMake(-350, -175);
     [leftPlayerThrowTest animate];
     [self addNodeToLayer:LayerIDPlayers node:leftPlayerThrowTest];
+    
+    [leftPlayerThrowTest runAction:[self.soundManager getSoundAction:SoundIDLollipopThrow]];
     
     SSKSpriteAnimationNode* rightPlayer =
     [[SSKSpriteAnimationNode alloc]

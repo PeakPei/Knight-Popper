@@ -31,7 +31,8 @@ typedef enum ID {
     TextureIDPlayerOneIdle,
     TextureIDPlayerTwoAttack,
     TextureIDPlayerTwoIdle,
-    TextureIDTimeUp
+    TextureIDTimeUp,
+    TextureIDTimer
 } TextureID;
 
 #endif

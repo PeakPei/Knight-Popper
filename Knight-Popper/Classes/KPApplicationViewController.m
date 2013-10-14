@@ -90,7 +90,8 @@
                     identifier:TextureIDPlayerTwoIdle];
     [self.textures loadTexture:@"times_up.png"
                     identifier:TextureIDTimeUp];
-    
+    [self.textures loadTexture:@"game_timer.png"
+                    identifier:TextureIDTimer];
     
     // Register states
     CGSize landscapeSize =

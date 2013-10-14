@@ -26,13 +26,7 @@ typedef enum layers {
     LayerIDProjectiles
 } LayerID;
 
-- (void)addPositionDisplayActionToQueue;
-
-- (void)addTargetMoveActionToQueue;
-
 @property SSKActionQueue* actionQueue;
-
-@property NSMutableDictionary* sceneLayers;
 
 @end
 
@@ -42,9 +36,11 @@ typedef enum layers {
 
 - (id)initWithStateStack:(SSKStateStack *)stateStack
           textureManager:(SSKTextureManager *)textureManager {
-    if (self = [super initWithStateStack:stateStack textureManager:textureManager]) {
+    unsigned int layerCount = 6;
+    if (self = [super initWithStateStack:stateStack
+                          textureManager:textureManager
+                              layerCount:layerCount]) {
         self.actionQueue = [[SSKActionQueue alloc] init];
-        self.sceneLayers = [[NSMutableDictionary alloc] init];
     }
     return self;
 }
@@ -52,88 +48,111 @@ typedef enum layers {
 #pragma mark HHState
 
 - (void)update:(CFTimeInterval)deltaTime {
-    if (self.isActive) {
-        [self addPositionDisplayActionToQueue];
-        [self addTargetMoveActionToQueue];
-        
-        while (![self.actionQueue isEmpty]) {
-            [self onAction:[self.actionQueue pop]];
-        }
+    // stub
+    while (![self.actionQueue isEmpty]) {
+        [self onAction:[self.actionQueue pop]];
     }
 }
 
 - (void)buildState {
-//    KPSpriteNode* background = [[KPSpriteNode alloc] initWithTexture:
-//                                 [self.textures getTexture:TextureIDBackground]];
-//    background.position = CGPointZero;
-
-//    CGRect myRect = CGRectMake(0, 0, 100, 100);
-//    SKTexture* test = [SKTexture textureWithRect:myRect inTexture:[self.textures getTexture:TextureIDBackground]];
-//    KPSpriteNode* wow = [[KPSpriteNode alloc] initWithTexture:test];
+    // Initialise background layer
+    KPSpriteNode* background = [[KPSpriteNode alloc] initWithTexture:
+                                 [self.textures getTexture:TextureIDBackground]];
+    background.position = CGPointZero;
+    [self addNodeToLayer:LayerIDBackground node:background];
     
+    // Initialise HUD layer
+    KPSpriteNode* pinkMonkeyHUD = [[KPSpriteNode alloc] initWithTexture:
+                                   [self.textures getTexture:TextureIDPinkMonkeyHUD]];
+    pinkMonkeyHUD.position = CGPointMake(300, 300);
+    [self addNodeToLayer:LayerIDHUD node:pinkMonkeyHUD];
+    
+    KPSpriteNode* blueMonkeyHUD = [[KPSpriteNode alloc] initWithTexture:
+                                   [self.textures getTexture:TextureIDBlueMonkeyHUD]];
+    blueMonkeyHUD.position = CGPointMake(-300, 300);
+    [self addNodeToLayer:LayerIDHUD node:blueMonkeyHUD];
+
+    SSKSpriteAnimationNode* timer =
+    [[SSKSpriteAnimationNode alloc]
+     initWithSpriteSheet:[self.textures getTexture:TextureIDTimer]
+     columns:5 rows:6 numFrames:30 horizontalOrder:YES timePerFrame:1];
+    timer.position = CGPointMake(0, 300);
+    [timer animate];
+    [self addNodeToLayer:LayerIDHUD node:timer];
+    
+//    SSKSpriteAnimationNode* countdown =
+//    [[SSKSpriteAnimationNode alloc]
+//     initWithSpriteSheet:[self.textures getTexture:TextureIDCountdown]
+//     columns:2 rows:2 numFrames:4 horizontalOrder:YES timePerFrame:1];
+//    countdown.position = CGPointMake(0, 300);
+//    [countdown animate];
+//    [self addNodeToLayer:LayerIDHUD node:countdown];
+    
+    // Initialise Players layer
+//    SSKSpriteAnimationNode* leftPlayer =
+//    [[SSKSpriteAnimationNode alloc]
+//     initWithSpriteSheet:[self.textures getTexture:TextureIDPlayerOneIdle]
+//     columns:7 rows:3 numFrames:20 horizontalOrder:YES timePerFrame:1.0/14.0];
+//    leftPlayer.position = CGPointMake(-350, -175);
+//    [leftPlayer animate];
+//    [self addNodeToLayer:LayerIDPlayers node:leftPlayer];
+
+    SSKSpriteAnimationNode* leftPlayerThrowTest =
+    [[SSKSpriteAnimationNode alloc]
+     initWithSpriteSheet:[self.textures getTexture:TextureIDPlayerOneAttack]
+     columns:7 rows:2 numFrames:12 horizontalOrder:YES timePerFrame:1.0/14.0];
+    leftPlayerThrowTest.position = CGPointMake(-350, -175);
+    [leftPlayerThrowTest animate];
+    [self addNodeToLayer:LayerIDPlayers node:leftPlayerThrowTest];
+    
+    SSKSpriteAnimationNode* rightPlayer =
+    [[SSKSpriteAnimationNode alloc]
+     initWithSpriteSheet:[self.textures getTexture:TextureIDPlayerTwoIdle]
+     columns:7 rows:3 numFrames:20 horizontalOrder:YES timePerFrame:1.0/14.0];
+    rightPlayer.position = CGPointMake(350, -175);
+    [rightPlayer animate];
+    [self addNodeToLayer:LayerIDPlayers node:rightPlayer];
+    
+    // Initialise Scenery layer
     KPSpriteNode* leftGrassTuft = [[KPSpriteNode alloc] initWithTexture:
                                     [self.textures getTexture:TextureIDGrassTuftLeft]];
-    leftGrassTuft.position = CGPointMake(-50, -50);
+    leftGrassTuft.position = CGPointMake(-340, -328);
+    [self addNodeToLayer:LayerIDScenery node:leftGrassTuft];
     
     KPSpriteNode* rightGrassTuft = [[KPSpriteNode alloc] initWithTexture:
                                      [self.textures getTexture:TextureIDGrassTuftRight]];
-    rightGrassTuft.position = CGPointMake(50, -50);
+    rightGrassTuft.position = CGPointMake(340, -328);
+    [self addNodeToLayer:LayerIDScenery node:rightGrassTuft];
     
-    KPSpriteNode* pinkMonkeyHUD = [[KPSpriteNode alloc] initWithTexture:
-                                    [self.textures getTexture:TextureIDPinkMonkeyHUD]];
-    pinkMonkeyHUD.position = CGPointMake(300, 300);
-    
-    KPSpriteNode* blueMonkeyHUD = [[KPSpriteNode alloc] initWithTexture:
-                                    [self.textures getTexture:TextureIDBlueMonkeyHUD]];
-    blueMonkeyHUD.position = CGPointMake(-300, 300);
-    
-    SSKSpriteAnimationNode* explosion =
-        [[SSKSpriteAnimationNode alloc]
-         initWithSpriteSheet:[self.textures getTexture:TextureIDBluePop]
-         columns:3 rows:2 numFrames:5 horizontalOrder:YES timePerFrame:1];
-    explosion.position = CGPointZero;
-    [explosion animate];
-    
-    SSKSpriteAnimationNode* testAnimation =
+    // Initialise Targets layer
+    SSKSpriteAnimationNode* blueTestTarget =
     [[SSKSpriteAnimationNode alloc]
-     initWithSpriteSheet:[self.textures getTexture:TextureIDBlueMonkeyHUD]
-     columns:2 rows:2 numFrames:3 horizontalOrder:YES timePerFrame:1];
-    testAnimation.position = CGPointMake(200, -100);
-    [testAnimation animate];
+     initWithSpriteSheet:[self.textures getTexture:TextureIDBlueMonkeyTarget]
+     columns:8 rows:3 numFrames:20 horizontalOrder:YES timePerFrame:1.0/14.0];
+    blueTestTarget.position = CGPointMake(50, 80);
+    [blueTestTarget animate];
+    [self addNodeToLayer:LayerIDTargets node:blueTestTarget];
     
-//    [self addChild:wow];
-    [self addChild:pinkMonkeyHUD];
-    [self addChild:blueMonkeyHUD];
-    [self addChild:leftGrassTuft];
-    [self addChild:rightGrassTuft];
-    [self addChild:explosion];
+    SSKSpriteAnimationNode* pinkTestTarget =
+    [[SSKSpriteAnimationNode alloc]
+     initWithSpriteSheet:[self.textures getTexture:TextureIDPinkMonkeyTarget]
+     columns:8 rows:3 numFrames:20 horizontalOrder:YES timePerFrame:1.0/14.0];
+    pinkTestTarget.position = CGPointMake(-50, -120);
+    [pinkTestTarget animate];
+    [self addNodeToLayer:LayerIDTargets node:pinkTestTarget];
     
-    [self addChild:testAnimation];
-}
-
-#pragma mark Helper Methods
-
-- (void)addPositionDisplayActionToQueue {
-    void (^garbageAction)(SKNode*, CGFloat) = ^(SKNode* node, CGFloat elapsedTime) {
-//        NSLog(@"X: %f Y: %f", node.position.x, node.position.y);
-    };
-    
-    SSKAction *action = [[SSKAction alloc] initWithCategory:ActionCategoryTarget
-                                              actionBlock:garbageAction
-                                             timeInterval:0];
-    [self.actionQueue push:action];
-}
-
-- (void)addTargetMoveActionToQueue {
-    SKAction *moveAction = [SKAction moveByX:3 y:3 duration:0];
-    SSKAction *action = [[SSKAction alloc] initWithCategory:ActionCategoryTarget
-                                                   action:moveAction];
-    [self.actionQueue push:action];
+    // Initialise Projectiles layer
+    SSKSpriteAnimationNode* projectileTest =
+    [[SSKSpriteAnimationNode alloc]
+     initWithSpriteSheet:[self.textures getTexture:TextureIDLollipopLeftProjectile]
+     columns:3 rows:3 numFrames:8 horizontalOrder:YES timePerFrame:1.0/14.0];
+    projectileTest.position = CGPointMake(300, 150);
+    [projectileTest animate];
+    [self addNodeToLayer:LayerIDProjectiles node:projectileTest];
 }
 
 #pragma mark - Properties
 
 @synthesize actionQueue;
-@synthesize sceneLayers;
 
 @end

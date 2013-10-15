@@ -61,26 +61,33 @@ typedef enum layers {
 
 - (void)buildState {
     // Initialise background layer
-    KPSpriteNode* background = [[KPSpriteNode alloc] initWithTexture:
-                                 [self.textures getTexture:TextureIDBackground]];
+    KPSpriteNode* background =
+    [[KPSpriteNode alloc] initWithTexture:[self.textures getTexture:TextureIDBackground]
+                                    state:NULL
+                             soundManager:self.soundManager];
     background.position = CGPointZero;
     [self addNodeToLayer:LayerIDBackground node:background];
     
     // Initialise HUD layer
-    KPSpriteNode* pinkMonkeyHUD = [[KPSpriteNode alloc] initWithTexture:
-                                   [self.textures getTexture:TextureIDPinkMonkeyHUD]];
+    KPSpriteNode* pinkMonkeyHUD =
+    [[KPSpriteNode alloc] initWithTexture:[self.textures getTexture:TextureIDPinkMonkeyHUD]
+                                    state:NULL
+                             soundManager:self.soundManager];
     pinkMonkeyHUD.position = CGPointMake(300, 300);
     [self addNodeToLayer:LayerIDHUD node:pinkMonkeyHUD];
     
-    KPSpriteNode* blueMonkeyHUD = [[KPSpriteNode alloc] initWithTexture:
-                                   [self.textures getTexture:TextureIDBlueMonkeyHUD]];
+    KPSpriteNode* blueMonkeyHUD =
+    [[KPSpriteNode alloc] initWithTexture:[self.textures getTexture:TextureIDBlueMonkeyHUD]
+                                    state:NULL
+                             soundManager:self.soundManager];
     blueMonkeyHUD.position = CGPointMake(-300, 300);
     [self addNodeToLayer:LayerIDHUD node:blueMonkeyHUD];
 
     SSKSpriteAnimationNode* timer =
     [[SSKSpriteAnimationNode alloc]
      initWithSpriteSheet:[self.textures getTexture:TextureIDTimer]
-     columns:5 rows:6 numFrames:30 horizontalOrder:YES timePerFrame:1];
+     state:NULL soundManager:self.soundManager columns:5 rows:6 numFrames:30
+     horizontalOrder:YES timePerFrame:1];
     timer.position = CGPointMake(0, 300);
     [timer animate];
     [self addNodeToLayer:LayerIDHUD node:timer];
@@ -105,7 +112,8 @@ typedef enum layers {
     SSKSpriteAnimationNode* leftPlayerThrowTest =
     [[SSKSpriteAnimationNode alloc]
      initWithSpriteSheet:[self.textures getTexture:TextureIDPlayerOneAttack]
-     columns:7 rows:2 numFrames:12 horizontalOrder:YES timePerFrame:1.0/14.0];
+     state:NULL soundManager:self.soundManager columns:7 rows:2 numFrames:12
+     horizontalOrder:YES timePerFrame:1.0/14.0];
     leftPlayerThrowTest.position = CGPointMake(-350, -175);
     [leftPlayerThrowTest animate];
     [self addNodeToLayer:LayerIDPlayers node:leftPlayerThrowTest];
@@ -115,19 +123,24 @@ typedef enum layers {
     SSKSpriteAnimationNode* rightPlayer =
     [[SSKSpriteAnimationNode alloc]
      initWithSpriteSheet:[self.textures getTexture:TextureIDPlayerTwoIdle]
-     columns:7 rows:3 numFrames:20 horizontalOrder:YES timePerFrame:1.0/14.0];
+     state:NULL soundManager:self.soundManager columns:7 rows:3 numFrames:20
+     horizontalOrder:YES timePerFrame:1.0/14.0];
     rightPlayer.position = CGPointMake(350, -175);
     [rightPlayer animate];
     [self addNodeToLayer:LayerIDPlayers node:rightPlayer];
     
     // Initialise Scenery layer
-    KPSpriteNode* leftGrassTuft = [[KPSpriteNode alloc] initWithTexture:
-                                    [self.textures getTexture:TextureIDGrassTuftLeft]];
+    KPSpriteNode* leftGrassTuft =
+    [[KPSpriteNode alloc] initWithTexture:[self.textures getTexture:TextureIDGrassTuftLeft]
+                                    state:NULL
+                             soundManager:self.soundManager];
     leftGrassTuft.position = CGPointMake(-340, -328);
     [self addNodeToLayer:LayerIDScenery node:leftGrassTuft];
     
-    KPSpriteNode* rightGrassTuft = [[KPSpriteNode alloc] initWithTexture:
-                                     [self.textures getTexture:TextureIDGrassTuftRight]];
+    KPSpriteNode* rightGrassTuft =
+    [[KPSpriteNode alloc] initWithTexture:[self.textures getTexture:TextureIDGrassTuftRight]
+                                    state:NULL
+                             soundManager:self.soundManager];
     rightGrassTuft.position = CGPointMake(340, -328);
     [self addNodeToLayer:LayerIDScenery node:rightGrassTuft];
     
@@ -135,7 +148,8 @@ typedef enum layers {
     SSKSpriteAnimationNode* blueTestTarget =
     [[SSKSpriteAnimationNode alloc]
      initWithSpriteSheet:[self.textures getTexture:TextureIDBlueMonkeyTarget]
-     columns:8 rows:3 numFrames:20 horizontalOrder:YES timePerFrame:1.0/14.0];
+     state:NULL soundManager:self.soundManager columns:8 rows:3 numFrames:20
+     horizontalOrder:YES timePerFrame:1.0/14.0];
     blueTestTarget.position = CGPointMake(50, 80);
     [blueTestTarget animate];
     [self addNodeToLayer:LayerIDTargets node:blueTestTarget];
@@ -143,7 +157,8 @@ typedef enum layers {
     SSKSpriteAnimationNode* pinkTestTarget =
     [[SSKSpriteAnimationNode alloc]
      initWithSpriteSheet:[self.textures getTexture:TextureIDPinkMonkeyTarget]
-     columns:8 rows:3 numFrames:20 horizontalOrder:YES timePerFrame:1.0/14.0];
+     state:NULL soundManager:self.soundManager columns:8 rows:3 numFrames:20
+     horizontalOrder:YES timePerFrame:1.0/14.0];
     pinkTestTarget.position = CGPointMake(-50, -120);
     [pinkTestTarget animate];
     [self addNodeToLayer:LayerIDTargets node:pinkTestTarget];
@@ -152,7 +167,8 @@ typedef enum layers {
     SSKSpriteAnimationNode* projectileTest =
     [[SSKSpriteAnimationNode alloc]
      initWithSpriteSheet:[self.textures getTexture:TextureIDLollipopLeftProjectile]
-     columns:3 rows:3 numFrames:8 horizontalOrder:YES timePerFrame:1.0/14.0];
+     state:NULL soundManager:self.soundManager columns:3 rows:3 numFrames:8
+     horizontalOrder:YES timePerFrame:1.0/14.0];
     projectileTest.position = CGPointMake(300, 150);
     [projectileTest animate];
     [self addNodeToLayer:LayerIDProjectiles node:projectileTest];

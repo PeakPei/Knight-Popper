@@ -32,7 +32,11 @@ typedef enum textureIDs {
     TextureIDPlayerTwoAttack,
     TextureIDPlayerTwoIdle,
     TextureIDTimeUp,
-    TextureIDTimer
+    TextureIDTimer,
+    TextureIDMainMenuBackground,
+    TextureIDMainMenuTitle,
+    TextureIDPlayButton,
+    TextureIDAboutButton
 } TextureID;
 
 #endif

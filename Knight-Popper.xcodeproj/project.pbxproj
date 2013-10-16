@@ -8,6 +8,27 @@
 
 /* Begin PBXBuildFile section */
 		9008CB371808E928003FB55C /* libSpriteStackKit.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 9008CB321808E8A3003FB55C /* libSpriteStackKit.a */; };
+		90174FE5180E1D3700B000A7 /* about_button~ipad.png in Resources */ = {isa = PBXBuildFile; fileRef = 90174FE0180E1D3700B000A7 /* about_button~ipad.png */; };
+		90174FE6180E1D3700B000A7 /* back_button~ipad.png in Resources */ = {isa = PBXBuildFile; fileRef = 90174FE1180E1D3700B000A7 /* back_button~ipad.png */; };
+		90174FE7180E1D3700B000A7 /* menu_bg~ipad.png in Resources */ = {isa = PBXBuildFile; fileRef = 90174FE2180E1D3700B000A7 /* menu_bg~ipad.png */; };
+		90174FE8180E1D3700B000A7 /* play_button~ipad.png in Resources */ = {isa = PBXBuildFile; fileRef = 90174FE3180E1D3700B000A7 /* play_button~ipad.png */; };
+		90174FE9180E1D3700B000A7 /* title~ipad.png in Resources */ = {isa = PBXBuildFile; fileRef = 90174FE4180E1D3700B000A7 /* title~ipad.png */; };
+		90174FF0180E1D4C00B000A7 /* about_button@2x~ipad.png in Resources */ = {isa = PBXBuildFile; fileRef = 90174FEB180E1D4C00B000A7 /* about_button@2x~ipad.png */; };
+		90174FF1180E1D4C00B000A7 /* back_button@2x~ipad.png in Resources */ = {isa = PBXBuildFile; fileRef = 90174FEC180E1D4C00B000A7 /* back_button@2x~ipad.png */; };
+		90174FF2180E1D4C00B000A7 /* menu_bg@2x~ipad.png in Resources */ = {isa = PBXBuildFile; fileRef = 90174FED180E1D4C00B000A7 /* menu_bg@2x~ipad.png */; };
+		90174FF3180E1D4C00B000A7 /* play_button@2x~ipad.png in Resources */ = {isa = PBXBuildFile; fileRef = 90174FEE180E1D4C00B000A7 /* play_button@2x~ipad.png */; };
+		90174FF4180E1D4C00B000A7 /* title@2x~ipad.png in Resources */ = {isa = PBXBuildFile; fileRef = 90174FEF180E1D4C00B000A7 /* title@2x~ipad.png */; };
+		90174FFA180E1D6B00B000A7 /* about_button~iphone.png in Resources */ = {isa = PBXBuildFile; fileRef = 90174FF5180E1D6B00B000A7 /* about_button~iphone.png */; };
+		90174FFB180E1D6B00B000A7 /* back_button~iphone.png in Resources */ = {isa = PBXBuildFile; fileRef = 90174FF6180E1D6B00B000A7 /* back_button~iphone.png */; };
+		90174FFC180E1D6B00B000A7 /* menu_bg~iphone.png in Resources */ = {isa = PBXBuildFile; fileRef = 90174FF7180E1D6B00B000A7 /* menu_bg~iphone.png */; };
+		90174FFD180E1D6B00B000A7 /* play_button~iphone.png in Resources */ = {isa = PBXBuildFile; fileRef = 90174FF8180E1D6B00B000A7 /* play_button~iphone.png */; };
+		90174FFE180E1D6B00B000A7 /* title~iphone.png in Resources */ = {isa = PBXBuildFile; fileRef = 90174FF9180E1D6B00B000A7 /* title~iphone.png */; };
+		90175004180E1D9600B000A7 /* about_button@2x~iphone.png in Resources */ = {isa = PBXBuildFile; fileRef = 90174FFF180E1D9600B000A7 /* about_button@2x~iphone.png */; };
+		90175005180E1D9600B000A7 /* back_button@2x~iphone.png in Resources */ = {isa = PBXBuildFile; fileRef = 90175000180E1D9600B000A7 /* back_button@2x~iphone.png */; };
+		90175006180E1D9600B000A7 /* menu_bg@2x~iphone.png in Resources */ = {isa = PBXBuildFile; fileRef = 90175001180E1D9600B000A7 /* menu_bg@2x~iphone.png */; };
+		90175007180E1D9600B000A7 /* menu_lollipop@2x~iphone.png in Resources */ = {isa = PBXBuildFile; fileRef = 90175002180E1D9600B000A7 /* menu_lollipop@2x~iphone.png */; };
+		90175008180E1D9600B000A7 /* play_button@2x~iphone.png in Resources */ = {isa = PBXBuildFile; fileRef = 90175003180E1D9600B000A7 /* play_button@2x~iphone.png */; };
+		9017500B180E2C5F00B000A7 /* KPMainMenuState.m in Sources */ = {isa = PBXBuildFile; fileRef = 9017500A180E2C5F00B000A7 /* KPMainMenuState.m */; };
 		9027C4D217F2B30B0056EFA4 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9027C4D117F2B30B0056EFA4 /* Foundation.framework */; };
 		9027C4D417F2B30B0056EFA4 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9027C4D317F2B30B0056EFA4 /* CoreGraphics.framework */; };
 		9027C4D617F2B30B0056EFA4 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9027C4D517F2B30B0056EFA4 /* UIKit.framework */; };
@@ -157,6 +178,28 @@
 
 /* Begin PBXFileReference section */
 		9008CB2C1808E8A3003FB55C /* SpriteStackKit.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = SpriteStackKit.xcodeproj; path = "Libraries/Sprite-Stack-Kit/SpriteStackKit.xcodeproj"; sourceTree = "<group>"; };
+		90174FE0180E1D3700B000A7 /* about_button~ipad.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "about_button~ipad.png"; sourceTree = "<group>"; };
+		90174FE1180E1D3700B000A7 /* back_button~ipad.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "back_button~ipad.png"; sourceTree = "<group>"; };
+		90174FE2180E1D3700B000A7 /* menu_bg~ipad.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "menu_bg~ipad.png"; sourceTree = "<group>"; };
+		90174FE3180E1D3700B000A7 /* play_button~ipad.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "play_button~ipad.png"; sourceTree = "<group>"; };
+		90174FE4180E1D3700B000A7 /* title~ipad.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "title~ipad.png"; sourceTree = "<group>"; };
+		90174FEB180E1D4C00B000A7 /* about_button@2x~ipad.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "about_button@2x~ipad.png"; sourceTree = "<group>"; };
+		90174FEC180E1D4C00B000A7 /* back_button@2x~ipad.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "back_button@2x~ipad.png"; sourceTree = "<group>"; };
+		90174FED180E1D4C00B000A7 /* menu_bg@2x~ipad.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "menu_bg@2x~ipad.png"; sourceTree = "<group>"; };
+		90174FEE180E1D4C00B000A7 /* play_button@2x~ipad.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "play_button@2x~ipad.png"; sourceTree = "<group>"; };
+		90174FEF180E1D4C00B000A7 /* title@2x~ipad.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "title@2x~ipad.png"; sourceTree = "<group>"; };
+		90174FF5180E1D6B00B000A7 /* about_button~iphone.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "about_button~iphone.png"; sourceTree = "<group>"; };
+		90174FF6180E1D6B00B000A7 /* back_button~iphone.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "back_button~iphone.png"; sourceTree = "<group>"; };
+		90174FF7180E1D6B00B000A7 /* menu_bg~iphone.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "menu_bg~iphone.png"; sourceTree = "<group>"; };
+		90174FF8180E1D6B00B000A7 /* play_button~iphone.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "play_button~iphone.png"; sourceTree = "<group>"; };
+		90174FF9180E1D6B00B000A7 /* title~iphone.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "title~iphone.png"; sourceTree = "<group>"; };
+		90174FFF180E1D9600B000A7 /* about_button@2x~iphone.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "about_button@2x~iphone.png"; sourceTree = "<group>"; };
+		90175000180E1D9600B000A7 /* back_button@2x~iphone.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "back_button@2x~iphone.png"; sourceTree = "<group>"; };
+		90175001180E1D9600B000A7 /* menu_bg@2x~iphone.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "menu_bg@2x~iphone.png"; sourceTree = "<group>"; };
+		90175002180E1D9600B000A7 /* menu_lollipop@2x~iphone.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "menu_lollipop@2x~iphone.png"; sourceTree = "<group>"; };
+		90175003180E1D9600B000A7 /* play_button@2x~iphone.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "play_button@2x~iphone.png"; sourceTree = "<group>"; };
+		90175009180E2C5F00B000A7 /* KPMainMenuState.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KPMainMenuState.h; sourceTree = "<group>"; };
+		9017500A180E2C5F00B000A7 /* KPMainMenuState.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KPMainMenuState.m; sourceTree = "<group>"; };
 		9027C4CE17F2B30B0056EFA4 /* Knight-Popper.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Knight-Popper.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		9027C4D117F2B30B0056EFA4 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		9027C4D317F2B30B0056EFA4 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -414,6 +457,8 @@
 		9088295E17FFC0150016CCB6 /* States */ = {
 			isa = PBXGroup;
 			children = (
+				90175009180E2C5F00B000A7 /* KPMainMenuState.h */,
+				9017500A180E2C5F00B000A7 /* KPMainMenuState.m */,
 				9088295F17FFC0150016CCB6 /* KPStandardGameState.h */,
 				9088296017FFC0150016CCB6 /* KPStandardGameState.m */,
 				9088296117FFC0150016CCB6 /* StateIDs.h */,
@@ -533,6 +578,11 @@
 		90E3C2A318000EF300087ED3 /* iPad (Non-Retina) */ = {
 			isa = PBXGroup;
 			children = (
+				90174FE0180E1D3700B000A7 /* about_button~ipad.png */,
+				90174FE1180E1D3700B000A7 /* back_button~ipad.png */,
+				90174FE2180E1D3700B000A7 /* menu_bg~ipad.png */,
+				90174FE3180E1D3700B000A7 /* play_button~ipad.png */,
+				90174FE4180E1D3700B000A7 /* title~ipad.png */,
 				904BDC221808D5EE003E7499 /* blue_pop~ipad.png */,
 				904BDC231808D5EE003E7499 /* countdown~ipad.png */,
 				904BDC241808D5EE003E7499 /* game_timer~ipad.png */,
@@ -562,6 +612,11 @@
 		90E3C2AB18000EF300087ED3 /* iPad (Retina) */ = {
 			isa = PBXGroup;
 			children = (
+				90174FEB180E1D4C00B000A7 /* about_button@2x~ipad.png */,
+				90174FEC180E1D4C00B000A7 /* back_button@2x~ipad.png */,
+				90174FED180E1D4C00B000A7 /* menu_bg@2x~ipad.png */,
+				90174FEE180E1D4C00B000A7 /* play_button@2x~ipad.png */,
+				90174FEF180E1D4C00B000A7 /* title@2x~ipad.png */,
 				904BDC401808D5FE003E7499 /* blue_pop@2x~ipad.png */,
 				904BDC411808D5FE003E7499 /* countdown@2x~ipad.png */,
 				904BDC421808D5FE003E7499 /* game_timer@2x~ipad.png */,
@@ -591,6 +646,11 @@
 		90E3C2B318000EF400087ED3 /* iPhone (Non-Retina) */ = {
 			isa = PBXGroup;
 			children = (
+				90174FF5180E1D6B00B000A7 /* about_button~iphone.png */,
+				90174FF6180E1D6B00B000A7 /* back_button~iphone.png */,
+				90174FF7180E1D6B00B000A7 /* menu_bg~iphone.png */,
+				90174FF8180E1D6B00B000A7 /* play_button~iphone.png */,
+				90174FF9180E1D6B00B000A7 /* title~iphone.png */,
 				904BDC5E1808D60D003E7499 /* blue_pop~iphone.png */,
 				904BDC5F1808D60D003E7499 /* countdown~iphone.png */,
 				904BDC601808D60D003E7499 /* game_timer~iphone.png */,
@@ -620,6 +680,11 @@
 		90E3C2BB18000EF400087ED3 /* iPhone (Retina) */ = {
 			isa = PBXGroup;
 			children = (
+				90174FFF180E1D9600B000A7 /* about_button@2x~iphone.png */,
+				90175000180E1D9600B000A7 /* back_button@2x~iphone.png */,
+				90175001180E1D9600B000A7 /* menu_bg@2x~iphone.png */,
+				90175002180E1D9600B000A7 /* menu_lollipop@2x~iphone.png */,
+				90175003180E1D9600B000A7 /* play_button@2x~iphone.png */,
 				90E3C2BC18000EF400087ED3 /* background@2x~iphone.png */,
 				90E3C2BD18000EF400087ED3 /* blue_monkey_HUD@2x~iphone.png */,
 				90E3C2BE18000EF400087ED3 /* blue_monkey_target@2x~iphone.png */,
@@ -747,6 +812,7 @@
 				90E3C2D718000EF400087ED3 /* pink_monkey_HUD@2x~ipad.png in Resources */,
 				904BDC561808D5FE003E7499 /* lollipop_right_projectile@2x~ipad.png in Resources */,
 				90B07AC5180BAE7C00530915 /* balloon_pop.wav in Resources */,
+				90174FE5180E1D3700B000A7 /* about_button~ipad.png in Resources */,
 				904BDC5A1808D5FE003E7499 /* player_one_idle@2x~ipad.png in Resources */,
 				904BDC741808D60D003E7499 /* lollipop_right_projectile~iphone.png in Resources */,
 				9088298017FFC0150016CCB6 /* Main_iPad.storyboard in Resources */,
@@ -770,17 +836,25 @@
 				90E3C2D218000EF400087ED3 /* background@2x~ipad.png in Resources */,
 				904BDC551808D5FE003E7499 /* lollipop_left_projectile@2x~ipad.png in Resources */,
 				90E3C2C818000EF400087ED3 /* Icon@2x.png in Resources */,
+				90174FF0180E1D4C00B000A7 /* about_button@2x~ipad.png in Resources */,
+				90174FE7180E1D3700B000A7 /* menu_bg~ipad.png in Resources */,
+				90175007180E1D9600B000A7 /* menu_lollipop@2x~iphone.png in Resources */,
 				904BDC5B1808D5FE003E7499 /* player_two_attack@2x~ipad.png in Resources */,
 				904BDC371808D5EE003E7499 /* lollipop_left_projectile~ipad.png in Resources */,
 				904BDC381808D5EE003E7499 /* lollipop_right_projectile~ipad.png in Resources */,
+				90174FE9180E1D3700B000A7 /* title~ipad.png in Resources */,
 				904BDC7A1808D60D003E7499 /* player_two_idle~iphone.png in Resources */,
+				90174FFB180E1D6B00B000A7 /* back_button~iphone.png in Resources */,
 				904BDC331808D5EE003E7499 /* game_timer~ipad.png in Resources */,
 				904BDC3B1808D5EE003E7499 /* player_one_attack~ipad.png in Resources */,
+				90174FFA180E1D6B00B000A7 /* about_button~iphone.png in Resources */,
 				90E3C2D118000EF400087ED3 /* pink_monkey_target~ipad.png in Resources */,
 				90E3C2DD18000EF400087ED3 /* GrassTuft_Right~iphone.png in Resources */,
+				90175005180E1D9600B000A7 /* back_button@2x~iphone.png in Resources */,
 				90E3C2C518000EF400087ED3 /* Icon-72.png in Resources */,
 				904BDC781808D60D003E7499 /* player_one_idle~iphone.png in Resources */,
 				904BDC531808D5FE003E7499 /* gold_pop@2x~ipad.png in Resources */,
+				90175006180E1D9600B000A7 /* menu_bg@2x~iphone.png in Resources */,
 				90E3C2E618000EF400087ED3 /* pink_monkey_target@2x~iphone.png in Resources */,
 				90E3C2E218000EF400087ED3 /* blue_monkey_target@2x~iphone.png in Resources */,
 				904BDC5D1808D5FE003E7499 /* times_up@2x~ipad.png in Resources */,
@@ -788,14 +862,18 @@
 				90E3C2D818000EF400087ED3 /* pink_monkey_target@2x~ipad.png in Resources */,
 				904BDC6D1808D60D003E7499 /* blue_pop~iphone.png in Resources */,
 				90E3C2E518000EF400087ED3 /* pink_monkey_HUD@2x~iphone.png in Resources */,
+				90174FF4180E1D4C00B000A7 /* title@2x~ipad.png in Resources */,
 				904BDC3F1808D5EE003E7499 /* times_up~ipad.png in Resources */,
 				904BDC3A1808D5EE003E7499 /* pink_pop~ipad.png in Resources */,
 				90E3C2D318000EF400087ED3 /* blue_monkey_HUD@2x~ipad.png in Resources */,
 				904BDC511808D5FE003E7499 /* game_timer@2x~ipad.png in Resources */,
 				904BDC711808D60D003E7499 /* gold_pop~iphone.png in Resources */,
+				90174FF1180E1D4C00B000A7 /* back_button@2x~ipad.png in Resources */,
 				90E3C2CD18000EF400087ED3 /* blue_monkey_target~ipad.png in Resources */,
+				90175004180E1D9600B000A7 /* about_button@2x~iphone.png in Resources */,
 				90E3C2D618000EF400087ED3 /* GrassTuft_Right@2x~ipad.png in Resources */,
 				90E3C2DE18000EF400087ED3 /* pink_monkey_HUD~iphone.png in Resources */,
+				90174FF3180E1D4C00B000A7 /* play_button@2x~ipad.png in Resources */,
 				90E3C2C618000EF400087ED3 /* Icon-72@2x.png in Resources */,
 				90E3C2CC18000EF400087ED3 /* blue_monkey_HUD~ipad.png in Resources */,
 				9088298117FFC0150016CCB6 /* Main_iPhone.storyboard in Resources */,
@@ -803,6 +881,8 @@
 				904BDC351808D5EE003E7499 /* gold_pop~ipad.png in Resources */,
 				90E3C2CB18000EF400087ED3 /* background~ipad.png in Resources */,
 				90B07ACD180BAE7C00530915 /* lollipop_lick.wav in Resources */,
+				90174FFE180E1D6B00B000A7 /* title~iphone.png in Resources */,
+				90174FFC180E1D6B00B000A7 /* menu_bg~iphone.png in Resources */,
 				904BDC7B1808D60D003E7499 /* times_up~iphone.png in Resources */,
 				90B07AD1180BAE7C00530915 /* victory.wav in Resources */,
 				90E3C2E018000EF400087ED3 /* background@2x~iphone.png in Resources */,
@@ -811,6 +891,7 @@
 				90E3C2E318000EF400087ED3 /* GrassTuft_Left@2x~iphone.png in Resources */,
 				904BDC791808D60D003E7499 /* player_two_attack~iphone.png in Resources */,
 				904BDC581808D5FE003E7499 /* pink_pop@2x~ipad.png in Resources */,
+				90175008180E1D9600B000A7 /* play_button@2x~iphone.png in Resources */,
 				904BDC321808D5EE003E7499 /* countdown~ipad.png in Resources */,
 				904BDC3D1808D5EE003E7499 /* player_two_attack~ipad.png in Resources */,
 				904BDC391808D5EE003E7499 /* menu_lollipop~ipad.png in Resources */,
@@ -830,10 +911,14 @@
 				904BDC341808D5EE003E7499 /* gold_monkey_target~ipad.png in Resources */,
 				90E3C2C718000EF400087ED3 /* Icon.png in Resources */,
 				90B07AC4180BAE7C00530915 /* back_press.wav in Resources */,
+				90174FE6180E1D3700B000A7 /* back_button~ipad.png in Resources */,
 				90B07ACA180BAE7C00530915 /* forward_press.wav in Resources */,
+				90174FF2180E1D4C00B000A7 /* menu_bg@2x~ipad.png in Resources */,
 				9088298217FFC0150016CCB6 /* InfoPlist.strings in Resources */,
 				904BDC6F1808D60D003E7499 /* game_timer~iphone.png in Resources */,
+				90174FE8180E1D3700B000A7 /* play_button~ipad.png in Resources */,
 				90B07ACE180BAE7C00530915 /* lollipop_reload.wav in Resources */,
+				90174FFD180E1D6B00B000A7 /* play_button~iphone.png in Resources */,
 				90E3C2CE18000EF400087ED3 /* GrassTuft_Left~ipad.png in Resources */,
 				904BDC3C1808D5EE003E7499 /* player_one_idle~ipad.png in Resources */,
 				90E3C2DA18000EF400087ED3 /* blue_monkey_HUD~iphone.png in Resources */,
@@ -863,6 +948,7 @@
 				9088297D17FFC0150016CCB6 /* Random.m in Sources */,
 				9088299017FFC0C00016CCB6 /* KPTargetNode.m in Sources */,
 				9088297F17FFC0150016CCB6 /* main.m in Sources */,
+				9017500B180E2C5F00B000A7 /* KPMainMenuState.m in Sources */,
 				9088297A17FFC0150016CCB6 /* KPApplicationViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

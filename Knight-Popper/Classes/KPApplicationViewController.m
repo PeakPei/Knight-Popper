@@ -17,6 +17,7 @@
 #import <SpriteStackKit/SSKTextureManager.h>
 #import <SpriteStackKit/SSKMusicManager.h>
 #import <SpriteStackKit/SSKSoundActionManager.h>
+#import "KPMainMenuState.h"
 
 #pragma mark - Interface
 
@@ -73,10 +74,12 @@
                     identifier:TextureIDBlueMonkeyHUD];
     [self.textures loadTexture:@"pink_monkey_HUD.png"
                     identifier:TextureIDPinkMonkeyHUD];
-    [self.textures loadTexture:@"blue_monkey_target.png"
-                    identifier:TextureIDBlueMonkeyTarget];
     [self.textures loadTexture:@"pink_monkey_target.png"
                     identifier:TextureIDPinkMonkeyTarget];
+    [self.textures loadTexture:@"blue_monkey_target.png"
+                    identifier:TextureIDBlueMonkeyTarget];
+    [self.textures loadTexture:@"gold_monkey_target.png"
+                    identifier:TextureIDGoldMonkeyTarget];
     [self.textures loadTexture:@"blue_pop.png"
                     identifier:TextureIDBluePop];
     [self.textures loadTexture:@"pink_pop.png"
@@ -105,6 +108,14 @@
                     identifier:TextureIDTimeUp];
     [self.textures loadTexture:@"game_timer.png"
                     identifier:TextureIDTimer];
+    [self.textures loadTexture:@"about_button.png"
+                    identifier:TextureIDAboutButton];
+    [self.textures loadTexture:@"play_button.png"
+                    identifier:TextureIDPlayButton];
+    [self.textures loadTexture:@"menu_bg.png"
+                    identifier:TextureIDMainMenuBackground];
+    [self.textures loadTexture:@"title.png"
+                    identifier:TextureIDMainMenuTitle];
     
     // Load music
     self.musicManager = [[SSKMusicManager alloc] initWithSoundCount:3];
@@ -148,9 +159,10 @@
                                                        soundManager:self.soundManager
                                                               size:landscapeSize];
     [self.stateStack registerState:[KPStandardGameState class] stateID:StateIDExample];
+    [self.stateStack registerState:[KPMainMenuState class] stateID:StateIDMenu];
     
     // Configure the scene
-    [self.stateStack pushState:StateIDExample];
+    [self.stateStack pushState:StateIDMenu];
     [self.stateView presentScene:self.stateStack];
 }
 

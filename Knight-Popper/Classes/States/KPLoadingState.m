@@ -80,13 +80,13 @@ typedef enum layers {
     lollipopShadow.position = lollipopBase.position;
     [self addNodeToLayer:LayerIDHUD node:lollipopShadow];
     
-//    SSKLabelNode* message =
-//        [[SSKLabelNode alloc] initWithFontNamed:@"Arial"
-//                                  audioDelegate:self.audioDelegate];
-//    message.text = @"Collecting springs...";
-//    message.fontSize = 40;
-//    message.position = CGPointMake(0, -250);
-//    [self addNodeToLayer:LayerIDHUD node:message];
+    SSKLabelNode* message =
+        [[SSKLabelNode alloc] initWithFontNamed:@"Arial"
+                                  audioDelegate:self.audioDelegate];
+    message.text = @"Collecting springs...";
+    message.fontSize = 40;
+    message.position = CGPointMake(0, -250);
+    [self addNodeToLayer:LayerIDHUD node:message];
     
     SKAction* rotate =
         [SKAction repeatActionForever:[SKAction rotateByAngle:6.2831 duration:1]];

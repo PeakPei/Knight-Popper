@@ -38,13 +38,11 @@ typedef enum layers {
 
 - (id)initWithStateStack:(SSKStateStack *)stateStack
           textureManager:(SSKTextureManager *)textureManager
-            musicManager:(SSKMusicManager *)music
-            soundManager:(SSKSoundActionManager *)sounds {
+           audioDelegate:(id<SSKAudioManagerDelegate>)delegate{
     unsigned int layerCount = 6;
     if (self = [super initWithStateStack:stateStack
                           textureManager:textureManager
-                            musicManager:music
-                            soundManager:sounds
+                           audioDelegate:delegate
                               layerCount:layerCount]) {
         self.actionQueue = [[SSKActionQueue alloc] init];
     }
@@ -65,52 +63,52 @@ typedef enum layers {
     KPSpriteNode* background =
     [[KPSpriteNode alloc] initWithTexture:[self.textures getTexture:TextureIDBackground]
                                     state:NULL
-                             soundManager:self.soundManager];
+                             audioDelegate:self.audioDelegate];
     background.position = CGPointZero;
     [self addNodeToLayer:LayerIDBackground node:background];
     
     // Initialise demo layer
     void(^pinkBalloonClick)(SSKButtonNode*) = ^(SSKButtonNode* node) {
-        [node runAction:[node.soundManager getSoundAction:SoundIDBalloonPop]];
+        [node.audioDelegate playSound:SoundIDBalloonPop];
     };
     
     void(^blueBalloonClick)(SSKButtonNode*) = ^(SSKButtonNode* node) {
-        [node runAction:[node.soundManager getSoundAction:SoundIDBalloonPop]];
+        [node.audioDelegate playSound:SoundIDBalloonPop];
     };
     
     void(^goldBalloonClick)(SSKButtonNode*) = ^(SSKButtonNode* node) {
-        [node runAction:[node.soundManager getSoundAction:SoundIDGoldenPop]];
+        [node.audioDelegate playSound:SoundIDGoldenPop];
     };
     
     void(^throwClick)(SSKButtonNode*) = ^(SSKButtonNode* node) {
-        [node runAction:[node.soundManager getSoundAction:SoundIDLollipopThrow]];
+        [node.audioDelegate playSound:SoundIDLollipopThrow];
     };
     
     void(^reloadClick)(SSKButtonNode*) = ^(SSKButtonNode* node) {
-        [node runAction:[node.soundManager getSoundAction:SoundIDLollipopReload]];
+        [node.audioDelegate playSound:SoundIDLollipopReload];
     };
     
     void(^oneTimerClick)(SSKButtonNode*) = ^(SSKButtonNode* node) {
-        [node runAction:[node.soundManager getSoundAction:SoundIDCountdownOne]];
+        [node.audioDelegate playSound:SoundIDCountdownOne];
     };
     
     void(^twoTimerClick)(SSKButtonNode*) = ^(SSKButtonNode* node) {
-        [node runAction:[node.soundManager getSoundAction:SoundIDCountdownTwo]];
+        [node.audioDelegate playSound:SoundIDCountdownTwo];
     };
     
     void(^threeTimerClick)(SSKButtonNode*) = ^(SSKButtonNode* node) {
-        [node runAction:[node.soundManager getSoundAction:SoundIDCountdownThree]];
+        [node.audioDelegate playSound:SoundIDCountdownThree];
     };
     
     void(^goClick)(SSKButtonNode*) = ^(SSKButtonNode* node) {
-        [node runAction:[node.soundManager getSoundAction:SoundIDCountdownGo]];
+        [node.audioDelegate playSound:SoundIDCountdownGo];
     };
     
     SSKButtonNode *pinkBalloon =
     [[SSKButtonNode alloc]
      initWithTexture:[SKTexture textureWithRect:CGRectMake(0, 0, 1.0/8.0, 1.0/3.0)
                                       inTexture:[self.textures getTexture:TextureIDPinkMonkeyTarget]]
-     state:NULL soundManager:self.soundManager clickEventBlock:pinkBalloonClick];
+     state:NULL audioDelegate:self.audioDelegate clickEventBlock:pinkBalloonClick];
     pinkBalloon.position = CGPointMake(-450, -300);
     [self addNodeToLayer:LayerIDHUD node:pinkBalloon];
     
@@ -118,7 +116,7 @@ typedef enum layers {
     [[SSKButtonNode alloc]
      initWithTexture:[SKTexture textureWithRect:CGRectMake(0, 0, 1.0/8.0, 1.0/3.0)
                                       inTexture:[self.textures getTexture:TextureIDBlueMonkeyTarget]]
-     state:NULL soundManager:self.soundManager clickEventBlock:blueBalloonClick];
+     state:NULL audioDelegate:self.audioDelegate clickEventBlock:blueBalloonClick];
     blueBalloon.position = CGPointMake(-300, -300);
     [self addNodeToLayer:LayerIDHUD node:blueBalloon];
     
@@ -126,7 +124,7 @@ typedef enum layers {
     [[SSKButtonNode alloc]
      initWithTexture:[SKTexture textureWithRect:CGRectMake(0, 0, 1.0/8.0, 1.0/3.0)
                                       inTexture:[self.textures getTexture:TextureIDGoldMonkeyTarget]]
-     state:NULL soundManager:self.soundManager clickEventBlock:goldBalloonClick];
+     state:NULL audioDelegate:self.audioDelegate clickEventBlock:goldBalloonClick];
     goldBalloon.position = CGPointMake(-150, -300);
     [self addNodeToLayer:LayerIDHUD node:goldBalloon];
 
@@ -134,7 +132,7 @@ typedef enum layers {
     [[SSKButtonNode alloc]
      initWithTexture:[SKTexture textureWithRect:CGRectMake(0, 0, 1.0/7.0, 1.0/3.0)
                                       inTexture:[self.textures getTexture:TextureIDPlayerOneIdle]]
-     state:NULL soundManager:self.soundManager clickEventBlock:throwClick];
+     state:NULL audioDelegate:self.audioDelegate clickEventBlock:throwClick];
     playerOne.position = CGPointMake(-400, 0);
     [self addNodeToLayer:LayerIDHUD node:playerOne];
     
@@ -142,7 +140,7 @@ typedef enum layers {
     [[SSKButtonNode alloc]
      initWithTexture:[SKTexture textureWithRect:CGRectMake(0, 0, 1.0/7.0, 1.0/2.0)
                                       inTexture:[self.textures getTexture:TextureIDPlayerTwoAttack]]
-     state:NULL soundManager:self.soundManager clickEventBlock:reloadClick];
+     state:NULL audioDelegate:self.audioDelegate clickEventBlock:reloadClick];
     playerTwo.position = CGPointMake(400, 0);
     [self addNodeToLayer:LayerIDHUD node:playerTwo];
     
@@ -150,7 +148,7 @@ typedef enum layers {
     [[SSKButtonNode alloc]
      initWithTexture:[SKTexture textureWithRect:CGRectMake(0, 0, 0.5, 0.5)
                                       inTexture:[self.textures getTexture:TextureIDCountdown]]
-     state:NULL soundManager:self.soundManager clickEventBlock:oneTimerClick];
+     state:NULL audioDelegate:self.audioDelegate clickEventBlock:oneTimerClick];
     one.position = CGPointMake(-450, 300);
     [self addNodeToLayer:LayerIDHUD node:one];
     
@@ -158,7 +156,7 @@ typedef enum layers {
     [[SSKButtonNode alloc]
      initWithTexture:[SKTexture textureWithRect:CGRectMake(0.5, 0.5, 0.5, 0.5)
                                       inTexture:[self.textures getTexture:TextureIDCountdown]]
-     state:NULL soundManager:self.soundManager clickEventBlock:twoTimerClick];
+     state:NULL audioDelegate:self.audioDelegate clickEventBlock:twoTimerClick];
     two.position = CGPointMake(-350, 300);
     [self addNodeToLayer:LayerIDHUD node:two];
     
@@ -166,7 +164,7 @@ typedef enum layers {
     [[SSKButtonNode alloc]
      initWithTexture:[SKTexture textureWithRect:CGRectMake(0, 0.5, 0.5, 0.5)
                                       inTexture:[self.textures getTexture:TextureIDCountdown]]
-     state:NULL soundManager:self.soundManager clickEventBlock:threeTimerClick];
+     state:NULL audioDelegate:self.audioDelegate clickEventBlock:threeTimerClick];
     three.position = CGPointMake(-250, 300);
     [self addNodeToLayer:LayerIDHUD node:three];
     
@@ -174,7 +172,7 @@ typedef enum layers {
     [[SSKButtonNode alloc]
      initWithTexture:[SKTexture textureWithRect:CGRectMake(0.5, 0, 0.5, 0.5)
                                       inTexture:[self.textures getTexture:TextureIDCountdown]]
-     state:NULL soundManager:self.soundManager clickEventBlock:goClick];
+     state:NULL audioDelegate:self.audioDelegate clickEventBlock:goClick];
     go.position = CGPointMake(150, 300);
     [self addNodeToLayer:LayerIDHUD node:go];
     

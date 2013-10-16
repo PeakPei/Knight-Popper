@@ -40,7 +40,7 @@
     TextureID identifier = [KPTargetNode textureIDForType:targetType];
     SKTexture* texture = [textures getTexture:identifier];
     
-    if (self = [super initWithTexture:texture state:NULL soundManager:NULL]) {
+    if (self = [super initWithTexture:texture state:NULL audioDelegate:NULL]) {
         self.category = ActionCategoryNone;
         self.name = [KPActionCategories nodeNameForCategory:self.category];
         self.physicsBody = [SKPhysicsBody bodyWithRectangleOfSize:self.size];

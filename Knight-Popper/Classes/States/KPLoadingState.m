@@ -1,24 +1,24 @@
 /**
- * @filename KPMainMenuState.m
+ * @filename KPState.m
  * @author Morgan Wall
  * @date 16-10-2013
  */
 
-#import "KPMainMenuState.h"
-#import "KPTargetNode.h"
+#import "KPLoadingState.h"
 #import "KPActionCategories.h"
 #import "TextureIDs.h"
 #import "StateIDs.h"
 #import "SoundIDs.h"
-#import "KPSpriteNode.h"
 #import <SpriteStackKit/SSKAction.h>
 #import <SpriteStackKit/SSKActionQueue.h>
 #import <SpriteStackKit/SSKSpriteAnimationNode.h>
 #import <SpriteStackKit/SSKButtonNode.h>
+#import "KPSpriteNode.h"
+#import <SpriteStackKit/SSKLabelNode.h>
 
 #pragma mark - Interface
 
-@interface KPMainMenuState ()
+@interface KPLoadingState ()
 
 typedef enum layers {
     LayerIDBackground = 0,
@@ -32,11 +32,11 @@ typedef enum layers {
 
 #pragma mark - Implementation
 
-@implementation KPMainMenuState
+@implementation KPLoadingState
 
 - (id)initWithStateStack:(SSKStateStack *)stateStack
           textureManager:(SSKTextureManager *)textureManager
-           audioDelegate:(id<SSKAudioManagerDelegate>)delegate{
+           audioDelegate:(id<SSKAudioManagerDelegate>)delegate {
     unsigned int layerCount = 3;
     if (self = [super initWithStateStack:stateStack
                           textureManager:textureManager
@@ -66,34 +66,31 @@ typedef enum layers {
     [self addNodeToLayer:LayerIDBackground node:background];
     
     // Initialise HUD layer
-    KPSpriteNode* title =
+    KPSpriteNode* lollipopBase =
     [[KPSpriteNode alloc]
-     initWithTexture:[self.textures getTexture:TextureIDMainMenuTitle]
+     initWithTexture:[self.textures getTexture:TextureIDLollipopBase]
      state:NULL audioDelegate:self.audioDelegate];
-    title.position = CGPointMake(0, 100);
-    [self addNodeToLayer:LayerIDBackground node:title];
+    lollipopBase.position = CGPointMake(0, 75);
+    [self addNodeToLayer:LayerIDBackground node:lollipopBase];
     
-    void(^playButtonPress)(SSKButtonNode*) = ^(SSKButtonNode* node) {
-        [self.audioDelegate playSound:SoundIDForwardPress];
-        [node.state requestStackClear];
-        [node.state requestStackPush:StateIDLoading];
-    };
-    
-    SSKButtonNode* playButton =
-    [[SSKButtonNode alloc]
-     initWithTexture:[self.textures getTexture:TextureIDPlayButton]
-     state:self audioDelegate:self.audioDelegate clickEventBlock:playButtonPress];
-    playButton.position = CGPointMake(0, -250);
-    [self addNodeToLayer:LayerIDBackground node:playButton];
-    
-    KPSpriteNode* aboutButton =
+    KPSpriteNode* lollipopShadow =
     [[KPSpriteNode alloc]
-     initWithTexture:[self.textures getTexture:TextureIDAboutButton]
+     initWithTexture:[self.textures getTexture:TextureIDLollipopShadow]
      state:NULL audioDelegate:self.audioDelegate];
-    aboutButton.position = CGPointMake(-370, -270);
-    [self addNodeToLayer:LayerIDBackground node:aboutButton];
+    lollipopShadow.position = lollipopBase.position;
+    [self addNodeToLayer:LayerIDHUD node:lollipopShadow];
     
-    [self.audioDelegate playSound:SoundIDMenuMusic loopCount:-1 instanceId:0];
+//    SSKLabelNode* message =
+//        [[SSKLabelNode alloc] initWithFontNamed:@"Arial"
+//                                  audioDelegate:self.audioDelegate];
+//    message.text = @"Collecting springs...";
+//    message.fontSize = 40;
+//    message.position = CGPointMake(0, -250);
+//    [self addNodeToLayer:LayerIDHUD node:message];
+    
+    SKAction* rotate =
+        [SKAction repeatActionForever:[SKAction rotateByAngle:6.2831 duration:1]];
+    [lollipopBase runAction:rotate];
 }
 
 #pragma mark - Properties

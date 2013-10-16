@@ -1,10 +1,10 @@
-//
-//  KPMainMenuState.h
-//  Knight-Popper
-//
-//  Created by Morgan on 16/10/13.
-//  Copyright (c) 2013 QUT. All rights reserved.
-//
+/**
+ * @filename KPMainMenuState.h
+ * @author Morgan Wall
+ * @date 16-10-2013
+ *
+ * @brief The state describing the main menu.
+ */
 
 #import <SpriteStackKit/SSKState.h>
 

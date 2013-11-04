@@ -169,7 +169,7 @@
     [self.stateStack registerState:[KPLoadingState class] stateID:StateIDLoading];
     
     // Configure the scene
-    [self.stateStack pushState:StateIDMenu];
+    [self.stateStack pushState:StateIDExample];
     [self.stateView presentScene:self.stateStack];
 }
 

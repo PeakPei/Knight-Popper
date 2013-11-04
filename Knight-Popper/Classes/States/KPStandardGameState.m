@@ -54,7 +54,7 @@ typedef enum layers {
 - (void)update:(CFTimeInterval)deltaTime {
     // stub
     while (![self.actionQueue isEmpty]) {
-        [self onAction:[self.actionQueue pop]];
+        [self onAction:[self.actionQueue pop] deltaTime:deltaTime];
     }
 }
 

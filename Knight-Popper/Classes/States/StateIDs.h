@@ -17,7 +17,7 @@ typedef enum States {
     StateIDHighScores,
     StateIDLoading,
     StateIDPause,
-    StateIDGameOver,
+    StateIDVictory,
     StateIDCredits,
     StateIDExample
 } StateID;

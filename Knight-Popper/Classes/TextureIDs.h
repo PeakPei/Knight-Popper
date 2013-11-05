@@ -36,9 +36,22 @@ typedef enum textureIDs {
     TextureIDMainMenuBackground,
     TextureIDMainMenuTitle,
     TextureIDPlayButton,
+    TextureIDPlayButtonHover,
     TextureIDAboutButton,
+    TextureIDAboutButtonHover,
+    TextureIDBackButton,
+    TextureIDBackButtonHover,
     TextureIDLollipopBase,
-    TextureIDLollipopShadow
+    TextureIDLollipopShadow,
+    TextureIDVictoryBackground,
+    TextureIDPointsBlue,
+    TextureIDPointsPink,
+    TextureIDPointsGold,
+    TextureIDMenuButton,
+    TextureIDMenuButtonHover,
+    TextureIDRetryButton,
+    TextureIDRetryButtonHover,
+    TextureIDCredits
 } TextureID;
 
 #endif

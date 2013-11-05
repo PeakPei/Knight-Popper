@@ -10,7 +10,8 @@
 #import "TextureIDs.h"
 #import "StateIDs.h"
 #import "SoundIDs.h"
-#import "KPSpriteNode.h"
+#import "SoundInstanceIDs.h"
+#import <SpriteStackKit/SSKSpriteNode.h>
 #import <SpriteStackKit/SSKAction.h>
 #import <SpriteStackKit/SSKActionQueue.h>
 #import <SpriteStackKit/SSKSpriteAnimationNode.h>
@@ -47,10 +48,9 @@ typedef enum layers {
     return self;
 }
 
-#pragma mark HHState
+#pragma mark SSKState
 
 - (void)update:(CFTimeInterval)deltaTime {
-    // stub
     while (![self.actionQueue isEmpty]) {
         [self onAction:[self.actionQueue pop] deltaTime:deltaTime];
     }
@@ -58,42 +58,47 @@ typedef enum layers {
 
 - (void)buildState {
     // Initialise background layer
-    KPSpriteNode* background =
-    [[KPSpriteNode alloc]
-     initWithTexture:[self.textures getTexture:TextureIDMainMenuBackground]
-     state:NULL audioDelegate:self.audioDelegate];
+    SSKSpriteNode* background =
+        [[SSKSpriteNode alloc]
+         initWithTexture:[self.textures getTexture:TextureIDMainMenuBackground]
+         state:NULL audioDelegate:self.audioDelegate];
     background.position = CGPointZero;
     [self addNodeToLayer:LayerIDBackground node:background];
     
     // Initialise HUD layer
-    KPSpriteNode* title =
-    [[KPSpriteNode alloc]
-     initWithTexture:[self.textures getTexture:TextureIDMainMenuTitle]
-     state:NULL audioDelegate:self.audioDelegate];
+    SSKSpriteNode* title =
+        [[SSKSpriteNode alloc]
+         initWithTexture:[self.textures getTexture:TextureIDMainMenuTitle]
+         state:NULL audioDelegate:self.audioDelegate];
     title.position = CGPointMake(0, 100);
     [self addNodeToLayer:LayerIDBackground node:title];
     
-    void(^playButtonPress)(SSKButtonNode*) = ^(SSKButtonNode* node) {
-        [self.audioDelegate playSound:SoundIDForwardPress];
-        [node.state requestStackClear];
-        [node.state requestStackPush:StateIDLoading];
-    };
-    
     SSKButtonNode* playButton =
-    [[SSKButtonNode alloc]
-     initWithTexture:[self.textures getTexture:TextureIDPlayButton]
-     state:self audioDelegate:self.audioDelegate clickEventBlock:playButtonPress];
+        [[SSKButtonNode alloc]
+         initWithTexture:[self.textures getTexture:TextureIDPlayButton]
+         state:self audioDelegate:self.audioDelegate
+         clickEventBlock:^(SSKButtonNode* node) {
+             [node.audioDelegate playSound:SoundIDForwardPress];
+             [node.state requestStackClear];
+             [node.state requestStackPush:StateIDLoading];
+         }];
     playButton.position = CGPointMake(0, -250);
     [self addNodeToLayer:LayerIDBackground node:playButton];
     
-    KPSpriteNode* aboutButton =
-    [[KPSpriteNode alloc]
-     initWithTexture:[self.textures getTexture:TextureIDAboutButton]
-     state:NULL audioDelegate:self.audioDelegate];
+    SSKButtonNode* aboutButton =
+        [[SSKButtonNode alloc]
+         initWithTexture:[self.textures getTexture:TextureIDAboutButton]
+         state:self audioDelegate:self.audioDelegate
+         clickEventBlock:^(SSKButtonNode* node) {
+             [node.audioDelegate playSound:SoundIDForwardPress];
+             [node.state requestStackPush:StateIDCredits];
+         }];
     aboutButton.position = CGPointMake(-370, -270);
     [self addNodeToLayer:LayerIDBackground node:aboutButton];
     
-    [self.audioDelegate playSound:SoundIDMenuMusic loopCount:-1 instanceId:0];
+    [self.audioDelegate playSound:SoundIDMenuMusic
+                        loopCount:-1
+                       instanceId:SoundInstanceIDMenuMusic];
 }
 
 #pragma mark - Properties

@@ -1,5 +1,5 @@
 /**
- * @filename HHTargetNode.h
+ * @filename KPTargetNode.h
  * @author Morgan Wall
  * @date 23-9-2013
  *
@@ -7,10 +7,10 @@
  * a game state.
  */
 
-#import "KPSpriteNode.h"
+#import <SpriteStackKit/SSKSpriteNode.h>
 #import <SpriteStackKit/SSKTextureManager.h>
 
-@interface KPTargetNode : KPSpriteNode
+@interface KPTargetNode : SSKSpriteNode
 
 /**
  * @brief An enumeration of the types of targets.

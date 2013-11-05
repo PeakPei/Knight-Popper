@@ -9,7 +9,9 @@
 #import "KPActionCategories.h"
 #import "TextureIDs.h"
 #import "SoundIDs.h"
-#import "KPSpriteNode.h"
+#import "StateIDs.h"
+#import "SoundInstanceIDs.h"
+#import <SpriteStackKit/SSKSpriteNode.h>
 #import <SpriteStackKit/SSKAction.h>
 #import <SpriteStackKit/SSKActionQueue.h>
 #import <SpriteStackKit/SSKSpriteAnimationNode.h>
@@ -49,10 +51,9 @@ typedef enum layers {
     return self;
 }
 
-#pragma mark HHState
+#pragma mark SSKState
 
 - (void)update:(CFTimeInterval)deltaTime {
-    // stub
     while (![self.actionQueue isEmpty]) {
         [self onAction:[self.actionQueue pop] deltaTime:deltaTime];
     }
@@ -60,8 +61,8 @@ typedef enum layers {
 
 - (void)buildState {
     // Initialise background layer
-    KPSpriteNode* background =
-    [[KPSpriteNode alloc] initWithTexture:[self.textures getTexture:TextureIDBackground]
+    SSKSpriteNode* background =
+    [[SSKSpriteNode alloc] initWithTexture:[self.textures getTexture:TextureIDBackground]
                                     state:NULL
                              audioDelegate:self.audioDelegate];
     background.position = CGPointZero;
@@ -176,7 +177,19 @@ typedef enum layers {
     go.position = CGPointMake(150, 300);
     [self addNodeToLayer:LayerIDHUD node:go];
     
-    [self.musicManager playSound:SoundIDInGameMusic loopCount:-1 instanceId:1];
+    SSKButtonNode *victoryButton =
+        [[SSKButtonNode alloc]
+         initWithTexture:[self.textures getTexture:TextureIDMenuButton]
+         state:self audioDelegate:self.audioDelegate
+         clickEventBlock:^(SSKButtonNode* node) {
+             [node.audioDelegate playSound:SoundIDVictory
+                                 loopCount:0
+                                instanceId:SoundInstanceIDVictorySound];
+             [node.state requestStackClear];
+             [node.state requestStackPush:StateIDVictory];
+         }];
+    victoryButton.position = CGPointZero;
+    [self addNodeToLayer:LayerIDHUD node:victoryButton];
 }
 
 #pragma mark - Properties

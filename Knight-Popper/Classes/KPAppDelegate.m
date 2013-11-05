@@ -1,5 +1,5 @@
 /**
- * @filename HHAppDelegate.m
+ * @filename KPAppDelegate.m
  * @author Morgan Wall
  * @date 25-09-2013
  */

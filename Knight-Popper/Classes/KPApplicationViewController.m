@@ -1,5 +1,5 @@
 /**
- * @filename HHApplicationViewController.m
+ * @filename KPApplicationViewController.m
  * @author Morgan Wall
  * @date 28-9-2013
  *
@@ -19,6 +19,8 @@
 #import <SpriteStackKit/SSKSoundActionManager.h>
 #import "KPMainMenuState.h"
 #import "KPLoadingState.h"
+#import "KPCreditsState.h"
+#import "KPVictoryState.h"
 
 #pragma mark - Interface
 
@@ -111,8 +113,24 @@
                     identifier:TextureIDTimer];
     [self.textures loadTexture:@"about_button.png"
                     identifier:TextureIDAboutButton];
+    [self.textures loadTexture:@"about_button_hover.png"
+                    identifier:TextureIDAboutButtonHover];
     [self.textures loadTexture:@"play_button.png"
                     identifier:TextureIDPlayButton];
+    [self.textures loadTexture:@"play_button_hover.png"
+                    identifier:TextureIDPlayButtonHover];
+    [self.textures loadTexture:@"menu_button.png"
+                    identifier:TextureIDMenuButton];
+    [self.textures loadTexture:@"menu_button_hover.png"
+                    identifier:TextureIDMenuButtonHover];
+    [self.textures loadTexture:@"retry_button.png"
+                    identifier:TextureIDRetryButton];
+    [self.textures loadTexture:@"retry_button_hover.png"
+                    identifier:TextureIDRetryButtonHover];
+    [self.textures loadTexture:@"back_button.png"
+                    identifier:TextureIDBackButton];
+    [self.textures loadTexture:@"back_button_hover.png"
+                    identifier:TextureIDBackButtonHover];
     [self.textures loadTexture:@"menu_bg.png"
                     identifier:TextureIDMainMenuBackground];
     [self.textures loadTexture:@"title.png"
@@ -121,6 +139,16 @@
                     identifier:TextureIDLollipopBase];
     [self.textures loadTexture:@"lollipop_top.png"
                     identifier:TextureIDLollipopShadow];
+    [self.textures loadTexture:@"victory_bg.png"
+                    identifier:TextureIDVictoryBackground];
+    [self.textures loadTexture:@"points_blue.png"
+                    identifier:TextureIDPointsBlue];
+    [self.textures loadTexture:@"points_pink.png"
+                    identifier:TextureIDPointsPink];
+    [self.textures loadTexture:@"points_gold.png"
+                    identifier:TextureIDPointsGold];
+    [self.textures loadTexture:@"credits.png"
+                    identifier:TextureIDCredits];
     
     // Load music
     self.musicManager = [[SSKMusicManager alloc] initWithSoundCount:3];
@@ -167,9 +195,11 @@
     [self.stateStack registerState:[KPStandardGameState class] stateID:StateIDExample];
     [self.stateStack registerState:[KPMainMenuState class] stateID:StateIDMenu];
     [self.stateStack registerState:[KPLoadingState class] stateID:StateIDLoading];
+    [self.stateStack registerState:[KPCreditsState class] stateID:StateIDCredits];
+    [self.stateStack registerState:[KPVictoryState class] stateID:StateIDVictory];
     
     // Configure the scene
-    [self.stateStack pushState:StateIDExample];
+    [self.stateStack pushState:StateIDMenu];
     [self.stateView presentScene:self.stateStack];
 }
 

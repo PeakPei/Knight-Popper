@@ -1,5 +1,5 @@
 /**
- * @filename KPState.m
+ * @filename KPLoadingState.m
  * @author Morgan Wall
  * @date 16-10-2013
  */
@@ -9,12 +9,16 @@
 #import "TextureIDs.h"
 #import "StateIDs.h"
 #import "SoundIDs.h"
+#import "SoundInstanceIDs.h"
 #import <SpriteStackKit/SSKAction.h>
 #import <SpriteStackKit/SSKActionQueue.h>
 #import <SpriteStackKit/SSKSpriteAnimationNode.h>
 #import <SpriteStackKit/SSKButtonNode.h>
-#import "KPSpriteNode.h"
+#import <SpriteStackKit/SSKSpriteNode.h>
 #import <SpriteStackKit/SSKLabelNode.h>
+
+#define START_TIME_DEFAULT -1
+#define LOADING_TIME_IN_SECS 2
 
 #pragma mark - Interface
 
@@ -27,6 +31,8 @@ typedef enum layers {
 } LayerID;
 
 @property SSKActionQueue* actionQueue;
+
+@property double startTime;
 
 @end
 
@@ -43,14 +49,25 @@ typedef enum layers {
                            audioDelegate:delegate
                               layerCount:layerCount]) {
         self.actionQueue = [[SSKActionQueue alloc] init];
+        self.startTime = START_TIME_DEFAULT;
     }
     return self;
 }
 
-#pragma mark HHState
+#pragma mark SSKState
 
 - (void)update:(CFTimeInterval)deltaTime {
-    // stub
+    if (self.startTime == START_TIME_DEFAULT) {
+        self.startTime = deltaTime;
+    } else if (deltaTime - self.startTime >= LOADING_TIME_IN_SECS) {
+        [self.audioDelegate stopSound:SoundInstanceIDMenuMusic];
+        [self.audioDelegate playSound:SoundIDInGameMusic
+                            loopCount:-1
+                           instanceId:SoundInstanceIDMenuMusic];
+        [self requestStackClear];
+        [self requestStackPush:StateIDExample];
+    }
+    
     while (![self.actionQueue isEmpty]) {
         [self onAction:[self.actionQueue pop] deltaTime:deltaTime];
     }
@@ -58,32 +75,32 @@ typedef enum layers {
 
 - (void)buildState {
     // Initialise background layer
-    KPSpriteNode* background =
-    [[KPSpriteNode alloc]
-     initWithTexture:[self.textures getTexture:TextureIDMainMenuBackground]
-     state:NULL audioDelegate:self.audioDelegate];
+    SSKSpriteNode* background =
+        [[SSKSpriteNode alloc]
+         initWithTexture:[self.textures getTexture:TextureIDMainMenuBackground]
+         state:NULL audioDelegate:self.audioDelegate];
     background.position = CGPointZero;
     [self addNodeToLayer:LayerIDBackground node:background];
     
     // Initialise HUD layer
-    KPSpriteNode* lollipopBase =
-    [[KPSpriteNode alloc]
-     initWithTexture:[self.textures getTexture:TextureIDLollipopBase]
-     state:NULL audioDelegate:self.audioDelegate];
+    SSKSpriteNode* lollipopBase =
+        [[SSKSpriteNode alloc]
+         initWithTexture:[self.textures getTexture:TextureIDLollipopBase]
+         state:NULL audioDelegate:self.audioDelegate];
     lollipopBase.position = CGPointMake(0, 75);
     [self addNodeToLayer:LayerIDBackground node:lollipopBase];
     
-    KPSpriteNode* lollipopShadow =
-    [[KPSpriteNode alloc]
-     initWithTexture:[self.textures getTexture:TextureIDLollipopShadow]
-     state:NULL audioDelegate:self.audioDelegate];
+    SSKSpriteNode* lollipopShadow =
+        [[SSKSpriteNode alloc]
+         initWithTexture:[self.textures getTexture:TextureIDLollipopShadow]
+         state:NULL audioDelegate:self.audioDelegate];
     lollipopShadow.position = lollipopBase.position;
     [self addNodeToLayer:LayerIDHUD node:lollipopShadow];
     
     SSKLabelNode* message =
         [[SSKLabelNode alloc] initWithFontNamed:@"Arial"
                                   audioDelegate:self.audioDelegate];
-    message.text = @"Collecting springs...";
+    message.text = @"Loading...";
     message.fontSize = 40;
     message.position = CGPointMake(0, -250);
     [self addNodeToLayer:LayerIDHUD node:message];
@@ -96,5 +113,6 @@ typedef enum layers {
 #pragma mark - Properties
 
 @synthesize actionQueue;
+@synthesize startTime;
 
 @end

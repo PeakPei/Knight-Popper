@@ -1,5 +1,5 @@
 /**
- * @filename HHActionCategories.h
+ * @filename KPActionCategories.h
  * @author Morgan Wall
  * @date 24-9-13
  *

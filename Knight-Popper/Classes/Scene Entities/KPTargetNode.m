@@ -1,9 +1,9 @@
 /**
- * @filename HHTargetNode.m
+ * @filename KPTargetNode.m
  * @author Morgan Wall
  * @date 23-9-2013
  *
- * @brief The implementation of the HHTargetNode class.
+ * @brief The implementation of the KPTargetNode class.
  */
 
 #import "KPTargetNode.h"

@@ -1,5 +1,5 @@
 /**
- * @filename HHApplicationViewController.h
+ * @filename KPApplicationViewController.h
  * @author Morgan Wall
  * @date 28-9-2013
  *

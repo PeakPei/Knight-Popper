@@ -178,6 +178,10 @@
 		90885C2B182A58B70041095E /* player2~iphone.png in Resources */ = {isa = PBXBuildFile; fileRef = 90885C29182A58B70041095E /* player2~iphone.png */; };
 		90885C2E182A58C40041095E /* player1@2x~iphone.png in Resources */ = {isa = PBXBuildFile; fileRef = 90885C2C182A58C40041095E /* player1@2x~iphone.png */; };
 		90885C2F182A58C40041095E /* player2@2x~iphone.png in Resources */ = {isa = PBXBuildFile; fileRef = 90885C2D182A58C40041095E /* player2@2x~iphone.png */; };
+		908CFB31182AE10F00941DB1 /* giant_lollipop_x.plist in Resources */ = {isa = PBXBuildFile; fileRef = 908CFB30182AE10F00941DB1 /* giant_lollipop_x.plist */; };
+		908CFB33182AE12700941DB1 /* giant_lollipop_y.plist in Resources */ = {isa = PBXBuildFile; fileRef = 908CFB32182AE12700941DB1 /* giant_lollipop_y.plist */; };
+		908CFB36182AE20000941DB1 /* KPTestState.m in Sources */ = {isa = PBXBuildFile; fileRef = 908CFB35182AE20000941DB1 /* KPTestState.m */; };
+		908CFB38182AE32E00941DB1 /* giant_lollipop~ipad.png in Resources */ = {isa = PBXBuildFile; fileRef = 908CFB37182AE32E00941DB1 /* giant_lollipop~ipad.png */; };
 		90B07AC4180BAE7C00530915 /* back_press.wav in Resources */ = {isa = PBXBuildFile; fileRef = 90B07AB6180BAE7C00530915 /* back_press.wav */; };
 		90B07AC5180BAE7C00530915 /* balloon_pop.wav in Resources */ = {isa = PBXBuildFile; fileRef = 90B07AB7180BAE7C00530915 /* balloon_pop.wav */; };
 		90B07AC6180BAE7C00530915 /* countdown_1.wav in Resources */ = {isa = PBXBuildFile; fileRef = 90B07AB8180BAE7C00530915 /* countdown_1.wav */; };
@@ -451,6 +455,11 @@
 		90885C29182A58B70041095E /* player2~iphone.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "player2~iphone.png"; sourceTree = "<group>"; };
 		90885C2C182A58C40041095E /* player1@2x~iphone.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "player1@2x~iphone.png"; sourceTree = "<group>"; };
 		90885C2D182A58C40041095E /* player2@2x~iphone.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "player2@2x~iphone.png"; sourceTree = "<group>"; };
+		908CFB30182AE10F00941DB1 /* giant_lollipop_x.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = giant_lollipop_x.plist; sourceTree = "<group>"; };
+		908CFB32182AE12700941DB1 /* giant_lollipop_y.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = giant_lollipop_y.plist; sourceTree = "<group>"; };
+		908CFB34182AE20000941DB1 /* KPTestState.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KPTestState.h; sourceTree = "<group>"; };
+		908CFB35182AE20000941DB1 /* KPTestState.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KPTestState.m; sourceTree = "<group>"; };
+		908CFB37182AE32E00941DB1 /* giant_lollipop~ipad.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "giant_lollipop~ipad.png"; sourceTree = "<group>"; };
 		90B07AB6180BAE7C00530915 /* back_press.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = back_press.wav; sourceTree = "<group>"; };
 		90B07AB7180BAE7C00530915 /* balloon_pop.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = balloon_pop.wav; sourceTree = "<group>"; };
 		90B07AB8180BAE7C00530915 /* countdown_1.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = countdown_1.wav; sourceTree = "<group>"; };
@@ -586,8 +595,8 @@
 		9088294C17FFC0150016CCB6 /* Assets */ = {
 			isa = PBXGroup;
 			children = (
-				90885C1D182A57470041095E /* Coordinates */,
 				90E3C29818000EF300087ED3 /* Fonts */,
+				908CFB2D182AE0D300941DB1 /* Hitbox Coordinate Files */,
 				90E3C29918000EF300087ED3 /* Icons */,
 				90E3C2A018000EF300087ED3 /* Music */,
 				90E3C2A118000EF300087ED3 /* Sounds */,
@@ -637,6 +646,8 @@
 				9017500A180E2C5F00B000A7 /* KPMainMenuState.m */,
 				9088295F17FFC0150016CCB6 /* KPStandardGameState.h */,
 				9088296017FFC0150016CCB6 /* KPStandardGameState.m */,
+				908CFB34182AE20000941DB1 /* KPTestState.h */,
+				908CFB35182AE20000941DB1 /* KPTestState.m */,
 				90885B8F18297D9F0041095E /* KPVictoryState.h */,
 				90885B9018297D9F0041095E /* KPVictoryState.m */,
 				9088296117FFC0150016CCB6 /* StateIDs.h */,
@@ -693,11 +704,13 @@
 			path = "Supporting Files";
 			sourceTree = "<group>";
 		};
-		90885C1D182A57470041095E /* Coordinates */ = {
+		908CFB2D182AE0D300941DB1 /* Hitbox Coordinate Files */ = {
 			isa = PBXGroup;
 			children = (
+				908CFB30182AE10F00941DB1 /* giant_lollipop_x.plist */,
+				908CFB32182AE12700941DB1 /* giant_lollipop_y.plist */,
 			);
-			path = Coordinates;
+			path = "Hitbox Coordinate Files";
 			sourceTree = "<group>";
 		};
 		90E3C29818000EF300087ED3 /* Fonts */ = {
@@ -764,6 +777,7 @@
 		90E3C2A318000EF300087ED3 /* iPad (Non-Retina) */ = {
 			isa = PBXGroup;
 			children = (
+				908CFB37182AE32E00941DB1 /* giant_lollipop~ipad.png */,
 				90885C20182A58A00041095E /* player1~ipad.png */,
 				90885C21182A58A00041095E /* player2~ipad.png */,
 				90885B96182981400041095E /* about_button_hover~ipad.png */,
@@ -1179,6 +1193,7 @@
 				904BDC711808D60D003E7499 /* gold_pop~iphone.png in Resources */,
 				90885BDE182995440041095E /* points_pink~iphone.png in Resources */,
 				90885BE1182995440041095E /* victory_bg~iphone.png in Resources */,
+				908CFB33182AE12700941DB1 /* giant_lollipop_y.plist in Resources */,
 				90175019180E549200B000A7 /* lollipop_top@2x~ipad.png in Resources */,
 				90174FF1180E1D4C00B000A7 /* back_button@2x~ipad.png in Resources */,
 				9017501D180E54A000B000A7 /* lollipop_top~iphone.png in Resources */,
@@ -1207,6 +1222,7 @@
 				90885BDB182995440041095E /* play_button_hover~iphone.png in Resources */,
 				9017501C180E54A000B000A7 /* lollipop_base~iphone.png in Resources */,
 				904BDC571808D5FE003E7499 /* menu_lollipop@2x~ipad.png in Resources */,
+				908CFB31182AE10F00941DB1 /* giant_lollipop_x.plist in Resources */,
 				90FB6E76180BB5B700DDBA11 /* in_game_music.wav in Resources */,
 				90E3C2E318000EF400087ED3 /* GrassTuft_Left@2x~iphone.png in Resources */,
 				904BDC791808D60D003E7499 /* player_two_attack~iphone.png in Resources */,
@@ -1264,6 +1280,7 @@
 				90E3C2CE18000EF400087ED3 /* GrassTuft_Left~ipad.png in Resources */,
 				90885BD7182995440041095E /* back_button_hover~iphone.png in Resources */,
 				904BDC3C1808D5EE003E7499 /* player_one_idle~ipad.png in Resources */,
+				908CFB38182AE32E00941DB1 /* giant_lollipop~ipad.png in Resources */,
 				90885C031829963B0041095E /* gold_monkey_target@2x~iphone.png in Resources */,
 				90E3C2DA18000EF400087ED3 /* blue_monkey_HUD~iphone.png in Resources */,
 				90E3C2D918000EF400087ED3 /* background~iphone.png in Resources */,
@@ -1297,6 +1314,7 @@
 				9088297F17FFC0150016CCB6 /* main.m in Sources */,
 				9017500B180E2C5F00B000A7 /* KPMainMenuState.m in Sources */,
 				9088297A17FFC0150016CCB6 /* KPApplicationViewController.m in Sources */,
+				908CFB36182AE20000941DB1 /* KPTestState.m in Sources */,
 				90885B9118297D9F0041095E /* KPVictoryState.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

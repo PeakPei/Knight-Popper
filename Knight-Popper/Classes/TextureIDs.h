@@ -53,7 +53,8 @@ typedef enum textureIDs {
     TextureIDRetryButtonHover,
     TextureIDCredits,
     TextureIDPlayerOneHead,
-    TextureIDPlayerTwoHead
+    TextureIDPlayerTwoHead,
+    TextureIDGiantLollipop
 } TextureID;
 
 #endif

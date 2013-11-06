@@ -18,7 +18,8 @@ typedef enum States {
     StateIDLoading,
     StateIDPause,
     StateIDVictory,
-    StateIDCredits
+    StateIDCredits,
+    StateIDTest
 } StateID;
 
 #endif

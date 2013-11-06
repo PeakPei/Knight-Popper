@@ -3,19 +3,12 @@
  * @authors Morgan Wall
  * @date 23-9-2013
  *
- * @brief A pseudo-random number generator used for generating integers,
- * doubles, and boolean data types.
+ * @brief A class for generating pseudo-random numbers of various types.
+ *
+ * @note This class uses the arc4random c-function (<stdlib.h>).
  */
 
 @interface Random : NSObject
-
-/**
- * @brief Initialise a random number generator with a time-based seed.
- *
- * @note Currently, all instances source from the same stream of pseudo-random
- * numbers.
- */
-- (id)init;
 
 /**
  * Generate a pseudo-random integer in a specified range.
@@ -28,7 +21,7 @@
  *
  * @return An integer between lowerBound and upperBound, inclusive.
  */
-- (int)generateInteger:(int)lowerBound upperBound:(int)upperBound;
++ (int)generateInteger:(int)lowerBound upperBound:(int)upperBound;
 
 /**
  * Generate a pseudo-random real number in a specified range.
@@ -41,7 +34,8 @@
  *
  * @return A real number between lowerBound and upperBound, inclusive.
  */
-- (double)generateDouble:(double)lowerBound upperBound:(double)upperBound;
++ (long double)generateDouble:(double)lowerBound
+                   upperBound:(double)upperBound;
 
 /**
  * Generate a pseudo-random boolean value given a specific probability of
@@ -56,6 +50,6 @@
  * a specific number will be returned from the rand function given a
  * pseudo-random seed.
  */
-- (BOOL)generateBool:(double)probability;
++ (BOOL)generateBool:(double)probability;
 
 @end

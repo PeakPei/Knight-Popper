@@ -56,7 +56,7 @@ typedef enum layers {
     // Initialise background layer
     SSKSpriteNode* background =
         [[SSKSpriteNode alloc]
-         initWithTexture:[self.textures getTexture:TextureIDMainMenuBackground]
+         initWithTexture:[self.textures getTexture:TextureIDBackground]
          state:NULL audioDelegate:self.audioDelegate];
     background.position = CGPointZero;
     [self addNodeToLayer:LayerIDBackground node:background];
@@ -70,6 +70,9 @@ typedef enum layers {
     [self addNodeToLayer:LayerIDVictoryBackground node:victoryBackground];
     
     // Initialise HUD layer
+    CGFloat const RETRY_REL_X = -0.0732421875;
+    CGFloat const RETRY_REL_Y = -0.2799479167;
+    
     SSKButtonNode* retryButton =
         [[SSKButtonNode alloc]
          initWithTexture:[self.textures getTexture:TextureIDRetryButton]
@@ -84,8 +87,13 @@ typedef enum layers {
              [node.state requestStackClear];
              [node.state requestStackPush:StateIDExample];
          }];
-    retryButton.position = CGPointMake(-370, -270);
+    retryButton.position =
+        CGPointMake(self.scene.frame.size.width * RETRY_REL_X,
+                    self.scene.frame.size.height * RETRY_REL_Y);
     [self addNodeToLayer:LayerIDHUD node:retryButton];
+    
+    CGFloat const MENU_REL_X = 0.0830078125;
+    CGFloat const MENU_REL_Y = -0.2799479167;
     
     SSKButtonNode* menuButton =
         [[SSKButtonNode alloc]
@@ -102,7 +110,9 @@ typedef enum layers {
              [node.state requestStackClear];
              [node.state requestStackPush:StateIDMenu];
          }];
-    menuButton.position = CGPointMake(370, -270);
+    menuButton.position =
+        CGPointMake(self.scene.frame.size.width * MENU_REL_X,
+                    self.scene.frame.size.height * MENU_REL_Y);
     [self addNodeToLayer:LayerIDHUD node:menuButton];
 }
 

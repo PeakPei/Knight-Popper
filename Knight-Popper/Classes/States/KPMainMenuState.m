@@ -66,12 +66,19 @@ typedef enum layers {
     [self addNodeToLayer:LayerIDBackground node:background];
     
     // Initialise HUD layer
+    CGFloat const TITLE_REL_X = 0;
+    CGFloat const TITLE_REL_Y = 0.1302083333;
+    
     SSKSpriteNode* title =
         [[SSKSpriteNode alloc]
          initWithTexture:[self.textures getTexture:TextureIDMainMenuTitle]
          state:NULL audioDelegate:self.audioDelegate];
-    title.position = CGPointMake(0, 100);
+    title.position = CGPointMake(self.scene.frame.size.width * TITLE_REL_X,
+                                 self.scene.frame.size.height * TITLE_REL_Y);
     [self addNodeToLayer:LayerIDBackground node:title];
+    
+    CGFloat const PLAY_REL_X = 0;
+    CGFloat const PLAY_REL_Y = -0.3255208333;
     
     SSKButtonNode* playButton =
         [[SSKButtonNode alloc]
@@ -82,8 +89,12 @@ typedef enum layers {
              [node.state requestStackClear];
              [node.state requestStackPush:StateIDLoading];
          }];
-    playButton.position = CGPointMake(0, -250);
+    playButton.position = CGPointMake(self.scene.frame.size.width * PLAY_REL_X,
+                                      self.scene.frame.size.height * PLAY_REL_Y);
     [self addNodeToLayer:LayerIDBackground node:playButton];
+    
+    CGFloat const ABOUT_REL_X = -0.361328125;
+    CGFloat const ABOUT_REL_Y = -0.3515625;
     
     SSKButtonNode* aboutButton =
         [[SSKButtonNode alloc]
@@ -93,7 +104,8 @@ typedef enum layers {
              [node.audioDelegate playSound:SoundIDForwardPress];
              [node.state requestStackPush:StateIDCredits];
          }];
-    aboutButton.position = CGPointMake(-370, -270);
+    aboutButton.position = CGPointMake(self.scene.frame.size.width * ABOUT_REL_X,
+                                       self.scene.frame.size.height * ABOUT_REL_Y);
     [self addNodeToLayer:LayerIDBackground node:aboutButton];
     
     [self.audioDelegate playSound:SoundIDMenuMusic

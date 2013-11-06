@@ -70,6 +70,9 @@ typedef enum layers {
     [self addNodeToLayer:LayerIDCreditsInfo node:creditsInfo];
     
     // Initialise HUD layer
+    CGFloat const BACK_REL_X = -0.390625;
+    CGFloat const BACK_REL_Y = -0.390625;
+    
     SSKButtonNode* backButton =
         [[SSKButtonNode alloc]
          initWithTexture:[self.textures getTexture:TextureIDBackButton]
@@ -78,7 +81,8 @@ typedef enum layers {
              [node.audioDelegate playSound:SoundIDBackPress];
              [node.state requestStackPop];
          }];
-    backButton.position = CGPointMake(370, -270);
+    backButton.position = CGPointMake(self.scene.frame.size.width * BACK_REL_X,
+                                      self.scene.frame.size.height * BACK_REL_Y);
     [self addNodeToLayer:LayerIDHUD node:backButton];
 }
 

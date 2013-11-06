@@ -83,11 +83,16 @@ typedef enum layers {
     [self addNodeToLayer:LayerIDBackground node:background];
     
     // Initialise HUD layer
+    CGFloat const LOLLIPOP_REL_X = 0;
+    CGFloat const LOLLIPOP_REL_Y = 0.09765625;
+    
     SSKSpriteNode* lollipopBase =
         [[SSKSpriteNode alloc]
          initWithTexture:[self.textures getTexture:TextureIDLollipopBase]
          state:NULL audioDelegate:self.audioDelegate];
-    lollipopBase.position = CGPointMake(0, 75);
+    lollipopBase.position =
+        CGPointMake(self.scene.frame.size.width * LOLLIPOP_REL_X,
+                    self.scene.frame.size.height * LOLLIPOP_REL_Y);
     [self addNodeToLayer:LayerIDBackground node:lollipopBase];
     
     SSKSpriteNode* lollipopShadow =
@@ -97,12 +102,17 @@ typedef enum layers {
     lollipopShadow.position = lollipopBase.position;
     [self addNodeToLayer:LayerIDHUD node:lollipopShadow];
     
+    CGFloat const MESSAGE_REL_X = 0;
+    CGFloat const MESSAGE_REL_Y = -0.3255208333;
+    
     SSKLabelNode* message =
         [[SSKLabelNode alloc] initWithFontNamed:@"Arial"
                                   audioDelegate:self.audioDelegate];
     message.text = @"Loading...";
     message.fontSize = 40;
-    message.position = CGPointMake(0, -250);
+    message.position =
+        CGPointMake(self.scene.frame.size.width * MESSAGE_REL_X,
+                    self.scene.frame.size.height * MESSAGE_REL_Y);
     [self addNodeToLayer:LayerIDHUD node:message];
     
     SKAction* rotate =

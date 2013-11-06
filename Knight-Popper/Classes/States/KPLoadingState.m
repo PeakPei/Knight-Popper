@@ -65,7 +65,7 @@ typedef enum layers {
                             loopCount:-1
                            instanceId:SoundInstanceIDMenuMusic];
         [self requestStackClear];
-        [self requestStackPush:StateIDExample];
+        [self requestStackPush:StateIDStandardGame];
     }
     
     while (![self.actionQueue isEmpty]) {

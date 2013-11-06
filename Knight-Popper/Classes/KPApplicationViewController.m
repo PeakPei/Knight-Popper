@@ -149,6 +149,10 @@
                     identifier:TextureIDPointsGold];
     [self.textures loadTexture:@"credits.png"
                     identifier:TextureIDCredits];
+    [self.textures loadTexture:@"player1.png"
+                    identifier:TextureIDPlayerOneHead];
+    [self.textures loadTexture:@"player2.png"
+                    identifier:TextureIDPlayerTwoHead];
     
     // Load music
     self.musicManager = [[SSKMusicManager alloc] initWithSoundCount:3];
@@ -192,7 +196,7 @@
                                                        musicManager:self.musicManager
                                                        soundManager:self.soundManager
                                                               size:landscapeSize];
-    [self.stateStack registerState:[KPStandardGameState class] stateID:StateIDExample];
+    [self.stateStack registerState:[KPStandardGameState class] stateID:StateIDStandardGame];
     [self.stateStack registerState:[KPMainMenuState class] stateID:StateIDMenu];
     [self.stateStack registerState:[KPLoadingState class] stateID:StateIDLoading];
     [self.stateStack registerState:[KPCreditsState class] stateID:StateIDCredits];

@@ -61,7 +61,7 @@ typedef enum layers {
     background.position = CGPointZero;
     [self addNodeToLayer:LayerIDBackground node:background];
     
-    // Initialise credits info layer
+    // Initialise victory background layer
     SSKSpriteNode* victoryBackground =
         [[SSKSpriteNode alloc]
          initWithTexture:[self.textures getTexture:TextureIDVictoryBackground]
@@ -70,8 +70,8 @@ typedef enum layers {
     [self addNodeToLayer:LayerIDVictoryBackground node:victoryBackground];
     
     // Initialise HUD layer
-    CGFloat const RETRY_REL_X = -0.0732421875;
-    CGFloat const RETRY_REL_Y = -0.2799479167;
+    CGFloat const RETRY_REL_X = -0.212421875;
+    CGFloat const RETRY_REL_Y = -0.2899479167;
     
     SSKButtonNode* retryButton =
         [[SSKButtonNode alloc]
@@ -85,15 +85,15 @@ typedef enum layers {
              }
              
              [node.state requestStackClear];
-             [node.state requestStackPush:StateIDExample];
+             [node.state requestStackPush:StateIDStandardGame];
          }];
     retryButton.position =
         CGPointMake(self.scene.frame.size.width * RETRY_REL_X,
                     self.scene.frame.size.height * RETRY_REL_Y);
     [self addNodeToLayer:LayerIDHUD node:retryButton];
     
-    CGFloat const MENU_REL_X = 0.0830078125;
-    CGFloat const MENU_REL_Y = -0.2799479167;
+    CGFloat const MENU_REL_X = -0.0530078125;
+    CGFloat const MENU_REL_Y = -0.2899479167;
     
     SSKButtonNode* menuButton =
         [[SSKButtonNode alloc]

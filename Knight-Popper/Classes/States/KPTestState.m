@@ -54,16 +54,11 @@ typedef enum layers {
     [self addNodeToLayer:LayerIDBackground node:background];
     
     // Initialise test layer
-    SSKSpriteNode* lollipop =
-    [[SSKSpriteNode alloc]
+    KPShapeNode* lollipop =
+    [[KPShapeNode alloc]
      initWithTexture:[self.textures getTexture:TextureIDGiantLollipop]
      state:self audioDelegate:self.audioDelegate];
     lollipop.position = CGPointZero;
-    
-    KPShapeNode* lollipopHitbox =
-    [[KPShapeNode alloc] initWithAudioDelegate:self.audioDelegate];
-    lollipopHitbox.position = CGPointZero;
-    [lollipop addChild:lollipopHitbox];
     
     CGMutablePathRef path = CGPathCreateMutable();
     CGPathMoveToPoint(path, nil, 0, 0);
@@ -85,9 +80,7 @@ typedef enum layers {
     CGPathAddLineToPoint(path, nil,
                          [xValues[0] doubleValue] * lollipop.frame.size.width,
                          [yValues[0] doubleValue] * lollipop.frame.size.height);
-    
-    lollipopHitbox.path = path;
-    lollipopHitbox.fillColor = [UIColor redColor];
+    lollipop.hitboxPath = path;
     
     [self addNodeToLayer:LayerIDTest node:lollipop];
 }

@@ -6,8 +6,8 @@
 //  Copyright (c) 2013 QUT. All rights reserved.
 //
 
-#import <SpriteStackKit/SSKShapeNode.h>
+#import <SpriteStackKit/SSKSpriteNode.h>
 
-@interface KPShapeNode : SSKShapeNode
+@interface KPShapeNode : SSKSpriteNode
 
 @end

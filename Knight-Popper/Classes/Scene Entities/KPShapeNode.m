@@ -14,8 +14,7 @@
     BOOL eventHandled = NO;
     CGPoint touchLocation = [touch locationInNode:[self parent]];
     
-//    if ([self containsPoint:touchLocation]) {
-    if (CGPathContainsPoint(self.path, &CGAffineTransformIdentity, touchLocation, YES)) {
+    if ([self containsPoint:touchLocation]) {
         [self destroy];
         eventHandled = YES;
     }

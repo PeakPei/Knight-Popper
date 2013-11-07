@@ -320,12 +320,6 @@
 		90B07ACE180BAE7C00530915 /* lollipop_reload.wav in Resources */ = {isa = PBXBuildFile; fileRef = 90B07AC0180BAE7C00530915 /* lollipop_reload.wav */; };
 		90B07ACF180BAE7C00530915 /* lollipop_throw.wav in Resources */ = {isa = PBXBuildFile; fileRef = 90B07AC1180BAE7C00530915 /* lollipop_throw.wav */; };
 		90B07AD1180BAE7C00530915 /* victory.wav in Resources */ = {isa = PBXBuildFile; fileRef = 90B07AC3180BAE7C00530915 /* victory.wav */; };
-		90E3C2C518000EF400087ED3 /* Icon-72.png in Resources */ = {isa = PBXBuildFile; fileRef = 90E3C29A18000EF300087ED3 /* Icon-72.png */; };
-		90E3C2C618000EF400087ED3 /* Icon-72@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 90E3C29B18000EF300087ED3 /* Icon-72@2x.png */; };
-		90E3C2C718000EF400087ED3 /* Icon.png in Resources */ = {isa = PBXBuildFile; fileRef = 90E3C29C18000EF300087ED3 /* Icon.png */; };
-		90E3C2C818000EF400087ED3 /* Icon@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 90E3C29D18000EF300087ED3 /* Icon@2x.png */; };
-		90E3C2C918000EF400087ED3 /* iTunesArtwork.png in Resources */ = {isa = PBXBuildFile; fileRef = 90E3C29E18000EF300087ED3 /* iTunesArtwork.png */; };
-		90E3C2CA18000EF400087ED3 /* iTunesArtwork@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 90E3C29F18000EF300087ED3 /* iTunesArtwork@2x.png */; };
 		90E3C2CB18000EF400087ED3 /* background~ipad.png in Resources */ = {isa = PBXBuildFile; fileRef = 90E3C2A418000EF300087ED3 /* background~ipad.png */; };
 		90E3C2CC18000EF400087ED3 /* blue_monkey_HUD~ipad.png in Resources */ = {isa = PBXBuildFile; fileRef = 90E3C2A518000EF300087ED3 /* blue_monkey_HUD~ipad.png */; };
 		90E3C2CD18000EF400087ED3 /* blue_monkey_target~ipad.png in Resources */ = {isa = PBXBuildFile; fileRef = 90E3C2A618000EF300087ED3 /* blue_monkey_target~ipad.png */; };
@@ -727,12 +721,6 @@
 		90B07AC1180BAE7C00530915 /* lollipop_throw.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = lollipop_throw.wav; sourceTree = "<group>"; };
 		90B07AC3180BAE7C00530915 /* victory.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = victory.wav; sourceTree = "<group>"; };
 		90B07AD3180BAE9F00530915 /* SoundIDs.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SoundIDs.h; sourceTree = "<group>"; };
-		90E3C29A18000EF300087ED3 /* Icon-72.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Icon-72.png"; sourceTree = "<group>"; };
-		90E3C29B18000EF300087ED3 /* Icon-72@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Icon-72@2x.png"; sourceTree = "<group>"; };
-		90E3C29C18000EF300087ED3 /* Icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Icon.png; sourceTree = "<group>"; };
-		90E3C29D18000EF300087ED3 /* Icon@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Icon@2x.png"; sourceTree = "<group>"; };
-		90E3C29E18000EF300087ED3 /* iTunesArtwork.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = iTunesArtwork.png; sourceTree = "<group>"; };
-		90E3C29F18000EF300087ED3 /* iTunesArtwork@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "iTunesArtwork@2x.png"; sourceTree = "<group>"; };
 		90E3C2A418000EF300087ED3 /* background~ipad.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "background~ipad.png"; sourceTree = "<group>"; };
 		90E3C2A518000EF300087ED3 /* blue_monkey_HUD~ipad.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "blue_monkey_HUD~ipad.png"; sourceTree = "<group>"; };
 		90E3C2A618000EF300087ED3 /* blue_monkey_target~ipad.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "blue_monkey_target~ipad.png"; sourceTree = "<group>"; };
@@ -851,7 +839,6 @@
 			children = (
 				908CFD22182B505000941DB1 /* Hitbox Coordinate Files */,
 				90E3C29818000EF300087ED3 /* Fonts */,
-				90E3C29918000EF300087ED3 /* Icons */,
 				90E3C2A018000EF300087ED3 /* Music */,
 				90E3C2A118000EF300087ED3 /* Sounds */,
 				90E3C2A218000EF300087ED3 /* Textures */,
@@ -1089,19 +1076,6 @@
 				90175025180E5F5900B000A7 /* gameFont.ttf */,
 			);
 			path = Fonts;
-			sourceTree = "<group>";
-		};
-		90E3C29918000EF300087ED3 /* Icons */ = {
-			isa = PBXGroup;
-			children = (
-				90E3C29A18000EF300087ED3 /* Icon-72.png */,
-				90E3C29B18000EF300087ED3 /* Icon-72@2x.png */,
-				90E3C29C18000EF300087ED3 /* Icon.png */,
-				90E3C29D18000EF300087ED3 /* Icon@2x.png */,
-				90E3C29E18000EF300087ED3 /* iTunesArtwork.png */,
-				90E3C29F18000EF300087ED3 /* iTunesArtwork@2x.png */,
-			);
-			path = Icons;
 			sourceTree = "<group>";
 		};
 		90E3C2A018000EF300087ED3 /* Music */ = {
@@ -1503,7 +1477,6 @@
 				90885C26182A58AB0041095E /* player1@2x~ipad.png in Resources */,
 				90885C041829963B0041095E /* gold_pop@2x~iphone.png in Resources */,
 				90885C111829963B0041095E /* points_gold@2x~iphone.png in Resources */,
-				90E3C2CA18000EF400087ED3 /* iTunesArtwork@2x.png in Resources */,
 				908CFC27182B255300941DB1 /* resume~ipad.png in Resources */,
 				90E3C2CF18000EF400087ED3 /* GrassTuft_Right~ipad.png in Resources */,
 				908CFEA0182B51F400941DB1 /* blue_gold_monkeys_y_34.plist in Resources */,
@@ -1537,7 +1510,6 @@
 				908CFEE1182B51F400941DB1 /* pink_monkey_target_y_23.plist in Resources */,
 				904BDC551808D5FE003E7499 /* lollipop_left_projectile@2x~ipad.png in Resources */,
 				908CFE95182B51F400941DB1 /* blue_gold_monkeys_y_21.plist in Resources */,
-				90E3C2C818000EF400087ED3 /* Icon@2x.png in Resources */,
 				90885BC2182981570041095E /* points_pink@2x~ipad.png in Resources */,
 				90885BA8182981400041095E /* points_blue~ipad.png in Resources */,
 				908CFE7B182B51F400941DB1 /* blue_gold_monkeys_x_13.plist in Resources */,
@@ -1596,7 +1568,6 @@
 				90175005180E1D9600B000A7 /* back_button@2x~iphone.png in Resources */,
 				908CFEBA182B51F400941DB1 /* lollipop_right_projectile_x_32.plist in Resources */,
 				908CFE90182B51F400941DB1 /* blue_gold_monkeys_y_14.plist in Resources */,
-				90E3C2C518000EF400087ED3 /* Icon-72.png in Resources */,
 				908CFEB1182B51F400941DB1 /* lollipop_left_projectile_y_31.plist in Resources */,
 				904BDC781808D60D003E7499 /* player_one_idle~iphone.png in Resources */,
 				904BDC531808D5FE003E7499 /* gold_pop@2x~ipad.png in Resources */,
@@ -1662,7 +1633,6 @@
 				90E3C2DE18000EF400087ED3 /* pink_monkey_HUD~iphone.png in Resources */,
 				908CFEB2182B51F400941DB1 /* lollipop_left_projectile_y_32.plist in Resources */,
 				90174FF3180E1D4C00B000A7 /* play_button@2x~ipad.png in Resources */,
-				90E3C2C618000EF400087ED3 /* Icon-72@2x.png in Resources */,
 				908CFED3182B51F400941DB1 /* pink_monkey_target_x_31.plist in Resources */,
 				908CFC32182B256A00941DB1 /* resume_hover~iphone.png in Resources */,
 				90885BDA182995440041095E /* menu_button~iphone.png in Resources */,
@@ -1745,7 +1715,6 @@
 				90885C011829963B0041095E /* credits@2x~iphone.png in Resources */,
 				90885BBC182981570041095E /* credits@2x~ipad.png in Resources */,
 				904BDC771808D60D003E7499 /* player_one_attack~iphone.png in Resources */,
-				90E3C2C918000EF400087ED3 /* iTunesArtwork.png in Resources */,
 				908CFEC0182B51F400941DB1 /* lollipop_right_projectile_y_23.plist in Resources */,
 				90B07AC8180BAE7C00530915 /* countdown_2.wav in Resources */,
 				908CFEAB182B51F400941DB1 /* lollipop_left_projectile_y_11.plist in Resources */,
@@ -1759,7 +1728,6 @@
 				908CFED8182B51F400941DB1 /* pink_monkey_target_y_12.plist in Resources */,
 				908CFEAD182B51F400941DB1 /* lollipop_left_projectile_y_13.plist in Resources */,
 				90885C2E182A58C40041095E /* player1@2x~iphone.png in Resources */,
-				90E3C2C718000EF400087ED3 /* Icon.png in Resources */,
 				90B07AC4180BAE7C00530915 /* back_press.wav in Resources */,
 				908CFC33182B256A00941DB1 /* resume~iphone.png in Resources */,
 				90174FE6180E1D3700B000A7 /* back_button~ipad.png in Resources */,

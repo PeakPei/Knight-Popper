@@ -56,16 +56,14 @@ typedef enum layers {
     // Initialise background layer
     SSKSpriteNode* background =
         [[SSKSpriteNode alloc]
-         initWithTexture:[self.textures getTexture:TextureIDMainMenuBackground]
-         state:NULL];
+         initWithTexture:[self.textures getTexture:TextureIDMainMenuBackground]];
     background.position = CGPointZero;
     [self addNodeToLayer:LayerIDBackground node:background];
     
     // Initialise credits info layer
     SSKSpriteNode* creditsInfo =
         [[SSKSpriteNode alloc]
-         initWithTexture:[self.textures getTexture:TextureIDCredits]
-         state:NULL];
+         initWithTexture:[self.textures getTexture:TextureIDCredits]];
     creditsInfo.position = CGPointZero;
     [self addNodeToLayer:LayerIDCreditsInfo node:creditsInfo];
     
@@ -76,7 +74,7 @@ typedef enum layers {
     SSKButtonNode* backButton =
         [[SSKButtonNode alloc]
          initWithTexture:[self.textures getTexture:TextureIDBackButton]
-         state:self clickEventBlock:^(SSKButtonNode* node) {
+         clickEventBlock:^(SSKButtonNode* node) {
              [node.audioDelegate playSound:SoundIDBackPress];
              [node.state requestStackPop];
          }];

@@ -56,16 +56,14 @@ typedef enum layers {
     // Initialise background layer
     SSKSpriteNode* background =
         [[SSKSpriteNode alloc]
-         initWithTexture:[self.textures getTexture:TextureIDBackground]
-         state:NULL];
+         initWithTexture:[self.textures getTexture:TextureIDBackground]];
     background.position = CGPointZero;
     [self addNodeToLayer:LayerIDBackground node:background];
     
     // Initialise victory background layer
     SSKSpriteNode* victoryBackground =
         [[SSKSpriteNode alloc]
-         initWithTexture:[self.textures getTexture:TextureIDVictoryBackground]
-         state:NULL];
+         initWithTexture:[self.textures getTexture:TextureIDVictoryBackground]];
     victoryBackground.position = CGPointZero;
     [self addNodeToLayer:LayerIDVictoryBackground node:victoryBackground];
     
@@ -76,7 +74,7 @@ typedef enum layers {
     SSKButtonNode* retryButton =
         [[SSKButtonNode alloc]
          initWithTexture:[self.textures getTexture:TextureIDRetryButton]
-         state:self clickEventBlock:^(SSKButtonNode* node) {
+         clickEventBlock:^(SSKButtonNode* node) {
              [node.audioDelegate playSound:SoundIDForwardPress];
              
              if ([node.audioDelegate soundExists:SoundInstanceIDVictorySound]) {
@@ -98,7 +96,7 @@ typedef enum layers {
     SSKButtonNode* menuButton =
         [[SSKButtonNode alloc]
          initWithTexture:[self.textures getTexture:TextureIDMenuButton]
-         state:self clickEventBlock:^(SSKButtonNode* node) {
+         clickEventBlock:^(SSKButtonNode* node) {
              [node.audioDelegate playSound:SoundIDBackPress];
              [node.audioDelegate stopSound:SoundInstanceIDInGameMusic];
              

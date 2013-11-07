@@ -77,8 +77,7 @@ typedef enum layers {
     // Initialise background layer
     SSKSpriteNode* background =
         [[SSKSpriteNode alloc]
-         initWithTexture:[self.textures getTexture:TextureIDMainMenuBackground]
-         state:NULL];
+         initWithTexture:[self.textures getTexture:TextureIDMainMenuBackground]];
     background.position = CGPointZero;
     [self addNodeToLayer:LayerIDBackground node:background];
     
@@ -88,8 +87,7 @@ typedef enum layers {
     
     SSKSpriteNode* lollipopBase =
         [[SSKSpriteNode alloc]
-         initWithTexture:[self.textures getTexture:TextureIDLollipopBase]
-         state:NULL];
+         initWithTexture:[self.textures getTexture:TextureIDLollipopBase]];
     lollipopBase.position =
         CGPointMake(self.scene.frame.size.width * LOLLIPOP_REL_X,
                     self.scene.frame.size.height * LOLLIPOP_REL_Y);
@@ -97,8 +95,7 @@ typedef enum layers {
     
     SSKSpriteNode* lollipopShadow =
         [[SSKSpriteNode alloc]
-         initWithTexture:[self.textures getTexture:TextureIDLollipopShadow]
-         state:NULL];
+         initWithTexture:[self.textures getTexture:TextureIDLollipopShadow]];
     lollipopShadow.position = lollipopBase.position;
     [self addNodeToLayer:LayerIDHUD node:lollipopShadow];
     

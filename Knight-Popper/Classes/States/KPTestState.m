@@ -50,8 +50,7 @@ typedef enum layers {
     // Initialise background layer
     SSKSpriteNode* background =
         [[SSKSpriteNode alloc]
-         initWithTexture:[self.textures getTexture:TextureIDBackground]
-         state:NULL];
+         initWithTexture:[self.textures getTexture:TextureIDBackground]];
     background.position = CGPointZero;
     [self addNodeToLayer:LayerIDBackground node:background];
     
@@ -59,7 +58,7 @@ typedef enum layers {
     KPShapeAnimationNode* lollipop =
         [[KPShapeAnimationNode alloc]
          initWithSpriteSheet:[self.textures getTexture:TextureIDLollipopLeftProjectile]
-         state:self columns:3 rows:3 numFrames:8 horizontalOrder:YES timePerFrame:1];
+         columns:3 rows:3 numFrames:8 horizontalOrder:YES timePerFrame:1];
     lollipop.position = CGPointZero;
     
     NSMutableArray* paths = [[NSMutableArray alloc] initWithCapacity:8];

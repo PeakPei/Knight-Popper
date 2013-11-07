@@ -63,8 +63,7 @@ typedef enum layers {
     // Initialise background layer
     SSKSpriteNode* background =
         [[SSKSpriteNode alloc]
-         initWithTexture:[self.textures getTexture:TextureIDBackground]
-         state:NULL];
+         initWithTexture:[self.textures getTexture:TextureIDBackground]];
     background.position = CGPointZero;
     [self addNodeToLayer:LayerIDBackground node:background];
     
@@ -97,8 +96,7 @@ typedef enum layers {
     SSKSpriteAnimationNode* leftPlayer =
         [[SSKSpriteAnimationNode alloc]
          initWithSpriteSheet:[self.textures getTexture:TextureIDPlayerOneIdle]
-         state:NULL columns:7 rows:3 numFrames:20 horizontalOrder:YES
-         timePerFrame:1.0/14.0];
+         columns:7 rows:3 numFrames:20 horizontalOrder:YES timePerFrame:1.0/14.0];
     leftPlayer.audioDelegate = self.audioDelegate;
     leftPlayer.position =
         CGPointMake(self.scene.frame.size.width * LEFT_PLAYER_REL_X,
@@ -112,8 +110,7 @@ typedef enum layers {
     SSKSpriteAnimationNode* rightPlayer =
         [[SSKSpriteAnimationNode alloc]
          initWithSpriteSheet:[self.textures getTexture:TextureIDPlayerTwoIdle]
-         state:NULL columns:7 rows:3 numFrames:20 horizontalOrder:YES
-         timePerFrame:1.0/14.0];
+         columns:7 rows:3 numFrames:20 horizontalOrder:YES timePerFrame:1.0/14.0];
     rightPlayer.audioDelegate = self.audioDelegate;
     rightPlayer.position =
         CGPointMake(self.scene.frame.size.width * RIGHT_PLAYER_REL_X,

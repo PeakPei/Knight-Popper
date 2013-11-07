@@ -60,8 +60,7 @@ typedef enum layers {
     // Initialise background layer
     SSKSpriteNode* background =
         [[SSKSpriteNode alloc]
-         initWithTexture:[self.textures getTexture:TextureIDMainMenuBackground]
-         state:NULL];
+         initWithTexture:[self.textures getTexture:TextureIDMainMenuBackground]];
     background.position = CGPointZero;
     [self addNodeToLayer:LayerIDBackground node:background];
     
@@ -71,8 +70,7 @@ typedef enum layers {
     
     SSKSpriteNode* title =
         [[SSKSpriteNode alloc]
-         initWithTexture:[self.textures getTexture:TextureIDMainMenuTitle]
-         state:NULL];
+         initWithTexture:[self.textures getTexture:TextureIDMainMenuTitle]];
     title.position = CGPointMake(self.scene.frame.size.width * TITLE_REL_X,
                                  self.scene.frame.size.height * TITLE_REL_Y);
     [self addNodeToLayer:LayerIDBackground node:title];
@@ -83,7 +81,7 @@ typedef enum layers {
     SSKButtonNode* playButton =
         [[SSKButtonNode alloc]
          initWithTexture:[self.textures getTexture:TextureIDPlayButton]
-         state:self clickEventBlock:^(SSKButtonNode* node) {
+         clickEventBlock:^(SSKButtonNode* node) {
              [node.audioDelegate playSound:SoundIDForwardPress];
              [node.state requestStackClear];
              [node.state requestStackPush:StateIDLoading];
@@ -99,7 +97,7 @@ typedef enum layers {
     SSKButtonNode* aboutButton =
         [[SSKButtonNode alloc]
          initWithTexture:[self.textures getTexture:TextureIDAboutButton]
-         state:self clickEventBlock:^(SSKButtonNode* node) {
+         clickEventBlock:^(SSKButtonNode* node) {
              [node.audioDelegate playSound:SoundIDForwardPress];
              [node.state requestStackPush:StateIDCredits];
          }];

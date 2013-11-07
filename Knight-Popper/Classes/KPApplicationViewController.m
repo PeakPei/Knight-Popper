@@ -22,6 +22,7 @@
 #import "KPCreditsState.h"
 #import "KPVictoryState.h"
 #import "KPTestState.h"
+#import "KPPauseState.h"
 
 #pragma mark - Interface
 
@@ -156,6 +157,12 @@
                     identifier:TextureIDPlayerTwoHead];
     [self.textures loadTexture:@"giant_lollipop.png"
                     identifier:TextureIDGiantLollipop];
+    [self.textures loadTexture:@"pause_BG.png"
+                    identifier:TextureIDPauseBackground];
+    [self.textures loadTexture:@"resume.png"
+                    identifier:TextureIDResumeButton];
+    [self.textures loadTexture:@"resume_hover.png"
+                    identifier:TextureIDResumeButtonHover];
     
     // Load music
     self.musicManager = [[SSKMusicManager alloc] initWithSoundCount:3];
@@ -205,9 +212,11 @@
     [self.stateStack registerState:[KPCreditsState class] stateID:StateIDCredits];
     [self.stateStack registerState:[KPVictoryState class] stateID:StateIDVictory];
     [self.stateStack registerState:[KPTestState class] stateID:StateIDTest];
+    [self.stateStack registerState:[KPPauseState class] stateID:StateIDPause];
     
     // Configure the scene
-    [self.stateStack pushState:StateIDTest];
+    [self.stateStack pushState:StateIDStandardGame];
+    [self.stateStack pushState:StateIDPause];
     [self.stateView presentScene:self.stateStack];
 }
 

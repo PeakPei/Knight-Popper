@@ -178,10 +178,350 @@
 		90885C2B182A58B70041095E /* player2~iphone.png in Resources */ = {isa = PBXBuildFile; fileRef = 90885C29182A58B70041095E /* player2~iphone.png */; };
 		90885C2E182A58C40041095E /* player1@2x~iphone.png in Resources */ = {isa = PBXBuildFile; fileRef = 90885C2C182A58C40041095E /* player1@2x~iphone.png */; };
 		90885C2F182A58C40041095E /* player2@2x~iphone.png in Resources */ = {isa = PBXBuildFile; fileRef = 90885C2D182A58C40041095E /* player2@2x~iphone.png */; };
-		908CFB31182AE10F00941DB1 /* giant_lollipop_x.plist in Resources */ = {isa = PBXBuildFile; fileRef = 908CFB30182AE10F00941DB1 /* giant_lollipop_x.plist */; };
-		908CFB33182AE12700941DB1 /* giant_lollipop_y.plist in Resources */ = {isa = PBXBuildFile; fileRef = 908CFB32182AE12700941DB1 /* giant_lollipop_y.plist */; };
 		908CFB36182AE20000941DB1 /* KPTestState.m in Sources */ = {isa = PBXBuildFile; fileRef = 908CFB35182AE20000941DB1 /* KPTestState.m */; };
 		908CFB38182AE32E00941DB1 /* giant_lollipop~ipad.png in Resources */ = {isa = PBXBuildFile; fileRef = 908CFB37182AE32E00941DB1 /* giant_lollipop~ipad.png */; };
+		908CFBAD182B210C00941DB1 /* blue_gold_monkeys_x_11
+.plist in Resources */ = {isa = PBXBuildFile; fileRef = 908CFB3B182B210C00941DB1 /* blue_gold_monkeys_x_11
+.plist */; };
+		908CFBAE182B210C00941DB1 /* blue_gold_monkeys_x_12
+.plist in Resources */ = {isa = PBXBuildFile; fileRef = 908CFB3C182B210C00941DB1 /* blue_gold_monkeys_x_12
+.plist */; };
+		908CFBAF182B210C00941DB1 /* blue_gold_monkeys_x_13
+.plist in Resources */ = {isa = PBXBuildFile; fileRef = 908CFB3D182B210C00941DB1 /* blue_gold_monkeys_x_13
+.plist */; };
+		908CFBB0182B210C00941DB1 /* blue_gold_monkeys_x_14
+.plist in Resources */ = {isa = PBXBuildFile; fileRef = 908CFB3E182B210C00941DB1 /* blue_gold_monkeys_x_14
+.plist */; };
+		908CFBB1182B210C00941DB1 /* blue_gold_monkeys_x_15
+.plist in Resources */ = {isa = PBXBuildFile; fileRef = 908CFB3F182B210C00941DB1 /* blue_gold_monkeys_x_15
+.plist */; };
+		908CFBB2182B210C00941DB1 /* blue_gold_monkeys_x_16
+.plist in Resources */ = {isa = PBXBuildFile; fileRef = 908CFB40182B210C00941DB1 /* blue_gold_monkeys_x_16
+.plist */; };
+		908CFBB3182B210C00941DB1 /* blue_gold_monkeys_x_17
+.plist in Resources */ = {isa = PBXBuildFile; fileRef = 908CFB41182B210C00941DB1 /* blue_gold_monkeys_x_17
+.plist */; };
+		908CFBB4182B210C00941DB1 /* blue_gold_monkeys_x_18
+.plist in Resources */ = {isa = PBXBuildFile; fileRef = 908CFB42182B210C00941DB1 /* blue_gold_monkeys_x_18
+.plist */; };
+		908CFBB5182B210C00941DB1 /* blue_gold_monkeys_x_21
+.plist in Resources */ = {isa = PBXBuildFile; fileRef = 908CFB43182B210C00941DB1 /* blue_gold_monkeys_x_21
+.plist */; };
+		908CFBB6182B210C00941DB1 /* blue_gold_monkeys_x_22
+.plist in Resources */ = {isa = PBXBuildFile; fileRef = 908CFB44182B210C00941DB1 /* blue_gold_monkeys_x_22
+.plist */; };
+		908CFBB7182B210C00941DB1 /* blue_gold_monkeys_x_23
+.plist in Resources */ = {isa = PBXBuildFile; fileRef = 908CFB45182B210C00941DB1 /* blue_gold_monkeys_x_23
+.plist */; };
+		908CFBB8182B210C00941DB1 /* blue_gold_monkeys_x_24
+.plist in Resources */ = {isa = PBXBuildFile; fileRef = 908CFB46182B210C00941DB1 /* blue_gold_monkeys_x_24
+.plist */; };
+		908CFBB9182B210C00941DB1 /* blue_gold_monkeys_x_25
+.plist in Resources */ = {isa = PBXBuildFile; fileRef = 908CFB47182B210C00941DB1 /* blue_gold_monkeys_x_25
+.plist */; };
+		908CFBBA182B210C00941DB1 /* blue_gold_monkeys_x_26
+.plist in Resources */ = {isa = PBXBuildFile; fileRef = 908CFB48182B210C00941DB1 /* blue_gold_monkeys_x_26
+.plist */; };
+		908CFBBB182B210C00941DB1 /* blue_gold_monkeys_x_27
+.plist in Resources */ = {isa = PBXBuildFile; fileRef = 908CFB49182B210C00941DB1 /* blue_gold_monkeys_x_27
+.plist */; };
+		908CFBBC182B210C00941DB1 /* blue_gold_monkeys_x_28
+.plist in Resources */ = {isa = PBXBuildFile; fileRef = 908CFB4A182B210C00941DB1 /* blue_gold_monkeys_x_28
+.plist */; };
+		908CFBBD182B210C00941DB1 /* blue_gold_monkeys_x_31
+.plist in Resources */ = {isa = PBXBuildFile; fileRef = 908CFB4B182B210C00941DB1 /* blue_gold_monkeys_x_31
+.plist */; };
+		908CFBBE182B210C00941DB1 /* blue_gold_monkeys_x_32
+.plist in Resources */ = {isa = PBXBuildFile; fileRef = 908CFB4C182B210C00941DB1 /* blue_gold_monkeys_x_32
+.plist */; };
+		908CFBBF182B210C00941DB1 /* blue_gold_monkeys_x_33
+.plist in Resources */ = {isa = PBXBuildFile; fileRef = 908CFB4D182B210C00941DB1 /* blue_gold_monkeys_x_33
+.plist */; };
+		908CFBC0182B210C00941DB1 /* blue_gold_monkeys_x_34
+.plist in Resources */ = {isa = PBXBuildFile; fileRef = 908CFB4E182B210C00941DB1 /* blue_gold_monkeys_x_34
+.plist */; };
+		908CFBC1182B210C00941DB1 /* blue_gold_monkeys_y_11
+.plist in Resources */ = {isa = PBXBuildFile; fileRef = 908CFB4F182B210C00941DB1 /* blue_gold_monkeys_y_11
+.plist */; };
+		908CFBC2182B210C00941DB1 /* blue_gold_monkeys_y_12
+.plist in Resources */ = {isa = PBXBuildFile; fileRef = 908CFB50182B210C00941DB1 /* blue_gold_monkeys_y_12
+.plist */; };
+		908CFBC3182B210C00941DB1 /* blue_gold_monkeys_y_13
+.plist in Resources */ = {isa = PBXBuildFile; fileRef = 908CFB51182B210C00941DB1 /* blue_gold_monkeys_y_13
+.plist */; };
+		908CFBC4182B210C00941DB1 /* blue_gold_monkeys_y_14
+.plist in Resources */ = {isa = PBXBuildFile; fileRef = 908CFB52182B210C00941DB1 /* blue_gold_monkeys_y_14
+.plist */; };
+		908CFBC5182B210C00941DB1 /* blue_gold_monkeys_y_15
+.plist in Resources */ = {isa = PBXBuildFile; fileRef = 908CFB53182B210C00941DB1 /* blue_gold_monkeys_y_15
+.plist */; };
+		908CFBC6182B210C00941DB1 /* blue_gold_monkeys_y_16
+.plist in Resources */ = {isa = PBXBuildFile; fileRef = 908CFB54182B210C00941DB1 /* blue_gold_monkeys_y_16
+.plist */; };
+		908CFBC7182B210C00941DB1 /* blue_gold_monkeys_y_17
+.plist in Resources */ = {isa = PBXBuildFile; fileRef = 908CFB55182B210C00941DB1 /* blue_gold_monkeys_y_17
+.plist */; };
+		908CFBC8182B210C00941DB1 /* blue_gold_monkeys_y_18
+.plist in Resources */ = {isa = PBXBuildFile; fileRef = 908CFB56182B210C00941DB1 /* blue_gold_monkeys_y_18
+.plist */; };
+		908CFBC9182B210C00941DB1 /* blue_gold_monkeys_y_21
+.plist in Resources */ = {isa = PBXBuildFile; fileRef = 908CFB57182B210C00941DB1 /* blue_gold_monkeys_y_21
+.plist */; };
+		908CFBCA182B210C00941DB1 /* blue_gold_monkeys_y_22
+.plist in Resources */ = {isa = PBXBuildFile; fileRef = 908CFB58182B210C00941DB1 /* blue_gold_monkeys_y_22
+.plist */; };
+		908CFBCB182B210C00941DB1 /* blue_gold_monkeys_y_23
+.plist in Resources */ = {isa = PBXBuildFile; fileRef = 908CFB59182B210C00941DB1 /* blue_gold_monkeys_y_23
+.plist */; };
+		908CFBCC182B210C00941DB1 /* blue_gold_monkeys_y_24
+.plist in Resources */ = {isa = PBXBuildFile; fileRef = 908CFB5A182B210C00941DB1 /* blue_gold_monkeys_y_24
+.plist */; };
+		908CFBCD182B210C00941DB1 /* blue_gold_monkeys_y_25
+.plist in Resources */ = {isa = PBXBuildFile; fileRef = 908CFB5B182B210C00941DB1 /* blue_gold_monkeys_y_25
+.plist */; };
+		908CFBCE182B210C00941DB1 /* blue_gold_monkeys_y_26
+.plist in Resources */ = {isa = PBXBuildFile; fileRef = 908CFB5C182B210C00941DB1 /* blue_gold_monkeys_y_26
+.plist */; };
+		908CFBCF182B210C00941DB1 /* blue_gold_monkeys_y_27
+.plist in Resources */ = {isa = PBXBuildFile; fileRef = 908CFB5D182B210C00941DB1 /* blue_gold_monkeys_y_27
+.plist */; };
+		908CFBD0182B210C00941DB1 /* blue_gold_monkeys_y_28
+.plist in Resources */ = {isa = PBXBuildFile; fileRef = 908CFB5E182B210C00941DB1 /* blue_gold_monkeys_y_28
+.plist */; };
+		908CFBD1182B210C00941DB1 /* blue_gold_monkeys_y_31
+.plist in Resources */ = {isa = PBXBuildFile; fileRef = 908CFB5F182B210C00941DB1 /* blue_gold_monkeys_y_31
+.plist */; };
+		908CFBD2182B210C00941DB1 /* blue_gold_monkeys_y_32
+.plist in Resources */ = {isa = PBXBuildFile; fileRef = 908CFB60182B210C00941DB1 /* blue_gold_monkeys_y_32
+.plist */; };
+		908CFBD3182B210C00941DB1 /* blue_gold_monkeys_y_33
+.plist in Resources */ = {isa = PBXBuildFile; fileRef = 908CFB61182B210C00941DB1 /* blue_gold_monkeys_y_33
+.plist */; };
+		908CFBD4182B210C00941DB1 /* blue_gold_monkeys_y_34
+.plist in Resources */ = {isa = PBXBuildFile; fileRef = 908CFB62182B210C00941DB1 /* blue_gold_monkeys_y_34
+.plist */; };
+		908CFBD5182B210C00941DB1 /* giant_lollipop_x_11
+.plist in Resources */ = {isa = PBXBuildFile; fileRef = 908CFB63182B210C00941DB1 /* giant_lollipop_x_11
+.plist */; };
+		908CFBD6182B210C00941DB1 /* giant_lollipop_y_11
+.plist in Resources */ = {isa = PBXBuildFile; fileRef = 908CFB64182B210C00941DB1 /* giant_lollipop_y_11
+.plist */; };
+		908CFBD7182B210C00941DB1 /* lollipop_left_projectile_x_11
+.plist in Resources */ = {isa = PBXBuildFile; fileRef = 908CFB65182B210C00941DB1 /* lollipop_left_projectile_x_11
+.plist */; };
+		908CFBD8182B210C00941DB1 /* lollipop_left_projectile_x_12
+.plist in Resources */ = {isa = PBXBuildFile; fileRef = 908CFB66182B210C00941DB1 /* lollipop_left_projectile_x_12
+.plist */; };
+		908CFBD9182B210C00941DB1 /* lollipop_left_projectile_x_13
+.plist in Resources */ = {isa = PBXBuildFile; fileRef = 908CFB67182B210C00941DB1 /* lollipop_left_projectile_x_13
+.plist */; };
+		908CFBDA182B210C00941DB1 /* lollipop_left_projectile_x_21
+.plist in Resources */ = {isa = PBXBuildFile; fileRef = 908CFB68182B210C00941DB1 /* lollipop_left_projectile_x_21
+.plist */; };
+		908CFBDB182B210C00941DB1 /* lollipop_left_projectile_x_22
+.plist in Resources */ = {isa = PBXBuildFile; fileRef = 908CFB69182B210C00941DB1 /* lollipop_left_projectile_x_22
+.plist */; };
+		908CFBDC182B210C00941DB1 /* lollipop_left_projectile_x_23
+.plist in Resources */ = {isa = PBXBuildFile; fileRef = 908CFB6A182B210C00941DB1 /* lollipop_left_projectile_x_23
+.plist */; };
+		908CFBDD182B210C00941DB1 /* lollipop_left_projectile_x_31
+.plist in Resources */ = {isa = PBXBuildFile; fileRef = 908CFB6B182B210C00941DB1 /* lollipop_left_projectile_x_31
+.plist */; };
+		908CFBDE182B210C00941DB1 /* lollipop_left_projectile_x_32
+.plist in Resources */ = {isa = PBXBuildFile; fileRef = 908CFB6C182B210C00941DB1 /* lollipop_left_projectile_x_32
+.plist */; };
+		908CFBDF182B210C00941DB1 /* lollipop_left_projectile_y_11
+.plist in Resources */ = {isa = PBXBuildFile; fileRef = 908CFB6D182B210C00941DB1 /* lollipop_left_projectile_y_11
+.plist */; };
+		908CFBE0182B210C00941DB1 /* lollipop_left_projectile_y_12
+.plist in Resources */ = {isa = PBXBuildFile; fileRef = 908CFB6E182B210C00941DB1 /* lollipop_left_projectile_y_12
+.plist */; };
+		908CFBE1182B210C00941DB1 /* lollipop_left_projectile_y_13
+.plist in Resources */ = {isa = PBXBuildFile; fileRef = 908CFB6F182B210C00941DB1 /* lollipop_left_projectile_y_13
+.plist */; };
+		908CFBE2182B210C00941DB1 /* lollipop_left_projectile_y_21
+.plist in Resources */ = {isa = PBXBuildFile; fileRef = 908CFB70182B210C00941DB1 /* lollipop_left_projectile_y_21
+.plist */; };
+		908CFBE3182B210C00941DB1 /* lollipop_left_projectile_y_22
+.plist in Resources */ = {isa = PBXBuildFile; fileRef = 908CFB71182B210C00941DB1 /* lollipop_left_projectile_y_22
+.plist */; };
+		908CFBE4182B210C00941DB1 /* lollipop_left_projectile_y_23
+.plist in Resources */ = {isa = PBXBuildFile; fileRef = 908CFB72182B210C00941DB1 /* lollipop_left_projectile_y_23
+.plist */; };
+		908CFBE5182B210C00941DB1 /* lollipop_left_projectile_y_31
+.plist in Resources */ = {isa = PBXBuildFile; fileRef = 908CFB73182B210C00941DB1 /* lollipop_left_projectile_y_31
+.plist */; };
+		908CFBE6182B210C00941DB1 /* lollipop_left_projectile_y_32
+.plist in Resources */ = {isa = PBXBuildFile; fileRef = 908CFB74182B210C00941DB1 /* lollipop_left_projectile_y_32
+.plist */; };
+		908CFBE7182B210C00941DB1 /* lollipop_right_projectile_x_11
+.plist in Resources */ = {isa = PBXBuildFile; fileRef = 908CFB75182B210C00941DB1 /* lollipop_right_projectile_x_11
+.plist */; };
+		908CFBE8182B210C00941DB1 /* lollipop_right_projectile_x_12
+.plist in Resources */ = {isa = PBXBuildFile; fileRef = 908CFB76182B210C00941DB1 /* lollipop_right_projectile_x_12
+.plist */; };
+		908CFBE9182B210C00941DB1 /* lollipop_right_projectile_x_13
+.plist in Resources */ = {isa = PBXBuildFile; fileRef = 908CFB77182B210C00941DB1 /* lollipop_right_projectile_x_13
+.plist */; };
+		908CFBEA182B210C00941DB1 /* lollipop_right_projectile_x_21
+.plist in Resources */ = {isa = PBXBuildFile; fileRef = 908CFB78182B210C00941DB1 /* lollipop_right_projectile_x_21
+.plist */; };
+		908CFBEB182B210C00941DB1 /* lollipop_right_projectile_x_22
+.plist in Resources */ = {isa = PBXBuildFile; fileRef = 908CFB79182B210C00941DB1 /* lollipop_right_projectile_x_22
+.plist */; };
+		908CFBEC182B210C00941DB1 /* lollipop_right_projectile_x_23
+.plist in Resources */ = {isa = PBXBuildFile; fileRef = 908CFB7A182B210C00941DB1 /* lollipop_right_projectile_x_23
+.plist */; };
+		908CFBED182B210C00941DB1 /* lollipop_right_projectile_x_31
+.plist in Resources */ = {isa = PBXBuildFile; fileRef = 908CFB7B182B210C00941DB1 /* lollipop_right_projectile_x_31
+.plist */; };
+		908CFBEE182B210C00941DB1 /* lollipop_right_projectile_x_32
+.plist in Resources */ = {isa = PBXBuildFile; fileRef = 908CFB7C182B210C00941DB1 /* lollipop_right_projectile_x_32
+.plist */; };
+		908CFBEF182B210C00941DB1 /* lollipop_right_projectile_y_11
+.plist in Resources */ = {isa = PBXBuildFile; fileRef = 908CFB7D182B210C00941DB1 /* lollipop_right_projectile_y_11
+.plist */; };
+		908CFBF0182B210C00941DB1 /* lollipop_right_projectile_y_12
+.plist in Resources */ = {isa = PBXBuildFile; fileRef = 908CFB7E182B210C00941DB1 /* lollipop_right_projectile_y_12
+.plist */; };
+		908CFBF1182B210C00941DB1 /* lollipop_right_projectile_y_13
+.plist in Resources */ = {isa = PBXBuildFile; fileRef = 908CFB7F182B210C00941DB1 /* lollipop_right_projectile_y_13
+.plist */; };
+		908CFBF2182B210C00941DB1 /* lollipop_right_projectile_y_21
+.plist in Resources */ = {isa = PBXBuildFile; fileRef = 908CFB80182B210C00941DB1 /* lollipop_right_projectile_y_21
+.plist */; };
+		908CFBF3182B210C00941DB1 /* lollipop_right_projectile_y_22
+.plist in Resources */ = {isa = PBXBuildFile; fileRef = 908CFB81182B210C00941DB1 /* lollipop_right_projectile_y_22
+.plist */; };
+		908CFBF4182B210C00941DB1 /* lollipop_right_projectile_y_23
+.plist in Resources */ = {isa = PBXBuildFile; fileRef = 908CFB82182B210C00941DB1 /* lollipop_right_projectile_y_23
+.plist */; };
+		908CFBF5182B210C00941DB1 /* lollipop_right_projectile_y_31
+.plist in Resources */ = {isa = PBXBuildFile; fileRef = 908CFB83182B210C00941DB1 /* lollipop_right_projectile_y_31
+.plist */; };
+		908CFBF6182B210C00941DB1 /* lollipop_right_projectile_y_32
+.plist in Resources */ = {isa = PBXBuildFile; fileRef = 908CFB84182B210C00941DB1 /* lollipop_right_projectile_y_32
+.plist */; };
+		908CFBF7182B210C00941DB1 /* pink_monkey_target_x_11
+.plist in Resources */ = {isa = PBXBuildFile; fileRef = 908CFB85182B210C00941DB1 /* pink_monkey_target_x_11
+.plist */; };
+		908CFBF8182B210C00941DB1 /* pink_monkey_target_x_12
+.plist in Resources */ = {isa = PBXBuildFile; fileRef = 908CFB86182B210C00941DB1 /* pink_monkey_target_x_12
+.plist */; };
+		908CFBF9182B210C00941DB1 /* pink_monkey_target_x_13
+.plist in Resources */ = {isa = PBXBuildFile; fileRef = 908CFB87182B210C00941DB1 /* pink_monkey_target_x_13
+.plist */; };
+		908CFBFA182B210C00941DB1 /* pink_monkey_target_x_14
+.plist in Resources */ = {isa = PBXBuildFile; fileRef = 908CFB88182B210C00941DB1 /* pink_monkey_target_x_14
+.plist */; };
+		908CFBFB182B210C00941DB1 /* pink_monkey_target_x_15
+.plist in Resources */ = {isa = PBXBuildFile; fileRef = 908CFB89182B210C00941DB1 /* pink_monkey_target_x_15
+.plist */; };
+		908CFBFC182B210C00941DB1 /* pink_monkey_target_x_16
+.plist in Resources */ = {isa = PBXBuildFile; fileRef = 908CFB8A182B210C00941DB1 /* pink_monkey_target_x_16
+.plist */; };
+		908CFBFD182B210C00941DB1 /* pink_monkey_target_x_17
+.plist in Resources */ = {isa = PBXBuildFile; fileRef = 908CFB8B182B210C00941DB1 /* pink_monkey_target_x_17
+.plist */; };
+		908CFBFE182B210C00941DB1 /* pink_monkey_target_x_18
+.plist in Resources */ = {isa = PBXBuildFile; fileRef = 908CFB8C182B210C00941DB1 /* pink_monkey_target_x_18
+.plist */; };
+		908CFBFF182B210C00941DB1 /* pink_monkey_target_x_21
+.plist in Resources */ = {isa = PBXBuildFile; fileRef = 908CFB8D182B210C00941DB1 /* pink_monkey_target_x_21
+.plist */; };
+		908CFC00182B210C00941DB1 /* pink_monkey_target_x_22
+.plist in Resources */ = {isa = PBXBuildFile; fileRef = 908CFB8E182B210C00941DB1 /* pink_monkey_target_x_22
+.plist */; };
+		908CFC01182B210C00941DB1 /* pink_monkey_target_x_23
+.plist in Resources */ = {isa = PBXBuildFile; fileRef = 908CFB8F182B210C00941DB1 /* pink_monkey_target_x_23
+.plist */; };
+		908CFC02182B210C00941DB1 /* pink_monkey_target_x_24
+.plist in Resources */ = {isa = PBXBuildFile; fileRef = 908CFB90182B210C00941DB1 /* pink_monkey_target_x_24
+.plist */; };
+		908CFC03182B210C00941DB1 /* pink_monkey_target_x_25
+.plist in Resources */ = {isa = PBXBuildFile; fileRef = 908CFB91182B210C00941DB1 /* pink_monkey_target_x_25
+.plist */; };
+		908CFC04182B210C00941DB1 /* pink_monkey_target_x_26
+.plist in Resources */ = {isa = PBXBuildFile; fileRef = 908CFB92182B210C00941DB1 /* pink_monkey_target_x_26
+.plist */; };
+		908CFC05182B210C00941DB1 /* pink_monkey_target_x_27
+.plist in Resources */ = {isa = PBXBuildFile; fileRef = 908CFB93182B210C00941DB1 /* pink_monkey_target_x_27
+.plist */; };
+		908CFC06182B210C00941DB1 /* pink_monkey_target_x_28
+.plist in Resources */ = {isa = PBXBuildFile; fileRef = 908CFB94182B210C00941DB1 /* pink_monkey_target_x_28
+.plist */; };
+		908CFC07182B210C00941DB1 /* pink_monkey_target_x_31
+.plist in Resources */ = {isa = PBXBuildFile; fileRef = 908CFB95182B210C00941DB1 /* pink_monkey_target_x_31
+.plist */; };
+		908CFC08182B210C00941DB1 /* pink_monkey_target_x_32
+.plist in Resources */ = {isa = PBXBuildFile; fileRef = 908CFB96182B210C00941DB1 /* pink_monkey_target_x_32
+.plist */; };
+		908CFC09182B210C00941DB1 /* pink_monkey_target_x_33
+.plist in Resources */ = {isa = PBXBuildFile; fileRef = 908CFB97182B210C00941DB1 /* pink_monkey_target_x_33
+.plist */; };
+		908CFC0A182B210C00941DB1 /* pink_monkey_target_x_34
+.plist in Resources */ = {isa = PBXBuildFile; fileRef = 908CFB98182B210C00941DB1 /* pink_monkey_target_x_34
+.plist */; };
+		908CFC0B182B210C00941DB1 /* pink_monkey_target_y_11
+.plist in Resources */ = {isa = PBXBuildFile; fileRef = 908CFB99182B210C00941DB1 /* pink_monkey_target_y_11
+.plist */; };
+		908CFC0C182B210C00941DB1 /* pink_monkey_target_y_12
+.plist in Resources */ = {isa = PBXBuildFile; fileRef = 908CFB9A182B210C00941DB1 /* pink_monkey_target_y_12
+.plist */; };
+		908CFC0D182B210C00941DB1 /* pink_monkey_target_y_13
+.plist in Resources */ = {isa = PBXBuildFile; fileRef = 908CFB9B182B210C00941DB1 /* pink_monkey_target_y_13
+.plist */; };
+		908CFC0E182B210C00941DB1 /* pink_monkey_target_y_14
+.plist in Resources */ = {isa = PBXBuildFile; fileRef = 908CFB9C182B210C00941DB1 /* pink_monkey_target_y_14
+.plist */; };
+		908CFC0F182B210C00941DB1 /* pink_monkey_target_y_15
+.plist in Resources */ = {isa = PBXBuildFile; fileRef = 908CFB9D182B210C00941DB1 /* pink_monkey_target_y_15
+.plist */; };
+		908CFC10182B210C00941DB1 /* pink_monkey_target_y_16
+.plist in Resources */ = {isa = PBXBuildFile; fileRef = 908CFB9E182B210C00941DB1 /* pink_monkey_target_y_16
+.plist */; };
+		908CFC11182B210C00941DB1 /* pink_monkey_target_y_17
+.plist in Resources */ = {isa = PBXBuildFile; fileRef = 908CFB9F182B210C00941DB1 /* pink_monkey_target_y_17
+.plist */; };
+		908CFC12182B210C00941DB1 /* pink_monkey_target_y_18
+.plist in Resources */ = {isa = PBXBuildFile; fileRef = 908CFBA0182B210C00941DB1 /* pink_monkey_target_y_18
+.plist */; };
+		908CFC13182B210C00941DB1 /* pink_monkey_target_y_21
+.plist in Resources */ = {isa = PBXBuildFile; fileRef = 908CFBA1182B210C00941DB1 /* pink_monkey_target_y_21
+.plist */; };
+		908CFC14182B210C00941DB1 /* pink_monkey_target_y_22
+.plist in Resources */ = {isa = PBXBuildFile; fileRef = 908CFBA2182B210C00941DB1 /* pink_monkey_target_y_22
+.plist */; };
+		908CFC15182B210C00941DB1 /* pink_monkey_target_y_23
+.plist in Resources */ = {isa = PBXBuildFile; fileRef = 908CFBA3182B210C00941DB1 /* pink_monkey_target_y_23
+.plist */; };
+		908CFC16182B210C00941DB1 /* pink_monkey_target_y_24
+.plist in Resources */ = {isa = PBXBuildFile; fileRef = 908CFBA4182B210C00941DB1 /* pink_monkey_target_y_24
+.plist */; };
+		908CFC17182B210C00941DB1 /* pink_monkey_target_y_25
+.plist in Resources */ = {isa = PBXBuildFile; fileRef = 908CFBA5182B210C00941DB1 /* pink_monkey_target_y_25
+.plist */; };
+		908CFC18182B210C00941DB1 /* pink_monkey_target_y_26
+.plist in Resources */ = {isa = PBXBuildFile; fileRef = 908CFBA6182B210C00941DB1 /* pink_monkey_target_y_26
+.plist */; };
+		908CFC19182B210C00941DB1 /* pink_monkey_target_y_27
+.plist in Resources */ = {isa = PBXBuildFile; fileRef = 908CFBA7182B210C00941DB1 /* pink_monkey_target_y_27
+.plist */; };
+		908CFC1A182B210C00941DB1 /* pink_monkey_target_y_28
+.plist in Resources */ = {isa = PBXBuildFile; fileRef = 908CFBA8182B210C00941DB1 /* pink_monkey_target_y_28
+.plist */; };
+		908CFC1B182B210C00941DB1 /* pink_monkey_target_y_31
+.plist in Resources */ = {isa = PBXBuildFile; fileRef = 908CFBA9182B210C00941DB1 /* pink_monkey_target_y_31
+.plist */; };
+		908CFC1C182B210C00941DB1 /* pink_monkey_target_y_32
+.plist in Resources */ = {isa = PBXBuildFile; fileRef = 908CFBAA182B210C00941DB1 /* pink_monkey_target_y_32
+.plist */; };
+		908CFC1D182B210C00941DB1 /* pink_monkey_target_y_33
+.plist in Resources */ = {isa = PBXBuildFile; fileRef = 908CFBAB182B210C00941DB1 /* pink_monkey_target_y_33
+.plist */; };
+		908CFC1E182B210C00941DB1 /* pink_monkey_target_y_34
+.plist in Resources */ = {isa = PBXBuildFile; fileRef = 908CFBAC182B210C00941DB1 /* pink_monkey_target_y_34
+.plist */; };
 		90B07AC4180BAE7C00530915 /* back_press.wav in Resources */ = {isa = PBXBuildFile; fileRef = 90B07AB6180BAE7C00530915 /* back_press.wav */; };
 		90B07AC5180BAE7C00530915 /* balloon_pop.wav in Resources */ = {isa = PBXBuildFile; fileRef = 90B07AB7180BAE7C00530915 /* balloon_pop.wav */; };
 		90B07AC6180BAE7C00530915 /* countdown_1.wav in Resources */ = {isa = PBXBuildFile; fileRef = 90B07AB8180BAE7C00530915 /* countdown_1.wav */; };
@@ -455,11 +795,237 @@
 		90885C29182A58B70041095E /* player2~iphone.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "player2~iphone.png"; sourceTree = "<group>"; };
 		90885C2C182A58C40041095E /* player1@2x~iphone.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "player1@2x~iphone.png"; sourceTree = "<group>"; };
 		90885C2D182A58C40041095E /* player2@2x~iphone.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "player2@2x~iphone.png"; sourceTree = "<group>"; };
-		908CFB30182AE10F00941DB1 /* giant_lollipop_x.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = giant_lollipop_x.plist; sourceTree = "<group>"; };
-		908CFB32182AE12700941DB1 /* giant_lollipop_y.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = giant_lollipop_y.plist; sourceTree = "<group>"; };
 		908CFB34182AE20000941DB1 /* KPTestState.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KPTestState.h; sourceTree = "<group>"; };
 		908CFB35182AE20000941DB1 /* KPTestState.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KPTestState.m; sourceTree = "<group>"; };
 		908CFB37182AE32E00941DB1 /* giant_lollipop~ipad.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "giant_lollipop~ipad.png"; sourceTree = "<group>"; };
+		908CFB3B182B210C00941DB1 /* blue_gold_monkeys_x_11
+.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "blue_gold_monkeys_x_11\n\n.plist"; sourceTree = "<group>"; };
+		908CFB3C182B210C00941DB1 /* blue_gold_monkeys_x_12
+.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "blue_gold_monkeys_x_12\n\n.plist"; sourceTree = "<group>"; };
+		908CFB3D182B210C00941DB1 /* blue_gold_monkeys_x_13
+.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "blue_gold_monkeys_x_13\n\n.plist"; sourceTree = "<group>"; };
+		908CFB3E182B210C00941DB1 /* blue_gold_monkeys_x_14
+.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "blue_gold_monkeys_x_14\n\n.plist"; sourceTree = "<group>"; };
+		908CFB3F182B210C00941DB1 /* blue_gold_monkeys_x_15
+.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "blue_gold_monkeys_x_15\n\n.plist"; sourceTree = "<group>"; };
+		908CFB40182B210C00941DB1 /* blue_gold_monkeys_x_16
+.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "blue_gold_monkeys_x_16\n\n.plist"; sourceTree = "<group>"; };
+		908CFB41182B210C00941DB1 /* blue_gold_monkeys_x_17
+.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "blue_gold_monkeys_x_17\n\n.plist"; sourceTree = "<group>"; };
+		908CFB42182B210C00941DB1 /* blue_gold_monkeys_x_18
+.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "blue_gold_monkeys_x_18\n\n.plist"; sourceTree = "<group>"; };
+		908CFB43182B210C00941DB1 /* blue_gold_monkeys_x_21
+.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "blue_gold_monkeys_x_21\n\n.plist"; sourceTree = "<group>"; };
+		908CFB44182B210C00941DB1 /* blue_gold_monkeys_x_22
+.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "blue_gold_monkeys_x_22\n\n.plist"; sourceTree = "<group>"; };
+		908CFB45182B210C00941DB1 /* blue_gold_monkeys_x_23
+.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "blue_gold_monkeys_x_23\n\n.plist"; sourceTree = "<group>"; };
+		908CFB46182B210C00941DB1 /* blue_gold_monkeys_x_24
+.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "blue_gold_monkeys_x_24\n\n.plist"; sourceTree = "<group>"; };
+		908CFB47182B210C00941DB1 /* blue_gold_monkeys_x_25
+.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "blue_gold_monkeys_x_25\n\n.plist"; sourceTree = "<group>"; };
+		908CFB48182B210C00941DB1 /* blue_gold_monkeys_x_26
+.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "blue_gold_monkeys_x_26\n\n.plist"; sourceTree = "<group>"; };
+		908CFB49182B210C00941DB1 /* blue_gold_monkeys_x_27
+.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "blue_gold_monkeys_x_27\n\n.plist"; sourceTree = "<group>"; };
+		908CFB4A182B210C00941DB1 /* blue_gold_monkeys_x_28
+.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "blue_gold_monkeys_x_28\n\n.plist"; sourceTree = "<group>"; };
+		908CFB4B182B210C00941DB1 /* blue_gold_monkeys_x_31
+.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "blue_gold_monkeys_x_31\n\n.plist"; sourceTree = "<group>"; };
+		908CFB4C182B210C00941DB1 /* blue_gold_monkeys_x_32
+.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "blue_gold_monkeys_x_32\n\n.plist"; sourceTree = "<group>"; };
+		908CFB4D182B210C00941DB1 /* blue_gold_monkeys_x_33
+.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "blue_gold_monkeys_x_33\n\n.plist"; sourceTree = "<group>"; };
+		908CFB4E182B210C00941DB1 /* blue_gold_monkeys_x_34
+.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "blue_gold_monkeys_x_34\n\n.plist"; sourceTree = "<group>"; };
+		908CFB4F182B210C00941DB1 /* blue_gold_monkeys_y_11
+.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "blue_gold_monkeys_y_11\n\n.plist"; sourceTree = "<group>"; };
+		908CFB50182B210C00941DB1 /* blue_gold_monkeys_y_12
+.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "blue_gold_monkeys_y_12\n\n.plist"; sourceTree = "<group>"; };
+		908CFB51182B210C00941DB1 /* blue_gold_monkeys_y_13
+.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "blue_gold_monkeys_y_13\n\n.plist"; sourceTree = "<group>"; };
+		908CFB52182B210C00941DB1 /* blue_gold_monkeys_y_14
+.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "blue_gold_monkeys_y_14\n\n.plist"; sourceTree = "<group>"; };
+		908CFB53182B210C00941DB1 /* blue_gold_monkeys_y_15
+.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "blue_gold_monkeys_y_15\n\n.plist"; sourceTree = "<group>"; };
+		908CFB54182B210C00941DB1 /* blue_gold_monkeys_y_16
+.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "blue_gold_monkeys_y_16\n\n.plist"; sourceTree = "<group>"; };
+		908CFB55182B210C00941DB1 /* blue_gold_monkeys_y_17
+.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "blue_gold_monkeys_y_17\n\n.plist"; sourceTree = "<group>"; };
+		908CFB56182B210C00941DB1 /* blue_gold_monkeys_y_18
+.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "blue_gold_monkeys_y_18\n\n.plist"; sourceTree = "<group>"; };
+		908CFB57182B210C00941DB1 /* blue_gold_monkeys_y_21
+.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "blue_gold_monkeys_y_21\n\n.plist"; sourceTree = "<group>"; };
+		908CFB58182B210C00941DB1 /* blue_gold_monkeys_y_22
+.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "blue_gold_monkeys_y_22\n\n.plist"; sourceTree = "<group>"; };
+		908CFB59182B210C00941DB1 /* blue_gold_monkeys_y_23
+.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "blue_gold_monkeys_y_23\n\n.plist"; sourceTree = "<group>"; };
+		908CFB5A182B210C00941DB1 /* blue_gold_monkeys_y_24
+.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "blue_gold_monkeys_y_24\n\n.plist"; sourceTree = "<group>"; };
+		908CFB5B182B210C00941DB1 /* blue_gold_monkeys_y_25
+.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "blue_gold_monkeys_y_25\n\n.plist"; sourceTree = "<group>"; };
+		908CFB5C182B210C00941DB1 /* blue_gold_monkeys_y_26
+.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "blue_gold_monkeys_y_26\n\n.plist"; sourceTree = "<group>"; };
+		908CFB5D182B210C00941DB1 /* blue_gold_monkeys_y_27
+.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "blue_gold_monkeys_y_27\n\n.plist"; sourceTree = "<group>"; };
+		908CFB5E182B210C00941DB1 /* blue_gold_monkeys_y_28
+.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "blue_gold_monkeys_y_28\n\n.plist"; sourceTree = "<group>"; };
+		908CFB5F182B210C00941DB1 /* blue_gold_monkeys_y_31
+.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "blue_gold_monkeys_y_31\n\n.plist"; sourceTree = "<group>"; };
+		908CFB60182B210C00941DB1 /* blue_gold_monkeys_y_32
+.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "blue_gold_monkeys_y_32\n\n.plist"; sourceTree = "<group>"; };
+		908CFB61182B210C00941DB1 /* blue_gold_monkeys_y_33
+.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "blue_gold_monkeys_y_33\n\n.plist"; sourceTree = "<group>"; };
+		908CFB62182B210C00941DB1 /* blue_gold_monkeys_y_34
+.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "blue_gold_monkeys_y_34\n\n.plist"; sourceTree = "<group>"; };
+		908CFB63182B210C00941DB1 /* giant_lollipop_x_11
+.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "giant_lollipop_x_11\n.plist"; sourceTree = "<group>"; };
+		908CFB64182B210C00941DB1 /* giant_lollipop_y_11
+.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "giant_lollipop_y_11\n.plist"; sourceTree = "<group>"; };
+		908CFB65182B210C00941DB1 /* lollipop_left_projectile_x_11
+.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "lollipop_left_projectile_x_11\n\n.plist"; sourceTree = "<group>"; };
+		908CFB66182B210C00941DB1 /* lollipop_left_projectile_x_12
+.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "lollipop_left_projectile_x_12\n\n.plist"; sourceTree = "<group>"; };
+		908CFB67182B210C00941DB1 /* lollipop_left_projectile_x_13
+.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "lollipop_left_projectile_x_13\n\n.plist"; sourceTree = "<group>"; };
+		908CFB68182B210C00941DB1 /* lollipop_left_projectile_x_21
+.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "lollipop_left_projectile_x_21\n\n.plist"; sourceTree = "<group>"; };
+		908CFB69182B210C00941DB1 /* lollipop_left_projectile_x_22
+.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "lollipop_left_projectile_x_22\n\n.plist"; sourceTree = "<group>"; };
+		908CFB6A182B210C00941DB1 /* lollipop_left_projectile_x_23
+.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "lollipop_left_projectile_x_23\n\n.plist"; sourceTree = "<group>"; };
+		908CFB6B182B210C00941DB1 /* lollipop_left_projectile_x_31
+.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "lollipop_left_projectile_x_31\n\n.plist"; sourceTree = "<group>"; };
+		908CFB6C182B210C00941DB1 /* lollipop_left_projectile_x_32
+.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "lollipop_left_projectile_x_32\n\n.plist"; sourceTree = "<group>"; };
+		908CFB6D182B210C00941DB1 /* lollipop_left_projectile_y_11
+.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "lollipop_left_projectile_y_11\n\n.plist"; sourceTree = "<group>"; };
+		908CFB6E182B210C00941DB1 /* lollipop_left_projectile_y_12
+.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "lollipop_left_projectile_y_12\n\n.plist"; sourceTree = "<group>"; };
+		908CFB6F182B210C00941DB1 /* lollipop_left_projectile_y_13
+.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "lollipop_left_projectile_y_13\n\n.plist"; sourceTree = "<group>"; };
+		908CFB70182B210C00941DB1 /* lollipop_left_projectile_y_21
+.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "lollipop_left_projectile_y_21\n\n.plist"; sourceTree = "<group>"; };
+		908CFB71182B210C00941DB1 /* lollipop_left_projectile_y_22
+.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "lollipop_left_projectile_y_22\n\n.plist"; sourceTree = "<group>"; };
+		908CFB72182B210C00941DB1 /* lollipop_left_projectile_y_23
+.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "lollipop_left_projectile_y_23\n\n.plist"; sourceTree = "<group>"; };
+		908CFB73182B210C00941DB1 /* lollipop_left_projectile_y_31
+.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "lollipop_left_projectile_y_31\n\n.plist"; sourceTree = "<group>"; };
+		908CFB74182B210C00941DB1 /* lollipop_left_projectile_y_32
+.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "lollipop_left_projectile_y_32\n\n.plist"; sourceTree = "<group>"; };
+		908CFB75182B210C00941DB1 /* lollipop_right_projectile_x_11
+.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "lollipop_right_projectile_x_11\n\n.plist"; sourceTree = "<group>"; };
+		908CFB76182B210C00941DB1 /* lollipop_right_projectile_x_12
+.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "lollipop_right_projectile_x_12\n\n.plist"; sourceTree = "<group>"; };
+		908CFB77182B210C00941DB1 /* lollipop_right_projectile_x_13
+.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "lollipop_right_projectile_x_13\n\n.plist"; sourceTree = "<group>"; };
+		908CFB78182B210C00941DB1 /* lollipop_right_projectile_x_21
+.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "lollipop_right_projectile_x_21\n\n.plist"; sourceTree = "<group>"; };
+		908CFB79182B210C00941DB1 /* lollipop_right_projectile_x_22
+.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "lollipop_right_projectile_x_22\n\n.plist"; sourceTree = "<group>"; };
+		908CFB7A182B210C00941DB1 /* lollipop_right_projectile_x_23
+.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "lollipop_right_projectile_x_23\n\n.plist"; sourceTree = "<group>"; };
+		908CFB7B182B210C00941DB1 /* lollipop_right_projectile_x_31
+.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "lollipop_right_projectile_x_31\n\n.plist"; sourceTree = "<group>"; };
+		908CFB7C182B210C00941DB1 /* lollipop_right_projectile_x_32
+.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "lollipop_right_projectile_x_32\n\n.plist"; sourceTree = "<group>"; };
+		908CFB7D182B210C00941DB1 /* lollipop_right_projectile_y_11
+.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "lollipop_right_projectile_y_11\n\n.plist"; sourceTree = "<group>"; };
+		908CFB7E182B210C00941DB1 /* lollipop_right_projectile_y_12
+.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "lollipop_right_projectile_y_12\n\n.plist"; sourceTree = "<group>"; };
+		908CFB7F182B210C00941DB1 /* lollipop_right_projectile_y_13
+.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "lollipop_right_projectile_y_13\n\n.plist"; sourceTree = "<group>"; };
+		908CFB80182B210C00941DB1 /* lollipop_right_projectile_y_21
+.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "lollipop_right_projectile_y_21\n\n.plist"; sourceTree = "<group>"; };
+		908CFB81182B210C00941DB1 /* lollipop_right_projectile_y_22
+.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "lollipop_right_projectile_y_22\n\n.plist"; sourceTree = "<group>"; };
+		908CFB82182B210C00941DB1 /* lollipop_right_projectile_y_23
+.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "lollipop_right_projectile_y_23\n\n.plist"; sourceTree = "<group>"; };
+		908CFB83182B210C00941DB1 /* lollipop_right_projectile_y_31
+.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "lollipop_right_projectile_y_31\n\n.plist"; sourceTree = "<group>"; };
+		908CFB84182B210C00941DB1 /* lollipop_right_projectile_y_32
+.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "lollipop_right_projectile_y_32\n\n.plist"; sourceTree = "<group>"; };
+		908CFB85182B210C00941DB1 /* pink_monkey_target_x_11
+.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "pink_monkey_target_x_11\n\n.plist"; sourceTree = "<group>"; };
+		908CFB86182B210C00941DB1 /* pink_monkey_target_x_12
+.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "pink_monkey_target_x_12\n\n.plist"; sourceTree = "<group>"; };
+		908CFB87182B210C00941DB1 /* pink_monkey_target_x_13
+.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "pink_monkey_target_x_13\n\n.plist"; sourceTree = "<group>"; };
+		908CFB88182B210C00941DB1 /* pink_monkey_target_x_14
+.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "pink_monkey_target_x_14\n\n.plist"; sourceTree = "<group>"; };
+		908CFB89182B210C00941DB1 /* pink_monkey_target_x_15
+.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "pink_monkey_target_x_15\n\n.plist"; sourceTree = "<group>"; };
+		908CFB8A182B210C00941DB1 /* pink_monkey_target_x_16
+.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "pink_monkey_target_x_16\n\n.plist"; sourceTree = "<group>"; };
+		908CFB8B182B210C00941DB1 /* pink_monkey_target_x_17
+.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "pink_monkey_target_x_17\n\n.plist"; sourceTree = "<group>"; };
+		908CFB8C182B210C00941DB1 /* pink_monkey_target_x_18
+.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "pink_monkey_target_x_18\n\n.plist"; sourceTree = "<group>"; };
+		908CFB8D182B210C00941DB1 /* pink_monkey_target_x_21
+.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "pink_monkey_target_x_21\n\n.plist"; sourceTree = "<group>"; };
+		908CFB8E182B210C00941DB1 /* pink_monkey_target_x_22
+.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "pink_monkey_target_x_22\n\n.plist"; sourceTree = "<group>"; };
+		908CFB8F182B210C00941DB1 /* pink_monkey_target_x_23
+.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "pink_monkey_target_x_23\n\n.plist"; sourceTree = "<group>"; };
+		908CFB90182B210C00941DB1 /* pink_monkey_target_x_24
+.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "pink_monkey_target_x_24\n\n.plist"; sourceTree = "<group>"; };
+		908CFB91182B210C00941DB1 /* pink_monkey_target_x_25
+.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "pink_monkey_target_x_25\n\n.plist"; sourceTree = "<group>"; };
+		908CFB92182B210C00941DB1 /* pink_monkey_target_x_26
+.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "pink_monkey_target_x_26\n\n.plist"; sourceTree = "<group>"; };
+		908CFB93182B210C00941DB1 /* pink_monkey_target_x_27
+.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "pink_monkey_target_x_27\n\n.plist"; sourceTree = "<group>"; };
+		908CFB94182B210C00941DB1 /* pink_monkey_target_x_28
+.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "pink_monkey_target_x_28\n\n.plist"; sourceTree = "<group>"; };
+		908CFB95182B210C00941DB1 /* pink_monkey_target_x_31
+.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "pink_monkey_target_x_31\n\n.plist"; sourceTree = "<group>"; };
+		908CFB96182B210C00941DB1 /* pink_monkey_target_x_32
+.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "pink_monkey_target_x_32\n\n.plist"; sourceTree = "<group>"; };
+		908CFB97182B210C00941DB1 /* pink_monkey_target_x_33
+.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "pink_monkey_target_x_33\n\n.plist"; sourceTree = "<group>"; };
+		908CFB98182B210C00941DB1 /* pink_monkey_target_x_34
+.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "pink_monkey_target_x_34\n\n.plist"; sourceTree = "<group>"; };
+		908CFB99182B210C00941DB1 /* pink_monkey_target_y_11
+.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "pink_monkey_target_y_11\n\n.plist"; sourceTree = "<group>"; };
+		908CFB9A182B210C00941DB1 /* pink_monkey_target_y_12
+.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "pink_monkey_target_y_12\n\n.plist"; sourceTree = "<group>"; };
+		908CFB9B182B210C00941DB1 /* pink_monkey_target_y_13
+.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "pink_monkey_target_y_13\n\n.plist"; sourceTree = "<group>"; };
+		908CFB9C182B210C00941DB1 /* pink_monkey_target_y_14
+.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "pink_monkey_target_y_14\n\n.plist"; sourceTree = "<group>"; };
+		908CFB9D182B210C00941DB1 /* pink_monkey_target_y_15
+.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "pink_monkey_target_y_15\n\n.plist"; sourceTree = "<group>"; };
+		908CFB9E182B210C00941DB1 /* pink_monkey_target_y_16
+.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "pink_monkey_target_y_16\n\n.plist"; sourceTree = "<group>"; };
+		908CFB9F182B210C00941DB1 /* pink_monkey_target_y_17
+.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "pink_monkey_target_y_17\n\n.plist"; sourceTree = "<group>"; };
+		908CFBA0182B210C00941DB1 /* pink_monkey_target_y_18
+.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "pink_monkey_target_y_18\n\n.plist"; sourceTree = "<group>"; };
+		908CFBA1182B210C00941DB1 /* pink_monkey_target_y_21
+.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "pink_monkey_target_y_21\n\n.plist"; sourceTree = "<group>"; };
+		908CFBA2182B210C00941DB1 /* pink_monkey_target_y_22
+.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "pink_monkey_target_y_22\n\n.plist"; sourceTree = "<group>"; };
+		908CFBA3182B210C00941DB1 /* pink_monkey_target_y_23
+.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "pink_monkey_target_y_23\n\n.plist"; sourceTree = "<group>"; };
+		908CFBA4182B210C00941DB1 /* pink_monkey_target_y_24
+.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "pink_monkey_target_y_24\n\n.plist"; sourceTree = "<group>"; };
+		908CFBA5182B210C00941DB1 /* pink_monkey_target_y_25
+.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "pink_monkey_target_y_25\n\n.plist"; sourceTree = "<group>"; };
+		908CFBA6182B210C00941DB1 /* pink_monkey_target_y_26
+.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "pink_monkey_target_y_26\n\n.plist"; sourceTree = "<group>"; };
+		908CFBA7182B210C00941DB1 /* pink_monkey_target_y_27
+.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "pink_monkey_target_y_27\n\n.plist"; sourceTree = "<group>"; };
+		908CFBA8182B210C00941DB1 /* pink_monkey_target_y_28
+.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "pink_monkey_target_y_28\n\n.plist"; sourceTree = "<group>"; };
+		908CFBA9182B210C00941DB1 /* pink_monkey_target_y_31
+.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "pink_monkey_target_y_31\n\n.plist"; sourceTree = "<group>"; };
+		908CFBAA182B210C00941DB1 /* pink_monkey_target_y_32
+.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "pink_monkey_target_y_32\n\n.plist"; sourceTree = "<group>"; };
+		908CFBAB182B210C00941DB1 /* pink_monkey_target_y_33
+.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "pink_monkey_target_y_33\n\n.plist"; sourceTree = "<group>"; };
+		908CFBAC182B210C00941DB1 /* pink_monkey_target_y_34
+.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "pink_monkey_target_y_34\n\n.plist"; sourceTree = "<group>"; };
 		90B07AB6180BAE7C00530915 /* back_press.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = back_press.wav; sourceTree = "<group>"; };
 		90B07AB7180BAE7C00530915 /* balloon_pop.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = balloon_pop.wav; sourceTree = "<group>"; };
 		90B07AB8180BAE7C00530915 /* countdown_1.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = countdown_1.wav; sourceTree = "<group>"; };
@@ -707,8 +1273,234 @@
 		908CFB2D182AE0D300941DB1 /* Hitbox Coordinate Files */ = {
 			isa = PBXGroup;
 			children = (
-				908CFB30182AE10F00941DB1 /* giant_lollipop_x.plist */,
-				908CFB32182AE12700941DB1 /* giant_lollipop_y.plist */,
+				908CFB3B182B210C00941DB1 /* blue_gold_monkeys_x_11
+.plist */,
+				908CFB3C182B210C00941DB1 /* blue_gold_monkeys_x_12
+.plist */,
+				908CFB3D182B210C00941DB1 /* blue_gold_monkeys_x_13
+.plist */,
+				908CFB3E182B210C00941DB1 /* blue_gold_monkeys_x_14
+.plist */,
+				908CFB3F182B210C00941DB1 /* blue_gold_monkeys_x_15
+.plist */,
+				908CFB40182B210C00941DB1 /* blue_gold_monkeys_x_16
+.plist */,
+				908CFB41182B210C00941DB1 /* blue_gold_monkeys_x_17
+.plist */,
+				908CFB42182B210C00941DB1 /* blue_gold_monkeys_x_18
+.plist */,
+				908CFB43182B210C00941DB1 /* blue_gold_monkeys_x_21
+.plist */,
+				908CFB44182B210C00941DB1 /* blue_gold_monkeys_x_22
+.plist */,
+				908CFB45182B210C00941DB1 /* blue_gold_monkeys_x_23
+.plist */,
+				908CFB46182B210C00941DB1 /* blue_gold_monkeys_x_24
+.plist */,
+				908CFB47182B210C00941DB1 /* blue_gold_monkeys_x_25
+.plist */,
+				908CFB48182B210C00941DB1 /* blue_gold_monkeys_x_26
+.plist */,
+				908CFB49182B210C00941DB1 /* blue_gold_monkeys_x_27
+.plist */,
+				908CFB4A182B210C00941DB1 /* blue_gold_monkeys_x_28
+.plist */,
+				908CFB4B182B210C00941DB1 /* blue_gold_monkeys_x_31
+.plist */,
+				908CFB4C182B210C00941DB1 /* blue_gold_monkeys_x_32
+.plist */,
+				908CFB4D182B210C00941DB1 /* blue_gold_monkeys_x_33
+.plist */,
+				908CFB4E182B210C00941DB1 /* blue_gold_monkeys_x_34
+.plist */,
+				908CFB4F182B210C00941DB1 /* blue_gold_monkeys_y_11
+.plist */,
+				908CFB50182B210C00941DB1 /* blue_gold_monkeys_y_12
+.plist */,
+				908CFB51182B210C00941DB1 /* blue_gold_monkeys_y_13
+.plist */,
+				908CFB52182B210C00941DB1 /* blue_gold_monkeys_y_14
+.plist */,
+				908CFB53182B210C00941DB1 /* blue_gold_monkeys_y_15
+.plist */,
+				908CFB54182B210C00941DB1 /* blue_gold_monkeys_y_16
+.plist */,
+				908CFB55182B210C00941DB1 /* blue_gold_monkeys_y_17
+.plist */,
+				908CFB56182B210C00941DB1 /* blue_gold_monkeys_y_18
+.plist */,
+				908CFB57182B210C00941DB1 /* blue_gold_monkeys_y_21
+.plist */,
+				908CFB58182B210C00941DB1 /* blue_gold_monkeys_y_22
+.plist */,
+				908CFB59182B210C00941DB1 /* blue_gold_monkeys_y_23
+.plist */,
+				908CFB5A182B210C00941DB1 /* blue_gold_monkeys_y_24
+.plist */,
+				908CFB5B182B210C00941DB1 /* blue_gold_monkeys_y_25
+.plist */,
+				908CFB5C182B210C00941DB1 /* blue_gold_monkeys_y_26
+.plist */,
+				908CFB5D182B210C00941DB1 /* blue_gold_monkeys_y_27
+.plist */,
+				908CFB5E182B210C00941DB1 /* blue_gold_monkeys_y_28
+.plist */,
+				908CFB5F182B210C00941DB1 /* blue_gold_monkeys_y_31
+.plist */,
+				908CFB60182B210C00941DB1 /* blue_gold_monkeys_y_32
+.plist */,
+				908CFB61182B210C00941DB1 /* blue_gold_monkeys_y_33
+.plist */,
+				908CFB62182B210C00941DB1 /* blue_gold_monkeys_y_34
+.plist */,
+				908CFB63182B210C00941DB1 /* giant_lollipop_x_11
+.plist */,
+				908CFB64182B210C00941DB1 /* giant_lollipop_y_11
+.plist */,
+				908CFB65182B210C00941DB1 /* lollipop_left_projectile_x_11
+.plist */,
+				908CFB66182B210C00941DB1 /* lollipop_left_projectile_x_12
+.plist */,
+				908CFB67182B210C00941DB1 /* lollipop_left_projectile_x_13
+.plist */,
+				908CFB68182B210C00941DB1 /* lollipop_left_projectile_x_21
+.plist */,
+				908CFB69182B210C00941DB1 /* lollipop_left_projectile_x_22
+.plist */,
+				908CFB6A182B210C00941DB1 /* lollipop_left_projectile_x_23
+.plist */,
+				908CFB6B182B210C00941DB1 /* lollipop_left_projectile_x_31
+.plist */,
+				908CFB6C182B210C00941DB1 /* lollipop_left_projectile_x_32
+.plist */,
+				908CFB6D182B210C00941DB1 /* lollipop_left_projectile_y_11
+.plist */,
+				908CFB6E182B210C00941DB1 /* lollipop_left_projectile_y_12
+.plist */,
+				908CFB6F182B210C00941DB1 /* lollipop_left_projectile_y_13
+.plist */,
+				908CFB70182B210C00941DB1 /* lollipop_left_projectile_y_21
+.plist */,
+				908CFB71182B210C00941DB1 /* lollipop_left_projectile_y_22
+.plist */,
+				908CFB72182B210C00941DB1 /* lollipop_left_projectile_y_23
+.plist */,
+				908CFB73182B210C00941DB1 /* lollipop_left_projectile_y_31
+.plist */,
+				908CFB74182B210C00941DB1 /* lollipop_left_projectile_y_32
+.plist */,
+				908CFB75182B210C00941DB1 /* lollipop_right_projectile_x_11
+.plist */,
+				908CFB76182B210C00941DB1 /* lollipop_right_projectile_x_12
+.plist */,
+				908CFB77182B210C00941DB1 /* lollipop_right_projectile_x_13
+.plist */,
+				908CFB78182B210C00941DB1 /* lollipop_right_projectile_x_21
+.plist */,
+				908CFB79182B210C00941DB1 /* lollipop_right_projectile_x_22
+.plist */,
+				908CFB7A182B210C00941DB1 /* lollipop_right_projectile_x_23
+.plist */,
+				908CFB7B182B210C00941DB1 /* lollipop_right_projectile_x_31
+.plist */,
+				908CFB7C182B210C00941DB1 /* lollipop_right_projectile_x_32
+.plist */,
+				908CFB7D182B210C00941DB1 /* lollipop_right_projectile_y_11
+.plist */,
+				908CFB7E182B210C00941DB1 /* lollipop_right_projectile_y_12
+.plist */,
+				908CFB7F182B210C00941DB1 /* lollipop_right_projectile_y_13
+.plist */,
+				908CFB80182B210C00941DB1 /* lollipop_right_projectile_y_21
+.plist */,
+				908CFB81182B210C00941DB1 /* lollipop_right_projectile_y_22
+.plist */,
+				908CFB82182B210C00941DB1 /* lollipop_right_projectile_y_23
+.plist */,
+				908CFB83182B210C00941DB1 /* lollipop_right_projectile_y_31
+.plist */,
+				908CFB84182B210C00941DB1 /* lollipop_right_projectile_y_32
+.plist */,
+				908CFB85182B210C00941DB1 /* pink_monkey_target_x_11
+.plist */,
+				908CFB86182B210C00941DB1 /* pink_monkey_target_x_12
+.plist */,
+				908CFB87182B210C00941DB1 /* pink_monkey_target_x_13
+.plist */,
+				908CFB88182B210C00941DB1 /* pink_monkey_target_x_14
+.plist */,
+				908CFB89182B210C00941DB1 /* pink_monkey_target_x_15
+.plist */,
+				908CFB8A182B210C00941DB1 /* pink_monkey_target_x_16
+.plist */,
+				908CFB8B182B210C00941DB1 /* pink_monkey_target_x_17
+.plist */,
+				908CFB8C182B210C00941DB1 /* pink_monkey_target_x_18
+.plist */,
+				908CFB8D182B210C00941DB1 /* pink_monkey_target_x_21
+.plist */,
+				908CFB8E182B210C00941DB1 /* pink_monkey_target_x_22
+.plist */,
+				908CFB8F182B210C00941DB1 /* pink_monkey_target_x_23
+.plist */,
+				908CFB90182B210C00941DB1 /* pink_monkey_target_x_24
+.plist */,
+				908CFB91182B210C00941DB1 /* pink_monkey_target_x_25
+.plist */,
+				908CFB92182B210C00941DB1 /* pink_monkey_target_x_26
+.plist */,
+				908CFB93182B210C00941DB1 /* pink_monkey_target_x_27
+.plist */,
+				908CFB94182B210C00941DB1 /* pink_monkey_target_x_28
+.plist */,
+				908CFB95182B210C00941DB1 /* pink_monkey_target_x_31
+.plist */,
+				908CFB96182B210C00941DB1 /* pink_monkey_target_x_32
+.plist */,
+				908CFB97182B210C00941DB1 /* pink_monkey_target_x_33
+.plist */,
+				908CFB98182B210C00941DB1 /* pink_monkey_target_x_34
+.plist */,
+				908CFB99182B210C00941DB1 /* pink_monkey_target_y_11
+.plist */,
+				908CFB9A182B210C00941DB1 /* pink_monkey_target_y_12
+.plist */,
+				908CFB9B182B210C00941DB1 /* pink_monkey_target_y_13
+.plist */,
+				908CFB9C182B210C00941DB1 /* pink_monkey_target_y_14
+.plist */,
+				908CFB9D182B210C00941DB1 /* pink_monkey_target_y_15
+.plist */,
+				908CFB9E182B210C00941DB1 /* pink_monkey_target_y_16
+.plist */,
+				908CFB9F182B210C00941DB1 /* pink_monkey_target_y_17
+.plist */,
+				908CFBA0182B210C00941DB1 /* pink_monkey_target_y_18
+.plist */,
+				908CFBA1182B210C00941DB1 /* pink_monkey_target_y_21
+.plist */,
+				908CFBA2182B210C00941DB1 /* pink_monkey_target_y_22
+.plist */,
+				908CFBA3182B210C00941DB1 /* pink_monkey_target_y_23
+.plist */,
+				908CFBA4182B210C00941DB1 /* pink_monkey_target_y_24
+.plist */,
+				908CFBA5182B210C00941DB1 /* pink_monkey_target_y_25
+.plist */,
+				908CFBA6182B210C00941DB1 /* pink_monkey_target_y_26
+.plist */,
+				908CFBA7182B210C00941DB1 /* pink_monkey_target_y_27
+.plist */,
+				908CFBA8182B210C00941DB1 /* pink_monkey_target_y_28
+.plist */,
+				908CFBA9182B210C00941DB1 /* pink_monkey_target_y_31
+.plist */,
+				908CFBAA182B210C00941DB1 /* pink_monkey_target_y_32
+.plist */,
+				908CFBAB182B210C00941DB1 /* pink_monkey_target_y_33
+.plist */,
+				908CFBAC182B210C00941DB1 /* pink_monkey_target_y_34
+.plist */,
 			);
 			path = "Hitbox Coordinate Files";
 			sourceTree = "<group>";
@@ -1086,40 +1878,80 @@
 			files = (
 				904BDC4F1808D5FE003E7499 /* blue_pop@2x~ipad.png in Resources */,
 				90FB6E77180BB5B700DDBA11 /* menu_music.wav in Resources */,
+				908CFC19182B210C00941DB1 /* pink_monkey_target_y_27
+.plist in Resources */,
 				90885C151829963B0041095E /* times_up@2x~iphone.png in Resources */,
 				90B07ACB180BAE7C00530915 /* golden_pop.wav in Resources */,
 				90885BA5182981400041095E /* menu_button_hover~ipad.png in Resources */,
 				904BDC761808D60D003E7499 /* pink_pop~iphone.png in Resources */,
+				908CFBEE182B210C00941DB1 /* lollipop_right_projectile_x_32
+.plist in Resources */,
 				90E3C2D718000EF400087ED3 /* pink_monkey_HUD@2x~ipad.png in Resources */,
+				908CFBB8182B210C00941DB1 /* blue_gold_monkeys_x_24
+.plist in Resources */,
 				90885C0D1829963B0041095E /* player_one_idle@2x~iphone.png in Resources */,
 				904BDC561808D5FE003E7499 /* lollipop_right_projectile@2x~ipad.png in Resources */,
 				90B07AC5180BAE7C00530915 /* balloon_pop.wav in Resources */,
 				90174FE5180E1D3700B000A7 /* about_button~ipad.png in Resources */,
+				908CFC0A182B210C00941DB1 /* pink_monkey_target_x_34
+.plist in Resources */,
 				904BDC5A1808D5FE003E7499 /* player_one_idle@2x~ipad.png in Resources */,
 				90885BBF182981570041095E /* play_button_hover@2x~ipad.png in Resources */,
 				90885C2B182A58B70041095E /* player2~iphone.png in Resources */,
 				904BDC741808D60D003E7499 /* lollipop_right_projectile~iphone.png in Resources */,
 				9088298017FFC0150016CCB6 /* Main_iPad.storyboard in Resources */,
+				908CFBEC182B210C00941DB1 /* lollipop_right_projectile_x_23
+.plist in Resources */,
+				908CFBEA182B210C00941DB1 /* lollipop_right_projectile_x_21
+.plist in Resources */,
+				908CFBE7182B210C00941DB1 /* lollipop_right_projectile_x_11
+.plist in Resources */,
 				90175013180E548400B000A7 /* lollipop_base~ipad.png in Resources */,
 				904BDC521808D5FE003E7499 /* gold_monkey_target@2x~ipad.png in Resources */,
 				90885C26182A58AB0041095E /* player1@2x~ipad.png in Resources */,
 				90885C041829963B0041095E /* gold_pop@2x~iphone.png in Resources */,
 				90885C111829963B0041095E /* points_gold@2x~iphone.png in Resources */,
+				908CFBF3182B210C00941DB1 /* lollipop_right_projectile_y_22
+.plist in Resources */,
 				90E3C2CA18000EF400087ED3 /* iTunesArtwork@2x.png in Resources */,
+				908CFC0D182B210C00941DB1 /* pink_monkey_target_y_13
+.plist in Resources */,
 				90E3C2CF18000EF400087ED3 /* GrassTuft_Right~ipad.png in Resources */,
 				90B07AC9180BAE7C00530915 /* countdown_go.wav in Resources */,
+				908CFC0B182B210C00941DB1 /* pink_monkey_target_y_11
+.plist in Resources */,
+				908CFBB7182B210C00941DB1 /* blue_gold_monkeys_x_23
+.plist in Resources */,
 				90885C0A1829963B0041095E /* pink_pop@2x~iphone.png in Resources */,
 				904BDC361808D5EE003E7499 /* gold_twinkle~ipad.png in Resources */,
+				908CFBFF182B210C00941DB1 /* pink_monkey_target_x_21
+.plist in Resources */,
 				90B07AC6180BAE7C00530915 /* countdown_1.wav in Resources */,
 				90885C121829963B0041095E /* points_pink@2x~iphone.png in Resources */,
 				90E3C2DF18000EF400087ED3 /* pink_monkey_target~iphone.png in Resources */,
 				904BDC721808D60D003E7499 /* gold_twinkle~iphone.png in Resources */,
 				90E3C2DB18000EF400087ED3 /* blue_monkey_target~iphone.png in Resources */,
+				908CFBFE182B210C00941DB1 /* pink_monkey_target_x_18
+.plist in Resources */,
+				908CFBE2182B210C00941DB1 /* lollipop_left_projectile_y_21
+.plist in Resources */,
+				908CFBC2182B210C00941DB1 /* blue_gold_monkeys_y_12
+.plist in Resources */,
+				908CFBDE182B210C00941DB1 /* lollipop_left_projectile_x_32
+.plist in Resources */,
 				904BDC311808D5EE003E7499 /* blue_pop~ipad.png in Resources */,
 				90885BDC182995440041095E /* points_blue~iphone.png in Resources */,
+				908CFBC6182B210C00941DB1 /* blue_gold_monkeys_y_16
+.plist in Resources */,
+				908CFBBD182B210C00941DB1 /* blue_gold_monkeys_x_31
+.plist in Resources */,
+				908CFBD3182B210C00941DB1 /* blue_gold_monkeys_y_33
+.plist in Resources */,
 				90E3C2D418000EF400087ED3 /* blue_monkey_target@2x~ipad.png in Resources */,
 				904BDC751808D60D003E7499 /* menu_lollipop~iphone.png in Resources */,
 				90E3C2DC18000EF400087ED3 /* GrassTuft_Left~iphone.png in Resources */,
+				908CFC15182B210C00941DB1 /* pink_monkey_target_y_23
+.plist in Resources */,
 				90885C27182A58AB0041095E /* player2@2x~ipad.png in Resources */,
 				90885C101829963B0041095E /* points_blue@2x~iphone.png in Resources */,
 				90E3C2E118000EF400087ED3 /* blue_monkey_HUD@2x~iphone.png in Resources */,
@@ -1131,18 +1963,42 @@
 				90E3C2C818000EF400087ED3 /* Icon@2x.png in Resources */,
 				90885BC2182981570041095E /* points_pink@2x~ipad.png in Resources */,
 				90885BA8182981400041095E /* points_blue~ipad.png in Resources */,
+				908CFBD9182B210C00941DB1 /* lollipop_left_projectile_x_13
+.plist in Resources */,
 				90174FF0180E1D4C00B000A7 /* about_button@2x~ipad.png in Resources */,
+				908CFBBA182B210C00941DB1 /* blue_gold_monkeys_x_26
+.plist in Resources */,
+				908CFBF0182B210C00941DB1 /* lollipop_right_projectile_y_12
+.plist in Resources */,
+				908CFBD6182B210C00941DB1 /* giant_lollipop_y_11
+.plist in Resources */,
+				908CFBDA182B210C00941DB1 /* lollipop_left_projectile_x_21
+.plist in Resources */,
+				908CFBC7182B210C00941DB1 /* blue_gold_monkeys_y_17
+.plist in Resources */,
+				908CFBCF182B210C00941DB1 /* blue_gold_monkeys_y_27
+.plist in Resources */,
 				90885C141829963B0041095E /* retry_button@2x~iphone.png in Resources */,
+				908CFBCC182B210C00941DB1 /* blue_gold_monkeys_y_24
+.plist in Resources */,
 				90885BAC182981400041095E /* retry_button~ipad.png in Resources */,
 				90174FE7180E1D3700B000A7 /* menu_bg~ipad.png in Resources */,
 				90885BC3182981570041095E /* retry_button_hover@2x~ipad.png in Resources */,
+				908CFBB9182B210C00941DB1 /* blue_gold_monkeys_x_25
+.plist in Resources */,
 				90175007180E1D9600B000A7 /* menu_lollipop@2x~iphone.png in Resources */,
 				90885C071829963B0041095E /* lollipop_right_projectile@2x~iphone.png in Resources */,
 				904BDC5B1808D5FE003E7499 /* player_two_attack@2x~ipad.png in Resources */,
+				908CFBE4182B210C00941DB1 /* lollipop_left_projectile_y_23
+.plist in Resources */,
 				904BDC371808D5EE003E7499 /* lollipop_left_projectile~ipad.png in Resources */,
 				90885C061829963B0041095E /* lollipop_left_projectile@2x~iphone.png in Resources */,
 				90885BA4182981400041095E /* credits~ipad.png in Resources */,
+				908CFBEB182B210C00941DB1 /* lollipop_right_projectile_x_22
+.plist in Resources */,
 				90885BA9182981400041095E /* points_gold~ipad.png in Resources */,
+				908CFC1A182B210C00941DB1 /* pink_monkey_target_y_28
+.plist in Resources */,
 				90885BAA182981400041095E /* points_pink~ipad.png in Resources */,
 				904BDC381808D5EE003E7499 /* lollipop_right_projectile~ipad.png in Resources */,
 				90174FE9180E1D3700B000A7 /* title~ipad.png in Resources */,
@@ -1150,137 +2006,299 @@
 				90885BFF1829963B0041095E /* blue_pop@2x~iphone.png in Resources */,
 				90174FFB180E1D6B00B000A7 /* back_button~iphone.png in Resources */,
 				90885C22182A58A00041095E /* player1~ipad.png in Resources */,
+				908CFBBF182B210C00941DB1 /* blue_gold_monkeys_x_33
+.plist in Resources */,
 				904BDC331808D5EE003E7499 /* game_timer~ipad.png in Resources */,
 				90885BBE182981570041095E /* menu_button@2x~ipad.png in Resources */,
 				90175026180E5F5900B000A7 /* gameFont.ttf in Resources */,
+				908CFC04182B210C00941DB1 /* pink_monkey_target_x_26
+.plist in Resources */,
+				908CFBE3182B210C00941DB1 /* lollipop_left_projectile_y_22
+.plist in Resources */,
 				90885BAB182981400041095E /* retry_button_hover~ipad.png in Resources */,
+				908CFBC8182B210C00941DB1 /* blue_gold_monkeys_y_18
+.plist in Resources */,
 				904BDC3B1808D5EE003E7499 /* player_one_attack~ipad.png in Resources */,
 				90174FFA180E1D6B00B000A7 /* about_button~iphone.png in Resources */,
 				90E3C2D118000EF400087ED3 /* pink_monkey_target~ipad.png in Resources */,
+				908CFBD8182B210C00941DB1 /* lollipop_left_projectile_x_12
+.plist in Resources */,
+				908CFBB1182B210C00941DB1 /* blue_gold_monkeys_x_15
+.plist in Resources */,
 				90885C0F1829963B0041095E /* player_two_idle@2x~iphone.png in Resources */,
 				90E3C2DD18000EF400087ED3 /* GrassTuft_Right~iphone.png in Resources */,
 				90175005180E1D9600B000A7 /* back_button@2x~iphone.png in Resources */,
 				90E3C2C518000EF400087ED3 /* Icon-72.png in Resources */,
+				908CFBBE182B210C00941DB1 /* blue_gold_monkeys_x_32
+.plist in Resources */,
 				904BDC781808D60D003E7499 /* player_one_idle~iphone.png in Resources */,
 				904BDC531808D5FE003E7499 /* gold_pop@2x~ipad.png in Resources */,
 				90175006180E1D9600B000A7 /* menu_bg@2x~iphone.png in Resources */,
+				908CFC1D182B210C00941DB1 /* pink_monkey_target_y_33
+.plist in Resources */,
 				90885C2A182A58B70041095E /* player1~iphone.png in Resources */,
 				90175021180E54B300B000A7 /* lollipop_top@2x~iphone.png in Resources */,
 				90E3C2E618000EF400087ED3 /* pink_monkey_target@2x~iphone.png in Resources */,
 				90175018180E549200B000A7 /* lollipop_base@2x~ipad.png in Resources */,
 				90885BD8182995440041095E /* credits~iphone.png in Resources */,
+				908CFBC3182B210C00941DB1 /* blue_gold_monkeys_y_13
+.plist in Resources */,
 				90E3C2E218000EF400087ED3 /* blue_monkey_target@2x~iphone.png in Resources */,
+				908CFBD7182B210C00941DB1 /* lollipop_left_projectile_x_11
+.plist in Resources */,
 				904BDC5D1808D5FE003E7499 /* times_up@2x~ipad.png in Resources */,
 				904BDC6E1808D60D003E7499 /* countdown~iphone.png in Resources */,
+				908CFBB6182B210C00941DB1 /* blue_gold_monkeys_x_22
+.plist in Resources */,
 				90E3C2D818000EF400087ED3 /* pink_monkey_target@2x~ipad.png in Resources */,
+				908CFBB5182B210C00941DB1 /* blue_gold_monkeys_x_21
+.plist in Resources */,
 				90885BC0182981570041095E /* points_blue@2x~ipad.png in Resources */,
 				90885BC5182981570041095E /* victory_bg@2x~ipad.png in Resources */,
 				90885C171829963B0041095E /* victory_bg@2x~iphone.png in Resources */,
+				908CFBF7182B210C00941DB1 /* pink_monkey_target_x_11
+.plist in Resources */,
 				904BDC6D1808D60D003E7499 /* blue_pop~iphone.png in Resources */,
+				908CFBCE182B210C00941DB1 /* blue_gold_monkeys_y_26
+.plist in Resources */,
 				90175014180E548400B000A7 /* lollipop_top~ipad.png in Resources */,
+				908CFC06182B210C00941DB1 /* pink_monkey_target_x_28
+.plist in Resources */,
 				90885BAD182981400041095E /* victory_bg~ipad.png in Resources */,
 				90E3C2E518000EF400087ED3 /* pink_monkey_HUD@2x~iphone.png in Resources */,
+				908CFC0C182B210C00941DB1 /* pink_monkey_target_y_12
+.plist in Resources */,
 				90174FF4180E1D4C00B000A7 /* title@2x~ipad.png in Resources */,
 				90885BD9182995440041095E /* menu_button_hover~iphone.png in Resources */,
 				90885C23182A58A00041095E /* player2~ipad.png in Resources */,
+				908CFC16182B210C00941DB1 /* pink_monkey_target_y_24
+.plist in Resources */,
 				90885BA3182981400041095E /* back_button_hover~ipad.png in Resources */,
 				904BDC3F1808D5EE003E7499 /* times_up~ipad.png in Resources */,
 				90885BA6182981400041095E /* menu_button~ipad.png in Resources */,
 				904BDC3A1808D5EE003E7499 /* pink_pop~ipad.png in Resources */,
 				90E3C2D318000EF400087ED3 /* blue_monkey_HUD@2x~ipad.png in Resources */,
+				908CFBD0182B210C00941DB1 /* blue_gold_monkeys_y_28
+.plist in Resources */,
+				908CFBB3182B210C00941DB1 /* blue_gold_monkeys_x_17
+.plist in Resources */,
 				904BDC511808D5FE003E7499 /* game_timer@2x~ipad.png in Resources */,
 				90885BA2182981400041095E /* about_button_hover~ipad.png in Resources */,
 				904BDC711808D60D003E7499 /* gold_pop~iphone.png in Resources */,
+				908CFBDD182B210C00941DB1 /* lollipop_left_projectile_x_31
+.plist in Resources */,
 				90885BDE182995440041095E /* points_pink~iphone.png in Resources */,
+				908CFC1E182B210C00941DB1 /* pink_monkey_target_y_34
+.plist in Resources */,
 				90885BE1182995440041095E /* victory_bg~iphone.png in Resources */,
-				908CFB33182AE12700941DB1 /* giant_lollipop_y.plist in Resources */,
+				908CFC17182B210C00941DB1 /* pink_monkey_target_y_25
+.plist in Resources */,
 				90175019180E549200B000A7 /* lollipop_top@2x~ipad.png in Resources */,
 				90174FF1180E1D4C00B000A7 /* back_button@2x~ipad.png in Resources */,
 				9017501D180E54A000B000A7 /* lollipop_top~iphone.png in Resources */,
 				90885C051829963B0041095E /* gold_twinkle@2x~iphone.png in Resources */,
+				908CFBAD182B210C00941DB1 /* blue_gold_monkeys_x_11
+.plist in Resources */,
+				908CFBE1182B210C00941DB1 /* lollipop_left_projectile_y_13
+.plist in Resources */,
 				90E3C2CD18000EF400087ED3 /* blue_monkey_target~ipad.png in Resources */,
 				90175004180E1D9600B000A7 /* about_button@2x~iphone.png in Resources */,
 				90885BD6182995440041095E /* about_button_hover~iphone.png in Resources */,
+				908CFC11182B210C00941DB1 /* pink_monkey_target_y_17
+.plist in Resources */,
 				90E3C2D618000EF400087ED3 /* GrassTuft_Right@2x~ipad.png in Resources */,
 				90885BBB182981570041095E /* back_button_hover@2x~ipad.png in Resources */,
+				908CFBC9182B210C00941DB1 /* blue_gold_monkeys_y_21
+.plist in Resources */,
+				908CFBE9182B210C00941DB1 /* lollipop_right_projectile_x_13
+.plist in Resources */,
 				90E3C2DE18000EF400087ED3 /* pink_monkey_HUD~iphone.png in Resources */,
 				90174FF3180E1D4C00B000A7 /* play_button@2x~ipad.png in Resources */,
 				90E3C2C618000EF400087ED3 /* Icon-72@2x.png in Resources */,
+				908CFBBB182B210C00941DB1 /* blue_gold_monkeys_x_27
+.plist in Resources */,
+				908CFBD1182B210C00941DB1 /* blue_gold_monkeys_y_31
+.plist in Resources */,
 				90885BDA182995440041095E /* menu_button~iphone.png in Resources */,
 				90E3C2CC18000EF400087ED3 /* blue_monkey_HUD~ipad.png in Resources */,
 				9088298117FFC0150016CCB6 /* Main_iPhone.storyboard in Resources */,
 				904BDC211808D5DF003E7499 /* background-568h@2x~iphone.png in Resources */,
+				908CFBE8182B210C00941DB1 /* lollipop_right_projectile_x_12
+.plist in Resources */,
+				908CFBC4182B210C00941DB1 /* blue_gold_monkeys_y_14
+.plist in Resources */,
 				904BDC351808D5EE003E7499 /* gold_pop~ipad.png in Resources */,
+				908CFBDC182B210C00941DB1 /* lollipop_left_projectile_x_23
+.plist in Resources */,
 				90E3C2CB18000EF400087ED3 /* background~ipad.png in Resources */,
 				90B07ACD180BAE7C00530915 /* lollipop_lick.wav in Resources */,
+				908CFBDB182B210C00941DB1 /* lollipop_left_projectile_x_22
+.plist in Resources */,
 				90174FFE180E1D6B00B000A7 /* title~iphone.png in Resources */,
 				90885C081829963B0041095E /* menu_button_hover@2x~iphone.png in Resources */,
+				908CFBAE182B210C00941DB1 /* blue_gold_monkeys_x_12
+.plist in Resources */,
 				90174FFC180E1D6B00B000A7 /* menu_bg~iphone.png in Resources */,
 				904BDC7B1808D60D003E7499 /* times_up~iphone.png in Resources */,
 				90B07AD1180BAE7C00530915 /* victory.wav in Resources */,
 				90E3C2E018000EF400087ED3 /* background@2x~iphone.png in Resources */,
 				90885BDB182995440041095E /* play_button_hover~iphone.png in Resources */,
+				908CFBF4182B210C00941DB1 /* lollipop_right_projectile_y_23
+.plist in Resources */,
 				9017501C180E54A000B000A7 /* lollipop_base~iphone.png in Resources */,
+				908CFBD4182B210C00941DB1 /* blue_gold_monkeys_y_34
+.plist in Resources */,
 				904BDC571808D5FE003E7499 /* menu_lollipop@2x~ipad.png in Resources */,
-				908CFB31182AE10F00941DB1 /* giant_lollipop_x.plist in Resources */,
+				908CFBCD182B210C00941DB1 /* blue_gold_monkeys_y_25
+.plist in Resources */,
 				90FB6E76180BB5B700DDBA11 /* in_game_music.wav in Resources */,
 				90E3C2E318000EF400087ED3 /* GrassTuft_Left@2x~iphone.png in Resources */,
+				908CFC0E182B210C00941DB1 /* pink_monkey_target_y_14
+.plist in Resources */,
+				908CFBFD182B210C00941DB1 /* pink_monkey_target_x_17
+.plist in Resources */,
 				904BDC791808D60D003E7499 /* player_two_attack~iphone.png in Resources */,
 				904BDC581808D5FE003E7499 /* pink_pop@2x~ipad.png in Resources */,
+				908CFBEF182B210C00941DB1 /* lollipop_right_projectile_y_11
+.plist in Resources */,
+				908CFC07182B210C00941DB1 /* pink_monkey_target_x_31
+.plist in Resources */,
+				908CFBC5182B210C00941DB1 /* blue_gold_monkeys_y_15
+.plist in Resources */,
 				90175008180E1D9600B000A7 /* play_button@2x~iphone.png in Resources */,
 				90885BE0182995440041095E /* retry_button~iphone.png in Resources */,
+				908CFC00182B210C00941DB1 /* pink_monkey_target_x_22
+.plist in Resources */,
 				90885BDF182995440041095E /* retry_button_hover~iphone.png in Resources */,
 				904BDC321808D5EE003E7499 /* countdown~ipad.png in Resources */,
+				908CFBFA182B210C00941DB1 /* pink_monkey_target_x_14
+.plist in Resources */,
+				908CFBAF182B210C00941DB1 /* blue_gold_monkeys_x_13
+.plist in Resources */,
 				904BDC3D1808D5EE003E7499 /* player_two_attack~ipad.png in Resources */,
 				90885BBA182981570041095E /* about_button_hover@2x~ipad.png in Resources */,
 				90885C0B1829963B0041095E /* play_button_hover@2x~iphone.png in Resources */,
 				90885BDD182995440041095E /* points_gold~iphone.png in Resources */,
+				908CFBCA182B210C00941DB1 /* blue_gold_monkeys_y_22
+.plist in Resources */,
+				908CFBD2182B210C00941DB1 /* blue_gold_monkeys_y_32
+.plist in Resources */,
+				908CFBED182B210C00941DB1 /* lollipop_right_projectile_x_31
+.plist in Resources */,
 				904BDC391808D5EE003E7499 /* menu_lollipop~ipad.png in Resources */,
 				90885BC4182981570041095E /* retry_button@2x~ipad.png in Resources */,
 				90885C091829963B0041095E /* menu_button@2x~iphone.png in Resources */,
 				9088298317FFC0150016CCB6 /* Images.xcassets in Resources */,
 				90885C131829963B0041095E /* retry_button_hover@2x~iphone.png in Resources */,
+				908CFBE6182B210C00941DB1 /* lollipop_left_projectile_y_32
+.plist in Resources */,
 				90885C2F182A58C40041095E /* player2@2x~iphone.png in Resources */,
 				90E3C2E418000EF400087ED3 /* GrassTuft_Right@2x~iphone.png in Resources */,
+				908CFBF6182B210C00941DB1 /* lollipop_right_projectile_y_32
+.plist in Resources */,
 				90885BBD182981570041095E /* menu_button_hover@2x~ipad.png in Resources */,
+				908CFC09182B210C00941DB1 /* pink_monkey_target_x_33
+.plist in Resources */,
+				908CFBF2182B210C00941DB1 /* lollipop_right_projectile_y_21
+.plist in Resources */,
+				908CFBF1182B210C00941DB1 /* lollipop_right_projectile_y_13
+.plist in Resources */,
+				908CFBF5182B210C00941DB1 /* lollipop_right_projectile_y_31
+.plist in Resources */,
 				90885C161829963B0041095E /* title@2x~iphone.png in Resources */,
+				908CFBB0182B210C00941DB1 /* blue_gold_monkeys_x_14
+.plist in Resources */,
+				908CFC1B182B210C00941DB1 /* pink_monkey_target_y_31
+.plist in Resources */,
 				90B07AC7180BAE7C00530915 /* countdown_3.wav in Resources */,
+				908CFBC0182B210C00941DB1 /* blue_gold_monkeys_x_34
+.plist in Resources */,
 				90885BA7182981400041095E /* play_button_hover~ipad.png in Resources */,
 				90885BFD1829963B0041095E /* about_button_hover@2x~iphone.png in Resources */,
+				908CFBC1182B210C00941DB1 /* blue_gold_monkeys_y_11
+.plist in Resources */,
+				908CFBB2182B210C00941DB1 /* blue_gold_monkeys_x_16
+.plist in Resources */,
 				90E3C2D018000EF400087ED3 /* pink_monkey_HUD~ipad.png in Resources */,
 				90B07ACF180BAE7C00530915 /* lollipop_throw.wav in Resources */,
+				908CFC13182B210C00941DB1 /* pink_monkey_target_y_21
+.plist in Resources */,
+				908CFBBC182B210C00941DB1 /* blue_gold_monkeys_x_28
+.plist in Resources */,
 				90E3C2D518000EF400087ED3 /* GrassTuft_Left@2x~ipad.png in Resources */,
 				90175020180E54B300B000A7 /* lollipop_base@2x~iphone.png in Resources */,
 				90885BFE1829963B0041095E /* back_button_hover@2x~iphone.png in Resources */,
+				908CFC10182B210C00941DB1 /* pink_monkey_target_y_16
+.plist in Resources */,
 				904BDC3E1808D5EE003E7499 /* player_two_idle~ipad.png in Resources */,
 				90885C0C1829963B0041095E /* player_one_attack@2x~iphone.png in Resources */,
+				908CFC0F182B210C00941DB1 /* pink_monkey_target_y_15
+.plist in Resources */,
 				904BDC731808D60D003E7499 /* lollipop_left_projectile~iphone.png in Resources */,
 				904BDC501808D5FE003E7499 /* countdown@2x~ipad.png in Resources */,
+				908CFC08182B210C00941DB1 /* pink_monkey_target_x_32
+.plist in Resources */,
 				90885C021829963B0041095E /* game_timer@2x~iphone.png in Resources */,
 				90885BC1182981570041095E /* points_gold@2x~ipad.png in Resources */,
+				908CFC12182B210C00941DB1 /* pink_monkey_target_y_18
+.plist in Resources */,
+				908CFBFC182B210C00941DB1 /* pink_monkey_target_x_16
+.plist in Resources */,
+				908CFBE0182B210C00941DB1 /* lollipop_left_projectile_y_12
+.plist in Resources */,
 				90885C011829963B0041095E /* credits@2x~iphone.png in Resources */,
 				90885BBC182981570041095E /* credits@2x~ipad.png in Resources */,
 				904BDC771808D60D003E7499 /* player_one_attack~iphone.png in Resources */,
 				90E3C2C918000EF400087ED3 /* iTunesArtwork.png in Resources */,
 				90B07AC8180BAE7C00530915 /* countdown_2.wav in Resources */,
+				908CFC01182B210C00941DB1 /* pink_monkey_target_x_23
+.plist in Resources */,
 				90885C0E1829963B0041095E /* player_two_attack@2x~iphone.png in Resources */,
 				904BDC541808D5FE003E7499 /* gold_twinkle@2x~ipad.png in Resources */,
+				908CFC02182B210C00941DB1 /* pink_monkey_target_x_24
+.plist in Resources */,
 				904BDC341808D5EE003E7499 /* gold_monkey_target~ipad.png in Resources */,
+				908CFC1C182B210C00941DB1 /* pink_monkey_target_y_32
+.plist in Resources */,
 				90885C2E182A58C40041095E /* player1@2x~iphone.png in Resources */,
+				908CFC03182B210C00941DB1 /* pink_monkey_target_x_25
+.plist in Resources */,
 				90E3C2C718000EF400087ED3 /* Icon.png in Resources */,
 				90B07AC4180BAE7C00530915 /* back_press.wav in Resources */,
 				90174FE6180E1D3700B000A7 /* back_button~ipad.png in Resources */,
 				90B07ACA180BAE7C00530915 /* forward_press.wav in Resources */,
 				90174FF2180E1D4C00B000A7 /* menu_bg@2x~ipad.png in Resources */,
+				908CFC18182B210C00941DB1 /* pink_monkey_target_y_26
+.plist in Resources */,
 				9088298217FFC0150016CCB6 /* InfoPlist.strings in Resources */,
 				904BDC6F1808D60D003E7499 /* game_timer~iphone.png in Resources */,
 				90174FE8180E1D3700B000A7 /* play_button~ipad.png in Resources */,
+				908CFBD5182B210C00941DB1 /* giant_lollipop_x_11
+.plist in Resources */,
 				90B07ACE180BAE7C00530915 /* lollipop_reload.wav in Resources */,
+				908CFBCB182B210C00941DB1 /* blue_gold_monkeys_y_23
+.plist in Resources */,
 				90174FFD180E1D6B00B000A7 /* play_button~iphone.png in Resources */,
 				90E3C2CE18000EF400087ED3 /* GrassTuft_Left~ipad.png in Resources */,
+				908CFBE5182B210C00941DB1 /* lollipop_left_projectile_y_31
+.plist in Resources */,
+				908CFBF8182B210C00941DB1 /* pink_monkey_target_x_12
+.plist in Resources */,
 				90885BD7182995440041095E /* back_button_hover~iphone.png in Resources */,
+				908CFBFB182B210C00941DB1 /* pink_monkey_target_x_15
+.plist in Resources */,
 				904BDC3C1808D5EE003E7499 /* player_one_idle~ipad.png in Resources */,
+				908CFBF9182B210C00941DB1 /* pink_monkey_target_x_13
+.plist in Resources */,
+				908CFBB4182B210C00941DB1 /* blue_gold_monkeys_x_18
+.plist in Resources */,
+				908CFC05182B210C00941DB1 /* pink_monkey_target_x_27
+.plist in Resources */,
+				908CFBDF182B210C00941DB1 /* lollipop_left_projectile_y_11
+.plist in Resources */,
 				908CFB38182AE32E00941DB1 /* giant_lollipop~ipad.png in Resources */,
+				908CFC14182B210C00941DB1 /* pink_monkey_target_y_22
+.plist in Resources */,
 				90885C031829963B0041095E /* gold_monkey_target@2x~iphone.png in Resources */,
 				90E3C2DA18000EF400087ED3 /* blue_monkey_HUD~iphone.png in Resources */,
 				90E3C2D918000EF400087ED3 /* background~iphone.png in Resources */,

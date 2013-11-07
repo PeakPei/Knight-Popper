@@ -1,6 +1,9 @@
 # Filename: CoordTransform.py
 # Author: Morgan Wall
 # Date: 7-11-2013
+#
+# A rough script used to convert text files of coordinate values 
+# into compatible plist files (for Xcode).
 
 from xml.etree.ElementTree import *
 from string import *
@@ -10,32 +13,44 @@ X_INDEX = 0
 Y_INDEX = 1
 REL_TRANSFORM = 0.5
 
+plist_header = "<?xml version=\"1.0\" encoding=\"UTF-8\"?>" \
+	+ "<!DOCTYPE plist PUBLIC \"-//Apple//DTD PLIST 1.0//EN\" " \
+	+ "\"http://www.apple.com/DTDs/PropertyList-1.0.dtd\">"
+
 def CoordTransform(point, width, height):
 	transformPoint = (point[X_INDEX] / width * REL_TRANSFORM), \
 		(point[Y_INDEX] / height * REL_TRANSFORM)
 	return transformPoint
 
-def XMLCoordFileWriter(directory, filename, points):
-	top_x = Element('array')
-	top_y = Element('array')
+def XMLCoordFileWriter(directory, filename, points, row, column):
+	top_x = Element('plist', version="1.0")
+	top_y = Element('plist', version="1.0")
+
+	array_x = SubElement(top_x, 'array')
+	array_y = SubElement(top_y, 'array')
 
 	for point in points:
-		xChild = SubElement(top_x, 'real')
+		xChild = SubElement(array_x, 'real')
 		xChild.text = str(point[X_INDEX])
-		yChild = SubElement(top_y, 'real')
+		yChild = SubElement(array_y, 'real')
 		yChild.text = str(point[Y_INDEX])
 
-	xCoordFile = open(directory + filename + '_x' + '.xml', 'w')
-	xCoordFile.write(tostring(top_x))
+	xCoordFile = open(directory + filename + '_x_' 
+							+ row + column + '.plist', 'w')
+	xCoordFile.write(plist_header + tostring(top_x))
 	xCoordFile.close()
 
-	yCoordFile = open(directory + filename + '_y' +'.xml', 'w')
-	yCoordFile.write(tostring(top_y))
+	yCoordFile = open(directory + filename + '_y_' 
+							+ row + column + '.plist', 'w')
+	yCoordFile.write(plist_header + tostring(top_y))
 	yCoordFile.close()
 
 def CoordFileParser(coordDirectory, transformDirectory, filename):
 	transformPoints = []
 	coordFile = open(coordDirectory + filename, 'r')
+
+	row = -1
+	column = -1
 
 	# extract image dimensions
 	parsedDimensions = split(strip(coordFile.readline(), '/'), ',')
@@ -45,15 +60,28 @@ def CoordFileParser(coordDirectory, transformDirectory, filename):
 	# extract and transform points in file
 	for line in coordFile:
 		if (line.strip()):
-			if (line[0] != "/"):
-				line = strip(line, '\n')
-				words = split(line, ", ")
-				point = atof(words[0]), atof(words[1])
-				transformPoints.append(CoordTransform(point, width, height))		
+			if (line[0] != "/" or line[1] == "/"):
+				if (line[1] == "/"):
+					if (row != -1 and column != -1):
+						XMLCoordFileWriter(transformDirectory, 
+							split(filename, '.')[0], transformPoints, row, 
+							column)
+						transformPoints = []
+
+					words = split(strip(line, '/'), ",")
+					row = words[0]
+					column = words[1]
+				else:
+					line = strip(line, '\n')
+					words = split(line, ", ")
+					point = atof(words[0]), atof(words[1])
+					transformPoints.append(CoordTransform(point, width, height))		
 
 	coordFile.close()
 
-	XMLCoordFileWriter(transformDirectory, split(filename, '.')[0], transformPoints)
+	if (len(transformPoints) != 0):
+		XMLCoordFileWriter(transformDirectory, split(filename, '.')[0], 
+			transformPoints, row, column)
 
 def CoordDirectoryParser(coordDirectory, transformDirectory):
 	fileListing = os.listdir(coordDirectory)

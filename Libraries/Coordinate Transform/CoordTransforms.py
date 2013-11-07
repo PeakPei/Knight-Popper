@@ -35,13 +35,13 @@ def XMLCoordFileWriter(directory, filename, points, row, column):
 		yChild = SubElement(array_y, 'real')
 		yChild.text = str(point[Y_INDEX])
 
-	xCoordFile = open(directory + filename + '_x_' 
-							+ row + column + '.plist', 'w')
+	xCoordFilename = directory + filename + "_x_" + str(row) + str(column) + ".plist";
+	xCoordFile = open(xCoordFilename, 'w')
 	xCoordFile.write(plist_header + tostring(top_x))
 	xCoordFile.close()
 
-	yCoordFile = open(directory + filename + '_y_' 
-							+ row + column + '.plist', 'w')
+	yCoordFilename = directory + filename + "_y_" + str(row) + str(column) + ".plist";
+	yCoordFile = open(yCoordFilename, 'w')
 	yCoordFile.write(plist_header + tostring(top_y))
 	yCoordFile.close()
 
@@ -69,8 +69,8 @@ def CoordFileParser(coordDirectory, transformDirectory, filename):
 						transformPoints = []
 
 					words = split(strip(line, '/'), ",")
-					row = words[0]
-					column = words[1]
+					row = atoi(words[0])
+					column = atoi(words[1])
 				else:
 					line = strip(line, '\n')
 					words = split(line, ", ")

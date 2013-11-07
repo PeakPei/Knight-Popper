@@ -78,7 +78,7 @@ typedef enum layers {
     SSKSpriteNode* background =
         [[SSKSpriteNode alloc]
          initWithTexture:[self.textures getTexture:TextureIDMainMenuBackground]
-         state:NULL audioDelegate:self.audioDelegate];
+         state:NULL];
     background.position = CGPointZero;
     [self addNodeToLayer:LayerIDBackground node:background];
     
@@ -89,7 +89,7 @@ typedef enum layers {
     SSKSpriteNode* lollipopBase =
         [[SSKSpriteNode alloc]
          initWithTexture:[self.textures getTexture:TextureIDLollipopBase]
-         state:NULL audioDelegate:self.audioDelegate];
+         state:NULL];
     lollipopBase.position =
         CGPointMake(self.scene.frame.size.width * LOLLIPOP_REL_X,
                     self.scene.frame.size.height * LOLLIPOP_REL_Y);
@@ -98,7 +98,7 @@ typedef enum layers {
     SSKSpriteNode* lollipopShadow =
         [[SSKSpriteNode alloc]
          initWithTexture:[self.textures getTexture:TextureIDLollipopShadow]
-         state:NULL audioDelegate:self.audioDelegate];
+         state:NULL];
     lollipopShadow.position = lollipopBase.position;
     [self addNodeToLayer:LayerIDHUD node:lollipopShadow];
     
@@ -106,8 +106,7 @@ typedef enum layers {
     CGFloat const MESSAGE_REL_Y = -0.3255208333;
     
     SSKLabelNode* message =
-        [[SSKLabelNode alloc] initWithFontNamed:@"Arial"
-                                  audioDelegate:self.audioDelegate];
+        [[SSKLabelNode alloc] initWithFontNamed:@"Arial"];
     message.text = @"Loading...";
     message.fontSize = 40;
     message.position =

@@ -57,7 +57,7 @@ typedef enum layers {
     SSKSpriteNode* background =
         [[SSKSpriteNode alloc]
          initWithTexture:[self.textures getTexture:TextureIDBackground]
-         state:NULL audioDelegate:self.audioDelegate];
+         state:NULL];
     background.position = CGPointZero;
     [self addNodeToLayer:LayerIDBackground node:background];
     
@@ -65,7 +65,7 @@ typedef enum layers {
     SSKSpriteNode* victoryBackground =
         [[SSKSpriteNode alloc]
          initWithTexture:[self.textures getTexture:TextureIDVictoryBackground]
-         state:NULL audioDelegate:self.audioDelegate];
+         state:NULL];
     victoryBackground.position = CGPointZero;
     [self addNodeToLayer:LayerIDVictoryBackground node:victoryBackground];
     
@@ -76,8 +76,7 @@ typedef enum layers {
     SSKButtonNode* retryButton =
         [[SSKButtonNode alloc]
          initWithTexture:[self.textures getTexture:TextureIDRetryButton]
-         state:self audioDelegate:self.audioDelegate
-         clickEventBlock:^(SSKButtonNode* node) {
+         state:self clickEventBlock:^(SSKButtonNode* node) {
              [node.audioDelegate playSound:SoundIDForwardPress];
              
              if ([node.audioDelegate soundExists:SoundInstanceIDVictorySound]) {
@@ -87,6 +86,7 @@ typedef enum layers {
              [node.state requestStackClear];
              [node.state requestStackPush:StateIDStandardGame];
          }];
+    retryButton.audioDelegate = self.audioDelegate;
     retryButton.position =
         CGPointMake(self.scene.frame.size.width * RETRY_REL_X,
                     self.scene.frame.size.height * RETRY_REL_Y);
@@ -98,8 +98,7 @@ typedef enum layers {
     SSKButtonNode* menuButton =
         [[SSKButtonNode alloc]
          initWithTexture:[self.textures getTexture:TextureIDMenuButton]
-         state:self audioDelegate:self.audioDelegate
-         clickEventBlock:^(SSKButtonNode* node) {
+         state:self clickEventBlock:^(SSKButtonNode* node) {
              [node.audioDelegate playSound:SoundIDBackPress];
              [node.audioDelegate stopSound:SoundInstanceIDInGameMusic];
              
@@ -110,6 +109,7 @@ typedef enum layers {
              [node.state requestStackClear];
              [node.state requestStackPush:StateIDMenu];
          }];
+    menuButton.audioDelegate = self.audioDelegate;
     menuButton.position =
         CGPointMake(self.scene.frame.size.width * MENU_REL_X,
                     self.scene.frame.size.height * MENU_REL_Y);

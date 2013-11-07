@@ -61,7 +61,7 @@ typedef enum layers {
     SSKSpriteNode* background =
         [[SSKSpriteNode alloc]
          initWithTexture:[self.textures getTexture:TextureIDMainMenuBackground]
-         state:NULL audioDelegate:self.audioDelegate];
+         state:NULL];
     background.position = CGPointZero;
     [self addNodeToLayer:LayerIDBackground node:background];
     
@@ -72,7 +72,7 @@ typedef enum layers {
     SSKSpriteNode* title =
         [[SSKSpriteNode alloc]
          initWithTexture:[self.textures getTexture:TextureIDMainMenuTitle]
-         state:NULL audioDelegate:self.audioDelegate];
+         state:NULL];
     title.position = CGPointMake(self.scene.frame.size.width * TITLE_REL_X,
                                  self.scene.frame.size.height * TITLE_REL_Y);
     [self addNodeToLayer:LayerIDBackground node:title];
@@ -83,12 +83,12 @@ typedef enum layers {
     SSKButtonNode* playButton =
         [[SSKButtonNode alloc]
          initWithTexture:[self.textures getTexture:TextureIDPlayButton]
-         state:self audioDelegate:self.audioDelegate
-         clickEventBlock:^(SSKButtonNode* node) {
+         state:self clickEventBlock:^(SSKButtonNode* node) {
              [node.audioDelegate playSound:SoundIDForwardPress];
              [node.state requestStackClear];
              [node.state requestStackPush:StateIDLoading];
          }];
+    playButton.audioDelegate = self.audioDelegate;
     playButton.position = CGPointMake(self.scene.frame.size.width * PLAY_REL_X,
                                       self.scene.frame.size.height * PLAY_REL_Y);
     [self addNodeToLayer:LayerIDBackground node:playButton];
@@ -99,11 +99,11 @@ typedef enum layers {
     SSKButtonNode* aboutButton =
         [[SSKButtonNode alloc]
          initWithTexture:[self.textures getTexture:TextureIDAboutButton]
-         state:self audioDelegate:self.audioDelegate
-         clickEventBlock:^(SSKButtonNode* node) {
+         state:self clickEventBlock:^(SSKButtonNode* node) {
              [node.audioDelegate playSound:SoundIDForwardPress];
              [node.state requestStackPush:StateIDCredits];
          }];
+    aboutButton.audioDelegate = self.audioDelegate;
     aboutButton.position = CGPointMake(self.scene.frame.size.width * ABOUT_REL_X,
                                        self.scene.frame.size.height * ABOUT_REL_Y);
     [self addNodeToLayer:LayerIDBackground node:aboutButton];

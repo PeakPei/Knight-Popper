@@ -48,8 +48,7 @@ typedef enum layers {
     UIColor* backgroundColor = [UIColor colorWithRed:0.0 green:0.0 blue:0.0 alpha:1.0/3.0];
     SSKSpriteNode* background =
         [[SSKSpriteNode alloc]
-         initWithColor:backgroundColor size:self.scene.frame.size state:self
-         audioDelegate:self.audioDelegate];
+         initWithColor:backgroundColor size:self.scene.frame.size state:self];
     background.position = CGPointZero;
     [self addNodeToLayer:LayerIDBackground node:background];
     
@@ -57,7 +56,7 @@ typedef enum layers {
     SSKSpriteNode* pauseBackground =
         [[SSKSpriteNode alloc]
          initWithTexture:[self.textures getTexture:TextureIDPauseBackground]
-         state:self audioDelegate:self.audioDelegate];
+         state:self];
     pauseBackground.position = CGPointZero;
     [self addNodeToLayer:LayerIDPauseBackground node:pauseBackground];
     
@@ -68,11 +67,11 @@ typedef enum layers {
     SSKButtonNode* resumeButton =
         [[SSKButtonNode alloc]
          initWithTexture:[self.textures getTexture:TextureIDResumeButton]
-         state:self audioDelegate:self.audioDelegate
-         clickEventBlock:^(SSKButtonNode* node) {
+         state:self clickEventBlock:^(SSKButtonNode* node) {
              [node.audioDelegate playSound:SoundIDBackPress];
              [node.state requestStackPop];
      }];
+    resumeButton.audioDelegate = self.audioDelegate;
     resumeButton.position =
         CGPointMake(self.scene.frame.size.width * RESUME_REL_X,
                     self.scene.frame.size.height * RESUME_REL_Y);

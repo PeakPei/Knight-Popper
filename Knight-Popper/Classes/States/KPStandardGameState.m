@@ -62,9 +62,9 @@ typedef enum layers {
 - (void)buildState {
     // Initialise background layer
     SSKSpriteNode* background =
-    [[SSKSpriteNode alloc] initWithTexture:[self.textures getTexture:TextureIDBackground]
-                                    state:NULL
-                             audioDelegate:self.audioDelegate];
+        [[SSKSpriteNode alloc]
+         initWithTexture:[self.textures getTexture:TextureIDBackground]
+         state:NULL];
     background.position = CGPointZero;
     [self addNodeToLayer:LayerIDBackground node:background];
     
@@ -72,8 +72,9 @@ typedef enum layers {
     CGFloat const PINK_MONKEY_HUD_REL_X = 0.4040625;
     CGFloat const PINK_MONKEY_HUD_REL_Y = 0.390625;
     
-    SSKSpriteNode* pinkMonkeyHUD = [[SSKSpriteNode alloc] initWithTexture:
-                                   [self.textures getTexture:TextureIDPinkMonkeyHUD]];
+    SSKSpriteNode* pinkMonkeyHUD =
+        [[SSKSpriteNode alloc]
+         initWithTexture:[self.textures getTexture:TextureIDPinkMonkeyHUD]];
     pinkMonkeyHUD.position =
         CGPointMake(self.scene.frame.size.width * PINK_MONKEY_HUD_REL_X,
                     self.scene.frame.size.height * PINK_MONKEY_HUD_REL_Y);
@@ -96,8 +97,9 @@ typedef enum layers {
     SSKSpriteAnimationNode* leftPlayer =
         [[SSKSpriteAnimationNode alloc]
          initWithSpriteSheet:[self.textures getTexture:TextureIDPlayerOneIdle]
-         state:NULL audioDelegate:self.audioDelegate
-         columns:7 rows:3 numFrames:20 horizontalOrder:YES timePerFrame:1.0/14.0];
+         state:NULL columns:7 rows:3 numFrames:20 horizontalOrder:YES
+         timePerFrame:1.0/14.0];
+    leftPlayer.audioDelegate = self.audioDelegate;
     leftPlayer.position =
         CGPointMake(self.scene.frame.size.width * LEFT_PLAYER_REL_X,
                     self.scene.frame.size.height * LEFT_PLAYER_REL_Y);
@@ -110,8 +112,9 @@ typedef enum layers {
     SSKSpriteAnimationNode* rightPlayer =
         [[SSKSpriteAnimationNode alloc]
          initWithSpriteSheet:[self.textures getTexture:TextureIDPlayerTwoIdle]
-         state:NULL audioDelegate:self.audioDelegate
-         columns:7 rows:3 numFrames:20 horizontalOrder:YES timePerFrame:1.0/14.0];
+         state:NULL columns:7 rows:3 numFrames:20 horizontalOrder:YES
+         timePerFrame:1.0/14.0];
+    rightPlayer.audioDelegate = self.audioDelegate;
     rightPlayer.position =
         CGPointMake(self.scene.frame.size.width * RIGHT_PLAYER_REL_X,
                     self.scene.frame.size.height * RIGHT_PLAYER_REL_Y);
@@ -122,8 +125,9 @@ typedef enum layers {
     CGFloat const LEFT_GRASS_REL_X = -0.33203125;
     CGFloat const LEFT_GRASS_REL_Y = -0.4270833333;
     
-    SSKSpriteNode* leftGrassTuft = [[SSKSpriteNode alloc] initWithTexture:
-                                    [self.textures getTexture:TextureIDGrassTuftLeft]];
+    SSKSpriteNode* leftGrassTuft =
+        [[SSKSpriteNode alloc]
+         initWithTexture:[self.textures getTexture:TextureIDGrassTuftLeft]];
     leftGrassTuft.position =
         CGPointMake(self.scene.frame.size.width * LEFT_GRASS_REL_X,
                     self.scene.frame.size.height * LEFT_GRASS_REL_Y);
@@ -132,8 +136,9 @@ typedef enum layers {
     CGFloat const RIGHT_GRASS_REL_X = 0.33203125;
     CGFloat const RIGHT_GRASS_REL_Y = -0.4270833333;
     
-    SSKSpriteNode* rightGrassTuft = [[SSKSpriteNode alloc] initWithTexture:
-                                     [self.textures getTexture:TextureIDGrassTuftRight]];
+    SSKSpriteNode* rightGrassTuft =
+        [[SSKSpriteNode alloc]
+         initWithTexture:[self.textures getTexture:TextureIDGrassTuftRight]];
     rightGrassTuft.position =
         CGPointMake(self.scene.frame.size.width * RIGHT_GRASS_REL_X,
                     self.scene.frame.size.height * RIGHT_GRASS_REL_Y);

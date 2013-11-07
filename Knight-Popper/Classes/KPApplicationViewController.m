@@ -215,7 +215,7 @@
     [self.stateStack registerState:[KPPauseState class] stateID:StateIDPause];
     
     // Configure the scene
-    [self.stateStack pushState:StateIDTest];
+    [self.stateStack pushState:StateIDMenu];
     [self.stateView presentScene:self.stateStack];
 }
 

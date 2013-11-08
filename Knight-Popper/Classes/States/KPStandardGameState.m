@@ -11,6 +11,7 @@
 #import "SoundIDs.h"
 #import "StateIDs.h"
 #import "SoundInstanceIDs.h"
+#import "Random.h"
 #import <SpriteStackKit/SSKSpriteNode.h>
 #import <SpriteStackKit/SSKAction.h>
 #import <SpriteStackKit/SSKActionQueue.h>
@@ -34,6 +35,10 @@ typedef enum layers {
 
 - (void)addRemoveTargetActionToQueue;
 
+- (void)startCountdownTimer;
+
+- (void)setRandomSpawnLocation:(SKNode*)target;
+
 @property SSKActionQueue* actionQueue;
 
 @property SSKResourcePoolManager* poolManager;
@@ -41,6 +46,18 @@ typedef enum layers {
 @property CFTimeInterval initialTime;
 
 @property CFTimeInterval timeLastGeneration;
+
+@property SSKSpriteAnimationNode* countdownTimer;
+
+@property SKAction* countdownSoundAction;
+
+@property SSKSpriteAnimationNode* gameTime;
+
+@property SSKSpriteNode* timeUp;
+
+@property BOOL gameStarted;
+
+@property BOOL gameEnded;
 
 @end
 
@@ -60,6 +77,37 @@ typedef enum layers {
         self.poolManager = [[SSKResourcePoolManager alloc] initWithCapacity:5];
         self.initialTime = -1;
         self.timeLastGeneration = 0;
+        self.countdownTimer = NULL;
+        self.timeUp = NULL;
+        self.gameTime = NULL;
+        self.gameEnded = NO;
+        self.countdownSoundAction =
+            [SKAction sequence:@[
+            [SKAction runBlock:^{[self.audioDelegate playSound:SoundIDCountdownThree];}],
+            [SKAction waitForDuration:1],
+            [SKAction runBlock:^{[self.audioDelegate playSound:SoundIDCountdownTwo];}],
+            [SKAction waitForDuration:1],
+            [SKAction runBlock:^{[self.audioDelegate playSound:SoundIDCountdownOne];}],
+            [SKAction waitForDuration:1],
+            [SKAction runBlock:^{[self.audioDelegate playSound:SoundIDCountdownGo];}],
+            [SKAction waitForDuration:0.95],
+            [SKAction runBlock:^{
+                [self.countdownTimer removeFromParent];
+                [self addNodeToLayer:LayerIDHUD node:self.gameTime];
+                [self.gameTime animate];
+                self.gameStarted = YES;
+            }],
+            [SKAction waitForDuration:30],
+            [SKAction runBlock:^{
+                self.gameEnded = YES;
+                [self.gameTime removeFromParent];
+                [self addNodeToLayer:LayerIDHUD node:self.timeUp];
+            }],
+            [SKAction waitForDuration:3.1],
+            [SKAction runBlock:^{
+                [self requestStackClear];
+                [self requestStackPush:StateIDVictory];
+            }]]];
     }
     return self;
 }
@@ -67,27 +115,16 @@ typedef enum layers {
 #pragma mark SSKState
 
 - (void)update:(CFTimeInterval)deltaTime {
-    NSLog(@"%d", [self.poolManager poolResourceCount:1]);
-    
     if (self.initialTime == -1) {
         self.initialTime = deltaTime;
-        [self.poolManager retrieveFromPool:1];
-        NSLog(@"CREATE CREATE CREATE CREATE CREATE CREATE CREATE CREATE");
-        NSLog(@"CREATE CREATE CREATE CREATE CREATE CREATE CREATE CREATE");
-        NSLog(@"CREATE CREATE CREATE CREATE CREATE CREATE CREATE CREATE");
+        [self startCountdownTimer];
     }
     
-    if (self.timeLastGeneration >= 60) {
-        if ([self.poolManager retrieveFromPool:1]) {
-            self.timeLastGeneration = 0;
-            NSLog(@"CREATE CREATE CREATE CREATE CREATE CREATE CREATE CREATE");
-            NSLog(@"CREATE CREATE CREATE CREATE CREATE CREATE CREATE CREATE");
-            NSLog(@"CREATE CREATE CREATE CREATE CREATE CREATE CREATE CREATE");
-        } else {
-            NSLog(@"WAIT WAIT WAIT WAIT WAIT WAIT WAIT WAIT");
-            NSLog(@"WAIT WAIT WAIT WAIT WAIT WAIT WAIT WAIT");
-            NSLog(@"WAIT WAIT WAIT WAIT WAIT WAIT WAIT WAIT");
-        }
+    if (self.timeLastGeneration >= 60 && !self.gameEnded && self.gameStarted) {
+        self.timeLastGeneration = 0;
+        
+        [self.poolManager retrieveFromPool:1];
+        [self.poolManager retrieveFromPool:2];
     } else {
         self.timeLastGeneration++;
     }
@@ -101,35 +138,50 @@ typedef enum layers {
 
 - (void)buildState {
     // Initialise resource pools
-    void (^pinkTargetAdd)(id) = ^(id node) {
+    void (^targetAdd)(id) = ^(id node) {
         SSKSpriteAnimationNode* resource = (SSKSpriteAnimationNode*)node;
         [resource removeAllActions];
-        resource.position = CGPointMake(0.0, -0.7 * self.scene.frame.size.height);
         [resource removeFromParent];
         [resource stopAnimating];
     };
     
-    void (^pinkTargetGet)(id) = ^(id node) {
+    void (^targetGet)(id) = ^(id node) {
         SSKSpriteAnimationNode* resource = (SSKSpriteAnimationNode*)node;
-        resource.position = CGPointMake(0.0, -0.7 * self.scene.frame.size.height);
+        [self setRandomSpawnLocation:resource];
         [resource runAction:
-         [SKAction moveTo:CGPointMake(resource.position.x, -resource.position.y) duration:5]];
+         [SKAction moveTo:CGPointMake(resource.position.x, -resource.position.y)
+                 duration:[Random generateDouble:3.0 upperBound:6.0]]];
         [self addNodeToLayer:LayerIDTargets node:resource];
         [resource animate];
     };
     
-    [self.poolManager addResourcePool:2
+    // Initialise resources in pools
+    [self.poolManager addResourcePool:30
                          resourceType:[SSKSpriteAnimationNode class]
-                            addAction:pinkTargetAdd
-                            getAction:pinkTargetGet
+                            addAction:targetAdd
+                            getAction:targetGet
                        poolIdentifier:1];
     
-    for (int i = 0; i < 2; i++) {
+    for (int i = 0; i < 30; i++) {
         SSKSpriteAnimationNode* node =
         [[SSKSpriteAnimationNode alloc]
          initWithSpriteSheet:[self.textures getTexture:TextureIDPinkMonkeyTarget]
          columns:8 rows:3 numFrames:20 horizontalOrder:YES timePerFrame:1.0/14.0];
         [self.poolManager addToPool:1 resource:node];
+    }
+    
+    [self.poolManager addResourcePool:30
+                         resourceType:[SSKSpriteAnimationNode class]
+                            addAction:targetAdd
+                            getAction:targetGet
+                       poolIdentifier:2];
+    
+    for (int i = 0; i < 30; i++) {
+        SSKSpriteAnimationNode* node =
+        [[SSKSpriteAnimationNode alloc]
+         initWithSpriteSheet:[self.textures getTexture:TextureIDBlueMonkeyTarget]
+         columns:8 rows:3 numFrames:20 horizontalOrder:YES timePerFrame:1.0/14.0];
+        [self.poolManager addToPool:2 resource:node];
     }
     
     // Initialise background layer
@@ -160,6 +212,33 @@ typedef enum layers {
         CGPointMake(self.scene.frame.size.width * BLUE_MONKEY_HUD_REL_X,
                     self.scene.frame.size.height * BLUE_MONKEY_HUD_REL_Y);
     [self addNodeToLayer:LayerIDHUD node:blueMonkeyHUD];
+    
+    CGFloat const TIMER_REL_X = 0.0;
+    CGFloat const TIMER_REL_Y = 0.0;
+    
+    self.countdownTimer =
+        [[SSKSpriteAnimationNode alloc]
+         initWithSpriteSheet:[self.textures getTexture:TextureIDCountdown]
+         columns:2 rows:2 numFrames:4 horizontalOrder:YES timePerFrame:1];
+    self.countdownTimer.position =
+        CGPointMake(self.scene.frame.size.width * TIMER_REL_X,
+                    self.scene.frame.size.height * TIMER_REL_Y);
+    [self addNodeToLayer:LayerIDHUD node:self.countdownTimer];
+    
+    CGFloat const GAME_TIMER_REL_X = 0.0;
+    CGFloat const Game_TIMER_REL_Y = 0.4;
+    
+    self.gameTime =
+        [[SSKSpriteAnimationNode alloc]
+         initWithSpriteSheet:[self.textures getTexture:TextureIDTimer] columns:5
+         rows:6 numFrames:30 horizontalOrder:YES timePerFrame:1];
+    self.gameTime.position =
+        CGPointMake(self.scene.size.width * GAME_TIMER_REL_X,
+                    self.scene.size.height * Game_TIMER_REL_Y);
+    
+    self.timeUp =
+        [[SSKSpriteNode alloc] initWithTexture:[self.textures getTexture:TextureIDTimeUp]];
+    self.timeUp.position = CGPointZero;
     
     // Initialise players layer
     CGFloat const LEFT_PLAYER_REL_X = -0.341796875;
@@ -222,19 +301,33 @@ typedef enum layers {
         CGFloat maxX = self.scene.frame.size.width/2.0 + node.frame.size.width/2.0;
         CGFloat minX = -maxX;
         CGFloat maxY = self.scene.frame.size.height/2.0 + node.frame.size.height/2.0;
-//        CGFloat minY = -maxY;
         if (node.position.x > maxX || node.position.x < minX ||
             node.position.y > maxY) {
             [self.poolManager addToPool:1 resource:node];
-            NSLog(@"DELETE DELETE DELETE DELETE DELETE DELETE DELETE DELETE");
-            NSLog(@"DELETE DELETE DELETE DELETE DELETE DELETE DELETE DELETE");
-            NSLog(@"DELETE DELETE DELETE DELETE DELETE DELETE DELETE DELETE");
         }
     };
     
-    SSKAction *action = [[SSKAction alloc] initWithCategory:[SSKAction defaultActionCategory]
-                                                     action:checkOffScreen];
+    SSKAction *action =
+        [[SSKAction alloc] initWithCategory:[SSKAction defaultActionCategory]
+                                     action:checkOffScreen];
     [self.actionQueue push:action];
+}
+
+- (void)startCountdownTimer {
+    [self runAction:self.countdownSoundAction];
+    [self.countdownTimer animate];
+}
+
+- (void)setRandomSpawnLocation:(SKNode*)target {
+    double const X_LOWER_BOUND_REL = -0.25 * self.scene.frame.size.width;
+    double const X_UPPER_BOUND_REL = -X_LOWER_BOUND_REL;
+    
+    CGFloat yLocation = -self.scene.frame.size.height / 2.0
+                            - target.frame.size.height;
+    CGFloat xLocation =
+        [Random generateDouble:X_LOWER_BOUND_REL upperBound:X_UPPER_BOUND_REL];
+    
+    target.position = CGPointMake(xLocation, yLocation);
 }
 
 #pragma mark - Properties
@@ -243,5 +336,10 @@ typedef enum layers {
 @synthesize poolManager;
 @synthesize initialTime;
 @synthesize timeLastGeneration;
+@synthesize countdownTimer;
+@synthesize countdownSoundAction;
+@synthesize gameTime;
+@synthesize timeUp;
+@synthesize gameStarted;
 
 @end

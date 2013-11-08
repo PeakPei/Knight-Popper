@@ -350,6 +350,8 @@
 		90E3C2E618000EF400087ED3 /* pink_monkey_target@2x~iphone.png in Resources */ = {isa = PBXBuildFile; fileRef = 90E3C2C218000EF400087ED3 /* pink_monkey_target@2x~iphone.png */; };
 		90FB6E76180BB5B700DDBA11 /* in_game_music.wav in Resources */ = {isa = PBXBuildFile; fileRef = 90FB6E74180BB5B700DDBA11 /* in_game_music.wav */; };
 		90FB6E77180BB5B700DDBA11 /* menu_music.wav in Resources */ = {isa = PBXBuildFile; fileRef = 90FB6E75180BB5B700DDBA11 /* menu_music.wav */; };
+		B9C9CB64182D688300D6017A /* KPPlayerScore.m in Sources */ = {isa = PBXBuildFile; fileRef = B9C9CB63182D688300D6017A /* KPPlayerScore.m */; };
+		B9C9CB67182D689A00D6017A /* KPPlayerStats.m in Sources */ = {isa = PBXBuildFile; fileRef = B9C9CB66182D689A00D6017A /* KPPlayerStats.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -752,6 +754,10 @@
 		90F1F1A517FFA68C00FBC986 /* libSpriteStackKit.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libSpriteStackKit.a; path = Libraries/SpriteStackKit/libSpriteStackKit.a; sourceTree = "<group>"; };
 		90FB6E74180BB5B700DDBA11 /* in_game_music.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = in_game_music.wav; sourceTree = "<group>"; };
 		90FB6E75180BB5B700DDBA11 /* menu_music.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = menu_music.wav; sourceTree = "<group>"; };
+		B9C9CB62182D688300D6017A /* KPPlayerScore.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KPPlayerScore.h; sourceTree = "<group>"; };
+		B9C9CB63182D688300D6017A /* KPPlayerScore.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KPPlayerScore.m; sourceTree = "<group>"; };
+		B9C9CB65182D689A00D6017A /* KPPlayerStats.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KPPlayerStats.h; sourceTree = "<group>"; };
+		B9C9CB66182D689A00D6017A /* KPPlayerStats.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KPPlayerStats.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -828,6 +834,7 @@
 				9088296817FFC0150016CCB6 /* main.m */,
 				9088294C17FFC0150016CCB6 /* Assets */,
 				9088295417FFC0150016CCB6 /* Classes */,
+				B9C9CB60182D685E00D6017A /* Models */,
 				9088296917FFC0150016CCB6 /* Storyboards */,
 				9088296E17FFC0150016CCB6 /* Supporting Files */,
 			);
@@ -1339,6 +1346,18 @@
 			path = "iPhone 5 (Retina)";
 			sourceTree = "<group>";
 		};
+		B9C9CB60182D685E00D6017A /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				B9C9CB62182D688300D6017A /* KPPlayerScore.h */,
+				B9C9CB63182D688300D6017A /* KPPlayerScore.m */,
+				B9C9CB65182D689A00D6017A /* KPPlayerStats.h */,
+				B9C9CB66182D689A00D6017A /* KPPlayerStats.m */,
+			);
+			name = Models;
+			path = Classes/Models;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -1779,6 +1798,7 @@
 				90885B9518297DB30041095E /* KPCreditsState.m in Sources */,
 				9088297917FFC0150016CCB6 /* KPAppDelegate.m in Sources */,
 				9088297C17FFC0150016CCB6 /* KPStandardGameState.m in Sources */,
+				B9C9CB64182D688300D6017A /* KPPlayerScore.m in Sources */,
 				908CFC3C182B4EF600941DB1 /* KPShapeAnimationNode.m in Sources */,
 				9088297817FFC0150016CCB6 /* KPActionCategories.m in Sources */,
 				9088297E17FFC0150016CCB6 /* UIApplication+AppDimensions.m in Sources */,
@@ -1790,6 +1810,7 @@
 				908CFC21182B231E00941DB1 /* KPPauseState.m in Sources */,
 				9017500B180E2C5F00B000A7 /* KPMainMenuState.m in Sources */,
 				9088297A17FFC0150016CCB6 /* KPApplicationViewController.m in Sources */,
+				B9C9CB67182D689A00D6017A /* KPPlayerStats.m in Sources */,
 				908CFB36182AE20000941DB1 /* KPTestState.m in Sources */,
 				90885B9118297D9F0041095E /* KPVictoryState.m in Sources */,
 			);

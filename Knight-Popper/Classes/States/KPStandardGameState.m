@@ -125,6 +125,7 @@ typedef enum layers {
         
         [self.poolManager retrieveFromPool:1];
         [self.poolManager retrieveFromPool:2];
+        [self.poolManager retrieveFromPool:3];
     } else {
         self.timeLastGeneration++;
     }
@@ -182,6 +183,48 @@ typedef enum layers {
          initWithSpriteSheet:[self.textures getTexture:TextureIDBlueMonkeyTarget]
          columns:8 rows:3 numFrames:20 horizontalOrder:YES timePerFrame:1.0/14.0];
         [self.poolManager addToPool:2 resource:node];
+    }
+    
+    [self.poolManager addResourcePool:2
+                         resourceType:[SSKSpriteAnimationNode class]
+                            addAction:targetAdd
+                            getAction:targetGet
+                       poolIdentifier:3];
+    
+    for (int i = 0; i < 2; i++) {
+        SSKSpriteAnimationNode* node =
+        [[SSKSpriteAnimationNode alloc]
+         initWithSpriteSheet:[self.textures getTexture:TextureIDGoldMonkeyTarget]
+         columns:8 rows:3 numFrames:20 horizontalOrder:YES timePerFrame:1.0/14.0];
+        [self.poolManager addToPool:3 resource:node];
+    }
+    
+    [self.poolManager addResourcePool:10
+                         resourceType:[SSKSpriteAnimationNode class]
+                            addAction:targetAdd
+                            getAction:targetGet
+                       poolIdentifier:4];
+    
+    for (int i = 0; i < 10; i++) {
+        SSKSpriteAnimationNode* node =
+        [[SSKSpriteAnimationNode alloc]
+         initWithSpriteSheet:[self.textures getTexture:TextureIDLollipopLeftProjectile]
+         columns:3 rows:3 numFrames:8 horizontalOrder:YES timePerFrame:1.0/14.0];
+        [self.poolManager addToPool:4 resource:node];
+    }
+    
+    [self.poolManager addResourcePool:10
+                         resourceType:[SSKSpriteAnimationNode class]
+                            addAction:targetAdd
+                            getAction:targetGet
+                       poolIdentifier:5];
+    
+    for (int i = 0; i < 10; i++) {
+        SSKSpriteAnimationNode* node =
+        [[SSKSpriteAnimationNode alloc]
+         initWithSpriteSheet:[self.textures getTexture:TextureIDLollipopRightProjectile]
+         columns:3 rows:3 numFrames:8 horizontalOrder:YES timePerFrame:1.0/14.0];
+        [self.poolManager addToPool:5 resource:node];
     }
     
     // Initialise background layer
@@ -293,6 +336,17 @@ typedef enum layers {
     [self addNodeToLayer:LayerIDScenery node:rightGrassTuft];
 }
 
+#pragma mark SSKEventHandler
+
+- (BOOL)handleEvent:(UIEvent*)event touch:(UITouch *)touch {
+    if ([Random generateBool:0.5]) {
+        [self.poolManager retrieveFromPool:4];
+    } else {
+        [self.poolManager retrieveFromPool:5];
+    }
+    return YES;
+}
+
 #pragma mark Helper Methods
 
 - (void)addRemoveTargetActionToQueue {
@@ -303,7 +357,8 @@ typedef enum layers {
         CGFloat maxY = self.scene.frame.size.height/2.0 + node.frame.size.height/2.0;
         if (node.position.x > maxX || node.position.x < minX ||
             node.position.y > maxY) {
-            [self.poolManager addToPool:1 resource:node];
+            // TODO: Add to appropriate pool!
+//            [self.poolManager addToPool:1 resource:node];
         }
     };
     

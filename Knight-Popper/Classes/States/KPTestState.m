@@ -11,6 +11,7 @@
 #import "TextureIDs.h"
 #import "KPShapeNode.h"
 #import "KPShapeAnimationNode.h"
+#import "PathParser.h"
 
 #pragma mark - Interface
 
@@ -55,49 +56,30 @@ typedef enum layers {
     [self addNodeToLayer:LayerIDBackground node:background];
     
     // Initialise test layer
+    KPShapeNode* giantLollipop =
+        [[KPShapeNode alloc]
+         initWithTexture:[self.textures getTexture:TextureIDGiantLollipop] color:[UIColor greenColor] size:[self.textures getTexture:TextureIDGiantLollipop].size];
+    NSArray* test = [PathParser parsePaths:@"giant_lollipop"
+                                        columns:1 rows:1 numFrames:1
+                                      horizontalOrder:YES width:giantLollipop.frame.size.width
+                                               height:giantLollipop.frame.size.height];
+    giantLollipop.hitboxPath = (__bridge CGPathRef)(test[0]);
+    [self addNodeToLayer:LayerIDTest node:giantLollipop];
+    [giantLollipop runAction:[SKAction rotateByAngle:3 duration:10]];
+    
     KPShapeAnimationNode* lollipop =
         [[KPShapeAnimationNode alloc]
          initWithSpriteSheet:[self.textures getTexture:TextureIDLollipopLeftProjectile]
-         columns:3 rows:3 numFrames:8 horizontalOrder:YES timePerFrame:1];
+         columns:3 rows:3 numFrames:8 horizontalOrder:YES timePerFrame:4];
     lollipop.position = CGPointZero;
     
-    NSMutableArray* paths = [[NSMutableArray alloc] initWithCapacity:8];
+    NSLog(@"%f", lollipop.frame.size.width);
+    NSLog(@"%f", lollipop.frame.size.height);
     
-    int totalFrames = 8;
-    int addedFrames = 0;
-    for (int i = 1; i <= 3 && addedFrames < totalFrames; i++) {
-        for (int j = 1; j <= 3 && addedFrames < totalFrames; j++) {
-            CGMutablePathRef path = CGPathCreateMutable();
-            CGPathMoveToPoint(path, nil, 0, 0);
-            
-            NSString* xName =
-                [NSString stringWithFormat:@"%@%d%d", @"lollipop_left_projectile_x_", i, j];
-            NSString* yName =
-                [NSString stringWithFormat:@"%@%d%d", @"lollipop_left_projectile_y_", i, j];
-            
-            NSString* xPath =
-                [[NSBundle mainBundle] pathForResource:xName ofType:@"plist"];
-            NSString* yPath =
-                [[NSBundle mainBundle] pathForResource:yName ofType:@"plist"];
-            
-            NSArray* xValues =
-            [[NSArray alloc] initWithContentsOfFile:xPath];
-            NSArray* yValues =
-            [[NSArray alloc] initWithContentsOfFile:yPath];
-            
-            for (int i = 0; i < xValues.count; i++) {
-                CGPathAddLineToPoint(path, nil,
-                                     [xValues[i] doubleValue] * lollipop.frame.size.width,
-                                     [yValues[i] doubleValue] * lollipop.frame.size.height);
-            }
-            
-            CGPathAddLineToPoint(path, nil,
-                                 [xValues[0] doubleValue] * lollipop.frame.size.width,
-                                 [yValues[0] doubleValue] * lollipop.frame.size.height);
-            
-            paths[addedFrames++] = (__bridge id)(path);
-        }
-    }
+    NSArray* paths =
+        [PathParser parsePaths:@"lollipop_left_projectile"
+         columns:3 rows:3 numFrames:8 horizontalOrder:YES
+         width:lollipop.frame.size.width height:lollipop.frame.size.height];
     
     [lollipop setHitboxPaths:paths];
     

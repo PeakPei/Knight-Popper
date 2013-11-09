@@ -13,6 +13,7 @@
 - (BOOL)handleEvent:(UIEvent*)event touch:(UITouch *)touch {
     BOOL eventHandled = NO;
     CGPoint touchLocation = [touch locationInNode:[self parent]];
+//    CGPoint touchLocation = [touch locationInNode:self];
     
     if ([self containsPoint:touchLocation]) {
         [self destroy];

@@ -308,6 +308,7 @@
 		908CFEE8182B51F400941DB1 /* pink_monkey_target_y_32.plist in Resources */ = {isa = PBXBuildFile; fileRef = 908CFE76182B51F400941DB1 /* pink_monkey_target_y_32.plist */; };
 		908CFEE9182B51F400941DB1 /* pink_monkey_target_y_33.plist in Resources */ = {isa = PBXBuildFile; fileRef = 908CFE77182B51F400941DB1 /* pink_monkey_target_y_33.plist */; };
 		908CFEEA182B51F400941DB1 /* pink_monkey_target_y_34.plist in Resources */ = {isa = PBXBuildFile; fileRef = 908CFE78182B51F400941DB1 /* pink_monkey_target_y_34.plist */; };
+		908CFEF5182B70DE00941DB1 /* PathParser.m in Sources */ = {isa = PBXBuildFile; fileRef = 908CFEF4182B70DE00941DB1 /* PathParser.m */; };
 		90B07AC4180BAE7C00530915 /* back_press.wav in Resources */ = {isa = PBXBuildFile; fileRef = 90B07AB6180BAE7C00530915 /* back_press.wav */; };
 		90B07AC5180BAE7C00530915 /* balloon_pop.wav in Resources */ = {isa = PBXBuildFile; fileRef = 90B07AB7180BAE7C00530915 /* balloon_pop.wav */; };
 		90B07AC6180BAE7C00530915 /* countdown_1.wav in Resources */ = {isa = PBXBuildFile; fileRef = 90B07AB8180BAE7C00530915 /* countdown_1.wav */; };
@@ -708,6 +709,8 @@
 		908CFE76182B51F400941DB1 /* pink_monkey_target_y_32.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = pink_monkey_target_y_32.plist; sourceTree = "<group>"; };
 		908CFE77182B51F400941DB1 /* pink_monkey_target_y_33.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = pink_monkey_target_y_33.plist; sourceTree = "<group>"; };
 		908CFE78182B51F400941DB1 /* pink_monkey_target_y_34.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = pink_monkey_target_y_34.plist; sourceTree = "<group>"; };
+		908CFEF3182B70DE00941DB1 /* PathParser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PathParser.h; sourceTree = "<group>"; };
+		908CFEF4182B70DE00941DB1 /* PathParser.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PathParser.m; sourceTree = "<group>"; };
 		90B07AB6180BAE7C00530915 /* back_press.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = back_press.wav; sourceTree = "<group>"; };
 		90B07AB7180BAE7C00530915 /* balloon_pop.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = balloon_pop.wav; sourceTree = "<group>"; };
 		90B07AB8180BAE7C00530915 /* countdown_1.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = countdown_1.wav; sourceTree = "<group>"; };
@@ -903,6 +906,8 @@
 		9088296317FFC0150016CCB6 /* Utilities */ = {
 			isa = PBXGroup;
 			children = (
+				908CFEF3182B70DE00941DB1 /* PathParser.h */,
+				908CFEF4182B70DE00941DB1 /* PathParser.m */,
 				9088296417FFC0150016CCB6 /* Random.h */,
 				9088296517FFC0150016CCB6 /* Random.m */,
 				9088296617FFC0150016CCB6 /* UIApplication+AppDimensions.h */,
@@ -1780,6 +1785,7 @@
 				9088297917FFC0150016CCB6 /* KPAppDelegate.m in Sources */,
 				9088297C17FFC0150016CCB6 /* KPStandardGameState.m in Sources */,
 				908CFC3C182B4EF600941DB1 /* KPShapeAnimationNode.m in Sources */,
+				908CFEF5182B70DE00941DB1 /* PathParser.m in Sources */,
 				9088297817FFC0150016CCB6 /* KPActionCategories.m in Sources */,
 				9088297E17FFC0150016CCB6 /* UIApplication+AppDimensions.m in Sources */,
 				9088297D17FFC0150016CCB6 /* Random.m in Sources */,

@@ -12,6 +12,9 @@
 #import "StateIDs.h"
 #import "SoundInstanceIDs.h"
 #import "Random.h"
+#import "KPPlayerScore.h"
+#import "KPPlayerStats.h"
+#import "StateDataKeys.h"
 #import <SpriteStackKit/SSKSpriteNode.h>
 #import <SpriteStackKit/SSKAction.h>
 #import <SpriteStackKit/SSKActionQueue.h>
@@ -19,6 +22,7 @@
 #import <SpriteStackKit/SSKButtonNode.h>
 #import <SpriteStackKit/SSKResourcePool.h>
 #import <SpriteStackKit/SSKResourcePoolManager.h>
+#import <SpriteStackKit/SSKLabelNode.h>
 
 #pragma mark - Interface
 
@@ -59,6 +63,18 @@ typedef enum layers {
 
 @property BOOL gameEnded;
 
+@property KPPlayerScore* playerOneScore;
+
+@property SSKLabelNode* playerOneScoreLabel;
+
+@property KPPlayerScore* playerTwoScore;
+
+@property SSKLabelNode* playerTwoScoreLabel;
+
+@property KPPlayerStats* playerOneStats;
+
+@property KPPlayerStats* playerTwoStats;
+
 @end
 
 #pragma mark - Implementation
@@ -83,6 +99,18 @@ typedef enum layers {
         self.timeUp = NULL;
         self.gameTime = NULL;
         self.gameEnded = NO;
+        self.playerOneScore = [[KPPlayerScore alloc] init];
+        [self.playerOneScore addObserver:self
+                              forKeyPath:@"score"
+                                 options:NSKeyValueObservingOptionNew
+                                 context:NULL];
+        self.playerTwoScore = [[KPPlayerScore alloc] init];
+        [self.playerTwoScore addObserver:self
+                              forKeyPath:@"score"
+                                 options:NSKeyValueObservingOptionNew
+                                 context:NULL];
+        self.playerOneStats = [[KPPlayerStats alloc] init];
+        self.playerTwoStats = [[KPPlayerStats alloc] init];
         self.countdownSoundAction =
             [SKAction sequence:@[
             [SKAction runBlock:^{[self.audioDelegate playSound:SoundIDCountdownThree];}],
@@ -107,11 +135,35 @@ typedef enum layers {
             }],
             [SKAction waitForDuration:3.1],
             [SKAction runBlock:^{
+                NSDictionary* data = @{[NSNumber numberWithInt:StateDataKeyPlayerOneScore]: self.playerOneScore,
+                                       [NSNumber numberWithInt:StateDataKeyPlayerTwoScore]: self.playerTwoScore,
+                                       [NSNumber numberWithInt:StateDataKeyPlayerOneStats]: self.playerOneStats,
+                                       [NSNumber numberWithInt:StateDataKeyPlayerTwoStats]: self.playerTwoStats};
                 [self requestStackClear];
-                [self requestStackPush:StateIDVictory data:NULL];
+                [self requestStackPush:StateIDVictory data:data];
             }]]];
     }
     return self;
+}
+
+- (void)observeValueForKeyPath:(NSString *)keyPath
+                      ofObject:(id)object
+                        change:(NSDictionary *)change
+                       context:(void *)context {
+    if ([keyPath isEqualToString:@"score"]) {
+        if ([object isEqual:self.playerOneScore]) {
+            self.playerOneScoreLabel.text =
+                [NSString stringWithFormat:@"%d", self.playerOneScore.score];
+        } else if ([object isEqual:self.playerTwoScore]) {
+            self.playerTwoScoreLabel.text =
+                [NSString stringWithFormat:@"%d", self.playerTwoScore.score];
+        }
+    }
+}
+
+- (void)dealloc {
+    [self.playerOneScore removeObserver:self forKeyPath:@"score"];
+    [self.playerTwoScore removeObserver:self forKeyPath:@"score"];
 }
 
 #pragma mark SSKState
@@ -124,6 +176,9 @@ typedef enum layers {
     
     if (self.timeLastGeneration >= 60 && !self.gameEnded && self.gameStarted) {
         self.timeLastGeneration = 0;
+        
+        [self.playerTwoScore modifyScore:1];
+        [self.playerOneScore modifyScore:2];
         
         [self.poolManager retrieveFromPool:1];
         [self.poolManager retrieveFromPool:2];
@@ -237,7 +292,7 @@ typedef enum layers {
     [self addNodeToLayer:LayerIDBackground node:background];
     
     // Initialise HUD layer
-    CGFloat const PINK_MONKEY_HUD_REL_X = 0.4040625;
+    CGFloat const PINK_MONKEY_HUD_REL_X = -0.4040625;
     CGFloat const PINK_MONKEY_HUD_REL_Y = 0.390625;
     
     SSKSpriteNode* pinkMonkeyHUD =
@@ -248,7 +303,7 @@ typedef enum layers {
                     self.scene.frame.size.height * PINK_MONKEY_HUD_REL_Y);
     [self addNodeToLayer:LayerIDHUD node:pinkMonkeyHUD];
     
-    CGFloat const BLUE_MONKEY_HUD_REL_X = -0.4040625;
+    CGFloat const BLUE_MONKEY_HUD_REL_X = 0.4040625;
     CGFloat const BLUE_MONKEY_HUD_REL_Y = 0.390625;
     
     SSKSpriteNode* blueMonkeyHUD = [[SSKSpriteNode alloc] initWithTexture:
@@ -284,6 +339,26 @@ typedef enum layers {
     self.timeUp =
         [[SSKSpriteNode alloc] initWithTexture:[self.textures getTexture:TextureIDTimeUp]];
     self.timeUp.position = CGPointZero;
+    
+    CGFloat const PLAYER_ONE_SCORE_REL_X = -0.3;
+    CGFloat const PLAYER_ONE_SCORE_REL_Y = 0.370625;
+    
+    self.playerOneScoreLabel = [[SSKLabelNode alloc] initWithFontNamed:@"gameFont"];
+    self.playerOneScoreLabel.text = [NSString stringWithFormat:@"%d", self.playerOneScore.score];
+    self.playerOneScoreLabel.position =
+    CGPointMake(self.scene.frame.size.width * PLAYER_ONE_SCORE_REL_X,
+                self.scene.frame.size.height * PLAYER_ONE_SCORE_REL_Y);
+    [self addNodeToLayer:LayerIDHUD node:self.playerOneScoreLabel];
+    
+    CGFloat const PLAYER_TWO_SCORE_REL_X = 0.3;
+    CGFloat const PLAYER_TWO_SCORE_REL_Y = 0.370625;
+    
+    self.playerTwoScoreLabel = [[SSKLabelNode alloc] initWithFontNamed:@"gameFont"];
+    self.playerTwoScoreLabel.text = [NSString stringWithFormat:@"%d", self.playerTwoScore.score];
+    self.playerTwoScoreLabel.position =
+    CGPointMake(self.scene.frame.size.width * PLAYER_TWO_SCORE_REL_X,
+                self.scene.frame.size.height * PLAYER_TWO_SCORE_REL_Y);
+    [self addNodeToLayer:LayerIDHUD node:self.playerTwoScoreLabel];
     
     // Initialise players layer
     CGFloat const LEFT_PLAYER_REL_X = -0.341796875;
@@ -398,5 +473,11 @@ typedef enum layers {
 @synthesize gameTime;
 @synthesize timeUp;
 @synthesize gameStarted;
+@synthesize playerOneScore;
+@synthesize playerOneScoreLabel;
+@synthesize playerOneStats;
+@synthesize playerTwoScore;
+@synthesize playerTwoScoreLabel;
+@synthesize playerTwoStats;
 
 @end

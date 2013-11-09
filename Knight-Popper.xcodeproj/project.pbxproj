@@ -427,6 +427,7 @@
 		9027C4D717F2B30B0056EFA4 /* SpriteKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SpriteKit.framework; path = System/Library/Frameworks/SpriteKit.framework; sourceTree = SDKROOT; };
 		9027C4F917F2B30C0056EFA4 /* Knight-PopperTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Knight-PopperTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		9027C4FA17F2B30C0056EFA4 /* XCTest.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = XCTest.framework; path = Library/Frameworks/XCTest.framework; sourceTree = DEVELOPER_DIR; };
+		904096CF182DF87800D0D27F /* StateDataKeys.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = StateDataKeys.h; sourceTree = "<group>"; };
 		904BDC201808D5DF003E7499 /* background-568h@2x~iphone.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "background-568h@2x~iphone.png"; sourceTree = "<group>"; };
 		904BDC221808D5EE003E7499 /* blue_pop~ipad.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "blue_pop~ipad.png"; sourceTree = "<group>"; };
 		904BDC231808D5EE003E7499 /* countdown~ipad.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "countdown~ipad.png"; sourceTree = "<group>"; };
@@ -903,6 +904,7 @@
 				90885B8F18297D9F0041095E /* KPVictoryState.h */,
 				90885B9018297D9F0041095E /* KPVictoryState.m */,
 				9088296117FFC0150016CCB6 /* StateIDs.h */,
+				904096CF182DF87800D0D27F /* StateDataKeys.h */,
 			);
 			path = States;
 			sourceTree = "<group>";

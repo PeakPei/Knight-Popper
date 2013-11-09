@@ -19,13 +19,15 @@
 
 - (void)modifyScore:(int)delta {
     int const MIN_SCORE = 0;
-    if ((int)self.score - delta < MIN_SCORE) {
+    if ((int)self.score + delta < MIN_SCORE) {
         [[NSException
           exceptionWithName:@"InvalidArgumentsException"
           reason:@"The score delta specified results in a negative value"
           userInfo:nil] raise];
     } else {
+        [self willChangeValueForKey:@"score"];
         _score += delta;
+        [self didChangeValueForKey:@"score"];
     }
 }
 

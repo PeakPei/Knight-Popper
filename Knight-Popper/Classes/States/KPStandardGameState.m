@@ -67,11 +67,13 @@ typedef enum layers {
 
 - (id)initWithStateStack:(SSKStateStack *)stateStack
           textureManager:(SSKTextureManager *)textureManager
-           audioDelegate:(id<SSKAudioManagerDelegate>)delegate{
+           audioDelegate:(id<SSKAudioManagerDelegate>)delegate
+                    data:(NSDictionary*)data {
     unsigned int layerCount = 6;
     if (self = [super initWithStateStack:stateStack
                           textureManager:textureManager
                            audioDelegate:delegate
+                                    data:data
                               layerCount:layerCount]) {
         self.actionQueue = [[SSKActionQueue alloc] init];
         self.poolManager = [[SSKResourcePoolManager alloc] initWithCapacity:5];
@@ -106,7 +108,7 @@ typedef enum layers {
             [SKAction waitForDuration:3.1],
             [SKAction runBlock:^{
                 [self requestStackClear];
-                [self requestStackPush:StateIDVictory];
+                [self requestStackPush:StateIDVictory data:NULL];
             }]]];
     }
     return self;

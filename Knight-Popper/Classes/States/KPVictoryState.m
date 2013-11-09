@@ -35,11 +35,13 @@ typedef enum layers {
 
 - (id)initWithStateStack:(SSKStateStack *)stateStack
           textureManager:(SSKTextureManager *)textureManager
-           audioDelegate:(id<SSKAudioManagerDelegate>)delegate {
+           audioDelegate:(id<SSKAudioManagerDelegate>)delegate
+                    data:(NSDictionary *)data {
     unsigned int const LAYER_COUNT = 5;
     if (self = [super initWithStateStack:stateStack
                           textureManager:textureManager
                            audioDelegate:delegate
+                                    data:data
                               layerCount:LAYER_COUNT]) {
         self.actionQueue = [[SSKActionQueue alloc] init];
     }
@@ -82,7 +84,7 @@ typedef enum layers {
              }
              
              [node.state requestStackClear];
-             [node.state requestStackPush:StateIDStandardGame];
+             [node.state requestStackPush:StateIDStandardGame data:NULL];
          }];
     retryButton.audioDelegate = self.audioDelegate;
     retryButton.position =
@@ -105,7 +107,7 @@ typedef enum layers {
              }
              
              [node.state requestStackClear];
-             [node.state requestStackPush:StateIDMenu];
+             [node.state requestStackPush:StateIDMenu data:NULL];
          }];
     menuButton.audioDelegate = self.audioDelegate;
     menuButton.position =

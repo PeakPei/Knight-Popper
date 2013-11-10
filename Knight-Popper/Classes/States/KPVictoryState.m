@@ -12,6 +12,10 @@
 #import "StateIDs.h"
 #import "SoundIDs.h"
 #import "SoundInstanceIDs.h"
+#import "KPPlayerScore.h"
+#import "KPPlayerStats.h"
+#import "StateDataKeys.h"
+#import <SpriteStackKit/SSKLabelNode.h>
 
 #pragma mark - Interface
 
@@ -27,6 +31,16 @@ typedef enum layers {
 
 @property SSKActionQueue* actionQueue;
 
+@property BOOL playerOneWon;
+
+@property KPPlayerScore* winnerScore;
+
+@property KPPlayerStats* winnerStats;
+
+@property KPPlayerScore* loserScore;
+
+@property KPPlayerStats* loserStats;
+
 @end
 
 #pragma mark - Implementation
@@ -35,12 +49,37 @@ typedef enum layers {
 
 - (id)initWithStateStack:(SSKStateStack *)stateStack
           textureManager:(SSKTextureManager *)textureManager
-           audioDelegate:(id<SSKAudioManagerDelegate>)delegate {
+           audioDelegate:(id<SSKAudioManagerDelegate>)delegate
+                    data:(NSDictionary *)data {
     unsigned int const LAYER_COUNT = 5;
     if (self = [super initWithStateStack:stateStack
                           textureManager:textureManager
                            audioDelegate:delegate
+                                    data:data
                               layerCount:LAYER_COUNT]) {
+        KPPlayerScore* playerOneScore =
+            [data objectForKey:[NSNumber numberWithInt:StateDataKeyPlayerOneScore]];
+        KPPlayerScore* playerTwoScore =
+            [data objectForKey:[NSNumber numberWithInt:StateDataKeyPlayerTwoScore]];
+        KPPlayerStats* playerOneStats =
+            [data objectForKey:[NSNumber numberWithInt:StateDataKeyPlayerOneStats]];
+        KPPlayerStats* playerTwoStats =
+            [data objectForKey:[NSNumber numberWithInt:StateDataKeyPlayerTwoStats]];
+        
+        if (playerOneScore.score >= playerTwoScore.score) {
+            self.playerOneWon = YES;
+            self.winnerScore = playerOneScore;
+            self.winnerStats = playerOneStats;
+            self.loserScore = playerTwoScore;
+            self.loserStats = playerTwoStats;
+        } else {
+            self.playerOneWon = NO;
+            self.winnerScore = playerTwoScore;
+            self.winnerStats = playerTwoStats;
+            self.loserScore = playerOneScore;
+            self.loserStats = playerTwoStats;
+        }
+        
         self.actionQueue = [[SSKActionQueue alloc] init];
     }
     return self;
@@ -67,6 +106,120 @@ typedef enum layers {
     victoryBackground.position = CGPointZero;
     [self addNodeToLayer:LayerIDVictoryBackground node:victoryBackground];
     
+    // Initialise the victory info layer
+    // TODO: include more elaborate measures to settle ties
+    SKTexture* winnerTexture;
+    SKTexture* loserTexture;
+    
+    if (self.playerOneWon) {
+        winnerTexture = [self.textures getTexture:TextureIDPlayerOneHead];
+        loserTexture = [self.textures getTexture:TextureIDPlayerTwoHead];
+    } else {
+        winnerTexture = [self.textures getTexture:TextureIDPlayerTwoHead];
+        loserTexture = [self.textures getTexture:TextureIDPlayerOneHead];
+    }
+    
+    CGFloat const WINNER_HEAD_REL_X = -0.245;
+    CGFloat const WINNER_HEAD_REL_Y = 0.09;
+    CGFloat const LOSER_HEAD_REL_X = 0.19;
+    CGFloat const LOSER_HEAD_REL_Y = 0.1425;
+    
+    SSKSpriteNode* winnerHead =
+        [[SSKSpriteNode alloc] initWithTexture:winnerTexture];
+    winnerHead.position =
+        CGPointMake(self.scene.frame.size.width * WINNER_HEAD_REL_X,
+                    self.scene.frame.size.height * WINNER_HEAD_REL_Y);
+    [self addNodeToLayer:LayerIDVictoryInfo node:winnerHead];
+    
+    SSKSpriteNode* loserHead =
+        [[SSKSpriteNode alloc] initWithTexture:loserTexture];
+    loserHead.position =
+        CGPointMake(self.scene.frame.size.width * LOSER_HEAD_REL_X,
+                    self.scene.frame.size.height * LOSER_HEAD_REL_Y);
+    [self addNodeToLayer:LayerIDVictoryInfo node:loserHead];
+    
+    // Initialise score labels
+    CGFloat const WINNER_POINTS_REL_X = -0.245;
+    CGFloat const WINNER_POINTS_REL_Y = -0.08;
+    
+    SSKLabelNode* winnerPoints = [[SSKLabelNode alloc] initWithFontNamed:@"gameFont"];
+    winnerPoints.text = [NSString stringWithFormat:@"%d", self.winnerScore.score];
+    winnerPoints.position =
+        CGPointMake(self.scene.frame.size.width * WINNER_POINTS_REL_X,
+                    self.scene.frame.size.height * WINNER_POINTS_REL_Y);
+    [self addNodeToLayer:LayerIDVictoryInfo node:winnerPoints];
+    
+    CGFloat const LOSER_POINTS_REL_X = 0.29;
+    CGFloat const LOSER_POINTS_REL_Y = 0.15;
+    
+    SSKLabelNode* loserPoints = [[SSKLabelNode alloc] initWithFontNamed:@"gameFont"];
+    loserPoints.text = [NSString stringWithFormat:@"%d", self.loserScore.score];
+    loserPoints.position =
+        CGPointMake(self.scene.frame.size.width * LOSER_POINTS_REL_X,
+                    self.scene.frame.size.height * LOSER_POINTS_REL_Y);
+    [self addNodeToLayer:LayerIDVictoryInfo node:loserPoints];
+    
+    // Initialise stats labels
+    CGFloat const WINNER_PINK_REL_X = 0.0;
+    CGFloat const WINNER_PINK_REL_Y = 0.1;
+    
+    SSKLabelNode* winnerPinkCount = [[SSKLabelNode alloc] initWithFontNamed:@"gameFont"];
+    winnerPinkCount.text = [NSString stringWithFormat:@"%d", self.winnerStats.pinkTargetsHit];
+    winnerPinkCount.position =
+        CGPointMake(self.scene.frame.size.width * WINNER_PINK_REL_X,
+                    self.scene.frame.size.height * WINNER_PINK_REL_Y);
+    [self addNodeToLayer:LayerIDVictoryInfo node:winnerPinkCount];
+    
+    CGFloat const WINNER_BLUE_REL_X = 0.0;
+    CGFloat const WINNER_BLUE_REL_Y = -0.0;
+    
+    SSKLabelNode* winnerBlueCount = [[SSKLabelNode alloc] initWithFontNamed:@"gameFont"];
+    winnerBlueCount.text = [NSString stringWithFormat:@"%d", self.winnerStats.blueTargetsHit];
+    winnerBlueCount.position =
+        CGPointMake(self.scene.frame.size.width * WINNER_BLUE_REL_X,
+                    self.scene.frame.size.height * WINNER_BLUE_REL_Y);
+    [self addNodeToLayer:LayerIDVictoryInfo node:winnerBlueCount];
+    
+    CGFloat const WINNER_GOLD_REL_X = 0.0;
+    CGFloat const WINNER_GOLD_REL_Y = -0.1;
+    
+    SSKLabelNode* winnerGoldCount = [[SSKLabelNode alloc] initWithFontNamed:@"gameFont"];
+    winnerGoldCount.text = [NSString stringWithFormat:@"%d", self.winnerStats.goldTargetsHit];
+    winnerGoldCount.position =
+        CGPointMake(self.scene.frame.size.width * WINNER_GOLD_REL_X,
+                    self.scene.frame.size.height * WINNER_GOLD_REL_Y);
+    [self addNodeToLayer:LayerIDVictoryInfo node:winnerGoldCount];
+    
+    CGFloat const LOSER_PINK_REL_X = 0.29;
+    CGFloat const LOSER_PINK_REL_Y = -0.03;
+    
+    SSKLabelNode* loserPinkCount = [[SSKLabelNode alloc] initWithFontNamed:@"gameFont"];
+    loserPinkCount.text = [NSString stringWithFormat:@"%d", self.loserStats.pinkTargetsHit];
+    loserPinkCount.position =
+        CGPointMake(self.scene.frame.size.width * LOSER_PINK_REL_X,
+                    self.scene.frame.size.height * LOSER_PINK_REL_Y);
+    [self addNodeToLayer:LayerIDVictoryInfo node:loserPinkCount];
+    
+    CGFloat const LOSER_BLUE_REL_X = 0.29;
+    CGFloat const LOSER_BLUE_REL_Y = -0.15;
+    
+    SSKLabelNode* loserBlueCount = [[SSKLabelNode alloc] initWithFontNamed:@"gameFont"];
+    loserBlueCount.text = [NSString stringWithFormat:@"%d", self.loserStats.blueTargetsHit];
+    loserBlueCount.position =
+        CGPointMake(self.scene.frame.size.width * LOSER_BLUE_REL_X,
+                    self.scene.frame.size.height * LOSER_BLUE_REL_Y);
+    [self addNodeToLayer:LayerIDVictoryInfo node:loserBlueCount];
+    
+    CGFloat const LOSER_GOLD_REL_X = 0.29;
+    CGFloat const LOSER_GOLD_REL_Y = -0.25;
+    
+    SSKLabelNode* loserGoldCount = [[SSKLabelNode alloc] initWithFontNamed:@"gameFont"];
+    loserGoldCount.text = [NSString stringWithFormat:@"%d", self.loserStats.goldTargetsHit];
+    loserGoldCount.position =
+        CGPointMake(self.scene.frame.size.width * LOSER_GOLD_REL_X,
+                    self.scene.frame.size.height * LOSER_GOLD_REL_Y);
+    [self addNodeToLayer:LayerIDVictoryInfo node:loserGoldCount];
+    
     // Initialise HUD layer
     CGFloat const RETRY_REL_X = -0.212421875;
     CGFloat const RETRY_REL_Y = -0.2899479167;
@@ -82,7 +235,7 @@ typedef enum layers {
              }
              
              [node.state requestStackClear];
-             [node.state requestStackPush:StateIDStandardGame];
+             [node.state requestStackPush:StateIDStandardGame data:NULL];
          }];
     retryButton.audioDelegate = self.audioDelegate;
     retryButton.position =
@@ -105,7 +258,7 @@ typedef enum layers {
              }
              
              [node.state requestStackClear];
-             [node.state requestStackPush:StateIDMenu];
+             [node.state requestStackPush:StateIDMenu data:NULL];
          }];
     menuButton.audioDelegate = self.audioDelegate;
     menuButton.position =
@@ -117,5 +270,10 @@ typedef enum layers {
 #pragma mark - Properties
 
 @synthesize actionQueue;
+@synthesize winnerScore;
+@synthesize loserScore;
+@synthesize winnerStats;
+@synthesize loserStats;
+@synthesize playerOneWon;
 
 @end

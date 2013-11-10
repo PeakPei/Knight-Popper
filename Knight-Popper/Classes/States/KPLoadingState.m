@@ -42,11 +42,13 @@ typedef enum layers {
 
 - (id)initWithStateStack:(SSKStateStack *)stateStack
           textureManager:(SSKTextureManager *)textureManager
-           audioDelegate:(id<SSKAudioManagerDelegate>)delegate {
+           audioDelegate:(id<SSKAudioManagerDelegate>)delegate
+                    data:(NSDictionary *)data {
     unsigned int layerCount = 3;
     if (self = [super initWithStateStack:stateStack
                           textureManager:textureManager
                            audioDelegate:delegate
+                                    data:data
                               layerCount:layerCount]) {
         self.actionQueue = [[SSKActionQueue alloc] init];
         self.startTime = START_TIME_DEFAULT;
@@ -65,7 +67,7 @@ typedef enum layers {
                             loopCount:-1
                            instanceId:SoundInstanceIDMenuMusic];
         [self requestStackClear];
-        [self requestStackPush:StateIDStandardGame];
+        [self requestStackPush:StateIDStandardGame data:NULL];
     }
     
     while (![self.actionQueue isEmpty]) {

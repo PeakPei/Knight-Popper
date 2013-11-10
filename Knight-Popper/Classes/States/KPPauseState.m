@@ -28,11 +28,13 @@ typedef enum layers {
 
 - (id)initWithStateStack:(SSKStateStack *)stateStack
           textureManager:(SSKTextureManager *)textureManager
-           audioDelegate:(id<SSKAudioManagerDelegate>)delegate {
+           audioDelegate:(id<SSKAudioManagerDelegate>)delegate
+                    data:(NSDictionary *)data {
     unsigned int const LAYER_COUNT = 3;
     if (self = [super initWithStateStack:stateStack
                           textureManager:textureManager
                            audioDelegate:delegate
+                                    data:data
                               layerCount:LAYER_COUNT]) {
         // stub
     }

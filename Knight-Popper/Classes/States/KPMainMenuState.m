@@ -37,11 +37,13 @@ typedef enum layers {
 
 - (id)initWithStateStack:(SSKStateStack *)stateStack
           textureManager:(SSKTextureManager *)textureManager
-           audioDelegate:(id<SSKAudioManagerDelegate>)delegate{
+           audioDelegate:(id<SSKAudioManagerDelegate>)delegate
+                    data:(NSDictionary *)data{
     unsigned int layerCount = 3;
     if (self = [super initWithStateStack:stateStack
                           textureManager:textureManager
                            audioDelegate:delegate
+                                    data:data
                               layerCount:layerCount]) {
         self.actionQueue = [[SSKActionQueue alloc] init];
     }
@@ -84,7 +86,7 @@ typedef enum layers {
          clickEventBlock:^(SSKButtonNode* node) {
              [node.audioDelegate playSound:SoundIDForwardPress];
              [node.state requestStackClear];
-             [node.state requestStackPush:StateIDLoading];
+             [node.state requestStackPush:StateIDLoading data:NULL];
          }];
     playButton.audioDelegate = self.audioDelegate;
     playButton.position = CGPointMake(self.scene.frame.size.width * PLAY_REL_X,
@@ -99,7 +101,7 @@ typedef enum layers {
          initWithTexture:[self.textures getTexture:TextureIDAboutButton]
          clickEventBlock:^(SSKButtonNode* node) {
              [node.audioDelegate playSound:SoundIDForwardPress];
-             [node.state requestStackPush:StateIDCredits];
+             [node.state requestStackPush:StateIDCredits data:NULL];
          }];
     aboutButton.audioDelegate = self.audioDelegate;
     aboutButton.position = CGPointMake(self.scene.frame.size.width * ABOUT_REL_X,

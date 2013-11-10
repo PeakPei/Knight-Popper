@@ -21,8 +21,9 @@
 #import "KPLoadingState.h"
 #import "KPCreditsState.h"
 #import "KPVictoryState.h"
-#import "KPTestState.h"
 #import "KPPauseState.h"
+#import "KPCollisionTestState.h"
+#import "KPStateStack.h"
 
 #pragma mark - Interface
 
@@ -31,7 +32,7 @@
 /**
  * @brief The state stack used to describe the scene.
  */
-@property SSKStateStack* stateStack;
+@property KPStateStack* stateStack;
 
 /**
  * @brief The view associated with the view controller that is used to describe
@@ -202,20 +203,21 @@
     // Register states
     CGSize landscapeSize =
         [UIApplication sizeInOrientation:UIInterfaceOrientationLandscapeLeft];
-    self.stateStack = [[SSKStateStack alloc] initWithTextureManager:self.textures
-                                                       musicManager:self.musicManager
-                                                       soundManager:self.soundManager
+    self.stateStack = [[KPStateStack alloc] initWithTextureManager:self.textures
+                                                      musicManager:self.musicManager
+                                                      soundManager:self.soundManager
                                                               size:landscapeSize];
     [self.stateStack registerState:[KPStandardGameState class] stateID:StateIDStandardGame];
     [self.stateStack registerState:[KPMainMenuState class] stateID:StateIDMenu];
     [self.stateStack registerState:[KPLoadingState class] stateID:StateIDLoading];
     [self.stateStack registerState:[KPCreditsState class] stateID:StateIDCredits];
     [self.stateStack registerState:[KPVictoryState class] stateID:StateIDVictory];
-    [self.stateStack registerState:[KPTestState class] stateID:StateIDTest];
     [self.stateStack registerState:[KPPauseState class] stateID:StateIDPause];
+    [self.stateStack registerState:[KPCollisionTestState class] stateID:StateIDCollisionTest];
+    self.stateStack.physicsWorld.contactDelegate = self.stateStack;
     
     // Configure the scene
-    [self.stateStack pushState:StateIDTest];
+    [self.stateStack pushState:StateIDCollisionTest data:NULL];
     [self.stateView presentScene:self.stateStack];
 }
 

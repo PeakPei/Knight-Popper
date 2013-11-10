@@ -92,6 +92,11 @@
 		904BDC791808D60D003E7499 /* player_two_attack~iphone.png in Resources */ = {isa = PBXBuildFile; fileRef = 904BDC6A1808D60D003E7499 /* player_two_attack~iphone.png */; };
 		904BDC7A1808D60D003E7499 /* player_two_idle~iphone.png in Resources */ = {isa = PBXBuildFile; fileRef = 904BDC6B1808D60D003E7499 /* player_two_idle~iphone.png */; };
 		904BDC7B1808D60D003E7499 /* times_up~iphone.png in Resources */ = {isa = PBXBuildFile; fileRef = 904BDC6C1808D60D003E7499 /* times_up~iphone.png */; };
+		904D0D9B182EDE92007E35BB /* KPCollisionTestState.m in Sources */ = {isa = PBXBuildFile; fileRef = 904D0D9A182EDE92007E35BB /* KPCollisionTestState.m */; };
+		904D0D9F182EFF04007E35BB /* KPStateStack.m in Sources */ = {isa = PBXBuildFile; fileRef = 904D0D9E182EFF04007E35BB /* KPStateStack.m */; };
+		904D0DA2182F0C25007E35BB /* KPTestProjNode.m in Sources */ = {isa = PBXBuildFile; fileRef = 904D0DA1182F0C25007E35BB /* KPTestProjNode.m */; };
+		905929E4182E90BA0073DEEC /* KPTestTargetNode.m in Sources */ = {isa = PBXBuildFile; fileRef = 905929E3182E90BA0073DEEC /* KPTestTargetNode.m */; };
+		905929E7182E90CA0073DEEC /* KPTestProjectileNode.m in Sources */ = {isa = PBXBuildFile; fileRef = 905929E6182E90CA0073DEEC /* KPTestProjectileNode.m */; };
 		9088297817FFC0150016CCB6 /* KPActionCategories.m in Sources */ = {isa = PBXBuildFile; fileRef = 9088295617FFC0150016CCB6 /* KPActionCategories.m */; };
 		9088297917FFC0150016CCB6 /* KPAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 9088295817FFC0150016CCB6 /* KPAppDelegate.m */; };
 		9088297A17FFC0150016CCB6 /* KPApplicationViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9088295A17FFC0150016CCB6 /* KPApplicationViewController.m */; };
@@ -178,7 +183,6 @@
 		90885C2B182A58B70041095E /* player2~iphone.png in Resources */ = {isa = PBXBuildFile; fileRef = 90885C29182A58B70041095E /* player2~iphone.png */; };
 		90885C2E182A58C40041095E /* player1@2x~iphone.png in Resources */ = {isa = PBXBuildFile; fileRef = 90885C2C182A58C40041095E /* player1@2x~iphone.png */; };
 		90885C2F182A58C40041095E /* player2@2x~iphone.png in Resources */ = {isa = PBXBuildFile; fileRef = 90885C2D182A58C40041095E /* player2@2x~iphone.png */; };
-		908CFB36182AE20000941DB1 /* KPTestState.m in Sources */ = {isa = PBXBuildFile; fileRef = 908CFB35182AE20000941DB1 /* KPTestState.m */; };
 		908CFB38182AE32E00941DB1 /* giant_lollipop~ipad.png in Resources */ = {isa = PBXBuildFile; fileRef = 908CFB37182AE32E00941DB1 /* giant_lollipop~ipad.png */; };
 		908CFC21182B231E00941DB1 /* KPPauseState.m in Sources */ = {isa = PBXBuildFile; fileRef = 908CFC20182B231E00941DB1 /* KPPauseState.m */; };
 		908CFC25182B255300941DB1 /* pause_BG~ipad.png in Resources */ = {isa = PBXBuildFile; fileRef = 908CFC22182B255300941DB1 /* pause_BG~ipad.png */; };
@@ -474,6 +478,17 @@
 		904BDC6A1808D60D003E7499 /* player_two_attack~iphone.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "player_two_attack~iphone.png"; sourceTree = "<group>"; };
 		904BDC6B1808D60D003E7499 /* player_two_idle~iphone.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "player_two_idle~iphone.png"; sourceTree = "<group>"; };
 		904BDC6C1808D60D003E7499 /* times_up~iphone.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "times_up~iphone.png"; sourceTree = "<group>"; };
+		904D0D99182EDE92007E35BB /* KPCollisionTestState.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KPCollisionTestState.h; sourceTree = "<group>"; };
+		904D0D9A182EDE92007E35BB /* KPCollisionTestState.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KPCollisionTestState.m; sourceTree = "<group>"; };
+		904D0D9D182EFF04007E35BB /* KPStateStack.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KPStateStack.h; sourceTree = "<group>"; };
+		904D0D9E182EFF04007E35BB /* KPStateStack.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KPStateStack.m; sourceTree = "<group>"; };
+		904D0DA0182F0C25007E35BB /* KPTestProjNode.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KPTestProjNode.h; sourceTree = "<group>"; };
+		904D0DA1182F0C25007E35BB /* KPTestProjNode.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KPTestProjNode.m; sourceTree = "<group>"; };
+		905929E1182E8BB10073DEEC /* ColliderTypes.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ColliderTypes.h; sourceTree = "<group>"; };
+		905929E2182E90BA0073DEEC /* KPTestTargetNode.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KPTestTargetNode.h; sourceTree = "<group>"; };
+		905929E3182E90BA0073DEEC /* KPTestTargetNode.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KPTestTargetNode.m; sourceTree = "<group>"; };
+		905929E5182E90CA0073DEEC /* KPTestProjectileNode.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KPTestProjectileNode.h; sourceTree = "<group>"; };
+		905929E6182E90CA0073DEEC /* KPTestProjectileNode.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KPTestProjectileNode.m; sourceTree = "<group>"; };
 		9088295517FFC0150016CCB6 /* KPActionCategories.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KPActionCategories.h; sourceTree = "<group>"; };
 		9088295617FFC0150016CCB6 /* KPActionCategories.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KPActionCategories.m; sourceTree = "<group>"; };
 		9088295717FFC0150016CCB6 /* KPAppDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KPAppDelegate.h; sourceTree = "<group>"; };
@@ -578,8 +593,6 @@
 		90885C29182A58B70041095E /* player2~iphone.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "player2~iphone.png"; sourceTree = "<group>"; };
 		90885C2C182A58C40041095E /* player1@2x~iphone.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "player1@2x~iphone.png"; sourceTree = "<group>"; };
 		90885C2D182A58C40041095E /* player2@2x~iphone.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "player2@2x~iphone.png"; sourceTree = "<group>"; };
-		908CFB34182AE20000941DB1 /* KPTestState.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KPTestState.h; sourceTree = "<group>"; };
-		908CFB35182AE20000941DB1 /* KPTestState.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KPTestState.m; sourceTree = "<group>"; };
 		908CFB37182AE32E00941DB1 /* giant_lollipop~ipad.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "giant_lollipop~ipad.png"; sourceTree = "<group>"; };
 		908CFC1F182B231E00941DB1 /* KPPauseState.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KPPauseState.h; sourceTree = "<group>"; };
 		908CFC20182B231E00941DB1 /* KPPauseState.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KPPauseState.m; sourceTree = "<group>"; };
@@ -862,9 +875,12 @@
 				9088295A17FFC0150016CCB6 /* KPApplicationViewController.m */,
 				9088295517FFC0150016CCB6 /* KPActionCategories.h */,
 				9088295617FFC0150016CCB6 /* KPActionCategories.m */,
+				904D0D9D182EFF04007E35BB /* KPStateStack.h */,
+				904D0D9E182EFF04007E35BB /* KPStateStack.m */,
 				90B07AD3180BAE9F00530915 /* SoundIDs.h */,
 				90885BC918298FB20041095E /* SoundInstanceIDs.h */,
 				9088296217FFC0150016CCB6 /* TextureIDs.h */,
+				905929E1182E8BB10073DEEC /* ColliderTypes.h */,
 				B9C9CB68182D6C8A00D6017A /* Models */,
 				9088295B17FFC0150016CCB6 /* Scene Entities */,
 				9088295E17FFC0150016CCB6 /* States */,
@@ -882,6 +898,12 @@
 				908CFC3B182B4EF600941DB1 /* KPShapeAnimationNode.m */,
 				90885C1A182A35E60041095E /* KPShapeNode.h */,
 				90885C1B182A35E60041095E /* KPShapeNode.m */,
+				905929E2182E90BA0073DEEC /* KPTestTargetNode.h */,
+				905929E3182E90BA0073DEEC /* KPTestTargetNode.m */,
+				905929E5182E90CA0073DEEC /* KPTestProjectileNode.h */,
+				905929E6182E90CA0073DEEC /* KPTestProjectileNode.m */,
+				904D0DA0182F0C25007E35BB /* KPTestProjNode.h */,
+				904D0DA1182F0C25007E35BB /* KPTestProjNode.m */,
 			);
 			path = "Scene Entities";
 			sourceTree = "<group>";
@@ -889,6 +911,8 @@
 		9088295E17FFC0150016CCB6 /* States */ = {
 			isa = PBXGroup;
 			children = (
+				904D0D99182EDE92007E35BB /* KPCollisionTestState.h */,
+				904D0D9A182EDE92007E35BB /* KPCollisionTestState.m */,
 				90885B9318297DB30041095E /* KPCreditsState.h */,
 				90885B9418297DB30041095E /* KPCreditsState.m */,
 				90175022180E553B00B000A7 /* KPLoadingState.h */,
@@ -899,8 +923,6 @@
 				908CFC20182B231E00941DB1 /* KPPauseState.m */,
 				9088295F17FFC0150016CCB6 /* KPStandardGameState.h */,
 				9088296017FFC0150016CCB6 /* KPStandardGameState.m */,
-				908CFB34182AE20000941DB1 /* KPTestState.h */,
-				908CFB35182AE20000941DB1 /* KPTestState.m */,
 				90885B8F18297D9F0041095E /* KPVictoryState.h */,
 				90885B9018297D9F0041095E /* KPVictoryState.m */,
 				9088296117FFC0150016CCB6 /* StateIDs.h */,
@@ -1804,16 +1826,20 @@
 				9088297817FFC0150016CCB6 /* KPActionCategories.m in Sources */,
 				9088297E17FFC0150016CCB6 /* UIApplication+AppDimensions.m in Sources */,
 				9088297D17FFC0150016CCB6 /* Random.m in Sources */,
+				904D0D9B182EDE92007E35BB /* KPCollisionTestState.m in Sources */,
 				90175024180E553B00B000A7 /* KPLoadingState.m in Sources */,
+				905929E4182E90BA0073DEEC /* KPTestTargetNode.m in Sources */,
+				904D0D9F182EFF04007E35BB /* KPStateStack.m in Sources */,
 				9088299017FFC0C00016CCB6 /* KPTargetNode.m in Sources */,
+				905929E7182E90CA0073DEEC /* KPTestProjectileNode.m in Sources */,
 				90885C1C182A35E60041095E /* KPShapeNode.m in Sources */,
 				9088297F17FFC0150016CCB6 /* main.m in Sources */,
 				908CFC21182B231E00941DB1 /* KPPauseState.m in Sources */,
 				9017500B180E2C5F00B000A7 /* KPMainMenuState.m in Sources */,
 				9088297A17FFC0150016CCB6 /* KPApplicationViewController.m in Sources */,
 				B9C9CB6E182D6C8A00D6017A /* KPPlayerStats.m in Sources */,
-				908CFB36182AE20000941DB1 /* KPTestState.m in Sources */,
 				90885B9118297D9F0041095E /* KPVictoryState.m in Sources */,
+				904D0DA2182F0C25007E35BB /* KPTestProjNode.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

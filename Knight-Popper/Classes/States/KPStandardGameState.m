@@ -15,6 +15,9 @@
 #import "KPPlayerScore.h"
 #import "KPPlayerStats.h"
 #import "StateDataKeys.h"
+#import "ColliderTypes.h"
+#import "KPTestProjectileNode.h"
+#import "KPTestTargetNode.h"
 #import <SpriteStackKit/SSKSpriteNode.h>
 #import <SpriteStackKit/SSKAction.h>
 #import <SpriteStackKit/SSKActionQueue.h>
@@ -135,10 +138,11 @@ typedef enum layers {
             }],
             [SKAction waitForDuration:3.1],
             [SKAction runBlock:^{
-                NSDictionary* data = @{[NSNumber numberWithInt:StateDataKeyPlayerOneScore]: self.playerOneScore,
-                                       [NSNumber numberWithInt:StateDataKeyPlayerTwoScore]: self.playerTwoScore,
-                                       [NSNumber numberWithInt:StateDataKeyPlayerOneStats]: self.playerOneStats,
-                                       [NSNumber numberWithInt:StateDataKeyPlayerTwoStats]: self.playerTwoStats};
+                NSDictionary* data = @{
+                    [NSNumber numberWithInt:StateDataKeyPlayerOneScore]: self.playerOneScore,
+                    [NSNumber numberWithInt:StateDataKeyPlayerTwoScore]: self.playerTwoScore,
+                    [NSNumber numberWithInt:StateDataKeyPlayerOneStats]: self.playerOneStats,
+                    [NSNumber numberWithInt:StateDataKeyPlayerTwoStats]: self.playerTwoStats};
                 [self requestStackClear];
                 [self requestStackPush:StateIDVictory data:data];
             }]]];
@@ -215,70 +219,70 @@ typedef enum layers {
     
     // Initialise resources in pools
     [self.poolManager addResourcePool:30
-                         resourceType:[SSKSpriteAnimationNode class]
+                         resourceType:[KPTestTargetNode class]
                             addAction:targetAdd
                             getAction:targetGet
                        poolIdentifier:1];
     
     for (int i = 0; i < 30; i++) {
-        SSKSpriteAnimationNode* node =
-        [[SSKSpriteAnimationNode alloc]
+        KPTestTargetNode* node =
+        [[KPTestTargetNode alloc]
          initWithSpriteSheet:[self.textures getTexture:TextureIDPinkMonkeyTarget]
          columns:8 rows:3 numFrames:20 horizontalOrder:YES timePerFrame:1.0/14.0];
         [self.poolManager addToPool:1 resource:node];
     }
     
     [self.poolManager addResourcePool:30
-                         resourceType:[SSKSpriteAnimationNode class]
+                         resourceType:[KPTestTargetNode class]
                             addAction:targetAdd
                             getAction:targetGet
                        poolIdentifier:2];
     
     for (int i = 0; i < 30; i++) {
-        SSKSpriteAnimationNode* node =
-        [[SSKSpriteAnimationNode alloc]
+        KPTestTargetNode* node =
+        [[KPTestTargetNode alloc]
          initWithSpriteSheet:[self.textures getTexture:TextureIDBlueMonkeyTarget]
          columns:8 rows:3 numFrames:20 horizontalOrder:YES timePerFrame:1.0/14.0];
         [self.poolManager addToPool:2 resource:node];
     }
     
     [self.poolManager addResourcePool:2
-                         resourceType:[SSKSpriteAnimationNode class]
+                         resourceType:[KPTestTargetNode class]
                             addAction:targetAdd
                             getAction:targetGet
                        poolIdentifier:3];
     
     for (int i = 0; i < 2; i++) {
-        SSKSpriteAnimationNode* node =
-        [[SSKSpriteAnimationNode alloc]
+        KPTestTargetNode* node =
+        [[KPTestTargetNode alloc]
          initWithSpriteSheet:[self.textures getTexture:TextureIDGoldMonkeyTarget]
          columns:8 rows:3 numFrames:20 horizontalOrder:YES timePerFrame:1.0/14.0];
         [self.poolManager addToPool:3 resource:node];
     }
     
     [self.poolManager addResourcePool:10
-                         resourceType:[SSKSpriteAnimationNode class]
+                         resourceType:[KPTestProjectileNode class]
                             addAction:targetAdd
                             getAction:targetGet
                        poolIdentifier:4];
     
     for (int i = 0; i < 10; i++) {
-        SSKSpriteAnimationNode* node =
-        [[SSKSpriteAnimationNode alloc]
+        KPTestProjectileNode* node =
+        [[KPTestProjectileNode alloc]
          initWithSpriteSheet:[self.textures getTexture:TextureIDLollipopLeftProjectile]
          columns:3 rows:3 numFrames:8 horizontalOrder:YES timePerFrame:1.0/14.0];
         [self.poolManager addToPool:4 resource:node];
     }
     
     [self.poolManager addResourcePool:10
-                         resourceType:[SSKSpriteAnimationNode class]
+                         resourceType:[KPTestProjectileNode class]
                             addAction:targetAdd
                             getAction:targetGet
                        poolIdentifier:5];
     
     for (int i = 0; i < 10; i++) {
-        SSKSpriteAnimationNode* node =
-        [[SSKSpriteAnimationNode alloc]
+        KPTestProjectileNode* node =
+        [[KPTestProjectileNode alloc]
          initWithSpriteSheet:[self.textures getTexture:TextureIDLollipopRightProjectile]
          columns:3 rows:3 numFrames:8 horizontalOrder:YES timePerFrame:1.0/14.0];
         [self.poolManager addToPool:5 resource:node];

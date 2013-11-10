@@ -183,7 +183,6 @@
 		90885C2B182A58B70041095E /* player2~iphone.png in Resources */ = {isa = PBXBuildFile; fileRef = 90885C29182A58B70041095E /* player2~iphone.png */; };
 		90885C2E182A58C40041095E /* player1@2x~iphone.png in Resources */ = {isa = PBXBuildFile; fileRef = 90885C2C182A58C40041095E /* player1@2x~iphone.png */; };
 		90885C2F182A58C40041095E /* player2@2x~iphone.png in Resources */ = {isa = PBXBuildFile; fileRef = 90885C2D182A58C40041095E /* player2@2x~iphone.png */; };
-		908CFB38182AE32E00941DB1 /* giant_lollipop~ipad.png in Resources */ = {isa = PBXBuildFile; fileRef = 908CFB37182AE32E00941DB1 /* giant_lollipop~ipad.png */; };
 		908CFC21182B231E00941DB1 /* KPPauseState.m in Sources */ = {isa = PBXBuildFile; fileRef = 908CFC20182B231E00941DB1 /* KPPauseState.m */; };
 		908CFC25182B255300941DB1 /* pause_BG~ipad.png in Resources */ = {isa = PBXBuildFile; fileRef = 908CFC22182B255300941DB1 /* pause_BG~ipad.png */; };
 		908CFC26182B255300941DB1 /* resume_hover~ipad.png in Resources */ = {isa = PBXBuildFile; fileRef = 908CFC23182B255300941DB1 /* resume_hover~ipad.png */; };
@@ -238,8 +237,6 @@
 		908CFE9E182B51F400941DB1 /* blue_gold_monkeys_y_32.plist in Resources */ = {isa = PBXBuildFile; fileRef = 908CFE2C182B51F400941DB1 /* blue_gold_monkeys_y_32.plist */; };
 		908CFE9F182B51F400941DB1 /* blue_gold_monkeys_y_33.plist in Resources */ = {isa = PBXBuildFile; fileRef = 908CFE2D182B51F400941DB1 /* blue_gold_monkeys_y_33.plist */; };
 		908CFEA0182B51F400941DB1 /* blue_gold_monkeys_y_34.plist in Resources */ = {isa = PBXBuildFile; fileRef = 908CFE2E182B51F400941DB1 /* blue_gold_monkeys_y_34.plist */; };
-		908CFEA1182B51F400941DB1 /* giant_lollipop_x_11.plist in Resources */ = {isa = PBXBuildFile; fileRef = 908CFE2F182B51F400941DB1 /* giant_lollipop_x_11.plist */; };
-		908CFEA2182B51F400941DB1 /* giant_lollipop_y_11.plist in Resources */ = {isa = PBXBuildFile; fileRef = 908CFE30182B51F400941DB1 /* giant_lollipop_y_11.plist */; };
 		908CFEA3182B51F400941DB1 /* lollipop_left_projectile_x_11.plist in Resources */ = {isa = PBXBuildFile; fileRef = 908CFE31182B51F400941DB1 /* lollipop_left_projectile_x_11.plist */; };
 		908CFEA4182B51F400941DB1 /* lollipop_left_projectile_x_12.plist in Resources */ = {isa = PBXBuildFile; fileRef = 908CFE32182B51F400941DB1 /* lollipop_left_projectile_x_12.plist */; };
 		908CFEA5182B51F400941DB1 /* lollipop_left_projectile_x_13.plist in Resources */ = {isa = PBXBuildFile; fileRef = 908CFE33182B51F400941DB1 /* lollipop_left_projectile_x_13.plist */; };
@@ -594,7 +591,6 @@
 		90885C29182A58B70041095E /* player2~iphone.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "player2~iphone.png"; sourceTree = "<group>"; };
 		90885C2C182A58C40041095E /* player1@2x~iphone.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "player1@2x~iphone.png"; sourceTree = "<group>"; };
 		90885C2D182A58C40041095E /* player2@2x~iphone.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "player2@2x~iphone.png"; sourceTree = "<group>"; };
-		908CFB37182AE32E00941DB1 /* giant_lollipop~ipad.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "giant_lollipop~ipad.png"; sourceTree = "<group>"; };
 		908CFC1F182B231E00941DB1 /* KPPauseState.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KPPauseState.h; sourceTree = "<group>"; };
 		908CFC20182B231E00941DB1 /* KPPauseState.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KPPauseState.m; sourceTree = "<group>"; };
 		908CFC22182B255300941DB1 /* pause_BG~ipad.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "pause_BG~ipad.png"; sourceTree = "<group>"; };
@@ -651,8 +647,6 @@
 		908CFE2C182B51F400941DB1 /* blue_gold_monkeys_y_32.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = blue_gold_monkeys_y_32.plist; sourceTree = "<group>"; };
 		908CFE2D182B51F400941DB1 /* blue_gold_monkeys_y_33.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = blue_gold_monkeys_y_33.plist; sourceTree = "<group>"; };
 		908CFE2E182B51F400941DB1 /* blue_gold_monkeys_y_34.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = blue_gold_monkeys_y_34.plist; sourceTree = "<group>"; };
-		908CFE2F182B51F400941DB1 /* giant_lollipop_x_11.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = giant_lollipop_x_11.plist; sourceTree = "<group>"; };
-		908CFE30182B51F400941DB1 /* giant_lollipop_y_11.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = giant_lollipop_y_11.plist; sourceTree = "<group>"; };
 		908CFE31182B51F400941DB1 /* lollipop_left_projectile_x_11.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = lollipop_left_projectile_x_11.plist; sourceTree = "<group>"; };
 		908CFE32182B51F400941DB1 /* lollipop_left_projectile_x_12.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = lollipop_left_projectile_x_12.plist; sourceTree = "<group>"; };
 		908CFE33182B51F400941DB1 /* lollipop_left_projectile_x_13.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = lollipop_left_projectile_x_13.plist; sourceTree = "<group>"; };
@@ -1028,8 +1022,6 @@
 				908CFE2C182B51F400941DB1 /* blue_gold_monkeys_y_32.plist */,
 				908CFE2D182B51F400941DB1 /* blue_gold_monkeys_y_33.plist */,
 				908CFE2E182B51F400941DB1 /* blue_gold_monkeys_y_34.plist */,
-				908CFE2F182B51F400941DB1 /* giant_lollipop_x_11.plist */,
-				908CFE30182B51F400941DB1 /* giant_lollipop_y_11.plist */,
 				908CFE31182B51F400941DB1 /* lollipop_left_projectile_x_11.plist */,
 				908CFE32182B51F400941DB1 /* lollipop_left_projectile_x_12.plist */,
 				908CFE33182B51F400941DB1 /* lollipop_left_projectile_x_13.plist */,
@@ -1160,7 +1152,6 @@
 				908CFC22182B255300941DB1 /* pause_BG~ipad.png */,
 				908CFC23182B255300941DB1 /* resume_hover~ipad.png */,
 				908CFC24182B255300941DB1 /* resume~ipad.png */,
-				908CFB37182AE32E00941DB1 /* giant_lollipop~ipad.png */,
 				90885C20182A58A00041095E /* player1~ipad.png */,
 				90885C21182A58A00041095E /* player2~ipad.png */,
 				90885B96182981400041095E /* about_button_hover~ipad.png */,
@@ -1689,7 +1680,6 @@
 				904BDC211808D5DF003E7499 /* background-568h@2x~iphone.png in Resources */,
 				904BDC351808D5EE003E7499 /* gold_pop~ipad.png in Resources */,
 				90E3C2CB18000EF400087ED3 /* background~ipad.png in Resources */,
-				908CFEA2182B51F400941DB1 /* giant_lollipop_y_11.plist in Resources */,
 				908CFEA7182B51F400941DB1 /* lollipop_left_projectile_x_22.plist in Resources */,
 				90B07ACD180BAE7C00530915 /* lollipop_lick.wav in Resources */,
 				908CFC2B182B255F00941DB1 /* pause_BG@2x~ipad.png in Resources */,
@@ -1701,7 +1691,6 @@
 				908CFE8F182B51F400941DB1 /* blue_gold_monkeys_y_13.plist in Resources */,
 				908CFE91182B51F400941DB1 /* blue_gold_monkeys_y_15.plist in Resources */,
 				90B07AD1180BAE7C00530915 /* victory.wav in Resources */,
-				908CFEA1182B51F400941DB1 /* giant_lollipop_x_11.plist in Resources */,
 				90E3C2E018000EF400087ED3 /* background@2x~iphone.png in Resources */,
 				90885BDB182995440041095E /* play_button_hover~iphone.png in Resources */,
 				9017501C180E54A000B000A7 /* lollipop_base~iphone.png in Resources */,
@@ -1797,7 +1786,6 @@
 				908CFEAC182B51F400941DB1 /* lollipop_left_projectile_y_12.plist in Resources */,
 				90885BD7182995440041095E /* back_button_hover~iphone.png in Resources */,
 				904BDC3C1808D5EE003E7499 /* player_one_idle~ipad.png in Resources */,
-				908CFB38182AE32E00941DB1 /* giant_lollipop~ipad.png in Resources */,
 				90885C031829963B0041095E /* gold_monkey_target@2x~iphone.png in Resources */,
 				908CFEE0182B51F400941DB1 /* pink_monkey_target_y_22.plist in Resources */,
 				908CFEA5182B51F400941DB1 /* lollipop_left_projectile_x_13.plist in Resources */,

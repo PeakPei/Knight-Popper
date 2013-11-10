@@ -22,7 +22,8 @@ typedef enum Category {
     ActionCategoryObstacle = 1 << 2,
     ActionCategoryBackground = 1 << 3,
     ActionCategoryScore = 1 << 4,
-    ActionCategoryTime = 1 << 5
+    ActionCategoryTime = 1 << 5,
+    ActionCategoryProjectile = 1 << 6
 } ActionCategory;
 
 /**

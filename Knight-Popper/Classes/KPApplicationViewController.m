@@ -22,7 +22,6 @@
 #import "KPCreditsState.h"
 #import "KPVictoryState.h"
 #import "KPPauseState.h"
-#import "KPCollisionTestState.h"
 #import "KPStateStack.h"
 
 #pragma mark - Interface
@@ -213,11 +212,10 @@
     [self.stateStack registerState:[KPCreditsState class] stateID:StateIDCredits];
     [self.stateStack registerState:[KPVictoryState class] stateID:StateIDVictory];
     [self.stateStack registerState:[KPPauseState class] stateID:StateIDPause];
-    [self.stateStack registerState:[KPCollisionTestState class] stateID:StateIDCollisionTest];
     self.stateStack.physicsWorld.contactDelegate = self.stateStack;
     
     // Configure the scene
-    [self.stateStack pushState:StateIDCollisionTest data:NULL];
+    [self.stateStack pushState:StateIDMenu data:NULL];
     [self.stateView presentScene:self.stateStack];
 }
 

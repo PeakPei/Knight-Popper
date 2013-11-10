@@ -11,15 +11,12 @@
 
 typedef enum States {
     StateIDNone,
-    StateIDTitle,
     StateIDMenu,
     StateIDStandardGame,
-    StateIDHighScores,
     StateIDLoading,
     StateIDPause,
     StateIDVictory,
     StateIDCredits,
-    StateIDCollisionTest
 } StateID;
 
 #endif

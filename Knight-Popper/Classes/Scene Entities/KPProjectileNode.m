@@ -1,29 +1,29 @@
 /**
- * @filename KPTargetNode.m
+ * @filename KPProjectileNode.m
  * @author Morgan Wall
- * @date 23-9-2013
+ * @date 10-11-2013
  */
 
-#import "KPTargetNode.h"
-#import "TextureIDs.h"
+#import "KPProjectileNode.h"
 #import "KPActionCategories.h"
+#import "TextureIDs.h"
 #import "ColliderTypes.h"
 #import "PathParser.h"
 
 #pragma mark - Interface
 
-@interface KPTargetNode ()
+@interface KPProjectileNode()
 
 /**
  * @brief Retrieve the unique texture identifier associated with a specific
- * target type.
+ * projectile type.
  *
- * @param targetType
- * The target type.
+ * @param projectileType
+ * The projectile type.
  *
- * @returns The unique texture identifier associated with the target type.
+ * @returns The unique texture identifier associated with the projectile type.
  */
-+ (TextureID)textureIDForType:(TargetType)type;
++ (TextureID)textureIDForType:(ProjectileType)type;
 
 /**
  * @brief The category defining the actions handled by the node.
@@ -34,18 +34,18 @@
 
 #pragma mark - Implementation
 
-@implementation KPTargetNode
+@implementation KPProjectileNode
 
-- (id)initWithType:(TargetType)targetType
+- (id)initWithType:(ProjectileType)projectileType
           textures:(SSKTextureManager*)textures
       timePerFrame:(double)timePerFrame {
     
-    unsigned int const COLUMNS = 8;
+    unsigned int const COLUMNS = 3;
     unsigned int const ROWS = 3;
-    unsigned int const NUM_FRAMES = 20;
+    unsigned int const NUM_FRAMES = 8;
     BOOL const HORIZONTAL_ORDER = YES;
     
-    TextureID spriteSheetID = [KPTargetNode textureIDForType:targetType];
+    TextureID spriteSheetID = [KPProjectileNode textureIDForType:projectileType];
     
     if (self = [super initWithSpriteSheet:[textures getTexture:spriteSheetID]
                                   columns:COLUMNS
@@ -53,36 +53,35 @@
                                 numFrames:NUM_FRAMES
                           horizontalOrder:HORIZONTAL_ORDER
                              timePerFrame:timePerFrame]) {
-        NSString* filename = TargetTypeBlueMonkey ? @"pink_monkey"
-                                                  : @"blue_gold_monkeys";
+        NSString* filename = ProjectileTypeLeft ? @"lollipop_right_projectile"
+                                                : @"lollipop_left_projectile";
         
-        NSArray* paths =
-            [PathParser parsePaths:filename columns:COLUMNS rows:ROWS
-            numFrames:NUM_FRAMES horizontalOrder:HORIZONTAL_ORDER
-            width:self.frame.size.width height:self.frame.size.height];
+        NSArray* paths = [PathParser parsePaths:filename columns:COLUMNS rows:ROWS
+                          numFrames:NUM_FRAMES horizontalOrder:HORIZONTAL_ORDER
+                          width:self.frame.size.width height:self.frame.size.height];
         
         SKPhysicsBody* physicsBody =
             [SKPhysicsBody bodyWithPolygonFromPath:(__bridge CGPathRef)(paths[0])];
         physicsBody.dynamic = YES;
         physicsBody.affectedByGravity = NO;
-        physicsBody.categoryBitMask = ColliderTypeTarget;
-        physicsBody.contactTestBitMask = ColliderTypeProjectile | ColliderTypeTarget;
+        physicsBody.categoryBitMask = ColliderTypeProjectile;
+        physicsBody.contactTestBitMask = ColliderTypeTarget | ColliderTypeProjectile;
         [self setPhysicsBody:physicsBody];
     }
     
     return self;
 }
 
-+ (TextureID)textureIDForType:(TargetType)type {
++ (TextureID)textureIDForType:(ProjectileType)type {
     TextureID identifier;
     
     switch (type) {
-        case TargetTypeBlueMonkey:
-            identifier = TextureIDBlueMonkeyTarget;
+        case ProjectileTypeLeft:
+            identifier = TextureIDLollipopLeftProjectile;
             break;
             
-        case TargetTypePinkMonkey:
-            identifier = TextureIDPinkMonkeyTarget;
+        case ProjectileTypeRight:
+            identifier = TextureIDLollipopRightProjectile;
             break;
     }
     
@@ -92,7 +91,7 @@
 #pragma mark SSKSpriteNode
 
 - (unsigned int)getActionCategory {
-    return ActionCategoryTarget;
+    return ActionCategoryProjectile;
 }
 
 #pragma mark - Properties

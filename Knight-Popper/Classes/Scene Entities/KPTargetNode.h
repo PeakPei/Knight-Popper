@@ -7,16 +7,16 @@
  * a game state.
  */
 
-#import <SpriteStackKit/SSKSpriteNode.h>
+#import <SpriteStackKit/SSKSpriteAnimationNode.h>
 #import <SpriteStackKit/SSKTextureManager.h>
 
-@interface KPTargetNode : SSKSpriteNode
+@interface KPTargetNode : SSKSpriteAnimationNode
 
 /**
  * @brief An enumeration of the types of targets.
  */
-typedef enum type {
-    TargetTypeBlueMonkey,
+typedef enum targetType {
+    TargetTypeBlueMonkey = 0,
     TargetTypePinkMonkey
 } TargetType;
 
@@ -29,8 +29,16 @@ typedef enum type {
  * @param textures
  * A model object containing all the textures loaded for the game.
  *
- * @returns The initialised target node object.
+ * @param timePerFrame
+ * The amount of time each frame is displayed (in seconds).
  */
-- (id)initWithType:(TargetType)targetType textures:(SSKTextureManager*)textures;
+- (id)initWithType:(TargetType)targetType
+          textures:(SSKTextureManager*)textures
+      timePerFrame:(double)timePerFrame;
+
+/**
+ * @brief The type of target node.
+ */
+@property TargetType type;
 
 @end

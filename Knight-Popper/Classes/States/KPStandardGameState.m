@@ -5,7 +5,6 @@
  */
 
 #import "KPStandardGameState.h"
-#import "KPTargetNode.h"
 #import "KPActionCategories.h"
 #import "TextureIDs.h"
 #import "SoundIDs.h"
@@ -16,8 +15,8 @@
 #import "KPPlayerStats.h"
 #import "StateDataKeys.h"
 #import "ColliderTypes.h"
-#import "KPTestProjectileNode.h"
-#import "KPTestTargetNode.h"
+#import "KPTargetNode.h"
+#import "KPProjectileNode.h"
 #import <SpriteStackKit/SSKSpriteNode.h>
 #import <SpriteStackKit/SSKAction.h>
 #import <SpriteStackKit/SSKActionQueue.h>
@@ -33,12 +32,20 @@
 
 typedef enum layers {
     LayerIDBackground = 0,
-    LayerIDHUD,
     LayerIDPlayers,
     LayerIDScenery,
     LayerIDTargets,
-    LayerIDProjectiles
+    LayerIDProjectiles,
+    LayerIDHUD
 } LayerID;
+
+typedef enum resourcePools {
+    ResourcePoolIDBlueTarget = 0,
+    ResourcePoolIDPinkTarget,
+    ResourcePoolIDGoldTarget,
+    ResourcePoolIDLeftProjectile,
+    ResourcePoolIDRightProjectile
+} ResourcePoolID;
 
 - (void)addRemoveTargetActionToQueue;
 
@@ -184,8 +191,8 @@ typedef enum layers {
         [self.playerTwoScore modifyScore:1];
         [self.playerOneScore modifyScore:2];
         
-        [self.poolManager retrieveFromPool:1];
-        [self.poolManager retrieveFromPool:2];
+        [self.poolManager retrieveFromPool:ResourcePoolIDBlueTarget];
+        [self.poolManager retrieveFromPool:ResourcePoolIDPinkTarget];
         [self.poolManager retrieveFromPool:3];
     } else {
         self.timeLastGeneration++;
@@ -204,88 +211,78 @@ typedef enum layers {
         SSKSpriteAnimationNode* resource = (SSKSpriteAnimationNode*)node;
         [resource removeAllActions];
         [resource removeFromParent];
-        [resource stopAnimating];
+        resource.physicsBody.resting = YES;
     };
     
     void (^targetGet)(id) = ^(id node) {
         SSKSpriteAnimationNode* resource = (SSKSpriteAnimationNode*)node;
         [self setRandomSpawnLocation:resource];
-        [resource runAction:
-         [SKAction moveTo:CGPointMake(resource.position.x, -resource.position.y)
-                 duration:[Random generateDouble:3.0 upperBound:6.0]]];
+        
         [self addNodeToLayer:LayerIDTargets node:resource];
-        [resource animate];
+        [resource.physicsBody
+         applyForce:CGVectorMake([Random generateDouble:-100 upperBound:100],
+                                 [Random generateDouble:1500 upperBound:2000])];
+        resource.physicsBody.angularVelocity =
+            [Random generateDouble:-0.2 upperBound:0.2];
+        resource.physicsBody.angularDamping =
+            [Random generateDouble:0.05 upperBound:0.4];
+        resource.physicsBody.linearDamping = 0.0;
     };
     
-    // Initialise resources in pools
+    // Initialise blue target pool
     [self.poolManager addResourcePool:30
-                         resourceType:[KPTestTargetNode class]
+                         resourceType:[KPTargetNode class]
                             addAction:targetAdd
                             getAction:targetGet
-                       poolIdentifier:1];
+                       poolIdentifier:ResourcePoolIDBlueTarget];
     
     for (int i = 0; i < 30; i++) {
-        KPTestTargetNode* node =
-        [[KPTestTargetNode alloc]
-         initWithSpriteSheet:[self.textures getTexture:TextureIDPinkMonkeyTarget]
-         columns:8 rows:3 numFrames:20 horizontalOrder:YES timePerFrame:1.0/14.0];
-        [self.poolManager addToPool:1 resource:node];
+        KPTargetNode* node =
+            [[KPTargetNode alloc] initWithType:TargetTypeBlueMonkey
+            textures:self.textures timePerFrame:1.0/14.0];
+        [self.poolManager addToPool:ResourcePoolIDBlueTarget resource:node];
     }
     
+    // Initialise pink target pool
     [self.poolManager addResourcePool:30
-                         resourceType:[KPTestTargetNode class]
+                         resourceType:[KPTargetNode class]
                             addAction:targetAdd
                             getAction:targetGet
-                       poolIdentifier:2];
-    
+                       poolIdentifier:ResourcePoolIDPinkTarget];
+
     for (int i = 0; i < 30; i++) {
-        KPTestTargetNode* node =
-        [[KPTestTargetNode alloc]
-         initWithSpriteSheet:[self.textures getTexture:TextureIDBlueMonkeyTarget]
-         columns:8 rows:3 numFrames:20 horizontalOrder:YES timePerFrame:1.0/14.0];
-        [self.poolManager addToPool:2 resource:node];
+        KPTargetNode* node =
+            [[KPTargetNode alloc] initWithType:TargetTypePinkMonkey
+            textures:self.textures timePerFrame:1.0/14.0];
+        [self.poolManager addToPool:ResourcePoolIDPinkTarget resource:node];
     }
     
-    [self.poolManager addResourcePool:2
-                         resourceType:[KPTestTargetNode class]
-                            addAction:targetAdd
-                            getAction:targetGet
-                       poolIdentifier:3];
-    
-    for (int i = 0; i < 2; i++) {
-        KPTestTargetNode* node =
-        [[KPTestTargetNode alloc]
-         initWithSpriteSheet:[self.textures getTexture:TextureIDGoldMonkeyTarget]
-         columns:8 rows:3 numFrames:20 horizontalOrder:YES timePerFrame:1.0/14.0];
-        [self.poolManager addToPool:3 resource:node];
-    }
-    
+    // Initialise left projectile pool
     [self.poolManager addResourcePool:10
-                         resourceType:[KPTestProjectileNode class]
+                         resourceType:[KPProjectileNode class]
                             addAction:targetAdd
                             getAction:targetGet
-                       poolIdentifier:4];
+                       poolIdentifier:ResourcePoolIDLeftProjectile];
     
     for (int i = 0; i < 10; i++) {
-        KPTestProjectileNode* node =
-        [[KPTestProjectileNode alloc]
-         initWithSpriteSheet:[self.textures getTexture:TextureIDLollipopLeftProjectile]
-         columns:3 rows:3 numFrames:8 horizontalOrder:YES timePerFrame:1.0/14.0];
-        [self.poolManager addToPool:4 resource:node];
+        KPProjectileNode* node =
+            [[KPProjectileNode alloc] initWithType:ProjectileTypeLeft
+            textures:self.textures timePerFrame:1.0/14.0];
+        [self.poolManager addToPool:ResourcePoolIDLeftProjectile resource:node];
     }
     
+    // Initialise right projectile pool
     [self.poolManager addResourcePool:10
-                         resourceType:[KPTestProjectileNode class]
+                         resourceType:[KPProjectileNode class]
                             addAction:targetAdd
                             getAction:targetGet
-                       poolIdentifier:5];
+                       poolIdentifier:ResourcePoolIDRightProjectile];
     
     for (int i = 0; i < 10; i++) {
-        KPTestProjectileNode* node =
-        [[KPTestProjectileNode alloc]
-         initWithSpriteSheet:[self.textures getTexture:TextureIDLollipopRightProjectile]
-         columns:3 rows:3 numFrames:8 horizontalOrder:YES timePerFrame:1.0/14.0];
-        [self.poolManager addToPool:5 resource:node];
+        KPProjectileNode* node =
+            [[KPProjectileNode alloc] initWithType:ProjectileTypeRight
+            textures:self.textures timePerFrame:1.0/14.0];
+        [self.poolManager addToPool:ResourcePoolIDRightProjectile resource:node];
     }
     
     // Initialise background layer
@@ -421,9 +418,9 @@ typedef enum layers {
 
 - (BOOL)handleEvent:(UIEvent*)event touch:(UITouch *)touch {
     if ([Random generateBool:0.5]) {
-        [self.poolManager retrieveFromPool:4];
+        [self.poolManager retrieveFromPool:ResourcePoolIDLeftProjectile];
     } else {
-        [self.poolManager retrieveFromPool:5];
+        [self.poolManager retrieveFromPool:ResourcePoolIDRightProjectile];
     }
     return YES;
 }

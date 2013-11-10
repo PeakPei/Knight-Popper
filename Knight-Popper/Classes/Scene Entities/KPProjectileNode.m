@@ -53,6 +53,8 @@
                                 numFrames:NUM_FRAMES
                           horizontalOrder:HORIZONTAL_ORDER
                              timePerFrame:timePerFrame]) {
+        _type = projectileType;
+        
         NSString* filename = ProjectileTypeLeft ? @"lollipop_right_projectile"
                                                 : @"lollipop_left_projectile";
         
@@ -96,7 +98,7 @@
 
 #pragma mark - Properties
 
-@synthesize type;
+@synthesize type = _type;
 @synthesize category;
 
 @end

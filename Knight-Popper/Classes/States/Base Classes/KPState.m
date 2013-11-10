@@ -1,19 +1,19 @@
 /**
- * @filename KPStateStack.m
+ * @filename KPState.m
  * @author Morgan Wall
  * @date 10-11-2013
  */
 
-#import "KPStateStack.h"
+#import "KPState.h"
 
-@implementation KPStateStack
+@implementation KPState
 
 - (void)didBeginContact:(SKPhysicsContact *)contact {
-    NSLog(@"CONTACT!");
+    // override in subclass
 }
 
 - (void)didEndContact:(SKPhysicsContact *)contact {
-    NSLog(@"NO MORE CONTACT!");
+    // override in subclass
 }
 
 @end

@@ -6,8 +6,8 @@
  * @brief The state describing the loading screen.
  */
 
-#import <SpriteStackKit/SSKState.h>
+#import "KPState.h"
 
-@interface KPLoadingState : SSKState
+@interface KPLoadingState : KPState
 
 @end

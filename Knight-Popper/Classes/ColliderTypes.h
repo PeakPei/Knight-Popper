@@ -12,7 +12,8 @@
 typedef enum colliderTypes {
     ColliderTypeNode = 0,
     ColliderTypeTarget = 1 << 0,
-    ColliderTypeProjectile = 1 << 1
+    ColliderTypeProjectile = 1 << 1,
+    ColliderTypePlayer = 1 << 2
 } ColliderType;
 
 #endif

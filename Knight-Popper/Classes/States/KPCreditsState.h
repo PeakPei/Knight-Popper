@@ -6,8 +6,8 @@
  * @brief The state describing the credits screen.
  */
 
-#import <SpriteStackKit/SSKState.h>
+#import "KPState.h"
 
-@interface KPCreditsState : SSKState
+@interface KPCreditsState : KPState
 
 @end

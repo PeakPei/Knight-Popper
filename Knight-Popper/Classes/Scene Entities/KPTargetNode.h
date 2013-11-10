@@ -39,6 +39,6 @@ typedef enum targetType {
 /**
  * @brief The type of target node.
  */
-@property TargetType type;
+@property (readonly) TargetType type;
 
 @end

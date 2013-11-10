@@ -92,8 +92,10 @@
 		904BDC791808D60D003E7499 /* player_two_attack~iphone.png in Resources */ = {isa = PBXBuildFile; fileRef = 904BDC6A1808D60D003E7499 /* player_two_attack~iphone.png */; };
 		904BDC7A1808D60D003E7499 /* player_two_idle~iphone.png in Resources */ = {isa = PBXBuildFile; fileRef = 904BDC6B1808D60D003E7499 /* player_two_idle~iphone.png */; };
 		904BDC7B1808D60D003E7499 /* times_up~iphone.png in Resources */ = {isa = PBXBuildFile; fileRef = 904BDC6C1808D60D003E7499 /* times_up~iphone.png */; };
-		904D0D9F182EFF04007E35BB /* KPStateStack.m in Sources */ = {isa = PBXBuildFile; fileRef = 904D0D9E182EFF04007E35BB /* KPStateStack.m */; };
 		904D0DAB182F61E9007E35BB /* KPProjectileNode.m in Sources */ = {isa = PBXBuildFile; fileRef = 904D0DAA182F61E9007E35BB /* KPProjectileNode.m */; };
+		904D0DAE182F9A0C007E35BB /* KPPlayerNode.m in Sources */ = {isa = PBXBuildFile; fileRef = 904D0DAD182F9A0C007E35BB /* KPPlayerNode.m */; };
+		904D0DB8182FA750007E35BB /* KPState.m in Sources */ = {isa = PBXBuildFile; fileRef = 904D0DB7182FA750007E35BB /* KPState.m */; };
+		904D0DBB182FA763007E35BB /* KPStateStack.m in Sources */ = {isa = PBXBuildFile; fileRef = 904D0DBA182FA763007E35BB /* KPStateStack.m */; };
 		9088297817FFC0150016CCB6 /* KPActionCategories.m in Sources */ = {isa = PBXBuildFile; fileRef = 9088295617FFC0150016CCB6 /* KPActionCategories.m */; };
 		9088297917FFC0150016CCB6 /* KPAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 9088295817FFC0150016CCB6 /* KPAppDelegate.m */; };
 		9088297A17FFC0150016CCB6 /* KPApplicationViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9088295A17FFC0150016CCB6 /* KPApplicationViewController.m */; };
@@ -471,10 +473,14 @@
 		904BDC6A1808D60D003E7499 /* player_two_attack~iphone.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "player_two_attack~iphone.png"; sourceTree = "<group>"; };
 		904BDC6B1808D60D003E7499 /* player_two_idle~iphone.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "player_two_idle~iphone.png"; sourceTree = "<group>"; };
 		904BDC6C1808D60D003E7499 /* times_up~iphone.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "times_up~iphone.png"; sourceTree = "<group>"; };
-		904D0D9D182EFF04007E35BB /* KPStateStack.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KPStateStack.h; sourceTree = "<group>"; };
-		904D0D9E182EFF04007E35BB /* KPStateStack.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KPStateStack.m; sourceTree = "<group>"; };
 		904D0DA9182F61E9007E35BB /* KPProjectileNode.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KPProjectileNode.h; sourceTree = "<group>"; };
 		904D0DAA182F61E9007E35BB /* KPProjectileNode.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KPProjectileNode.m; sourceTree = "<group>"; };
+		904D0DAC182F9A0C007E35BB /* KPPlayerNode.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KPPlayerNode.h; sourceTree = "<group>"; };
+		904D0DAD182F9A0C007E35BB /* KPPlayerNode.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KPPlayerNode.m; sourceTree = "<group>"; };
+		904D0DB6182FA750007E35BB /* KPState.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KPState.h; sourceTree = "<group>"; };
+		904D0DB7182FA750007E35BB /* KPState.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KPState.m; sourceTree = "<group>"; };
+		904D0DB9182FA763007E35BB /* KPStateStack.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KPStateStack.h; sourceTree = "<group>"; };
+		904D0DBA182FA763007E35BB /* KPStateStack.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KPStateStack.m; sourceTree = "<group>"; };
 		905929E1182E8BB10073DEEC /* ColliderTypes.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ColliderTypes.h; sourceTree = "<group>"; };
 		9088295517FFC0150016CCB6 /* KPActionCategories.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KPActionCategories.h; sourceTree = "<group>"; };
 		9088295617FFC0150016CCB6 /* KPActionCategories.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KPActionCategories.m; sourceTree = "<group>"; };
@@ -824,6 +830,17 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
+		904D0DB5182FA745007E35BB /* Base Classes */ = {
+			isa = PBXGroup;
+			children = (
+				904D0DB6182FA750007E35BB /* KPState.h */,
+				904D0DB7182FA750007E35BB /* KPState.m */,
+				904D0DB9182FA763007E35BB /* KPStateStack.h */,
+				904D0DBA182FA763007E35BB /* KPStateStack.m */,
+			);
+			path = "Base Classes";
+			sourceTree = "<group>";
+		};
 		9088294B17FFC0150016CCB6 /* Knight-Popper */ = {
 			isa = PBXGroup;
 			children = (
@@ -857,8 +874,6 @@
 				9088295A17FFC0150016CCB6 /* KPApplicationViewController.m */,
 				9088295517FFC0150016CCB6 /* KPActionCategories.h */,
 				9088295617FFC0150016CCB6 /* KPActionCategories.m */,
-				904D0D9D182EFF04007E35BB /* KPStateStack.h */,
-				904D0D9E182EFF04007E35BB /* KPStateStack.m */,
 				90B07AD3180BAE9F00530915 /* SoundIDs.h */,
 				90885BC918298FB20041095E /* SoundInstanceIDs.h */,
 				9088296217FFC0150016CCB6 /* TextureIDs.h */,
@@ -874,10 +889,12 @@
 		9088295B17FFC0150016CCB6 /* Scene Entities */ = {
 			isa = PBXGroup;
 			children = (
-				9088298E17FFC0C00016CCB6 /* KPTargetNode.h */,
-				9088298F17FFC0C00016CCB6 /* KPTargetNode.m */,
+				904D0DAC182F9A0C007E35BB /* KPPlayerNode.h */,
+				904D0DAD182F9A0C007E35BB /* KPPlayerNode.m */,
 				904D0DA9182F61E9007E35BB /* KPProjectileNode.h */,
 				904D0DAA182F61E9007E35BB /* KPProjectileNode.m */,
+				9088298E17FFC0C00016CCB6 /* KPTargetNode.h */,
+				9088298F17FFC0C00016CCB6 /* KPTargetNode.m */,
 			);
 			path = "Scene Entities";
 			sourceTree = "<group>";
@@ -885,6 +902,7 @@
 		9088295E17FFC0150016CCB6 /* States */ = {
 			isa = PBXGroup;
 			children = (
+				904D0DB5182FA745007E35BB /* Base Classes */,
 				90885B9318297DB30041095E /* KPCreditsState.h */,
 				90885B9418297DB30041095E /* KPCreditsState.m */,
 				90175022180E553B00B000A7 /* KPLoadingState.h */,
@@ -1791,16 +1809,18 @@
 				9088297C17FFC0150016CCB6 /* KPStandardGameState.m in Sources */,
 				B9C9CB6D182D6C8A00D6017A /* KPPlayerScore.m in Sources */,
 				908CFEF5182B70DE00941DB1 /* PathParser.m in Sources */,
+				904D0DBB182FA763007E35BB /* KPStateStack.m in Sources */,
 				9088297817FFC0150016CCB6 /* KPActionCategories.m in Sources */,
+				904D0DAE182F9A0C007E35BB /* KPPlayerNode.m in Sources */,
 				9088297E17FFC0150016CCB6 /* UIApplication+AppDimensions.m in Sources */,
 				9088297D17FFC0150016CCB6 /* Random.m in Sources */,
 				90175024180E553B00B000A7 /* KPLoadingState.m in Sources */,
-				904D0D9F182EFF04007E35BB /* KPStateStack.m in Sources */,
 				9088299017FFC0C00016CCB6 /* KPTargetNode.m in Sources */,
 				9088297F17FFC0150016CCB6 /* main.m in Sources */,
 				908CFC21182B231E00941DB1 /* KPPauseState.m in Sources */,
 				9017500B180E2C5F00B000A7 /* KPMainMenuState.m in Sources */,
 				9088297A17FFC0150016CCB6 /* KPApplicationViewController.m in Sources */,
+				904D0DB8182FA750007E35BB /* KPState.m in Sources */,
 				B9C9CB6E182D6C8A00D6017A /* KPPlayerStats.m in Sources */,
 				90885B9118297D9F0041095E /* KPVictoryState.m in Sources */,
 				904D0DAB182F61E9007E35BB /* KPProjectileNode.m in Sources */,

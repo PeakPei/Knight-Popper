@@ -17,6 +17,7 @@
 #import "ColliderTypes.h"
 #import "KPTargetNode.h"
 #import "KPProjectileNode.h"
+#import "KPPlayerNode.h"
 #import <SpriteStackKit/SSKSpriteNode.h>
 #import <SpriteStackKit/SSKAction.h>
 #import <SpriteStackKit/SSKActionQueue.h>
@@ -365,10 +366,9 @@ typedef enum resourcePools {
     CGFloat const LEFT_PLAYER_REL_X = -0.341796875;
     CGFloat const LEFT_PLAYER_REL_Y = -0.2278645833;
     
-    SSKSpriteAnimationNode* leftPlayer =
-        [[SSKSpriteAnimationNode alloc]
-         initWithSpriteSheet:[self.textures getTexture:TextureIDPlayerOneIdle]
-         columns:7 rows:3 numFrames:20 horizontalOrder:YES timePerFrame:1.0/14.0];
+    KPPlayerNode* leftPlayer = [[KPPlayerNode alloc] initWithType:PlayerTypeLeft
+                                                         textures:self.textures
+                                                     timePerFrame:1.0/14.0];
     leftPlayer.audioDelegate = self.audioDelegate;
     leftPlayer.position =
         CGPointMake(self.scene.frame.size.width * LEFT_PLAYER_REL_X,
@@ -379,10 +379,9 @@ typedef enum resourcePools {
     CGFloat const RIGHT_PLAYER_REL_X = 0.341796875;
     CGFloat const RIGHT_PLAYER_REL_Y = -0.2278645833;
     
-    SSKSpriteAnimationNode* rightPlayer =
-        [[SSKSpriteAnimationNode alloc]
-         initWithSpriteSheet:[self.textures getTexture:TextureIDPlayerTwoIdle]
-         columns:7 rows:3 numFrames:20 horizontalOrder:YES timePerFrame:1.0/14.0];
+    KPPlayerNode* rightPlayer = [[KPPlayerNode alloc] initWithType:PlayerTypeRight
+                                                          textures:self.textures
+                                                      timePerFrame:1.0/14.0];
     rightPlayer.audioDelegate = self.audioDelegate;
     rightPlayer.position =
         CGPointMake(self.scene.frame.size.width * RIGHT_PLAYER_REL_X,
@@ -423,6 +422,26 @@ typedef enum resourcePools {
         [self.poolManager retrieveFromPool:ResourcePoolIDRightProjectile];
     }
     return YES;
+}
+
+#pragma mark SKPhysicsContactDelegate
+
+- (void)didBeginContact:(SKPhysicsContact *)contact {
+    uint32_t bodyACategory = contact.bodyA.categoryBitMask;
+    uint32_t bodyBCategory = contact.bodyB.categoryBitMask;
+    
+    if ((bodyACategory == ColliderTypeProjectile
+                && bodyBCategory == ColliderTypeTarget)
+        || (bodyACategory == ColliderTypeTarget
+                && bodyBCategory == ColliderTypeProjectile)) {
+            [contact.bodyA.node destroy];
+            [contact.bodyB.node destroy];
+            [self.audioDelegate playSound:SoundIDBalloonPop];
+    }
+}
+
+- (void)didEndContact:(SKPhysicsContact *)contact {
+    // stub
 }
 
 #pragma mark Helper Methods

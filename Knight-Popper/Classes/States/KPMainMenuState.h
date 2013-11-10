@@ -6,8 +6,8 @@
  * @brief The state describing the main menu.
  */
 
-#import <SpriteStackKit/SSKState.h>
+#import "KPState.h"
 
-@interface KPMainMenuState : SSKState
+@interface KPMainMenuState : KPState
 
 @end

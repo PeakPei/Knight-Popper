@@ -6,8 +6,8 @@
  * @brief The state describing the standard game type.
  */
 
-#import <SpriteStackKit/SSKState.h>
+#import "KPState.h"
 
-@interface KPStandardGameState : SSKState
+@interface KPStandardGameState : KPState
 
 @end

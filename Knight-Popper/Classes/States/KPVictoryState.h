@@ -6,8 +6,8 @@
  * @brief The state describing the victory screen.
  */
 
-#import <SpriteStackKit/SSKState.h>
+#import "KPState.h"
 
-@interface KPVictoryState : SSKState
+@interface KPVictoryState : KPState
 
 @end

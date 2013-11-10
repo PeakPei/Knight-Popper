@@ -7,8 +7,8 @@
  */
 
 
-#import <SpriteStackKit/SSKState.h>
+#import "KPState.h"
 
-@interface KPPauseState : SSKState
+@interface KPPauseState : KPState
 
 @end

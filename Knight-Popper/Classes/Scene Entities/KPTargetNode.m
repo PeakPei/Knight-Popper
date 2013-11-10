@@ -53,6 +53,8 @@
                                 numFrames:NUM_FRAMES
                           horizontalOrder:HORIZONTAL_ORDER
                              timePerFrame:timePerFrame]) {
+        _type = targetType;
+        
         NSString* filename = TargetTypeBlueMonkey ? @"pink_monkey"
                                                   : @"blue_gold_monkeys";
         
@@ -97,7 +99,7 @@
 
 #pragma mark - Properties
 
-@synthesize type;
+@synthesize type = _type;
 @synthesize category;
 
 @end

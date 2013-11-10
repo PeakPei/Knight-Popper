@@ -13,7 +13,6 @@
 #import "TextureIDs.h"
 #import "StateIDs.h"
 #import "SoundIDs.h"
-#import <SpriteStackKit/SSKStateStack.h>
 #import <SpriteStackKit/SSKTextureManager.h>
 #import <SpriteStackKit/SSKMusicManager.h>
 #import <SpriteStackKit/SSKSoundActionManager.h>
@@ -23,6 +22,7 @@
 #import "KPVictoryState.h"
 #import "KPPauseState.h"
 #import "KPStateStack.h"
+#import "KPState.h"
 
 #pragma mark - Interface
 

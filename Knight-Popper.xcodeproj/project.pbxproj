@@ -253,6 +253,7 @@
 		90B07ACE180BAE7C00530915 /* lollipop_reload.wav in Resources */ = {isa = PBXBuildFile; fileRef = 90B07AC0180BAE7C00530915 /* lollipop_reload.wav */; };
 		90B07ACF180BAE7C00530915 /* lollipop_throw.wav in Resources */ = {isa = PBXBuildFile; fileRef = 90B07AC1180BAE7C00530915 /* lollipop_throw.wav */; };
 		90B07AD1180BAE7C00530915 /* victory.wav in Resources */ = {isa = PBXBuildFile; fileRef = 90B07AC3180BAE7C00530915 /* victory.wav */; };
+		90B7E0561830BBB300B4193E /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 90B7E0551830BBB300B4193E /* Default-568h@2x.png */; };
 		90E3C2CB18000EF400087ED3 /* background~ipad.png in Resources */ = {isa = PBXBuildFile; fileRef = 90E3C2A418000EF300087ED3 /* background~ipad.png */; };
 		90E3C2CC18000EF400087ED3 /* blue_monkey_HUD~ipad.png in Resources */ = {isa = PBXBuildFile; fileRef = 90E3C2A518000EF300087ED3 /* blue_monkey_HUD~ipad.png */; };
 		90E3C2CD18000EF400087ED3 /* blue_monkey_target~ipad.png in Resources */ = {isa = PBXBuildFile; fileRef = 90E3C2A618000EF300087ED3 /* blue_monkey_target~ipad.png */; };
@@ -595,6 +596,7 @@
 		90B07AC1180BAE7C00530915 /* lollipop_throw.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = lollipop_throw.wav; sourceTree = "<group>"; };
 		90B07AC3180BAE7C00530915 /* victory.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = victory.wav; sourceTree = "<group>"; };
 		90B07AD3180BAE9F00530915 /* SoundIDs.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SoundIDs.h; sourceTree = "<group>"; };
+		90B7E0551830BBB300B4193E /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-568h@2x.png"; sourceTree = "<group>"; };
 		90E3C2A418000EF300087ED3 /* background~ipad.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "background~ipad.png"; sourceTree = "<group>"; };
 		90E3C2A518000EF300087ED3 /* blue_monkey_HUD~ipad.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "blue_monkey_HUD~ipad.png"; sourceTree = "<group>"; };
 		90E3C2A618000EF300087ED3 /* blue_monkey_target~ipad.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "blue_monkey_target~ipad.png"; sourceTree = "<group>"; };
@@ -1159,6 +1161,7 @@
 		90E3C2C318000EF400087ED3 /* iPhone 5 (Retina) */ = {
 			isa = PBXGroup;
 			children = (
+				90B7E0551830BBB300B4193E /* Default-568h@2x.png */,
 				90AB7DA51830315300FC8435 /* menu_bg-568h@2x~iphone.png */,
 				904BDC201808D5DF003E7499 /* background-568h@2x~iphone.png */,
 			);
@@ -1225,6 +1228,9 @@
 				LastUpgradeCheck = 0500;
 				ORGANIZATIONNAME = QUT;
 				TargetAttributes = {
+					9027C4CD17F2B30B0056EFA4 = {
+						DevelopmentTeam = H483C6LWH3;
+					};
 					9027C4F817F2B30C0056EFA4 = {
 						TestTargetID = 9027C4CD17F2B30B0056EFA4;
 					};
@@ -1300,6 +1306,7 @@
 				904BDC741808D60D003E7499 /* lollipop_right_projectile~iphone.png in Resources */,
 				9088298017FFC0150016CCB6 /* Main_iPad.storyboard in Resources */,
 				90AB7DF118308A6600FC8435 /* pauseButton_hover@2x~iphone.png in Resources */,
+				90B7E0561830BBB300B4193E /* Default-568h@2x.png in Resources */,
 				90175013180E548400B000A7 /* lollipop_base~ipad.png in Resources */,
 				904BDC521808D5FE003E7499 /* gold_monkey_target@2x~ipad.png in Resources */,
 				90885C26182A58AB0041095E /* player1@2x~ipad.png in Resources */,
@@ -1713,7 +1720,8 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "Knight-Popper/Supporting Files/Knight-Popper-Prefix.pch";
 				HEADER_SEARCH_PATHS = "";
@@ -1721,6 +1729,7 @@
 				LIBRARY_SEARCH_PATHS = "$(inherited)";
 				OTHER_LDFLAGS = "-ObjC";
 				PRODUCT_NAME = "Knight-Popper";
+				PROVISIONING_PROFILE = "";
 				SPRITEKIT_TEXTURE_ATLAS_OUTPUT = YES;
 				WRAPPER_EXTENSION = app;
 			};
@@ -1730,7 +1739,8 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "Knight-Popper/Supporting Files/Knight-Popper-Prefix.pch";
 				HEADER_SEARCH_PATHS = "";
@@ -1738,6 +1748,7 @@
 				LIBRARY_SEARCH_PATHS = "$(inherited)";
 				OTHER_LDFLAGS = "-ObjC";
 				PRODUCT_NAME = "Knight-Popper";
+				PROVISIONING_PROFILE = "";
 				SPRITEKIT_TEXTURE_ATLAS_OUTPUT = YES;
 				WRAPPER_EXTENSION = app;
 			};

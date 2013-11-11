@@ -54,7 +54,8 @@
                  columns:8 rows:2 numFrames:16 horizontalOrder:YES
                  timePerFrame:1.0/14.0];
             twinkle.anchorPoint = CGPointMake(0,1);
-            twinkle.position = CGPointMake(-self.frame.size.width/2, self.frame.size.height/2);
+            twinkle.position = CGPointMake(-self.frame.size.width/2 + 10,
+                                           self.frame.size.height/2 - 10);
             [self addChild:twinkle];
             [twinkle animate];
         }

@@ -36,9 +36,9 @@
 
 typedef enum layers {
     LayerIDBackground = 0,
+    LayerIDTargets,
     LayerIDPlayers,
     LayerIDScenery,
-    LayerIDTargets,
     LayerIDPoppedTargets,
     LayerIDProjectiles,
     LayerIDHUD
@@ -406,7 +406,7 @@ typedef enum resourcePools {
     [self addNodeToLayer:LayerIDHUD node:self.countdownTimer];
     
     CGFloat const GAME_TIMER_REL_X = 0.0;
-    CGFloat const Game_TIMER_REL_Y = 0.4;
+    CGFloat const Game_TIMER_REL_Y = 0.39;
     
     self.gameTime =
         [[SSKSpriteAnimationNode alloc]
@@ -443,8 +443,8 @@ typedef enum resourcePools {
     [self addNodeToLayer:LayerIDHUD node:self.playerTwoScoreLabel];
     
     // Initialise players layer
-    CGFloat const LEFT_PLAYER_REL_X = -0.341796875;
-    CGFloat const LEFT_PLAYER_REL_Y = -0.2278645833;
+    CGFloat const LEFT_PLAYER_REL_X = -0.30796875;
+    CGFloat const LEFT_PLAYER_REL_Y = -0.1878645833;
     
     self.leftPlayer = [[KPPlayerNode alloc] initWithType:PlayerTypeLeft
                                                          textures:self.textures
@@ -457,8 +457,8 @@ typedef enum resourcePools {
     [self.leftPlayer animate];
     [self addNodeToLayer:LayerIDPlayers node:self.leftPlayer];
     
-    CGFloat const RIGHT_PLAYER_REL_X = 0.341796875;
-    CGFloat const RIGHT_PLAYER_REL_Y = -0.2278645833;
+    CGFloat const RIGHT_PLAYER_REL_X = 0.30796875;
+    CGFloat const RIGHT_PLAYER_REL_Y = -0.1878645833;
     
     self.rightPlayer = [[KPPlayerNode alloc] initWithType:PlayerTypeRight
                                                           textures:self.textures
@@ -472,8 +472,8 @@ typedef enum resourcePools {
     [self addNodeToLayer:LayerIDPlayers node:self.rightPlayer];
     
     // Initialise scenery layer
-    CGFloat const LEFT_GRASS_REL_X = -0.33203125;
-    CGFloat const LEFT_GRASS_REL_Y = -0.4270833333;
+    CGFloat const LEFT_GRASS_REL_X = -0.2973125;
+    CGFloat const LEFT_GRASS_REL_Y = -0.3870833333;
     
     SSKSpriteNode* leftGrassTuft =
         [[SSKSpriteNode alloc]
@@ -483,8 +483,8 @@ typedef enum resourcePools {
                     self.scene.frame.size.height * LEFT_GRASS_REL_Y);
     [self addNodeToLayer:LayerIDScenery node:leftGrassTuft];
     
-    CGFloat const RIGHT_GRASS_REL_X = 0.33203125;
-    CGFloat const RIGHT_GRASS_REL_Y = -0.4270833333;
+    CGFloat const RIGHT_GRASS_REL_X = 0.3043125;
+    CGFloat const RIGHT_GRASS_REL_Y = -0.3870833333;
     
     SSKSpriteNode* rightGrassTuft =
         [[SSKSpriteNode alloc]
@@ -651,7 +651,7 @@ typedef enum resourcePools {
 }
 
 - (void)setRandomSpawnLocation:(SKNode*)target {
-    double const X_LOWER_BOUND_REL = -0.25 * self.scene.frame.size.width;
+    double const X_LOWER_BOUND_REL = -0.33 * self.scene.frame.size.width;
     double const X_UPPER_BOUND_REL = -X_LOWER_BOUND_REL;
     
     CGFloat yLocation = -self.scene.frame.size.height / 2.0

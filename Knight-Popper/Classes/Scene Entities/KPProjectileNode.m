@@ -4,6 +4,8 @@
  * @date 10-11-2013
  */
 
+#define MASS 0.2099911
+
 #import "KPProjectileNode.h"
 #import "KPActionCategories.h"
 #import "TextureIDs.h"
@@ -37,35 +39,25 @@
 @implementation KPProjectileNode
 
 - (id)initWithType:(ProjectileType)projectileType
-          textures:(SSKTextureManager*)textures
-      timePerFrame:(double)timePerFrame {
+          textures:(SSKTextureManager*)textures {
+    TextureID textureID = [KPProjectileNode textureIDForType:projectileType];
     
-    unsigned int const COLUMNS = 3;
-    unsigned int const ROWS = 3;
-    unsigned int const NUM_FRAMES = 8;
-    BOOL const HORIZONTAL_ORDER = YES;
-    
-    TextureID spriteSheetID = [KPProjectileNode textureIDForType:projectileType];
-    
-    if (self = [super initWithSpriteSheet:[textures getTexture:spriteSheetID]
-                                  columns:COLUMNS
-                                     rows:ROWS
-                                numFrames:NUM_FRAMES
-                          horizontalOrder:HORIZONTAL_ORDER
-                             timePerFrame:timePerFrame]) {
+    if (self = [super initWithTexture:[textures getTexture:textureID]]) {
+        
         _type = projectileType;
         
         NSString* filename = ProjectileTypeLeft ? @"lollipop_right_projectile"
                                                 : @"lollipop_left_projectile";
         
-        NSArray* paths = [PathParser parsePaths:filename columns:COLUMNS rows:ROWS
-                          numFrames:NUM_FRAMES horizontalOrder:HORIZONTAL_ORDER
+        NSArray* paths = [PathParser parsePaths:filename columns:1 rows:1
+                          numFrames:1 horizontalOrder:YES
                           width:self.frame.size.width height:self.frame.size.height];
         
         SKPhysicsBody* physicsBody =
             [SKPhysicsBody bodyWithPolygonFromPath:(__bridge CGPathRef)(paths[0])];
         physicsBody.dynamic = YES;
         physicsBody.affectedByGravity = NO;
+        physicsBody.mass = MASS;
         physicsBody.categoryBitMask = ColliderTypeProjectile;
         physicsBody.contactTestBitMask = ColliderTypeTarget | ColliderTypeProjectile;
         [self setPhysicsBody:physicsBody];

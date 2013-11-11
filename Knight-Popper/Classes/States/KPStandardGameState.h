@@ -7,7 +7,8 @@
  */
 
 #import "KPState.h"
+#import "KPPlayerSwipeHandler.h"
 
-@interface KPStandardGameState : KPState
+@interface KPStandardGameState : KPState <KPPlayerSwipeHandler>
 
 @end

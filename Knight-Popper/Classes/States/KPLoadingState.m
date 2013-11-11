@@ -10,15 +10,10 @@
 #import "StateIDs.h"
 #import "SoundIDs.h"
 #import "SoundInstanceIDs.h"
-#import <SpriteStackKit/SSKAction.h>
-#import <SpriteStackKit/SSKActionQueue.h>
 #import <SpriteStackKit/SSKSpriteAnimationNode.h>
 #import <SpriteStackKit/SSKButtonNode.h>
 #import <SpriteStackKit/SSKSpriteNode.h>
 #import <SpriteStackKit/SSKLabelNode.h>
-
-#define START_TIME_DEFAULT -1
-#define LOADING_TIME_IN_SECS 2
 
 #pragma mark - Interface
 
@@ -30,9 +25,7 @@ typedef enum layers {
     LayerIDHUD
 } LayerID;
 
-@property SSKActionQueue* actionQueue;
-
-@property double startTime;
+@property BOOL startedLoading;
 
 @end
 
@@ -50,8 +43,7 @@ typedef enum layers {
                            audioDelegate:delegate
                                     data:data
                               layerCount:layerCount]) {
-        self.actionQueue = [[SSKActionQueue alloc] init];
-        self.startTime = START_TIME_DEFAULT;
+        self.startedLoading = NO;
     }
     return self;
 }
@@ -59,19 +51,14 @@ typedef enum layers {
 #pragma mark SSKState
 
 - (void)update:(CFTimeInterval)deltaTime {
-    if (self.startTime == START_TIME_DEFAULT) {
-        self.startTime = deltaTime;
-    } else if (deltaTime - self.startTime >= LOADING_TIME_IN_SECS) {
+    if (!self.startedLoading) {
         [self.audioDelegate stopSound:SoundInstanceIDMenuMusic];
         [self.audioDelegate playSound:SoundIDInGameMusic
                             loopCount:-1
                            instanceId:SoundInstanceIDMenuMusic];
-        [self requestStackClear];
+//        [self requestStackClear];
         [self requestStackPush:StateIDStandardGame data:NULL];
-    }
-    
-    while (![self.actionQueue isEmpty]) {
-        [self onAction:[self.actionQueue pop] deltaTime:deltaTime];
+        self.startedLoading = YES;
     }
 }
 
@@ -107,7 +94,7 @@ typedef enum layers {
     SSKLabelNode* message =
         [[SSKLabelNode alloc] initWithFontNamed:@"Arial"];
     message.text = @"Loading...";
-    message.fontSize = 40;
+    message.fontSize = self.scene.frame.size.height * 0.05208333333;
     message.position =
         CGPointMake(self.scene.frame.size.width * MESSAGE_REL_X,
                     self.scene.frame.size.height * MESSAGE_REL_Y);
@@ -120,7 +107,6 @@ typedef enum layers {
 
 #pragma mark - Properties
 
-@synthesize actionQueue;
-@synthesize startTime;
+@synthesize startedLoading;
 
 @end

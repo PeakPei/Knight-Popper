@@ -151,12 +151,18 @@
                     identifier:TextureIDPointsGold];
     [self.textures loadTexture:@"credits.png"
                     identifier:TextureIDCredits];
-    [self.textures loadTexture:@"player1.png"
-                    identifier:TextureIDPlayerOneHead];
-    [self.textures loadTexture:@"player2.png"
-                    identifier:TextureIDPlayerTwoHead];
-    [self.textures loadTexture:@"giant_lollipop.png"
-                    identifier:TextureIDGiantLollipop];
+    [self.textures loadTexture:@"winner_player1.png"
+                    identifier:TextureIDPlayerOneHeadWinner];
+    [self.textures loadTexture:@"winner_player2.png"
+                    identifier:TextureIDPlayerTwoHeadWinner];
+    [self.textures loadTexture:@"loser_player1.png"
+                    identifier:TextureIDPlayerOneHeadLoser];
+    [self.textures loadTexture:@"loser_player2.png"
+                    identifier:TextureIDPlayerTwoHeadLoser];
+    [self.textures loadTexture:@"pauseButton.png"
+                    identifier:TextureIDPauseButton];
+    [self.textures loadTexture:@"pauseButton_hover.png"
+                    identifier:TextureIDPauseButtonHover];
     [self.textures loadTexture:@"pause_BG.png"
                     identifier:TextureIDPauseBackground];
     [self.textures loadTexture:@"resume.png"
@@ -215,6 +221,7 @@
     self.stateStack.physicsWorld.contactDelegate = self.stateStack;
     
     // Configure the scene
+    self.stateStack.spriteView = self.stateView;
     [self.stateStack pushState:StateIDMenu data:NULL];
     [self.stateView presentScene:self.stateStack];
 }

@@ -9,6 +9,7 @@
 
 #import <SpriteStackKit/SSKSpriteAnimationNode.h>
 #import <SpriteStackKit/SSKTextureManager.h>
+#import "KPPlayerSwipeHandler.h"
 
 @interface KPPlayerNode : SSKSpriteAnimationNode
 
@@ -40,5 +41,7 @@ typedef enum playerType {
  * @brief The type of projectile node.
  */
 @property (readonly) PlayerType type;
+
+@property (weak) id<KPPlayerSwipeHandler> delegate;
 
 @end

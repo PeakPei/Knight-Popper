@@ -8,4 +8,6 @@
 
 @interface KPStateStack : SSKStateStack <SKPhysicsContactDelegate>
 
+@property SKView* spriteView;
+
 @end

@@ -18,6 +18,7 @@
 #import "KPTargetNode.h"
 #import "KPProjectileNode.h"
 #import "KPPlayerNode.h"
+#import "KPBalloonPopNode.h"
 #import <SpriteStackKit/SSKSpriteNode.h>
 #import <SpriteStackKit/SSKAction.h>
 #import <SpriteStackKit/SSKActionQueue.h>
@@ -26,6 +27,8 @@
 #import <SpriteStackKit/SSKResourcePool.h>
 #import <SpriteStackKit/SSKResourcePoolManager.h>
 #import <SpriteStackKit/SSKLabelNode.h>
+#import <SpriteStackKit/SSKButtonNode.h>
+#import "KPStateStack.h"
 
 #pragma mark - Interface
 
@@ -36,6 +39,7 @@ typedef enum layers {
     LayerIDPlayers,
     LayerIDScenery,
     LayerIDTargets,
+    LayerIDPoppedTargets,
     LayerIDProjectiles,
     LayerIDHUD
 } LayerID;
@@ -86,6 +90,12 @@ typedef enum resourcePools {
 
 @property KPPlayerStats* playerTwoStats;
 
+@property KPPlayerNode* leftPlayer;
+
+@property KPPlayerNode* rightPlayer;
+
+@property double durationRemaining;
+
 @end
 
 #pragma mark - Implementation
@@ -96,7 +106,7 @@ typedef enum resourcePools {
           textureManager:(SSKTextureManager *)textureManager
            audioDelegate:(id<SSKAudioManagerDelegate>)delegate
                     data:(NSDictionary*)data {
-    unsigned int layerCount = 6;
+    unsigned int layerCount = 7;
     if (self = [super initWithStateStack:stateStack
                           textureManager:textureManager
                            audioDelegate:delegate
@@ -135,7 +145,7 @@ typedef enum resourcePools {
             [SKAction runBlock:^{
                 [self.countdownTimer removeFromParent];
                 [self addNodeToLayer:LayerIDHUD node:self.gameTime];
-                [self.gameTime animate];
+                [self.gameTime animateReverse];
                 self.gameStarted = YES;
             }],
             [SKAction waitForDuration:30],
@@ -170,6 +180,9 @@ typedef enum resourcePools {
             self.playerTwoScoreLabel.text =
                 [NSString stringWithFormat:@"%d", self.playerTwoScore.score];
         }
+    } else if ([keyPath isEqualToString:@"isAnimating"]) {
+        [object destroy];
+        [object removeObserver:self forKeyPath:@"isAnimating"];
     }
 }
 
@@ -189,12 +202,9 @@ typedef enum resourcePools {
     if (self.timeLastGeneration >= 60 && !self.gameEnded && self.gameStarted) {
         self.timeLastGeneration = 0;
         
-        [self.playerTwoScore modifyScore:1];
-        [self.playerOneScore modifyScore:2];
-        
         [self.poolManager retrieveFromPool:ResourcePoolIDBlueTarget];
         [self.poolManager retrieveFromPool:ResourcePoolIDPinkTarget];
-        [self.poolManager retrieveFromPool:3];
+        [self.poolManager retrieveFromPool:ResourcePoolIDGoldTarget];
     } else {
         self.timeLastGeneration++;
     }
@@ -210,7 +220,6 @@ typedef enum resourcePools {
     // Initialise resource pools
     void (^targetAdd)(id) = ^(id node) {
         SSKSpriteAnimationNode* resource = (SSKSpriteAnimationNode*)node;
-        [resource removeAllActions];
         [resource removeFromParent];
         resource.physicsBody.resting = YES;
     };
@@ -219,14 +228,47 @@ typedef enum resourcePools {
         SSKSpriteAnimationNode* resource = (SSKSpriteAnimationNode*)node;
         [self setRandomSpawnLocation:resource];
         
+        // WEIRD FIX
+        [resource removeFromParent];
+        
+        
         [self addNodeToLayer:LayerIDTargets node:resource];
         [resource.physicsBody
-         applyForce:CGVectorMake([Random generateDouble:-100 upperBound:100],
-                                 [Random generateDouble:1500 upperBound:2000])];
+         applyForce:CGVectorMake([Random generateDouble:-self.scene.frame.size.height * 0.1302083333 upperBound:-self.scene.frame.size.height * 0.1302083333],
+                                 [Random generateDouble:self.scene.frame.size.height * 1.953125 upperBound:self.scene.frame.size.height * 2.6041666667])];
         resource.physicsBody.angularVelocity =
             [Random generateDouble:-0.2 upperBound:0.2];
         resource.physicsBody.angularDamping =
             [Random generateDouble:0.05 upperBound:0.4];
+        resource.physicsBody.linearDamping = 0.0;
+    };
+    
+    void (^targetGetRightProj)(id) = ^(id node) {
+        SSKSpriteAnimationNode* resource = (SSKSpriteAnimationNode*)node;
+        resource.position = self.rightPlayer.position;
+        [resource removeFromParent];
+        [self addNodeToLayer:LayerIDProjectiles node:resource];
+        resource.physicsBody.angularVelocity =
+        [Random generateDouble:0.2 upperBound:0.4];
+        resource.physicsBody.angularDamping =
+        [Random generateDouble:0.05 upperBound:0.4];
+        resource.physicsBody.linearDamping = 0.0;
+    };
+    
+    void (^targetGetLeftProj)(id) = ^(id node) {
+        SSKSpriteAnimationNode* resource = (SSKSpriteAnimationNode*)node;
+        
+        
+        // WEIRD FIX
+        [resource removeFromParent];
+        
+        
+        resource.position = self.leftPlayer.position;
+        [self addNodeToLayer:LayerIDProjectiles node:resource];
+        resource.physicsBody.angularVelocity =
+        [Random generateDouble:-0.4 upperBound:0.2];
+        resource.physicsBody.angularDamping =
+        [Random generateDouble:0.05 upperBound:0.4];
         resource.physicsBody.linearDamping = 0.0;
     };
     
@@ -239,8 +281,7 @@ typedef enum resourcePools {
     
     for (int i = 0; i < 30; i++) {
         KPTargetNode* node =
-            [[KPTargetNode alloc] initWithType:TargetTypeBlueMonkey
-            textures:self.textures timePerFrame:1.0/14.0];
+            [[KPTargetNode alloc] initWithType:TargetTypeBlueMonkey textures:self.textures];
         [self.poolManager addToPool:ResourcePoolIDBlueTarget resource:node];
     }
     
@@ -253,22 +294,34 @@ typedef enum resourcePools {
 
     for (int i = 0; i < 30; i++) {
         KPTargetNode* node =
-            [[KPTargetNode alloc] initWithType:TargetTypePinkMonkey
-            textures:self.textures timePerFrame:1.0/14.0];
+            [[KPTargetNode alloc] initWithType:TargetTypePinkMonkey textures:self.textures];
         [self.poolManager addToPool:ResourcePoolIDPinkTarget resource:node];
+    }
+    
+    // Initialise gold target pool
+    [self.poolManager addResourcePool:30
+                         resourceType:[KPTargetNode class]
+                            addAction:targetAdd
+                            getAction:targetGet
+                       poolIdentifier:ResourcePoolIDGoldTarget];
+    
+    for (int i = 0; i < 30; i++) {
+        KPTargetNode* node =
+        [[KPTargetNode alloc] initWithType:TargetTypeGoldMonkey textures:self.textures];
+        [self.poolManager addToPool:ResourcePoolIDGoldTarget resource:node];
     }
     
     // Initialise left projectile pool
     [self.poolManager addResourcePool:10
                          resourceType:[KPProjectileNode class]
                             addAction:targetAdd
-                            getAction:targetGet
+                            getAction:targetGetLeftProj
                        poolIdentifier:ResourcePoolIDLeftProjectile];
     
     for (int i = 0; i < 10; i++) {
         KPProjectileNode* node =
             [[KPProjectileNode alloc] initWithType:ProjectileTypeLeft
-            textures:self.textures timePerFrame:1.0/14.0];
+            textures:self.textures];
         [self.poolManager addToPool:ResourcePoolIDLeftProjectile resource:node];
     }
     
@@ -276,13 +329,13 @@ typedef enum resourcePools {
     [self.poolManager addResourcePool:10
                          resourceType:[KPProjectileNode class]
                             addAction:targetAdd
-                            getAction:targetGet
+                            getAction:targetGetRightProj
                        poolIdentifier:ResourcePoolIDRightProjectile];
     
     for (int i = 0; i < 10; i++) {
         KPProjectileNode* node =
             [[KPProjectileNode alloc] initWithType:ProjectileTypeRight
-            textures:self.textures timePerFrame:1.0/14.0];
+            textures:self.textures];
         [self.poolManager addToPool:ResourcePoolIDRightProjectile resource:node];
     }
     
@@ -314,6 +367,31 @@ typedef enum resourcePools {
         CGPointMake(self.scene.frame.size.width * BLUE_MONKEY_HUD_REL_X,
                     self.scene.frame.size.height * BLUE_MONKEY_HUD_REL_Y);
     [self addNodeToLayer:LayerIDHUD node:blueMonkeyHUD];
+    
+    CGFloat const LEFT_PAUSE_REL_X = -0.4040625;
+    CGFloat const LEFT_PAUSE_REL_Y = 0.240625;
+    
+    SSKButtonNode* leftPauseButton =
+    [[SSKButtonNode alloc] initWithTexture:[self.textures getTexture:TextureIDPauseButton]
+                           clickEventBlock:^(SSKButtonNode* node) {
+                               [self requestStackPush:StateIDPause data:NULL];
+                           }];
+    
+    leftPauseButton.position = CGPointMake(self.scene.frame.size.width * LEFT_PAUSE_REL_X,
+                                           self.scene.frame.size.height * LEFT_PAUSE_REL_Y);
+    [self addNodeToLayer:LayerIDHUD node:leftPauseButton];
+    
+    CGFloat const RIGHT_PAUSE_REL_X = 0.4040625;
+    CGFloat const RIGHT_PAUSE_REL_Y = 0.240625;
+    
+    SSKButtonNode* rightPauseButton =
+    [[SSKButtonNode alloc] initWithTexture:[self.textures getTexture:TextureIDPauseButton]
+                           clickEventBlock:^(SSKButtonNode* node) {
+                               [self requestStackPush:StateIDPause data:NULL];
+                           }];
+    rightPauseButton.position = CGPointMake(self.scene.frame.size.width * RIGHT_PAUSE_REL_X,
+                                            self.scene.frame.size.height * RIGHT_PAUSE_REL_Y);
+    [self addNodeToLayer:LayerIDHUD node:rightPauseButton];
     
     CGFloat const TIMER_REL_X = 0.0;
     CGFloat const TIMER_REL_Y = 0.0;
@@ -347,6 +425,7 @@ typedef enum resourcePools {
     
     self.playerOneScoreLabel = [[SSKLabelNode alloc] initWithFontNamed:@"gameFont"];
     self.playerOneScoreLabel.text = [NSString stringWithFormat:@"%d", self.playerOneScore.score];
+    self.playerOneScoreLabel.fontSize = self.scene.frame.size.height * 0.06510416667;
     self.playerOneScoreLabel.position =
     CGPointMake(self.scene.frame.size.width * PLAYER_ONE_SCORE_REL_X,
                 self.scene.frame.size.height * PLAYER_ONE_SCORE_REL_Y);
@@ -357,6 +436,7 @@ typedef enum resourcePools {
     
     self.playerTwoScoreLabel = [[SSKLabelNode alloc] initWithFontNamed:@"gameFont"];
     self.playerTwoScoreLabel.text = [NSString stringWithFormat:@"%d", self.playerTwoScore.score];
+    self.playerTwoScoreLabel.fontSize = self.scene.frame.size.height * 0.06510416667;
     self.playerTwoScoreLabel.position =
     CGPointMake(self.scene.frame.size.width * PLAYER_TWO_SCORE_REL_X,
                 self.scene.frame.size.height * PLAYER_TWO_SCORE_REL_Y);
@@ -366,28 +446,30 @@ typedef enum resourcePools {
     CGFloat const LEFT_PLAYER_REL_X = -0.341796875;
     CGFloat const LEFT_PLAYER_REL_Y = -0.2278645833;
     
-    KPPlayerNode* leftPlayer = [[KPPlayerNode alloc] initWithType:PlayerTypeLeft
+    self.leftPlayer = [[KPPlayerNode alloc] initWithType:PlayerTypeLeft
                                                          textures:self.textures
                                                      timePerFrame:1.0/14.0];
-    leftPlayer.audioDelegate = self.audioDelegate;
-    leftPlayer.position =
+    self.leftPlayer.audioDelegate = self.audioDelegate;
+    self.leftPlayer.delegate = (id<KPPlayerSwipeHandler>)self;
+    self.leftPlayer.position =
         CGPointMake(self.scene.frame.size.width * LEFT_PLAYER_REL_X,
                     self.scene.frame.size.height * LEFT_PLAYER_REL_Y);
-    [leftPlayer animate];
-    [self addNodeToLayer:LayerIDPlayers node:leftPlayer];
+    [self.leftPlayer animate];
+    [self addNodeToLayer:LayerIDPlayers node:self.leftPlayer];
     
     CGFloat const RIGHT_PLAYER_REL_X = 0.341796875;
     CGFloat const RIGHT_PLAYER_REL_Y = -0.2278645833;
     
-    KPPlayerNode* rightPlayer = [[KPPlayerNode alloc] initWithType:PlayerTypeRight
+    self.rightPlayer = [[KPPlayerNode alloc] initWithType:PlayerTypeRight
                                                           textures:self.textures
                                                       timePerFrame:1.0/14.0];
-    rightPlayer.audioDelegate = self.audioDelegate;
-    rightPlayer.position =
+    self.rightPlayer.audioDelegate = self.audioDelegate;
+    self.rightPlayer.delegate = (id<KPPlayerSwipeHandler>)self;
+    self.rightPlayer.position =
         CGPointMake(self.scene.frame.size.width * RIGHT_PLAYER_REL_X,
                     self.scene.frame.size.height * RIGHT_PLAYER_REL_Y);
-    [rightPlayer animate];
-    [self addNodeToLayer:LayerIDPlayers node:rightPlayer];
+    [self.rightPlayer animate];
+    [self addNodeToLayer:LayerIDPlayers node:self.rightPlayer];
     
     // Initialise scenery layer
     CGFloat const LEFT_GRASS_REL_X = -0.33203125;
@@ -413,17 +495,6 @@ typedef enum resourcePools {
     [self addNodeToLayer:LayerIDScenery node:rightGrassTuft];
 }
 
-#pragma mark SSKEventHandler
-
-- (BOOL)handleEvent:(UIEvent*)event touch:(UITouch *)touch {
-    if ([Random generateBool:0.5]) {
-        [self.poolManager retrieveFromPool:ResourcePoolIDLeftProjectile];
-    } else {
-        [self.poolManager retrieveFromPool:ResourcePoolIDRightProjectile];
-    }
-    return YES;
-}
-
 #pragma mark SKPhysicsContactDelegate
 
 - (void)didBeginContact:(SKPhysicsContact *)contact {
@@ -434,14 +505,108 @@ typedef enum resourcePools {
                 && bodyBCategory == ColliderTypeTarget)
         || (bodyACategory == ColliderTypeTarget
                 && bodyBCategory == ColliderTypeProjectile)) {
-            [contact.bodyA.node destroy];
-            [contact.bodyB.node destroy];
-            [self.audioDelegate playSound:SoundIDBalloonPop];
+            
+            id target;
+            KPProjectileNode* projectile;
+            ProjectileType projType;
+            if (bodyACategory == ColliderTypeTarget) {
+                target = contact.bodyA.node;
+                projectile = (KPProjectileNode*)contact.bodyB.node;
+                
+                projType = projectile.type;
+                if (projType == ProjectileTypeLeft) {
+                    [self.poolManager addToPool:ResourcePoolIDLeftProjectile resource:projectile];
+                } else {
+                    [self.poolManager addToPool:ResourcePoolIDRightProjectile resource:projectile];
+                }
+                
+            } else {
+                target = contact.bodyB.node;
+                projectile = (KPProjectileNode*)contact.bodyA.node;
+                
+                projType = projectile.type;
+                if (projType == ProjectileTypeLeft) {
+                    [self.poolManager addToPool:ResourcePoolIDLeftProjectile resource:projectile];
+                } else {
+                    [self.poolManager addToPool:ResourcePoolIDRightProjectile resource:projectile];
+                }
+            }
+            
+            if ([target isKindOfClass:[KPTargetNode class]]) {
+                KPTargetNode* node = (KPTargetNode*)target;
+                CGPoint targetPosition = node.position;
+                PopType popType;
+                
+                switch (node.type) {
+                    case TargetTypeBlueMonkey: {
+                        [self.poolManager addToPool:ResourcePoolIDBlueTarget resource:node];
+                        [self.audioDelegate playSound:SoundIDBalloonPop];
+                        [self.playerTwoScore modifyScore:10];
+                        popType = PopTypeBlue;
+                        
+                        if (projType == ProjectileTypeLeft) {
+                            [self.playerOneStats incrementBlueTargetHitCounter];
+                        } else {
+                            [self.playerTwoStats incrementBlueTargetHitCounter];
+                        }
+                    }
+                    break;
+                        
+                    case TargetTypePinkMonkey: {
+                        [self.poolManager addToPool:ResourcePoolIDPinkTarget resource:node];
+                        [self.audioDelegate playSound:SoundIDBalloonPop];
+                        [self.playerOneScore modifyScore:10];
+                        popType = PopTypePink;
+                        
+                        if (projType == ProjectileTypeLeft) {
+                            [self.playerOneStats incrementPinkTargetHitCounter];
+                        } else {
+                            [self.playerTwoStats incrementPinkTargetHitCounter];
+                        }
+                    }
+                    break;
+                        
+                    case TargetTypeGoldMonkey: {
+                        [self.poolManager addToPool:ResourcePoolIDGoldTarget resource:node];
+                        [self.audioDelegate playSound:SoundIDGoldenPop];
+                        popType = PopTypeGold;
+                        
+                        if (projType == ProjectileTypeLeft) {
+                            [self.playerOneScore modifyScore:30];
+                            [self.playerOneStats incrementGoldTargetHitCounter];
+                        } else {
+                            [self.playerTwoScore modifyScore:30];
+                            [self.playerTwoStats incrementGoldTargetHitCounter];
+                        }
+                    }
+                    break;
+                }
+                
+                KPBalloonPopNode* pop =
+                    [[KPBalloonPopNode alloc] initWithType:popType
+                    textures:self.textures timePerFrame:1.0/14.0];
+                pop.position = targetPosition;
+                [self addNodeToLayer:LayerIDPoppedTargets node:pop];
+                [pop animateOnce];
+                [pop addObserver:self
+                      forKeyPath:@"isAnimating"
+                         options:NSKeyValueObservingOptionNew
+                         context:NULL];
+            }
     }
 }
 
 - (void)didEndContact:(SKPhysicsContact *)contact {
     // stub
+}
+
+#pragma mark KPPlayerSwipeHandler
+
+- (void)handleThrow:(CGVector)vector player:(unsigned int)player {
+    ResourcePoolID poolID = player ? ResourcePoolIDRightProjectile : ResourcePoolIDLeftProjectile;
+    KPProjectileNode* projectile = [self.poolManager retrieveFromPool:poolID];
+    [projectile.physicsBody applyForce:CGVectorMake(vector.dx * 25, vector.dy * 25)];
+    [self.audioDelegate playSound:SoundIDLollipopThrow];
 }
 
 #pragma mark Helper Methods
@@ -452,15 +617,30 @@ typedef enum resourcePools {
         CGFloat maxX = self.scene.frame.size.width/2.0 + node.frame.size.width/2.0;
         CGFloat minX = -maxX;
         CGFloat maxY = self.scene.frame.size.height/2.0 + node.frame.size.height/2.0;
+        CGFloat minY = -maxY - 300;
         if (node.position.x > maxX || node.position.x < minX ||
-            node.position.y > maxY) {
-            // TODO: Add to appropriate pool!
-//            [self.poolManager addToPool:1 resource:node];
+            node.position.y > maxY || node.position.y < minY) {
+            
+            if ([node isKindOfClass:[KPTargetNode class]]) {
+                if ([(KPTargetNode*)node type] == TargetTypeBlueMonkey) {
+                    [self.poolManager addToPool:ResourcePoolIDBlueTarget resource:node];
+                } else if ([(KPTargetNode*)node type] == TargetTypePinkMonkey) {
+                    [self.poolManager addToPool:ResourcePoolIDPinkTarget resource:node];
+                } else if ([(KPTargetNode*)node type] == TargetTypeGoldMonkey){
+                    [self.poolManager addToPool:ResourcePoolIDGoldTarget resource:node];
+                }
+            } else if ([node isKindOfClass:[KPProjectileNode class]]) {
+                if ([(KPProjectileNode*)node type] == ProjectileTypeLeft) {
+                    [self.poolManager addToPool:ResourcePoolIDLeftProjectile resource:node];
+                } else if ([(KPProjectileNode*)node type] == ProjectileTypeRight) {
+                    [self.poolManager addToPool:ResourcePoolIDRightProjectile resource:node];
+                }
+            }
         }
     };
     
     SSKAction *action =
-        [[SSKAction alloc] initWithCategory:[SSKAction defaultActionCategory]
+        [[SSKAction alloc] initWithCategory:ActionCategoryProjectile | ActionCategoryTarget
                                      action:checkOffScreen];
     [self.actionQueue push:action];
 }
@@ -499,5 +679,8 @@ typedef enum resourcePools {
 @synthesize playerTwoScore;
 @synthesize playerTwoScoreLabel;
 @synthesize playerTwoStats;
+@synthesize leftPlayer;
+@synthesize rightPlayer;
+@synthesize durationRemaining;
 
 @end

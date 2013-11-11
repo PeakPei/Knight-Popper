@@ -4,11 +4,14 @@
  * @date 23-9-2013
  */
 
+#define MASS 0.324426
+
 #import "KPTargetNode.h"
 #import "TextureIDs.h"
 #import "KPActionCategories.h"
 #import "ColliderTypes.h"
 #import "PathParser.h"
+#import <SpriteStackKit/SSKSpriteAnimationNode.h>
 
 #pragma mark - Interface
 
@@ -37,36 +40,38 @@
 @implementation KPTargetNode
 
 - (id)initWithType:(TargetType)targetType
-          textures:(SSKTextureManager*)textures
-      timePerFrame:(double)timePerFrame {
+          textures:(SSKTextureManager*)textures {
+    TextureID textureID = [KPTargetNode textureIDForType:targetType];
+
+    if (self = [super initWithTexture:[textures getTexture:textureID]]) {
     
-    unsigned int const COLUMNS = 8;
-    unsigned int const ROWS = 3;
-    unsigned int const NUM_FRAMES = 20;
-    BOOL const HORIZONTAL_ORDER = YES;
-    
-    TextureID spriteSheetID = [KPTargetNode textureIDForType:targetType];
-    
-    if (self = [super initWithSpriteSheet:[textures getTexture:spriteSheetID]
-                                  columns:COLUMNS
-                                     rows:ROWS
-                                numFrames:NUM_FRAMES
-                          horizontalOrder:HORIZONTAL_ORDER
-                             timePerFrame:timePerFrame]) {
         _type = targetType;
+        
+        if (self.type == TargetTypeGoldMonkey) {
+            SSKSpriteAnimationNode* twinkle =
+                [[SSKSpriteAnimationNode alloc]
+                 initWithSpriteSheet:[textures getTexture:TextureIDGoldTwinkle]
+                 columns:8 rows:2 numFrames:16 horizontalOrder:YES
+                 timePerFrame:1.0/14.0];
+            twinkle.anchorPoint = CGPointMake(0,1);
+            twinkle.position = CGPointMake(-self.frame.size.width/2, self.frame.size.height/2);
+            [self addChild:twinkle];
+            [twinkle animate];
+        }
         
         NSString* filename = TargetTypeBlueMonkey ? @"pink_monkey"
                                                   : @"blue_gold_monkeys";
         
         NSArray* paths =
-            [PathParser parsePaths:filename columns:COLUMNS rows:ROWS
-            numFrames:NUM_FRAMES horizontalOrder:HORIZONTAL_ORDER
+            [PathParser parsePaths:filename columns:1 rows:1
+            numFrames:1 horizontalOrder:YES
             width:self.frame.size.width height:self.frame.size.height];
         
         SKPhysicsBody* physicsBody =
             [SKPhysicsBody bodyWithPolygonFromPath:(__bridge CGPathRef)(paths[0])];
         physicsBody.dynamic = YES;
         physicsBody.affectedByGravity = NO;
+        physicsBody.mass = MASS;
         physicsBody.categoryBitMask = ColliderTypeTarget;
         physicsBody.contactTestBitMask = ColliderTypeProjectile | ColliderTypeTarget;
         [self setPhysicsBody:physicsBody];
@@ -85,6 +90,10 @@
             
         case TargetTypePinkMonkey:
             identifier = TextureIDPinkMonkeyTarget;
+            break;
+            
+        case TargetTypeGoldMonkey:
+            identifier = TextureIDGoldMonkeyTarget;
             break;
     }
     

@@ -77,7 +77,7 @@ typedef enum layers {
             self.winnerScore = playerTwoScore;
             self.winnerStats = playerTwoStats;
             self.loserScore = playerOneScore;
-            self.loserStats = playerTwoStats;
+            self.loserStats = playerOneStats;
         }
         
         self.actionQueue = [[SSKActionQueue alloc] init];
@@ -112,11 +112,11 @@ typedef enum layers {
     SKTexture* loserTexture;
     
     if (self.playerOneWon) {
-        winnerTexture = [self.textures getTexture:TextureIDPlayerOneHead];
-        loserTexture = [self.textures getTexture:TextureIDPlayerTwoHead];
+        winnerTexture = [self.textures getTexture:TextureIDPlayerOneHeadWinner];
+        loserTexture = [self.textures getTexture:TextureIDPlayerTwoHeadLoser];
     } else {
-        winnerTexture = [self.textures getTexture:TextureIDPlayerTwoHead];
-        loserTexture = [self.textures getTexture:TextureIDPlayerOneHead];
+        winnerTexture = [self.textures getTexture:TextureIDPlayerTwoHeadWinner];
+        loserTexture = [self.textures getTexture:TextureIDPlayerOneHeadLoser];
     }
     
     CGFloat const WINNER_HEAD_REL_X = -0.245;
@@ -144,6 +144,7 @@ typedef enum layers {
     
     SSKLabelNode* winnerPoints = [[SSKLabelNode alloc] initWithFontNamed:@"gameFont"];
     winnerPoints.text = [NSString stringWithFormat:@"%d", self.winnerScore.score];
+    winnerPoints.fontSize = self.scene.frame.size.height * 0.06510416667;
     winnerPoints.position =
         CGPointMake(self.scene.frame.size.width * WINNER_POINTS_REL_X,
                     self.scene.frame.size.height * WINNER_POINTS_REL_Y);
@@ -154,6 +155,7 @@ typedef enum layers {
     
     SSKLabelNode* loserPoints = [[SSKLabelNode alloc] initWithFontNamed:@"gameFont"];
     loserPoints.text = [NSString stringWithFormat:@"%d", self.loserScore.score];
+    loserPoints.fontSize = self.scene.frame.size.height * 0.05208333333;
     loserPoints.position =
         CGPointMake(self.scene.frame.size.width * LOSER_POINTS_REL_X,
                     self.scene.frame.size.height * LOSER_POINTS_REL_Y);
@@ -165,6 +167,7 @@ typedef enum layers {
     
     SSKLabelNode* winnerPinkCount = [[SSKLabelNode alloc] initWithFontNamed:@"gameFont"];
     winnerPinkCount.text = [NSString stringWithFormat:@"%d", self.winnerStats.pinkTargetsHit];
+    winnerPinkCount.fontSize = self.scene.frame.size.height * 0.05208333333;
     winnerPinkCount.position =
         CGPointMake(self.scene.frame.size.width * WINNER_PINK_REL_X,
                     self.scene.frame.size.height * WINNER_PINK_REL_Y);
@@ -175,6 +178,7 @@ typedef enum layers {
     
     SSKLabelNode* winnerBlueCount = [[SSKLabelNode alloc] initWithFontNamed:@"gameFont"];
     winnerBlueCount.text = [NSString stringWithFormat:@"%d", self.winnerStats.blueTargetsHit];
+    winnerBlueCount.fontSize = self.scene.frame.size.height * 0.05208333333;
     winnerBlueCount.position =
         CGPointMake(self.scene.frame.size.width * WINNER_BLUE_REL_X,
                     self.scene.frame.size.height * WINNER_BLUE_REL_Y);
@@ -185,6 +189,7 @@ typedef enum layers {
     
     SSKLabelNode* winnerGoldCount = [[SSKLabelNode alloc] initWithFontNamed:@"gameFont"];
     winnerGoldCount.text = [NSString stringWithFormat:@"%d", self.winnerStats.goldTargetsHit];
+    winnerGoldCount.fontSize = self.scene.frame.size.height * 0.05208333333;
     winnerGoldCount.position =
         CGPointMake(self.scene.frame.size.width * WINNER_GOLD_REL_X,
                     self.scene.frame.size.height * WINNER_GOLD_REL_Y);
@@ -195,6 +200,7 @@ typedef enum layers {
     
     SSKLabelNode* loserPinkCount = [[SSKLabelNode alloc] initWithFontNamed:@"gameFont"];
     loserPinkCount.text = [NSString stringWithFormat:@"%d", self.loserStats.pinkTargetsHit];
+    loserPinkCount.fontSize = self.scene.frame.size.height * 0.05208333333;
     loserPinkCount.position =
         CGPointMake(self.scene.frame.size.width * LOSER_PINK_REL_X,
                     self.scene.frame.size.height * LOSER_PINK_REL_Y);
@@ -205,6 +211,7 @@ typedef enum layers {
     
     SSKLabelNode* loserBlueCount = [[SSKLabelNode alloc] initWithFontNamed:@"gameFont"];
     loserBlueCount.text = [NSString stringWithFormat:@"%d", self.loserStats.blueTargetsHit];
+    loserBlueCount.fontSize = self.scene.frame.size.height * 0.05208333333;
     loserBlueCount.position =
         CGPointMake(self.scene.frame.size.width * LOSER_BLUE_REL_X,
                     self.scene.frame.size.height * LOSER_BLUE_REL_Y);
@@ -215,6 +222,7 @@ typedef enum layers {
     
     SSKLabelNode* loserGoldCount = [[SSKLabelNode alloc] initWithFontNamed:@"gameFont"];
     loserGoldCount.text = [NSString stringWithFormat:@"%d", self.loserStats.goldTargetsHit];
+    loserGoldCount.fontSize = self.scene.frame.size.height * 0.05208333333;
     loserGoldCount.position =
         CGPointMake(self.scene.frame.size.width * LOSER_GOLD_REL_X,
                     self.scene.frame.size.height * LOSER_GOLD_REL_Y);

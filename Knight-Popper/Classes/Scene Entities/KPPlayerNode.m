@@ -7,8 +7,7 @@
 #import "KPPlayerNode.h"
 #import "KPActionCategories.h"
 #import "TextureIDs.h"
-#import "ColliderTypes.h"
-#import "PathParser.h"
+#import "KPProjectileNode.h"
 
 #pragma mark - Interface
 
@@ -29,6 +28,8 @@
  * @brief The category defining the actions handled by the node.
  */
 @property ActionCategory category;
+
+@property SSKTextureManager* textureManager;
 
 @end
 
@@ -54,13 +55,7 @@
                           horizontalOrder:HORIZONTAL_ORDER
                              timePerFrame:timePerFrame]) {
         _type = playerType;
-//        SKPhysicsBody* physicsBody =
-//            [SKPhysicsBody bodyWithRectangleOfSize:self.frame.size];
-//        physicsBody.dynamic = NO;
-//        physicsBody.affectedByGravity = NO;
-//        physicsBody.categoryBitMask = ColliderTypePlayer;
-//        physicsBody.contactTestBitMask = ColliderTypeTarget;
-//        [self setPhysicsBody:physicsBody];
+        self.textureManager = textures;
     }
     
     return self;
@@ -88,9 +83,27 @@
     return ActionCategoryNone;
 }
 
+#pragma mark SSKEventHandler
+
+- (BOOL)handleEvent:(UIEvent*)event touch:(UITouch *)touch {
+    BOOL eventHandled = NO;
+    CGPoint touchLocation = [touch locationInNode:[self parent]];
+    
+    if ([self containsPoint:touchLocation]) {
+        touchLocation = [touch locationInNode:self];
+        CGVector arc = CGVectorMake(touchLocation.x, touchLocation.y);
+        [self.delegate handleThrow:arc player:self.type];
+        eventHandled = YES;
+    }
+    
+    return eventHandled;
+}
+
 #pragma mark - Properties
 
+@synthesize textureManager;
 @synthesize type = _type;
 @synthesize category;
+@synthesize delegate;
 
 @end

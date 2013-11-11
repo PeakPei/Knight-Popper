@@ -6,6 +6,8 @@
 
 #import "KPStateStack.h"
 
+#pragma mark - Implementation
+
 @implementation KPStateStack
 
 - (void)didBeginContact:(SKPhysicsContact *)contact {
@@ -39,5 +41,9 @@
         [child didBeginContact:contact];
     }
 }
+
+#pragma mark - Properties
+
+@synthesize spriteView;
 
 @end

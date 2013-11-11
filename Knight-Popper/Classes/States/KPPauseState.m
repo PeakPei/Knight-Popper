@@ -9,6 +9,8 @@
 #import <SpriteStackKit/SSKButtonNode.h>
 #import "TextureIDs.h"
 #import "SoundIDs.h"
+#import "KPStateStack.h"
+#import "StateIDs.h"
 
 #pragma mark - Interface
 
@@ -69,6 +71,7 @@ typedef enum layers {
         [[SSKButtonNode alloc]
          initWithTexture:[self.textures getTexture:TextureIDResumeButton]
          clickEventBlock:^(SSKButtonNode* node) {
+             [(KPStateStack*)self.scene spriteView].paused = NO;
              [node.audioDelegate playSound:SoundIDBackPress];
              [node.state requestStackPop];
      }];
@@ -77,6 +80,24 @@ typedef enum layers {
         CGPointMake(self.scene.frame.size.width * RESUME_REL_X,
                     self.scene.frame.size.height * RESUME_REL_Y);
     [self addNodeToLayer:LayerIDHUD node:resumeButton];
+    
+    CGFloat const MENU_REL_X = 0.212421875;
+    CGFloat const MENU_REL_Y = -0.2899479167;
+    
+    SSKButtonNode* menuButton =
+    [[SSKButtonNode alloc]
+     initWithTexture:[self.textures getTexture:TextureIDMenuButton]
+     clickEventBlock:^(SSKButtonNode* node) {
+         [(KPStateStack*)self.scene spriteView].paused = NO;
+         [node.audioDelegate playSound:SoundIDBackPress];
+         [node.state requestStackClear];
+         [node.state requestStackPush:StateIDMenu data:NULL];
+     }];
+    menuButton.audioDelegate = self.audioDelegate;
+    menuButton.position =
+    CGPointMake(self.scene.frame.size.width * MENU_REL_X,
+                self.scene.frame.size.height * MENU_REL_Y);
+    [self addNodeToLayer:LayerIDHUD node:menuButton];
 }
 
 @end

@@ -7,10 +7,10 @@
  * a game state.
  */
 
-#import <SpriteStackKit/SSKSpriteAnimationNode.h>
+#import <SpriteStackKit/SSKSpriteNode.h>
 #import <SpriteStackKit/SSKTextureManager.h>
 
-@interface KPProjectileNode : SSKSpriteAnimationNode
+@interface KPProjectileNode : SSKSpriteNode
 
 /**
  * @brief An enumeration of the types of projectiles.
@@ -28,13 +28,9 @@ typedef enum projectileType {
  *
  * @param textures
  * A model object containing all the textures loaded for the game.
- *
- * @param timePerFrame
- * The amount of time each frame is displayed (in seconds).
  */
 - (id)initWithType:(ProjectileType)projectileType
-          textures:(SSKTextureManager*)textures
-      timePerFrame:(double)timePerFrame;
+          textures:(SSKTextureManager*)textures;
 
 /**
  * @brief The type of projectile node.

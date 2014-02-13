@@ -43,8 +43,8 @@ typedef enum layers {
     return self;
 }
 
-- (void)update:(CFTimeInterval)deltaTime {
-    // stub
+- (BOOL)update:(CFTimeInterval)deltaTime {
+    return self.isActive;
 }
 
 - (void)buildState {
@@ -71,7 +71,6 @@ typedef enum layers {
         [[SSKButtonNode alloc]
          initWithTexture:[self.textures getTexture:TextureIDResumeButton]
          clickEventBlock:^(SSKButtonNode* node) {
-             [(KPStateStack*)self.scene spriteView].paused = NO;
              [node.audioDelegate playSound:SoundIDBackPress];
              [node.state requestStackPop];
      }];
@@ -98,6 +97,16 @@ typedef enum layers {
     CGPointMake(self.scene.frame.size.width * MENU_REL_X,
                 self.scene.frame.size.height * MENU_REL_Y);
     [self addNodeToLayer:LayerIDHUD node:menuButton];
+}
+
+#pragma mark SSKEventHandler
+
+- (BOOL)handleEvent:(UIEvent*)event touch:(UITouch*)touch {
+    [super handleEvent:event touch:touch];
+    
+    // N.B. The pause screen "handles" all events to prevent other states
+    // from handling them.
+    return YES;
 }
 
 @end

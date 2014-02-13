@@ -193,27 +193,33 @@ typedef enum resourcePools {
 
 #pragma mark SSKState
 
-- (void)update:(CFTimeInterval)deltaTime {
-    if (self.initialTime == -1) {
-        self.initialTime = deltaTime;
-        [self startCountdownTimer];
-    }
+- (BOOL)update:(CFTimeInterval)deltaTime {
+    BOOL activeThisFrame = self.isActive;
     
-    if (self.timeLastGeneration >= 60 && !self.gameEnded && self.gameStarted) {
-        self.timeLastGeneration = 0;
+    if (activeThisFrame) {
+        if (self.initialTime == -1) {
+            self.initialTime = deltaTime;
+            [self startCountdownTimer];
+        }
         
-        [self.poolManager retrieveFromPool:ResourcePoolIDBlueTarget];
-        [self.poolManager retrieveFromPool:ResourcePoolIDPinkTarget];
-        [self.poolManager retrieveFromPool:ResourcePoolIDGoldTarget];
-    } else {
-        self.timeLastGeneration++;
+        if (self.timeLastGeneration >= 60 && !self.gameEnded && self.gameStarted) {
+            self.timeLastGeneration = 0;
+            
+            [self.poolManager retrieveFromPool:ResourcePoolIDBlueTarget];
+            [self.poolManager retrieveFromPool:ResourcePoolIDPinkTarget];
+            [self.poolManager retrieveFromPool:ResourcePoolIDGoldTarget];
+        } else {
+            self.timeLastGeneration++;
+        }
+        
+        [self addRemoveTargetActionToQueue];
+        
+        while (![self.actionQueue isEmpty]) {
+            [self onAction:[self.actionQueue pop] deltaTime:deltaTime];
+        }
     }
     
-    [self addRemoveTargetActionToQueue];
-    
-    while (![self.actionQueue isEmpty]) {
-        [self onAction:[self.actionQueue pop] deltaTime:deltaTime];
-    }
+    return activeThisFrame;
 }
 
 - (void)buildState {
@@ -374,6 +380,7 @@ typedef enum resourcePools {
     SSKButtonNode* leftPauseButton =
     [[SSKButtonNode alloc] initWithTexture:[self.textures getTexture:TextureIDPauseButton]
                            clickEventBlock:^(SSKButtonNode* node) {
+                               self.isActive = NO;
                                [self requestStackPush:StateIDPause data:NULL];
                            }];
     
@@ -387,6 +394,7 @@ typedef enum resourcePools {
     SSKButtonNode* rightPauseButton =
     [[SSKButtonNode alloc] initWithTexture:[self.textures getTexture:TextureIDPauseButton]
                            clickEventBlock:^(SSKButtonNode* node) {
+                               self.isActive = NO;
                                [self requestStackPush:StateIDPause data:NULL];
                            }];
     rightPauseButton.position = CGPointMake(self.scene.frame.size.width * RIGHT_PAUSE_REL_X,
@@ -682,5 +690,15 @@ typedef enum resourcePools {
 @synthesize leftPlayer;
 @synthesize rightPlayer;
 @synthesize durationRemaining;
+
+- (void)setIsActive:(BOOL)isActive {
+    [super setIsActive:isActive];
+    
+    if (isActive) {
+        self.scene.physicsWorld.speed = 1.0f;
+    } else {
+        self.scene.physicsWorld.speed = 0.0f;
+    }
+}
 
 @end

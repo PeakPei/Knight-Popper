@@ -91,6 +91,9 @@ typedef enum layers {
          [node.audioDelegate playSound:SoundIDBackPress];
          [node.state requestStackClear];
          [node.state requestStackPush:StateIDMenu data:NULL];
+         
+         // N.B. Ensure the physics simulations are returned to normal.
+         self.scene.physicsWorld.speed = 1.0f;
      }];
     menuButton.audioDelegate = self.audioDelegate;
     menuButton.position =

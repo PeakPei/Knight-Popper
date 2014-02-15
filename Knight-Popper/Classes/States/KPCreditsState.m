@@ -81,8 +81,10 @@ typedef enum layers {
     
     SSKButtonNode* backButton =
         [[SSKButtonNode alloc]
-         initWithTexture:[self.textures getTexture:TextureIDBackButton]
-         clickEventBlock:^(SSKButtonNode* node) {
+         initWithDefaultTexture:[self.textures getTexture:TextureIDBackButton]
+         pressedTexture:[self.textures getTexture:TextureIDBackButtonHover]
+         beginPressBlock:NULL
+         endPressBlock:^(SSKButtonNode* node) {
              [node.audioDelegate playSound:SoundIDBackPress];
              [node.state requestStackPop];
          }];

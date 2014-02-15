@@ -378,12 +378,14 @@ typedef enum resourcePools {
     CGFloat const LEFT_PAUSE_REL_Y = 0.240625;
     
     SSKButtonNode* leftPauseButton =
-    [[SSKButtonNode alloc] initWithTexture:[self.textures getTexture:TextureIDPauseButton]
-                           clickEventBlock:^(SSKButtonNode* node) {
-                               self.isActive = NO;
-                               [self requestStackPush:StateIDPause data:NULL];
-                           }];
-    
+        [[SSKButtonNode alloc]
+         initWithDefaultTexture:[self.textures getTexture:TextureIDPauseButton]
+         pressedTexture:[self.textures getTexture:TextureIDPauseButtonHover]
+         beginPressBlock:NULL
+         endPressBlock:^(SSKButtonNode* node) {
+             self.isActive = NO;
+            [self requestStackPush:StateIDPause data:NULL];
+        }];
     leftPauseButton.position = CGPointMake(self.scene.frame.size.width * LEFT_PAUSE_REL_X,
                                            self.scene.frame.size.height * LEFT_PAUSE_REL_Y);
     [self addNodeToLayer:LayerIDHUD node:leftPauseButton];
@@ -392,11 +394,14 @@ typedef enum resourcePools {
     CGFloat const RIGHT_PAUSE_REL_Y = 0.240625;
     
     SSKButtonNode* rightPauseButton =
-    [[SSKButtonNode alloc] initWithTexture:[self.textures getTexture:TextureIDPauseButton]
-                           clickEventBlock:^(SSKButtonNode* node) {
-                               self.isActive = NO;
-                               [self requestStackPush:StateIDPause data:NULL];
-                           }];
+        [[SSKButtonNode alloc]
+         initWithDefaultTexture:[self.textures getTexture:TextureIDPauseButton]
+         pressedTexture:[self.textures getTexture:TextureIDPauseButtonHover]
+         beginPressBlock:NULL
+         endPressBlock:^(SSKButtonNode* node) {
+             self.isActive = NO;
+             [self requestStackPush:StateIDPause data:NULL];
+         }];
     rightPauseButton.position = CGPointMake(self.scene.frame.size.width * RIGHT_PAUSE_REL_X,
                                             self.scene.frame.size.height * RIGHT_PAUSE_REL_Y);
     [self addNodeToLayer:LayerIDHUD node:rightPauseButton];

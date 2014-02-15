@@ -10,6 +10,8 @@
 	<string>Knight-Popper</string>
 	<key>IDESourceControlProjectOriginsDictionary</key>
 	<dict>
+		<key>3094782B-9309-47CE-9FFC-DE406833B292</key>
+		<string>ssh://github.com/mwall1992/Sprite-Stack-Kit.git</string>
 		<key>BC1B6C08-08F7-48EB-A59F-D789D3F20469</key>
 		<string>ssh://github.com/mwall1992/Knight-Popper.git</string>
 	</dict>
@@ -17,6 +19,8 @@
 	<string>Knight-Popper.xcodeproj/project.xcworkspace</string>
 	<key>IDESourceControlProjectRelativeInstallPathDictionary</key>
 	<dict>
+		<key>3094782B-9309-47CE-9FFC-DE406833B292</key>
+		<string>../../Libraries/Sprite-Stack-Kit</string>
 		<key>BC1B6C08-08F7-48EB-A59F-D789D3F20469</key>
 		<string>../..</string>
 	</dict>
@@ -35,6 +39,14 @@
 			<string>BC1B6C08-08F7-48EB-A59F-D789D3F20469</string>
 			<key>IDESourceControlWCCName</key>
 			<string>Knight-Popper</string>
+		</dict>
+		<dict>
+			<key>IDESourceControlRepositoryExtensionIdentifierKey</key>
+			<string>public.vcs.git</string>
+			<key>IDESourceControlWCCIdentifierKey</key>
+			<string>3094782B-9309-47CE-9FFC-DE406833B292</string>
+			<key>IDESourceControlWCCName</key>
+			<string>Sprite-Stack-Kit</string>
 		</dict>
 	</array>
 </dict>

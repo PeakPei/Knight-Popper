@@ -85,7 +85,7 @@
 
 #pragma mark SSKEventHandler
 
-- (BOOL)handleEvent:(UIEvent*)event touch:(UITouch *)touch {
+- (BOOL)handleBeginEvent:(UIEvent*)event touch:(UITouch *)touch {
     BOOL eventHandled = NO;
     CGPoint touchLocation = [touch locationInNode:[self parent]];
     

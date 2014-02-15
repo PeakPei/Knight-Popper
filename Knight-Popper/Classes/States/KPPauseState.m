@@ -69,11 +69,13 @@ typedef enum layers {
     
     SSKButtonNode* resumeButton =
         [[SSKButtonNode alloc]
-         initWithTexture:[self.textures getTexture:TextureIDResumeButton]
-         clickEventBlock:^(SSKButtonNode* node) {
+         initWithDefaultTexture:[self.textures getTexture:TextureIDResumeButton]
+         pressedTexture:[self.textures getTexture:TextureIDResumeButtonHover]
+         beginPressBlock:NULL
+         endPressBlock:^(SSKButtonNode* node) {
              [node.audioDelegate playSound:SoundIDBackPress];
              [node.state requestStackPop];
-     }];
+         }];
     resumeButton.audioDelegate = self.audioDelegate;
     resumeButton.position =
         CGPointMake(self.scene.frame.size.width * RESUME_REL_X,
@@ -84,17 +86,19 @@ typedef enum layers {
     CGFloat const MENU_REL_Y = -0.2899479167;
     
     SSKButtonNode* menuButton =
-    [[SSKButtonNode alloc]
-     initWithTexture:[self.textures getTexture:TextureIDMenuButton]
-     clickEventBlock:^(SSKButtonNode* node) {
-         [(KPStateStack*)self.scene spriteView].paused = NO;
-         [node.audioDelegate playSound:SoundIDBackPress];
-         [node.state requestStackClear];
-         [node.state requestStackPush:StateIDMenu data:NULL];
-         
-         // N.B. Ensure the physics simulations are returned to normal.
-         self.scene.physicsWorld.speed = 1.0f;
-     }];
+        [[SSKButtonNode alloc]
+         initWithDefaultTexture:[self.textures getTexture:TextureIDMenuButton]
+         pressedTexture:[self.textures getTexture:TextureIDMenuButtonHover]
+         beginPressBlock:NULL
+         endPressBlock:^(SSKButtonNode* node) {
+             [(KPStateStack*)self.scene spriteView].paused = NO;
+             [node.audioDelegate playSound:SoundIDBackPress];
+             [node.state requestStackClear];
+             [node.state requestStackPush:StateIDMenu data:NULL];
+             
+             // N.B. Ensure the physics simulations are returned to normal.
+             self.scene.physicsWorld.speed = 1.0f;
+         }];
     menuButton.audioDelegate = self.audioDelegate;
     menuButton.position =
     CGPointMake(self.scene.frame.size.width * MENU_REL_X,
@@ -104,8 +108,16 @@ typedef enum layers {
 
 #pragma mark SSKEventHandler
 
-- (BOOL)handleEvent:(UIEvent*)event touch:(UITouch*)touch {
-    [super handleEvent:event touch:touch];
+- (BOOL)handleBeginEvent:(UIEvent*)event touch:(UITouch*)touch {
+    [super handleBeginEvent:event touch:touch];
+    
+    // N.B. The pause screen "handles" all events to prevent other states
+    // from handling them.
+    return YES;
+}
+
+- (BOOL)handleEndEvent:(UIEvent*)event touch:(UITouch*)touch {
+    [super handleEndEvent:event touch:touch];
     
     // N.B. The pause screen "handles" all events to prevent other states
     // from handling them.

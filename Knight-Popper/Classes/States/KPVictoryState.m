@@ -240,8 +240,10 @@ typedef enum layers {
     
     SSKButtonNode* retryButton =
         [[SSKButtonNode alloc]
-         initWithTexture:[self.textures getTexture:TextureIDRetryButton]
-         clickEventBlock:^(SSKButtonNode* node) {
+         initWithDefaultTexture:[self.textures getTexture:TextureIDRetryButton]
+         pressedTexture:[self.textures getTexture:TextureIDRetryButtonHover]
+         beginPressBlock:NULL
+         endPressBlock:^(SSKButtonNode* node) {
              [node.audioDelegate playSound:SoundIDForwardPress];
              
              if ([node.audioDelegate soundExists:SoundInstanceIDVictorySound]) {
@@ -262,8 +264,10 @@ typedef enum layers {
     
     SSKButtonNode* menuButton =
         [[SSKButtonNode alloc]
-         initWithTexture:[self.textures getTexture:TextureIDMenuButton]
-         clickEventBlock:^(SSKButtonNode* node) {
+         initWithDefaultTexture:[self.textures getTexture:TextureIDMenuButton]
+         pressedTexture:[self.textures getTexture:TextureIDMenuButtonHover]
+         beginPressBlock:NULL
+         endPressBlock:^(SSKButtonNode* node) {
              [node.audioDelegate playSound:SoundIDBackPress];
              [node.audioDelegate stopSound:SoundInstanceIDInGameMusic];
              

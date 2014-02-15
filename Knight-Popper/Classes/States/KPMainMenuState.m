@@ -88,8 +88,10 @@ typedef enum layers {
     
     SSKButtonNode* playButton =
         [[SSKButtonNode alloc]
-         initWithTexture:[self.textures getTexture:TextureIDPlayButton]
-         clickEventBlock:^(SSKButtonNode* node) {
+         initWithDefaultTexture:[self.textures getTexture:TextureIDPlayButton]
+         pressedTexture:[self.textures getTexture:TextureIDPlayButtonHover]
+         beginPressBlock:NULL
+         endPressBlock:^(SSKButtonNode* node) {
              [node.audioDelegate playSound:SoundIDForwardPress];
              [node.state requestStackClear];
              [node.state requestStackPush:StateIDLoading data:NULL];
@@ -104,8 +106,11 @@ typedef enum layers {
     
     SSKButtonNode* aboutButton =
         [[SSKButtonNode alloc]
-         initWithTexture:[self.textures getTexture:TextureIDAboutButton]
-         clickEventBlock:^(SSKButtonNode* node) {
+         initWithDefaultTexture:[self.textures getTexture:TextureIDAboutButton]
+         pressedTexture:[self.textures getTexture:TextureIDAboutButtonHover]
+         beginPressBlock:NULL
+         endPressBlock:^(SSKButtonNode* node) {
+             self.isActive = NO;
              [node.audioDelegate playSound:SoundIDForwardPress];
              [node.state requestStackPush:StateIDCredits data:NULL];
          }];

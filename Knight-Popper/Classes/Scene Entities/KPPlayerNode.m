@@ -13,6 +13,8 @@
 
 @interface KPPlayerNode()
 
+- (void)touchFinished;
+
 /**
  * @brief Retrieve the unique texture identifier associated with a specific
  * player type.
@@ -29,7 +31,20 @@
  */
 @property ActionCategory category;
 
-@property SSKTextureManager* textureManager;
+/**
+ * @brief Indicates whether the node is touched (true) or not (false).
+ */
+@property BOOL isTouched;
+
+/**
+ * @brief The initial position touched in a touch event involving the node.
+ */
+@property CGPoint touchBegin;
+
+/**
+ * @brief The last position touched in a touch event involving the node.
+ */
+@property CGPoint touchEnd;
 
 @end
 
@@ -55,7 +70,7 @@
                           horizontalOrder:HORIZONTAL_ORDER
                              timePerFrame:timePerFrame]) {
         _type = playerType;
-        self.textureManager = textures;
+        self.isTouched = NO;
     }
     
     return self;
@@ -77,6 +92,14 @@
     return identifier;
 }
 
+#pragma mark Helper Methods
+
+- (void)touchFinished {
+    CGVector throwArc = CGVectorMake(self.touchEnd.x - self.touchBegin.x,
+                                    self.touchEnd.y - self.touchBegin.y);
+    [self.delegate handleThrow:throwArc player:self.type];
+}
+
 #pragma mark SSKSpriteNode
 
 - (unsigned int)getActionCategory {
@@ -90,9 +113,50 @@
     CGPoint touchLocation = [touch locationInNode:[self parent]];
     
     if ([self containsPoint:touchLocation]) {
-        touchLocation = [touch locationInNode:self];
-        CGVector arc = CGVectorMake(touchLocation.x, touchLocation.y);
-        [self.delegate handleThrow:arc player:self.type];
+        self.isTouched = YES;
+        self.touchBegin = touchLocation;
+        eventHandled = YES;
+    }
+    
+    return eventHandled;
+}
+
+- (BOOL)handleMoveEvent:(UIEvent *)event touch:(UITouch *)touch {
+    BOOL eventHandled = NO;
+    CGPoint touchLocation = [touch locationInNode:[self parent]];
+    CGPoint previousTouchLocation = [touch previousLocationInNode:[self parent]];
+    
+    if ([self containsPoint:previousTouchLocation]
+            && ![self containsPoint:touchLocation] && self.isTouched) {
+        self.isTouched = NO;
+        self.touchEnd = touchLocation;
+        [self touchFinished];
+        eventHandled = YES;
+    }
+    
+    return eventHandled;
+}
+
+- (BOOL)handleEndEvent:(UIEvent *)event touch:(UITouch *)touch {
+    BOOL eventHandled = NO;
+    CGPoint touchLocation = [touch locationInNode:[self parent]];
+    
+    if ([self containsPoint:touchLocation] && self.isTouched) {
+        self.isTouched = NO;
+        self.touchEnd = touchLocation;
+        [self touchFinished];
+        eventHandled = YES;
+    }
+    
+    return eventHandled;
+}
+
+- (BOOL)handleCancelEvent:(UIEvent *)event touch:(UITouch *)touch {
+    BOOL eventHandled = NO;
+    CGPoint touchLocation = [touch locationInNode:[self parent]];
+    
+    if ([self containsPoint:touchLocation] && self.isTouched) {
+        self.isTouched = NO;
         eventHandled = YES;
     }
     
@@ -101,9 +165,11 @@
 
 #pragma mark - Properties
 
-@synthesize textureManager;
 @synthesize type = _type;
 @synthesize category;
 @synthesize delegate;
+@synthesize isTouched;
+@synthesize touchBegin;
+@synthesize touchEnd;
 
 @end

@@ -24,6 +24,9 @@
 #import "KPStateStack.h"
 #import "KPState.h"
 
+#define IS_WIDESCREEN ( fabs( ( double )[ [ UIScreen mainScreen ] bounds ].size.height - ( double )568 ) < DBL_EPSILON )
+
+
 #pragma mark - Interface
 
 @interface KPApplicationViewController ()
@@ -68,9 +71,7 @@
     self.stateView = (SKView*)self.view;
     
     // Load textures
-    self.textures = [[SSKTextureManager alloc] initWithTextureCount:20];
-    [self.textures loadTexture:@"background.png"
-                    identifier:TextureIDBackground];
+    self.textures = [[SSKTextureManager alloc] initWithTextureCount:55];
     [self.textures loadTexture:@"GrassTuft_Left.png"
                     identifier:TextureIDGrassTuftLeft];
     [self.textures loadTexture:@"GrassTuft_Right.png"
@@ -133,8 +134,6 @@
                     identifier:TextureIDBackButton];
     [self.textures loadTexture:@"back_button_hover.png"
                     identifier:TextureIDBackButtonHover];
-    [self.textures loadTexture:@"menu_bg.png"
-                    identifier:TextureIDMainMenuBackground];
     [self.textures loadTexture:@"title.png"
                     identifier:TextureIDMainMenuTitle];
     [self.textures loadTexture:@"lollipop_base.png"
@@ -170,6 +169,20 @@
     [self.textures loadTexture:@"resume_hover.png"
                     identifier:TextureIDResumeButtonHover];
     
+    // load textures modified for retina 4-inch displays (i.e. iPhone 5)
+    NSString* gameBackgroundFilename = @"background";
+    NSString* menuBackgroundFilename = @"menu_bg";
+    if (IS_WIDESCREEN) {
+        gameBackgroundFilename =
+            [NSString stringWithFormat:@"%@-568h", gameBackgroundFilename];
+        menuBackgroundFilename =
+            [NSString stringWithFormat:@"%@-568h", menuBackgroundFilename];
+    }
+    [self.textures loadTexture:gameBackgroundFilename
+                    identifier:TextureIDBackground];
+    [self.textures loadTexture:menuBackgroundFilename
+                    identifier:TextureIDMainMenuBackground];
+    
     // Load music
     self.musicManager = [[SSKMusicManager alloc] initWithSoundCount:3];
     [self.musicManager
@@ -201,6 +214,9 @@
     [self.musicManager
         loadSound:@"lollipop_throw" soundType:@"wav" identifier:SoundIDLollipopThrow];
     
+    
+    SKTexture* texture = [self.textures getTexture:TextureIDMenuButton];
+    NSLog(@"H: %f W: %f", texture.size.height, texture.size.width);
     
     // load sound effects
     self.soundManager = [[SSKSoundActionManager alloc] initWithSoundCount:0];

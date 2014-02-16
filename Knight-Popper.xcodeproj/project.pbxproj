@@ -1221,7 +1221,7 @@
 		9027C4C617F2B30B0056EFA4 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				CLASSPREFIX = HH;
+				CLASSPREFIX = KP;
 				LastUpgradeCheck = 0500;
 				ORGANIZATIONNAME = QUT;
 				TargetAttributes = {

@@ -14,3 +14,10 @@
     #import <UIKit/UIKit.h>
     #import <Foundation/Foundation.h>
 #endif
+
+// define commonly used macros
+
+#define IS_WIDESCREEN ( fabs( ( double )[ [ UIScreen mainScreen ] bounds ].size.height - ( double )568 ) < DBL_EPSILON )
+
+#define IPHONE_LANDSCAPE_WIDTH_PTS 480
+#define IPHONE_LANDSCAPE_HEIGHT_PTS 320

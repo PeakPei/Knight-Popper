@@ -16,6 +16,7 @@
 #import "KPPlayerStats.h"
 #import "StateDataKeys.h"
 #import <SpriteStackKit/SSKLabelNode.h>
+#import "Coordinates.h"
 
 #pragma mark - Interface
 
@@ -98,6 +99,72 @@ typedef enum layers {
 }
 
 - (void)buildState {
+    // determine element positioning based on device type
+    // N.B. The credits pages background texture has a different aspect ratio
+    // between iPad and iPhone. As such, an element cannot be given a general
+    // relative positioning which can be scaled between devices (as done for
+    // other KPStates).
+    
+    // initialise using relative positioning coordinates suited for iPads
+    // N.B. For consistency, all position variables are specified relative to an
+    // iPhone screen (in points) and later translated for the appropriate device
+    // (e.g. iPads and R4 iPhones).
+
+    // TODO: clean up this code by avoiding translating from iPhone in all cases.
+    // This has not been done due to time constraints.
+    CGFloat WINNER_HEAD_REL_X = -0.240;
+    CGFloat WINNER_HEAD_REL_Y = 0.082;
+    CGFloat LOSER_HEAD_REL_X = 0.1935;
+    CGFloat LOSER_HEAD_REL_Y = 0.1425;
+    CGFloat WINNER_POINTS_REL_X = -0.239625;
+    CGFloat WINNER_POINTS_REL_Y = -0.08;
+    CGFloat LOSER_POINTS_REL_X = 0.284625;
+    CGFloat LOSER_POINTS_REL_Y = 0.14;
+    CGFloat WINNER_PINK_REL_X = 0.03375;
+    CGFloat WINNER_PINK_REL_Y = 0.095;
+    CGFloat WINNER_BLUE_REL_X = 0.03825;
+    CGFloat WINNER_BLUE_REL_Y = -0.015;
+    CGFloat WINNER_GOLD_REL_X = 0.0405;
+    CGFloat WINNER_GOLD_REL_Y = -0.128;
+    CGFloat LOSER_PINK_REL_X = 0.3105;
+    CGFloat LOSER_PINK_REL_Y = -0.0165;
+    CGFloat LOSER_BLUE_REL_X = 0.31275;
+    CGFloat LOSER_BLUE_REL_Y = -0.128;
+    CGFloat LOSER_GOLD_REL_X = 0.316125;
+    CGFloat LOSER_GOLD_REL_Y = -0.241;
+    CGFloat RETRY_REL_X = -0.216475;
+    CGFloat RETRY_REL_Y = -0.2899479167;
+    CGFloat MENU_REL_X = -0.037134;
+    CGFloat MENU_REL_Y = -0.2849479167;
+    
+    // modify relative positioning coordinates for iPhones
+    if (UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPhone) {
+        WINNER_HEAD_REL_X = -0.217;
+        WINNER_HEAD_REL_Y = 0.082;
+        LOSER_HEAD_REL_X = 0.168;
+        LOSER_HEAD_REL_Y = 0.1425;
+        WINNER_POINTS_REL_X = -0.212925;
+        WINNER_POINTS_REL_Y = -0.08;
+        LOSER_POINTS_REL_X = 0.2525;
+        LOSER_POINTS_REL_Y = 0.14;
+        WINNER_PINK_REL_X = 0.03075;
+        WINNER_PINK_REL_Y = 0.095;
+        WINNER_BLUE_REL_X = 0.03525;
+        WINNER_BLUE_REL_Y = -0.015;
+        WINNER_GOLD_REL_X = 0.0375;
+        WINNER_GOLD_REL_Y = -0.128;
+        LOSER_PINK_REL_X = 0.275;
+        LOSER_PINK_REL_Y = -0.0165;
+        LOSER_BLUE_REL_X = 0.279;
+        LOSER_BLUE_REL_Y = -0.128;
+        LOSER_GOLD_REL_X = 0.282375;
+        LOSER_GOLD_REL_Y = -0.241;
+        RETRY_REL_X = -0.19475;
+        RETRY_REL_Y = -0.2899479167;
+        MENU_REL_X = -0.037134;
+        MENU_REL_Y = -0.2849479167;
+    }
+    
     // Initialise background layer
     SSKSpriteNode* background =
         [[SSKSpriteNode alloc]
@@ -113,7 +180,9 @@ typedef enum layers {
     [self addNodeToLayer:LayerIDVictoryBackground node:victoryBackground];
     
     // Initialise the victory info layer
-    // TODO: include more elaborate measures to settle ties
+    UIColor* textColour =
+        [UIColor colorWithRed:9.0/255.0 green:108.0/255.0 blue:172.0/255.0 alpha:1.0];
+    
     SKTexture* winnerTexture;
     SKTexture* loserTexture;
     
@@ -125,119 +194,111 @@ typedef enum layers {
         loserTexture = [self.textures getTexture:TextureIDPlayerOneHeadLoser];
     }
     
-    CGFloat const WINNER_HEAD_REL_X = -0.245;
-    CGFloat const WINNER_HEAD_REL_Y = 0.09;
-    CGFloat const LOSER_HEAD_REL_X = 0.19;
-    CGFloat const LOSER_HEAD_REL_Y = 0.1425;
-    
     SSKSpriteNode* winnerHead =
         [[SSKSpriteNode alloc] initWithTexture:winnerTexture];
-    winnerHead.position =
-        CGPointMake(self.scene.frame.size.width * WINNER_HEAD_REL_X,
-                    self.scene.frame.size.height * WINNER_HEAD_REL_Y);
+    winnerHead.position = CGPointMake(
+        [Coordinates convertXFromiPhone:IPHONE_LANDSCAPE_WIDTH_PTS * WINNER_HEAD_REL_X
+                    scalesForWidescreen:NO],
+        [Coordinates convertYFromiPhone:IPHONE_LANDSCAPE_HEIGHT_PTS * WINNER_HEAD_REL_Y]);
     [self addNodeToLayer:LayerIDVictoryInfo node:winnerHead];
     
     SSKSpriteNode* loserHead =
         [[SSKSpriteNode alloc] initWithTexture:loserTexture];
-    loserHead.position =
-        CGPointMake(self.scene.frame.size.width * LOSER_HEAD_REL_X,
-                    self.scene.frame.size.height * LOSER_HEAD_REL_Y);
+    loserHead.position = CGPointMake(
+        [Coordinates convertXFromiPhone:IPHONE_LANDSCAPE_WIDTH_PTS * LOSER_HEAD_REL_X
+                    scalesForWidescreen:NO],
+        [Coordinates convertYFromiPhone:IPHONE_LANDSCAPE_HEIGHT_PTS * LOSER_HEAD_REL_Y]);
     [self addNodeToLayer:LayerIDVictoryInfo node:loserHead];
     
     // Initialise score labels
-    CGFloat const WINNER_POINTS_REL_X = -0.245;
-    CGFloat const WINNER_POINTS_REL_Y = -0.08;
-    
-    SSKLabelNode* winnerPoints = [[SSKLabelNode alloc] initWithFontNamed:@"gameFont"];
+    SSKLabelNode* winnerPoints = [SSKLabelNode labelNodeWithFontNamed:@"CurseCasualJVE"];
     winnerPoints.text = [NSString stringWithFormat:@"%d", self.winnerScore.score];
-    winnerPoints.fontSize = self.scene.frame.size.height * 0.06510416667;
-    winnerPoints.position =
-        CGPointMake(self.scene.frame.size.width * WINNER_POINTS_REL_X,
-                    self.scene.frame.size.height * WINNER_POINTS_REL_Y);
+    winnerPoints.fontColor = textColour;
+    winnerPoints.fontSize = self.scene.frame.size.height * 0.1;
+    winnerPoints.position = CGPointMake(
+        [Coordinates convertXFromiPhone:IPHONE_LANDSCAPE_WIDTH_PTS * WINNER_POINTS_REL_X
+                    scalesForWidescreen:NO],
+        [Coordinates convertYFromiPhone:IPHONE_LANDSCAPE_HEIGHT_PTS * WINNER_POINTS_REL_Y]);
     [self addNodeToLayer:LayerIDVictoryInfo node:winnerPoints];
     
-    CGFloat const LOSER_POINTS_REL_X = 0.29;
-    CGFloat const LOSER_POINTS_REL_Y = 0.15;
-    
-    SSKLabelNode* loserPoints = [[SSKLabelNode alloc] initWithFontNamed:@"gameFont"];
+    SSKLabelNode* loserPoints = [SSKLabelNode labelNodeWithFontNamed:@"CurseCasualJVE"];
     loserPoints.text = [NSString stringWithFormat:@"%d", self.loserScore.score];
-    loserPoints.fontSize = self.scene.frame.size.height * 0.05208333333;
-    loserPoints.position =
-        CGPointMake(self.scene.frame.size.width * LOSER_POINTS_REL_X,
-                    self.scene.frame.size.height * LOSER_POINTS_REL_Y);
+    loserPoints.fontColor = textColour;
+    loserPoints.fontSize = self.scene.frame.size.height * 0.075;
+    loserPoints.position = CGPointMake(
+        [Coordinates convertXFromiPhone:IPHONE_LANDSCAPE_WIDTH_PTS * LOSER_POINTS_REL_X
+                    scalesForWidescreen:NO],
+        [Coordinates convertYFromiPhone:IPHONE_LANDSCAPE_HEIGHT_PTS * LOSER_POINTS_REL_Y]);
     [self addNodeToLayer:LayerIDVictoryInfo node:loserPoints];
     
     // Initialise stats labels
-    CGFloat const WINNER_PINK_REL_X = 0.0;
-    CGFloat const WINNER_PINK_REL_Y = 0.1;
-    
-    SSKLabelNode* winnerPinkCount = [[SSKLabelNode alloc] initWithFontNamed:@"gameFont"];
-    winnerPinkCount.text = [NSString stringWithFormat:@"%d", self.winnerStats.pinkTargetsHit];
+    SSKLabelNode* winnerPinkCount = [SSKLabelNode labelNodeWithFontNamed:@"CurseCasualJVE"];
+    winnerPinkCount.text = [NSString stringWithFormat:@"x%d", self.winnerStats.pinkTargetsHit];
+    winnerPinkCount.fontColor = textColour;
     winnerPinkCount.fontSize = self.scene.frame.size.height * 0.05208333333;
-    winnerPinkCount.position =
-        CGPointMake(self.scene.frame.size.width * WINNER_PINK_REL_X,
-                    self.scene.frame.size.height * WINNER_PINK_REL_Y);
+    winnerPinkCount.position = CGPointMake(
+        [Coordinates convertXFromiPhone:IPHONE_LANDSCAPE_WIDTH_PTS * WINNER_PINK_REL_X
+                    scalesForWidescreen:NO]
+            - winnerPinkCount.frame.size.width/2.0f,
+        [Coordinates convertYFromiPhone:IPHONE_LANDSCAPE_HEIGHT_PTS * WINNER_PINK_REL_Y]);
     [self addNodeToLayer:LayerIDVictoryInfo node:winnerPinkCount];
     
-    CGFloat const WINNER_BLUE_REL_X = 0.0;
-    CGFloat const WINNER_BLUE_REL_Y = -0.0;
-    
-    SSKLabelNode* winnerBlueCount = [[SSKLabelNode alloc] initWithFontNamed:@"gameFont"];
-    winnerBlueCount.text = [NSString stringWithFormat:@"%d", self.winnerStats.blueTargetsHit];
+    SSKLabelNode* winnerBlueCount = [SSKLabelNode labelNodeWithFontNamed:@"CurseCasualJVE"];
+    winnerBlueCount.text = [NSString stringWithFormat:@"x%d", self.winnerStats.blueTargetsHit];
+    winnerBlueCount.fontColor = textColour;
     winnerBlueCount.fontSize = self.scene.frame.size.height * 0.05208333333;
-    winnerBlueCount.position =
-        CGPointMake(self.scene.frame.size.width * WINNER_BLUE_REL_X,
-                    self.scene.frame.size.height * WINNER_BLUE_REL_Y);
+    winnerBlueCount.position = CGPointMake(
+        [Coordinates convertXFromiPhone:IPHONE_LANDSCAPE_WIDTH_PTS * WINNER_BLUE_REL_X
+                    scalesForWidescreen:NO]
+            - winnerBlueCount.frame.size.width/2.0f,
+        [Coordinates convertYFromiPhone:IPHONE_LANDSCAPE_HEIGHT_PTS * WINNER_BLUE_REL_Y]);
     [self addNodeToLayer:LayerIDVictoryInfo node:winnerBlueCount];
     
-    CGFloat const WINNER_GOLD_REL_X = 0.0;
-    CGFloat const WINNER_GOLD_REL_Y = -0.1;
-    
-    SSKLabelNode* winnerGoldCount = [[SSKLabelNode alloc] initWithFontNamed:@"gameFont"];
-    winnerGoldCount.text = [NSString stringWithFormat:@"%d", self.winnerStats.goldTargetsHit];
+    SSKLabelNode* winnerGoldCount = [SSKLabelNode labelNodeWithFontNamed:@"CurseCasualJVE"];
+    winnerGoldCount.text = [NSString stringWithFormat:@"x%d", self.winnerStats.goldTargetsHit];
+    winnerGoldCount.fontColor = textColour;
     winnerGoldCount.fontSize = self.scene.frame.size.height * 0.05208333333;
-    winnerGoldCount.position =
-        CGPointMake(self.scene.frame.size.width * WINNER_GOLD_REL_X,
-                    self.scene.frame.size.height * WINNER_GOLD_REL_Y);
+    winnerGoldCount.position = CGPointMake(
+        [Coordinates convertXFromiPhone:IPHONE_LANDSCAPE_WIDTH_PTS * WINNER_GOLD_REL_X
+                    scalesForWidescreen:NO]
+            - winnerGoldCount.frame.size.width/2.0f,
+        [Coordinates convertYFromiPhone:IPHONE_LANDSCAPE_HEIGHT_PTS * WINNER_GOLD_REL_Y]);
     [self addNodeToLayer:LayerIDVictoryInfo node:winnerGoldCount];
     
-    CGFloat const LOSER_PINK_REL_X = 0.29;
-    CGFloat const LOSER_PINK_REL_Y = -0.03;
-    
-    SSKLabelNode* loserPinkCount = [[SSKLabelNode alloc] initWithFontNamed:@"gameFont"];
-    loserPinkCount.text = [NSString stringWithFormat:@"%d", self.loserStats.pinkTargetsHit];
+    SSKLabelNode* loserPinkCount = [SSKLabelNode labelNodeWithFontNamed:@"CurseCasualJVE"];
+    loserPinkCount.text = [NSString stringWithFormat:@"x%d", self.loserStats.pinkTargetsHit];
+    loserPinkCount.fontColor = textColour;
     loserPinkCount.fontSize = self.scene.frame.size.height * 0.05208333333;
-    loserPinkCount.position =
-        CGPointMake(self.scene.frame.size.width * LOSER_PINK_REL_X,
-                    self.scene.frame.size.height * LOSER_PINK_REL_Y);
+    loserPinkCount.position = CGPointMake(
+        [Coordinates convertXFromiPhone:IPHONE_LANDSCAPE_WIDTH_PTS * LOSER_PINK_REL_X
+                    scalesForWidescreen:NO]
+            - loserPinkCount.frame.size.width/2.0f,
+        [Coordinates convertYFromiPhone:IPHONE_LANDSCAPE_HEIGHT_PTS * LOSER_PINK_REL_Y]);
     [self addNodeToLayer:LayerIDVictoryInfo node:loserPinkCount];
     
-    CGFloat const LOSER_BLUE_REL_X = 0.29;
-    CGFloat const LOSER_BLUE_REL_Y = -0.15;
-    
-    SSKLabelNode* loserBlueCount = [[SSKLabelNode alloc] initWithFontNamed:@"gameFont"];
-    loserBlueCount.text = [NSString stringWithFormat:@"%d", self.loserStats.blueTargetsHit];
+    SSKLabelNode* loserBlueCount = [SSKLabelNode labelNodeWithFontNamed:@"CurseCasualJVE"];
+    loserBlueCount.text = [NSString stringWithFormat:@"x%d", self.loserStats.blueTargetsHit];
+    loserBlueCount.fontColor = textColour;
     loserBlueCount.fontSize = self.scene.frame.size.height * 0.05208333333;
-    loserBlueCount.position =
-        CGPointMake(self.scene.frame.size.width * LOSER_BLUE_REL_X,
-                    self.scene.frame.size.height * LOSER_BLUE_REL_Y);
+    loserBlueCount.position = CGPointMake(
+        [Coordinates convertXFromiPhone:IPHONE_LANDSCAPE_WIDTH_PTS * LOSER_BLUE_REL_X
+                    scalesForWidescreen:NO]
+            - loserBlueCount.frame.size.width/2.0f,
+        [Coordinates convertYFromiPhone:IPHONE_LANDSCAPE_HEIGHT_PTS * LOSER_BLUE_REL_Y]);
     [self addNodeToLayer:LayerIDVictoryInfo node:loserBlueCount];
     
-    CGFloat const LOSER_GOLD_REL_X = 0.29;
-    CGFloat const LOSER_GOLD_REL_Y = -0.25;
-    
-    SSKLabelNode* loserGoldCount = [[SSKLabelNode alloc] initWithFontNamed:@"gameFont"];
-    loserGoldCount.text = [NSString stringWithFormat:@"%d", self.loserStats.goldTargetsHit];
+    SSKLabelNode* loserGoldCount = [SSKLabelNode labelNodeWithFontNamed:@"CurseCasualJVE"];
+    loserGoldCount.text = [NSString stringWithFormat:@"x%d", self.loserStats.goldTargetsHit];
+    loserGoldCount.fontColor = textColour;
     loserGoldCount.fontSize = self.scene.frame.size.height * 0.05208333333;
-    loserGoldCount.position =
-        CGPointMake(self.scene.frame.size.width * LOSER_GOLD_REL_X,
-                    self.scene.frame.size.height * LOSER_GOLD_REL_Y);
+    loserGoldCount.position = CGPointMake(
+        [Coordinates convertXFromiPhone:IPHONE_LANDSCAPE_WIDTH_PTS * LOSER_GOLD_REL_X
+                    scalesForWidescreen:NO]
+            - loserGoldCount.frame.size.width/2.0f,
+        [Coordinates convertYFromiPhone:IPHONE_LANDSCAPE_HEIGHT_PTS * LOSER_GOLD_REL_Y]);
     [self addNodeToLayer:LayerIDVictoryInfo node:loserGoldCount];
     
     // Initialise HUD layer
-    CGFloat const RETRY_REL_X = -0.212421875;
-    CGFloat const RETRY_REL_Y = -0.2899479167;
-    
     SSKButtonNode* retryButton =
         [[SSKButtonNode alloc]
          initWithDefaultTexture:[self.textures getTexture:TextureIDRetryButton]
@@ -254,13 +315,11 @@ typedef enum layers {
              [node.state requestStackPush:StateIDStandardGame data:NULL];
          }];
     retryButton.audioDelegate = self.audioDelegate;
-    retryButton.position =
-        CGPointMake(self.scene.frame.size.width * RETRY_REL_X,
-                    self.scene.frame.size.height * RETRY_REL_Y);
+    retryButton.position = CGPointMake(
+        [Coordinates convertXFromiPhone:IPHONE_LANDSCAPE_WIDTH_PTS * RETRY_REL_X
+                    scalesForWidescreen:NO],
+        [Coordinates convertYFromiPhone:IPHONE_LANDSCAPE_HEIGHT_PTS * RETRY_REL_Y]);
     [self addNodeToLayer:LayerIDHUD node:retryButton];
-    
-    CGFloat const MENU_REL_X = -0.0530078125;
-    CGFloat const MENU_REL_Y = -0.2899479167;
     
     SSKButtonNode* menuButton =
         [[SSKButtonNode alloc]
@@ -279,9 +338,10 @@ typedef enum layers {
              [node.state requestStackPush:StateIDMenu data:NULL];
          }];
     menuButton.audioDelegate = self.audioDelegate;
-    menuButton.position =
-        CGPointMake(self.scene.frame.size.width * MENU_REL_X,
-                    self.scene.frame.size.height * MENU_REL_Y);
+    menuButton.position = CGPointMake(
+        [Coordinates convertXFromiPhone:IPHONE_LANDSCAPE_WIDTH_PTS * MENU_REL_X
+                    scalesForWidescreen:NO],
+        [Coordinates convertYFromiPhone:IPHONE_LANDSCAPE_HEIGHT_PTS * MENU_REL_Y]);
     [self addNodeToLayer:LayerIDHUD node:menuButton];
 }
 

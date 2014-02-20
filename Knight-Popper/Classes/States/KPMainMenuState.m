@@ -16,6 +16,7 @@
 #import <SpriteStackKit/SSKActionQueue.h>
 #import <SpriteStackKit/SSKSpriteAnimationNode.h>
 #import <SpriteStackKit/SSKButtonNode.h>
+#import "Coordinates.h"
 
 #pragma mark - Interface
 
@@ -79,8 +80,10 @@ typedef enum layers {
     SSKSpriteNode* title =
         [[SSKSpriteNode alloc]
          initWithTexture:[self.textures getTexture:TextureIDMainMenuTitle]];
-    title.position = CGPointMake(self.scene.frame.size.width * TITLE_REL_X,
-                                 self.scene.frame.size.height * TITLE_REL_Y);
+    title.position = CGPointMake(
+        [Coordinates convertXFromiPhone:IPHONE_LANDSCAPE_WIDTH_PTS * TITLE_REL_X
+                    scalesForWidescreen:YES],
+        [Coordinates convertYFromiPhone:IPHONE_LANDSCAPE_HEIGHT_PTS * TITLE_REL_Y]);
     [self addNodeToLayer:LayerIDBackground node:title];
     
     CGFloat const PLAY_REL_X = 0;
@@ -97,11 +100,13 @@ typedef enum layers {
              [node.state requestStackPush:StateIDLoading data:NULL];
          }];
     playButton.audioDelegate = self.audioDelegate;
-    playButton.position = CGPointMake(self.scene.frame.size.width * PLAY_REL_X,
-                                      self.scene.frame.size.height * PLAY_REL_Y);
+    playButton.position = CGPointMake(
+        [Coordinates convertXFromiPhone:IPHONE_LANDSCAPE_WIDTH_PTS * PLAY_REL_X
+                    scalesForWidescreen:YES],
+        [Coordinates convertYFromiPhone:IPHONE_LANDSCAPE_HEIGHT_PTS * PLAY_REL_Y]);
     [self addNodeToLayer:LayerIDBackground node:playButton];
     
-    CGFloat const ABOUT_REL_X = -0.361328125;
+    CGFloat const ABOUT_REL_X = -0.406494;
     CGFloat const ABOUT_REL_Y = -0.3515625;
     
     SSKButtonNode* aboutButton =
@@ -115,8 +120,10 @@ typedef enum layers {
              [node.state requestStackPush:StateIDCredits data:NULL];
          }];
     aboutButton.audioDelegate = self.audioDelegate;
-    aboutButton.position = CGPointMake(self.scene.frame.size.width * ABOUT_REL_X,
-                                       self.scene.frame.size.height * ABOUT_REL_Y);
+    aboutButton.position = CGPointMake(
+        [Coordinates convertXFromiPhone:IPHONE_LANDSCAPE_WIDTH_PTS * ABOUT_REL_X
+                    scalesForWidescreen:YES],
+        [Coordinates convertYFromiPhone:IPHONE_LANDSCAPE_HEIGHT_PTS * ABOUT_REL_Y]);
     [self addNodeToLayer:LayerIDBackground node:aboutButton];
     
     [self.audioDelegate playSound:SoundIDMenuMusic

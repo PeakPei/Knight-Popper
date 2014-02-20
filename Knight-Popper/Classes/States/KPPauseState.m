@@ -11,6 +11,7 @@
 #import "SoundIDs.h"
 #import "KPStateStack.h"
 #import "StateIDs.h"
+#import "Coordinates.h"
 
 #pragma mark - Interface
 
@@ -64,8 +65,8 @@ typedef enum layers {
     [self addNodeToLayer:LayerIDPauseBackground node:pauseBackground];
     
     // Initialise HUD layer
-    CGFloat const RESUME_REL_X = -0.212421875;
-    CGFloat const RESUME_REL_Y = -0.2899479167;
+    CGFloat const RESUME_REL_X = 0.0;
+    CGFloat const RESUME_REL_Y = 0.009;
     
     SSKButtonNode* resumeButton =
         [[SSKButtonNode alloc]
@@ -77,13 +78,14 @@ typedef enum layers {
              [node.state requestStackPop];
          }];
     resumeButton.audioDelegate = self.audioDelegate;
-    resumeButton.position =
-        CGPointMake(self.scene.frame.size.width * RESUME_REL_X,
-                    self.scene.frame.size.height * RESUME_REL_Y);
+    resumeButton.position = CGPointMake(
+        [Coordinates convertXFromiPhone:IPHONE_LANDSCAPE_WIDTH_PTS * RESUME_REL_X
+                    scalesForWidescreen:NO],
+        [Coordinates convertYFromiPhone:IPHONE_LANDSCAPE_HEIGHT_PTS * RESUME_REL_Y]);
     [self addNodeToLayer:LayerIDHUD node:resumeButton];
-    
-    CGFloat const MENU_REL_X = 0.212421875;
-    CGFloat const MENU_REL_Y = -0.2899479167;
+
+    CGFloat const MENU_REL_X = 0.005625;
+    CGFloat const MENU_REL_Y = -0.2;
     
     SSKButtonNode* menuButton =
         [[SSKButtonNode alloc]
@@ -100,9 +102,10 @@ typedef enum layers {
              self.scene.physicsWorld.speed = 1.0f;
          }];
     menuButton.audioDelegate = self.audioDelegate;
-    menuButton.position =
-    CGPointMake(self.scene.frame.size.width * MENU_REL_X,
-                self.scene.frame.size.height * MENU_REL_Y);
+    menuButton.position = CGPointMake(
+        [Coordinates convertXFromiPhone:IPHONE_LANDSCAPE_WIDTH_PTS * MENU_REL_X
+                    scalesForWidescreen:NO],
+        [Coordinates convertYFromiPhone:IPHONE_LANDSCAPE_HEIGHT_PTS * MENU_REL_Y]);
     [self addNodeToLayer:LayerIDHUD node:menuButton];
 }
 

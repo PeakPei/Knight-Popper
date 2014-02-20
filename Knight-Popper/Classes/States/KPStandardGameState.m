@@ -29,6 +29,7 @@
 #import <SpriteStackKit/SSKLabelNode.h>
 #import <SpriteStackKit/SSKButtonNode.h>
 #import "KPStateStack.h"
+#import "Coordinates.h"
 
 #pragma mark - Interface
 
@@ -145,7 +146,7 @@ typedef enum resourcePools {
             [SKAction runBlock:^{
                 [self.countdownTimer removeFromParent];
                 [self addNodeToLayer:LayerIDHUD node:self.gameTime];
-                [self.gameTime animateReverse];
+                [self.gameTime animate];
                 self.gameStarted = YES;
             }],
             [SKAction waitForDuration:30],
@@ -240,8 +241,10 @@ typedef enum resourcePools {
         
         [self addNodeToLayer:LayerIDTargets node:resource];
         [resource.physicsBody
-         applyForce:CGVectorMake([Random generateDouble:-self.scene.frame.size.height * 0.1302083333 upperBound:-self.scene.frame.size.height * 0.1302083333],
-                                 [Random generateDouble:self.scene.frame.size.height * 1.953125 upperBound:self.scene.frame.size.height * 2.6041666667])];
+         applyForce:CGVectorMake([Random generateDouble:-self.scene.frame.size.height * 0.1302083333
+                                             upperBound:-self.scene.frame.size.height * 0.1302083333],
+                                 [Random generateDouble:self.scene.frame.size.height * 1.953125
+                                             upperBound:self.scene.frame.size.height * 2.6041666667])];
         resource.physicsBody.angularVelocity =
             [Random generateDouble:-0.2 upperBound:0.2];
         resource.physicsBody.angularDamping =
@@ -359,9 +362,10 @@ typedef enum resourcePools {
     SSKSpriteNode* pinkMonkeyHUD =
         [[SSKSpriteNode alloc]
          initWithTexture:[self.textures getTexture:TextureIDPinkMonkeyHUD]];
-    pinkMonkeyHUD.position =
-        CGPointMake(self.scene.frame.size.width * PINK_MONKEY_HUD_REL_X,
-                    self.scene.frame.size.height * PINK_MONKEY_HUD_REL_Y);
+    pinkMonkeyHUD.position = CGPointMake(
+        [Coordinates convertXFromiPhone:IPHONE_LANDSCAPE_WIDTH_PTS * PINK_MONKEY_HUD_REL_X
+                    scalesForWidescreen:YES],
+        [Coordinates convertYFromiPhone:IPHONE_LANDSCAPE_HEIGHT_PTS * PINK_MONKEY_HUD_REL_Y]);
     [self addNodeToLayer:LayerIDHUD node:pinkMonkeyHUD];
     
     CGFloat const BLUE_MONKEY_HUD_REL_X = 0.4040625;
@@ -369,9 +373,10 @@ typedef enum resourcePools {
     
     SSKSpriteNode* blueMonkeyHUD = [[SSKSpriteNode alloc] initWithTexture:
                                    [self.textures getTexture:TextureIDBlueMonkeyHUD]];
-    blueMonkeyHUD.position =
-        CGPointMake(self.scene.frame.size.width * BLUE_MONKEY_HUD_REL_X,
-                    self.scene.frame.size.height * BLUE_MONKEY_HUD_REL_Y);
+    blueMonkeyHUD.position = CGPointMake(
+        [Coordinates convertXFromiPhone:IPHONE_LANDSCAPE_WIDTH_PTS * BLUE_MONKEY_HUD_REL_X
+                    scalesForWidescreen:YES],
+        [Coordinates convertYFromiPhone:IPHONE_LANDSCAPE_HEIGHT_PTS * BLUE_MONKEY_HUD_REL_Y]);
     [self addNodeToLayer:LayerIDHUD node:blueMonkeyHUD];
     
     CGFloat const LEFT_PAUSE_REL_X = -0.4040625;
@@ -386,8 +391,10 @@ typedef enum resourcePools {
              self.isActive = NO;
             [self requestStackPush:StateIDPause data:NULL];
         }];
-    leftPauseButton.position = CGPointMake(self.scene.frame.size.width * LEFT_PAUSE_REL_X,
-                                           self.scene.frame.size.height * LEFT_PAUSE_REL_Y);
+    leftPauseButton.position = CGPointMake(
+        [Coordinates convertXFromiPhone:IPHONE_LANDSCAPE_WIDTH_PTS * LEFT_PAUSE_REL_X
+                    scalesForWidescreen:YES],
+        [Coordinates convertYFromiPhone:IPHONE_LANDSCAPE_HEIGHT_PTS * LEFT_PAUSE_REL_Y]);
     [self addNodeToLayer:LayerIDHUD node:leftPauseButton];
     
     CGFloat const RIGHT_PAUSE_REL_X = 0.4040625;
@@ -402,20 +409,17 @@ typedef enum resourcePools {
              self.isActive = NO;
              [self requestStackPush:StateIDPause data:NULL];
          }];
-    rightPauseButton.position = CGPointMake(self.scene.frame.size.width * RIGHT_PAUSE_REL_X,
-                                            self.scene.frame.size.height * RIGHT_PAUSE_REL_Y);
+    rightPauseButton.position = CGPointMake(
+        [Coordinates convertXFromiPhone:IPHONE_LANDSCAPE_WIDTH_PTS * RIGHT_PAUSE_REL_X
+                    scalesForWidescreen:YES],
+        [Coordinates convertYFromiPhone:IPHONE_LANDSCAPE_HEIGHT_PTS * RIGHT_PAUSE_REL_Y]);
     [self addNodeToLayer:LayerIDHUD node:rightPauseButton];
-    
-    CGFloat const TIMER_REL_X = 0.0;
-    CGFloat const TIMER_REL_Y = 0.0;
     
     self.countdownTimer =
         [[SSKSpriteAnimationNode alloc]
          initWithSpriteSheet:[self.textures getTexture:TextureIDCountdown]
          columns:2 rows:2 numFrames:4 horizontalOrder:YES timePerFrame:1];
-    self.countdownTimer.position =
-        CGPointMake(self.scene.frame.size.width * TIMER_REL_X,
-                    self.scene.frame.size.height * TIMER_REL_Y);
+    self.countdownTimer.position = CGPointZero;
     [self addNodeToLayer:LayerIDHUD node:self.countdownTimer];
     
     CGFloat const GAME_TIMER_REL_X = 0.0;
@@ -425,9 +429,10 @@ typedef enum resourcePools {
         [[SSKSpriteAnimationNode alloc]
          initWithSpriteSheet:[self.textures getTexture:TextureIDTimer] columns:5
          rows:6 numFrames:30 horizontalOrder:YES timePerFrame:1];
-    self.gameTime.position =
-        CGPointMake(self.scene.size.width * GAME_TIMER_REL_X,
-                    self.scene.size.height * Game_TIMER_REL_Y);
+    self.gameTime.position = CGPointMake(
+        [Coordinates convertXFromiPhone:IPHONE_LANDSCAPE_WIDTH_PTS * GAME_TIMER_REL_X
+                    scalesForWidescreen:YES],
+        [Coordinates convertYFromiPhone:IPHONE_LANDSCAPE_HEIGHT_PTS * Game_TIMER_REL_Y]);
     
     self.timeUp =
         [[SSKSpriteNode alloc] initWithTexture:[self.textures getTexture:TextureIDTimeUp]];
@@ -436,23 +441,27 @@ typedef enum resourcePools {
     CGFloat const PLAYER_ONE_SCORE_REL_X = -0.3;
     CGFloat const PLAYER_ONE_SCORE_REL_Y = 0.370625;
     
-    self.playerOneScoreLabel = [[SSKLabelNode alloc] initWithFontNamed:@"gameFont"];
+    self.playerOneScoreLabel = [SSKLabelNode labelNodeWithFontNamed:@"CurseCasualJVE"];
     self.playerOneScoreLabel.text = [NSString stringWithFormat:@"%d", self.playerOneScore.score];
-    self.playerOneScoreLabel.fontSize = self.scene.frame.size.height * 0.06510416667;
-    self.playerOneScoreLabel.position =
-    CGPointMake(self.scene.frame.size.width * PLAYER_ONE_SCORE_REL_X,
-                self.scene.frame.size.height * PLAYER_ONE_SCORE_REL_Y);
+    self.playerOneScoreLabel.fontSize = self.scene.frame.size.height * 0.1;
+    self.playerOneScoreLabel.horizontalAlignmentMode = SKLabelHorizontalAlignmentModeLeft;
+    self.playerOneScoreLabel.position = CGPointMake(
+        [Coordinates convertXFromiPhone:IPHONE_LANDSCAPE_WIDTH_PTS * PLAYER_ONE_SCORE_REL_X
+                    scalesForWidescreen:YES],
+        [Coordinates convertYFromiPhone:IPHONE_LANDSCAPE_HEIGHT_PTS * PLAYER_ONE_SCORE_REL_Y]);
     [self addNodeToLayer:LayerIDHUD node:self.playerOneScoreLabel];
     
     CGFloat const PLAYER_TWO_SCORE_REL_X = 0.3;
     CGFloat const PLAYER_TWO_SCORE_REL_Y = 0.370625;
     
-    self.playerTwoScoreLabel = [[SSKLabelNode alloc] initWithFontNamed:@"gameFont"];
+    self.playerTwoScoreLabel = [SSKLabelNode labelNodeWithFontNamed:@"CurseCasualJVE"];
     self.playerTwoScoreLabel.text = [NSString stringWithFormat:@"%d", self.playerTwoScore.score];
-    self.playerTwoScoreLabel.fontSize = self.scene.frame.size.height * 0.06510416667;
-    self.playerTwoScoreLabel.position =
-    CGPointMake(self.scene.frame.size.width * PLAYER_TWO_SCORE_REL_X,
-                self.scene.frame.size.height * PLAYER_TWO_SCORE_REL_Y);
+    self.playerTwoScoreLabel.fontSize = self.scene.frame.size.height * 0.1;
+    self.playerTwoScoreLabel.horizontalAlignmentMode = SKLabelHorizontalAlignmentModeRight;
+    self.playerTwoScoreLabel.position = CGPointMake(
+        [Coordinates convertXFromiPhone:IPHONE_LANDSCAPE_WIDTH_PTS * PLAYER_TWO_SCORE_REL_X
+                    scalesForWidescreen:YES],
+        [Coordinates convertYFromiPhone:IPHONE_LANDSCAPE_HEIGHT_PTS * PLAYER_TWO_SCORE_REL_Y]);
     [self addNodeToLayer:LayerIDHUD node:self.playerTwoScoreLabel];
     
     // Initialise players layer
@@ -464,9 +473,10 @@ typedef enum resourcePools {
                                                      timePerFrame:1.0/14.0];
     self.leftPlayer.audioDelegate = self.audioDelegate;
     self.leftPlayer.delegate = (id<KPPlayerSwipeHandler>)self;
-    self.leftPlayer.position =
-        CGPointMake(self.scene.frame.size.width * LEFT_PLAYER_REL_X,
-                    self.scene.frame.size.height * LEFT_PLAYER_REL_Y);
+    self.leftPlayer.position = CGPointMake(
+        [Coordinates convertXFromiPhone:IPHONE_LANDSCAPE_WIDTH_PTS * LEFT_PLAYER_REL_X
+                    scalesForWidescreen:NO],
+        [Coordinates convertYFromiPhone:IPHONE_LANDSCAPE_HEIGHT_PTS * LEFT_PLAYER_REL_Y]);
     [self.leftPlayer animate];
     [self addNodeToLayer:LayerIDPlayers node:self.leftPlayer];
     
@@ -478,9 +488,10 @@ typedef enum resourcePools {
                                                       timePerFrame:1.0/14.0];
     self.rightPlayer.audioDelegate = self.audioDelegate;
     self.rightPlayer.delegate = (id<KPPlayerSwipeHandler>)self;
-    self.rightPlayer.position =
-        CGPointMake(self.scene.frame.size.width * RIGHT_PLAYER_REL_X,
-                    self.scene.frame.size.height * RIGHT_PLAYER_REL_Y);
+    self.rightPlayer.position = CGPointMake(
+        [Coordinates convertXFromiPhone:IPHONE_LANDSCAPE_WIDTH_PTS * RIGHT_PLAYER_REL_X
+                    scalesForWidescreen:NO],
+        [Coordinates convertYFromiPhone:IPHONE_LANDSCAPE_HEIGHT_PTS * RIGHT_PLAYER_REL_Y]);
     [self.rightPlayer animate];
     [self addNodeToLayer:LayerIDPlayers node:self.rightPlayer];
     
@@ -491,9 +502,10 @@ typedef enum resourcePools {
     SSKSpriteNode* leftGrassTuft =
         [[SSKSpriteNode alloc]
          initWithTexture:[self.textures getTexture:TextureIDGrassTuftLeft]];
-    leftGrassTuft.position =
-        CGPointMake(self.scene.frame.size.width * LEFT_GRASS_REL_X,
-                    self.scene.frame.size.height * LEFT_GRASS_REL_Y);
+    leftGrassTuft.position = CGPointMake(
+        [Coordinates convertXFromiPhone:IPHONE_LANDSCAPE_WIDTH_PTS * LEFT_GRASS_REL_X
+                    scalesForWidescreen:NO],
+        [Coordinates convertYFromiPhone:IPHONE_LANDSCAPE_HEIGHT_PTS * LEFT_GRASS_REL_Y]);
     [self addNodeToLayer:LayerIDScenery node:leftGrassTuft];
     
     CGFloat const RIGHT_GRASS_REL_X = 0.33203125;
@@ -502,9 +514,10 @@ typedef enum resourcePools {
     SSKSpriteNode* rightGrassTuft =
         [[SSKSpriteNode alloc]
          initWithTexture:[self.textures getTexture:TextureIDGrassTuftRight]];
-    rightGrassTuft.position =
-        CGPointMake(self.scene.frame.size.width * RIGHT_GRASS_REL_X,
-                    self.scene.frame.size.height * RIGHT_GRASS_REL_Y);
+    rightGrassTuft.position = CGPointMake(
+        [Coordinates convertXFromiPhone:IPHONE_LANDSCAPE_WIDTH_PTS * RIGHT_GRASS_REL_X
+                    scalesForWidescreen:NO],
+        [Coordinates convertYFromiPhone:IPHONE_LANDSCAPE_HEIGHT_PTS * RIGHT_GRASS_REL_Y]);
     [self addNodeToLayer:LayerIDScenery node:rightGrassTuft];
 }
 

@@ -31,7 +31,7 @@
 		90175020180E54B300B000A7 /* lollipop_base@2x~iphone.png in Resources */ = {isa = PBXBuildFile; fileRef = 9017501E180E54B300B000A7 /* lollipop_base@2x~iphone.png */; };
 		90175021180E54B300B000A7 /* lollipop_top@2x~iphone.png in Resources */ = {isa = PBXBuildFile; fileRef = 9017501F180E54B300B000A7 /* lollipop_top@2x~iphone.png */; };
 		90175024180E553B00B000A7 /* KPLoadingState.m in Sources */ = {isa = PBXBuildFile; fileRef = 90175023180E553B00B000A7 /* KPLoadingState.m */; };
-		90175026180E5F5900B000A7 /* gameFont.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 90175025180E5F5900B000A7 /* gameFont.ttf */; };
+		90175026180E5F5900B000A7 /* CurseCasualJVE.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 90175025180E5F5900B000A7 /* CurseCasualJVE.ttf */; };
 		9027C4D217F2B30B0056EFA4 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9027C4D117F2B30B0056EFA4 /* Foundation.framework */; };
 		9027C4D417F2B30B0056EFA4 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9027C4D317F2B30B0056EFA4 /* CoreGraphics.framework */; };
 		9027C4D617F2B30B0056EFA4 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9027C4D517F2B30B0056EFA4 /* UIKit.framework */; };
@@ -74,6 +74,7 @@
 		904D0DAE182F9A0C007E35BB /* KPPlayerNode.m in Sources */ = {isa = PBXBuildFile; fileRef = 904D0DAD182F9A0C007E35BB /* KPPlayerNode.m */; };
 		904D0DB8182FA750007E35BB /* KPState.m in Sources */ = {isa = PBXBuildFile; fileRef = 904D0DB7182FA750007E35BB /* KPState.m */; };
 		904D0DBB182FA763007E35BB /* KPStateStack.m in Sources */ = {isa = PBXBuildFile; fileRef = 904D0DBA182FA763007E35BB /* KPStateStack.m */; };
+		9079830318B17F2800B1875B /* Coordinates.m in Sources */ = {isa = PBXBuildFile; fileRef = 9079830218B17F2800B1875B /* Coordinates.m */; };
 		9088297817FFC0150016CCB6 /* KPActionCategories.m in Sources */ = {isa = PBXBuildFile; fileRef = 9088295617FFC0150016CCB6 /* KPActionCategories.m */; };
 		9088297917FFC0150016CCB6 /* KPAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 9088295817FFC0150016CCB6 /* KPAppDelegate.m */; };
 		9088297A17FFC0150016CCB6 /* KPApplicationViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9088295A17FFC0150016CCB6 /* KPApplicationViewController.m */; };
@@ -290,7 +291,7 @@
 		9017501F180E54B300B000A7 /* lollipop_top@2x~iphone.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "lollipop_top@2x~iphone.png"; sourceTree = "<group>"; };
 		90175022180E553B00B000A7 /* KPLoadingState.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KPLoadingState.h; sourceTree = "<group>"; };
 		90175023180E553B00B000A7 /* KPLoadingState.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KPLoadingState.m; sourceTree = "<group>"; };
-		90175025180E5F5900B000A7 /* gameFont.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = gameFont.ttf; sourceTree = "<group>"; };
+		90175025180E5F5900B000A7 /* CurseCasualJVE.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = CurseCasualJVE.ttf; sourceTree = "<group>"; };
 		9027C4CE17F2B30B0056EFA4 /* Knight-Popper.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Knight-Popper.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		9027C4D117F2B30B0056EFA4 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		9027C4D317F2B30B0056EFA4 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -339,6 +340,8 @@
 		904D0DB9182FA763007E35BB /* KPStateStack.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KPStateStack.h; sourceTree = "<group>"; };
 		904D0DBA182FA763007E35BB /* KPStateStack.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KPStateStack.m; sourceTree = "<group>"; };
 		905929E1182E8BB10073DEEC /* ColliderTypes.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ColliderTypes.h; sourceTree = "<group>"; };
+		9079830118B17F2800B1875B /* Coordinates.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Coordinates.h; sourceTree = "<group>"; };
+		9079830218B17F2800B1875B /* Coordinates.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Coordinates.m; sourceTree = "<group>"; };
 		9088295517FFC0150016CCB6 /* KPActionCategories.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KPActionCategories.h; sourceTree = "<group>"; };
 		9088295617FFC0150016CCB6 /* KPActionCategories.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KPActionCategories.m; sourceTree = "<group>"; };
 		9088295717FFC0150016CCB6 /* KPAppDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KPAppDelegate.h; sourceTree = "<group>"; };
@@ -687,6 +690,8 @@
 		9088296317FFC0150016CCB6 /* Utilities */ = {
 			isa = PBXGroup;
 			children = (
+				9079830118B17F2800B1875B /* Coordinates.h */,
+				9079830218B17F2800B1875B /* Coordinates.m */,
 				908CFEF3182B70DE00941DB1 /* PathParser.h */,
 				908CFEF4182B70DE00941DB1 /* PathParser.m */,
 				9088296417FFC0150016CCB6 /* Random.h */,
@@ -753,7 +758,7 @@
 		90E3C29818000EF300087ED3 /* Fonts */ = {
 			isa = PBXGroup;
 			children = (
-				90175025180E5F5900B000A7 /* gameFont.ttf */,
+				90175025180E5F5900B000A7 /* CurseCasualJVE.ttf */,
 			);
 			path = Fonts;
 			sourceTree = "<group>";
@@ -1178,7 +1183,7 @@
 				90885C22182A58A00041095E /* player1~ipad.png in Resources */,
 				904BDC331808D5EE003E7499 /* game_timer~ipad.png in Resources */,
 				90885BBE182981570041095E /* menu_button@2x~ipad.png in Resources */,
-				90175026180E5F5900B000A7 /* gameFont.ttf in Resources */,
+				90175026180E5F5900B000A7 /* CurseCasualJVE.ttf in Resources */,
 				90885BAB182981400041095E /* retry_button_hover~ipad.png in Resources */,
 				904BDC3B1808D5EE003E7499 /* player_one_attack~ipad.png in Resources */,
 				90E3C2D118000EF400087ED3 /* pink_monkey_target~ipad.png in Resources */,
@@ -1322,6 +1327,7 @@
 				908CFEF5182B70DE00941DB1 /* PathParser.m in Sources */,
 				904D0DBB182FA763007E35BB /* KPStateStack.m in Sources */,
 				9088297817FFC0150016CCB6 /* KPActionCategories.m in Sources */,
+				9079830318B17F2800B1875B /* Coordinates.m in Sources */,
 				904D0DAE182F9A0C007E35BB /* KPPlayerNode.m in Sources */,
 				9088297E17FFC0150016CCB6 /* UIApplication+AppDimensions.m in Sources */,
 				9088297D17FFC0150016CCB6 /* Random.m in Sources */,

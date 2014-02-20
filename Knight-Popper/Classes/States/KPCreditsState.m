@@ -11,6 +11,7 @@
 #import "TextureIDs.h"
 #import "StateIDs.h"
 #import "SoundIDs.h"
+#import "Coordinates.h"
 
 #pragma mark - Interface
 
@@ -76,8 +77,17 @@ typedef enum layers {
     [self addNodeToLayer:LayerIDCreditsInfo node:creditsInfo];
     
     // Initialise HUD layer
-    CGFloat const BACK_REL_X = -0.390625;
+    
+    // initialise using relative positioning coordinates suited for iPads
+    // N.B. Additional modifications are due to inconsistencies in the size of the
+    // credits information texture between devices.
+    CGFloat BACK_REL_X = -0.390625;
     CGFloat const BACK_REL_Y = -0.390625;
+    
+    // modify relative positioning coordinates for iPhones
+    if (UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPhone) {
+        BACK_REL_X = -0.350625;
+    }
     
     SSKButtonNode* backButton =
         [[SSKButtonNode alloc]
@@ -89,8 +99,10 @@ typedef enum layers {
              [node.state requestStackPop];
          }];
     backButton.audioDelegate = self.audioDelegate;
-    backButton.position = CGPointMake(self.scene.frame.size.width * BACK_REL_X,
-                                      self.scene.frame.size.height * BACK_REL_Y);
+    backButton.position = CGPointMake(
+        [Coordinates convertXFromiPhone:IPHONE_LANDSCAPE_WIDTH_PTS * BACK_REL_X
+                    scalesForWidescreen:NO],
+        [Coordinates convertYFromiPhone:IPHONE_LANDSCAPE_HEIGHT_PTS * BACK_REL_Y]);
     [self addNodeToLayer:LayerIDHUD node:backButton];
 }
 

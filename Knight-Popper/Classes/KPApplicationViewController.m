@@ -24,8 +24,9 @@
 #import "KPStateStack.h"
 #import "KPState.h"
 
-#define IS_WIDESCREEN ( fabs( ( double )[ [ UIScreen mainScreen ] bounds ].size.height - ( double )568 ) < DBL_EPSILON )
-
+#import "KPPlayerScore.h"
+#import "KPPlayerStats.h"
+#import "StateDataKeys.h"
 
 #pragma mark - Interface
 
@@ -213,10 +214,6 @@
         loadSound:@"lollipop_reload" soundType:@"wav" identifier:SoundIDLollipopReload];
     [self.musicManager
         loadSound:@"lollipop_throw" soundType:@"wav" identifier:SoundIDLollipopThrow];
-    
-    
-    SKTexture* texture = [self.textures getTexture:TextureIDMenuButton];
-    NSLog(@"H: %f W: %f", texture.size.height, texture.size.width);
     
     // load sound effects
     self.soundManager = [[SSKSoundActionManager alloc] initWithSoundCount:0];

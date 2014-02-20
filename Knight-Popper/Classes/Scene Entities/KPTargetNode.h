@@ -38,4 +38,13 @@ typedef enum targetType {
  */
 @property (readonly) TargetType type;
 
+/**
+ * @brief Indicates whether a collision involving this node and a projectile has
+ * been handled.
+ *
+ * @note Given that targets are destroyed after colliding with a projectile,
+ * this property is used to avoid multiple collisions registering.
+ */
+@property BOOL collisionWithProjectileHandled;
+
 @end

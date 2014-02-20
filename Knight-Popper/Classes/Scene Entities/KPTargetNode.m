@@ -67,6 +67,7 @@
             numFrames:1 horizontalOrder:YES
             width:self.frame.size.width height:self.frame.size.height];
         
+        self.collisionWithProjectileHandled = NO;
         SKPhysicsBody* physicsBody =
             [SKPhysicsBody bodyWithPolygonFromPath:(__bridge CGPathRef)(paths[0])];
         physicsBody.dynamic = YES;
@@ -110,5 +111,6 @@
 
 @synthesize type = _type;
 @synthesize category;
+@synthesize collisionWithProjectileHandled;
 
 @end

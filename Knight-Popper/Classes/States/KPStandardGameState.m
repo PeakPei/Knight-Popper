@@ -121,6 +121,8 @@ typedef enum resourcePools {
         self.timeUp = NULL;
         self.gameTime = NULL;
         self.gameEnded = NO;
+        
+        // initialise player score and stat tracking
         self.playerOneScore = [[KPPlayerScore alloc] init];
         [self.playerOneScore addObserver:self
                               forKeyPath:@"score"
@@ -133,6 +135,9 @@ typedef enum resourcePools {
                                  context:NULL];
         self.playerOneStats = [[KPPlayerStats alloc] init];
         self.playerTwoStats = [[KPPlayerStats alloc] init];
+        
+        // define the general structure of the level as a series of timed-based
+        // SKActions
         self.countdownSoundAction =
             [SKAction sequence:@[
             [SKAction runBlock:^{[self.audioDelegate playSound:SoundIDCountdownThree];}],
@@ -527,11 +532,13 @@ typedef enum resourcePools {
     uint32_t bodyACategory = contact.bodyA.categoryBitMask;
     uint32_t bodyBCategory = contact.bodyB.categoryBitMask;
     
+    // only handle collisions between appropriate nodes (targets and projectiles)
     if ((bodyACategory == ColliderTypeProjectile
                 && bodyBCategory == ColliderTypeTarget)
         || (bodyACategory == ColliderTypeTarget
                 && bodyBCategory == ColliderTypeProjectile)) {
             
+            // determine the target and projectile in the collision
             id target;
             KPProjectileNode* projectile;
             ProjectileType projType;
@@ -558,7 +565,10 @@ typedef enum resourcePools {
                 }
             }
             
-            if ([target isKindOfClass:[KPTargetNode class]]) {
+            // handle the collision
+            if ([target isKindOfClass:[KPTargetNode class]]
+                    && !((KPTargetNode*)target).collisionWithProjectileHandled
+                    && !projectile.collisionWithTargetHandled) {
                 KPTargetNode* node = (KPTargetNode*)target;
                 CGPoint targetPosition = node.position;
                 PopType popType;
@@ -607,6 +617,9 @@ typedef enum resourcePools {
                     }
                     break;
                 }
+                
+                ((KPTargetNode*)target).collisionWithProjectileHandled = YES;
+                projectile.collisionWithTargetHandled = YES;
                 
                 KPBalloonPopNode* pop =
                     [[KPBalloonPopNode alloc] initWithType:popType

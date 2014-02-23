@@ -37,13 +37,4 @@ typedef enum projectileType {
  */
 @property (readonly) ProjectileType type;
 
-/**
- * @brief Indicates whether a collision involving this node and a target has 
- * been handled.
- *
- * @note Given that projectiles are destroyed after colliding with a target,
- * this property is used to avoid multiple collisions registering.
- */
-@property BOOL collisionWithTargetHandled;
-
 @end

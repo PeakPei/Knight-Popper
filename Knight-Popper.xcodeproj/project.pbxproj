@@ -1057,6 +1057,9 @@
 				LastUpgradeCheck = 0500;
 				ORGANIZATIONNAME = QUT;
 				TargetAttributes = {
+					9027C4CD17F2B30B0056EFA4 = {
+						DevelopmentTeam = H483C6LWH3;
+					};
 					9027C4F817F2B30C0056EFA4 = {
 						TestTargetID = 9027C4CD17F2B30B0056EFA4;
 					};
@@ -1492,6 +1495,8 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "Knight-Popper/Supporting Files/Knight-Popper-Prefix.pch";
 				HEADER_SEARCH_PATHS = "";
@@ -1499,6 +1504,7 @@
 				LIBRARY_SEARCH_PATHS = "$(inherited)";
 				OTHER_LDFLAGS = "-ObjC";
 				PRODUCT_NAME = "Knight-Popper";
+				PROVISIONING_PROFILE = "";
 				SPRITEKIT_TEXTURE_ATLAS_OUTPUT = YES;
 				WRAPPER_EXTENSION = app;
 			};
@@ -1509,6 +1515,8 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "Knight-Popper/Supporting Files/Knight-Popper-Prefix.pch";
 				HEADER_SEARCH_PATHS = "";
@@ -1516,6 +1524,7 @@
 				LIBRARY_SEARCH_PATHS = "$(inherited)";
 				OTHER_LDFLAGS = "-ObjC";
 				PRODUCT_NAME = "Knight-Popper";
+				PROVISIONING_PROFILE = "";
 				SPRITEKIT_TEXTURE_ATLAS_OUTPUT = YES;
 				WRAPPER_EXTENSION = app;
 			};

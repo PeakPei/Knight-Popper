@@ -42,6 +42,15 @@ typedef enum playerType {
  */
 @property (readonly) PlayerType type;
 
+/**
+ * @brief Indicates whether the player can handle touch events (true) or not
+ * (false).
+ */
+@property (nonatomic) BOOL isActive;
+
+/**
+ * @brief The delegate object responsible for handling player "throw" events.
+ */
 @property (weak) id<KPPlayerSwipeHandler> delegate;
 
 @end

@@ -93,7 +93,15 @@ typedef enum resourcePools {
 
 @property KPPlayerNode* leftPlayer;
 
+@property SSKSpriteAnimationNode* leftPlayerThrow;
+
+@property CGVector leftPlayerThrowVector;
+
 @property KPPlayerNode* rightPlayer;
+
+@property SSKSpriteAnimationNode* rightPlayerThrow;
+
+@property CGVector rightPlayerThrowVector;
 
 @property double durationRemaining;
 
@@ -178,6 +186,8 @@ typedef enum resourcePools {
                       ofObject:(id)object
                         change:(NSDictionary *)change
                        context:(void *)context {
+    
+    // handle changes in the player scores
     if ([keyPath isEqualToString:@"score"]) {
         if ([object isEqual:self.playerOneScore]) {
             self.playerOneScoreLabel.text =
@@ -186,15 +196,79 @@ typedef enum resourcePools {
             self.playerTwoScoreLabel.text =
                 [NSString stringWithFormat:@"%d", self.playerTwoScore.score];
         }
-    } else if ([keyPath isEqualToString:@"isAnimating"]) {
+    
+    // handle the balloon pop animation finishing
+    } else if ([object isKindOfClass:[KPBalloonPopNode class]]
+               && [keyPath isEqualToString:@"isAnimating"]) {
         [object destroy];
         [object removeObserver:self forKeyPath:@"isAnimating"];
+    
+    // respond to the throw animation being toggled for the left player
+    } else if (object == self.leftPlayerThrow
+               && [keyPath isEqualToString:@"isAnimating"]) {
+        if (self.leftPlayerThrow.isAnimating) {
+            KPProjectileNode* projectile =
+                [self.poolManager retrieveFromPool:ResourcePoolIDLeftProjectile];
+            [projectile.physicsBody
+                applyForce:CGVectorMake(self.leftPlayerThrowVector.dx * 25,
+                                        self.leftPlayerThrowVector.dy * 25)];
+            [self.audioDelegate playSound:SoundIDLollipopThrow];
+            
+            self.leftPlayer.hidden = YES;
+            self.leftPlayerThrow.hidden = NO;
+        } else {
+            self.leftPlayer.hidden = NO;
+            self.leftPlayerThrow.hidden = YES;
+        }
+    
+    // respond to the throw animation being toggled for the right player
+    } else if (object == self.rightPlayerThrow
+               && [keyPath isEqualToString:@"isAnimating"]) {
+        if (self.rightPlayerThrow.isAnimating) {
+            KPProjectileNode* projectile =
+            [self.poolManager retrieveFromPool:ResourcePoolIDRightProjectile];
+            [projectile.physicsBody
+             applyForce:CGVectorMake(self.rightPlayerThrowVector.dx * 25,
+                                     self.rightPlayerThrowVector.dy * 25)];
+            [self.audioDelegate playSound:SoundIDLollipopThrow];
+            
+            self.rightPlayer.hidden = YES;
+            self.rightPlayerThrow.hidden = NO;
+        } else {
+            self.rightPlayer.hidden = NO;
+            self.rightPlayerThrow.hidden = YES;
+        }
+        
+    // handle changes in the visibility of the left player idle animation
+    } else if (object == self.leftPlayer
+               && [keyPath isEqualToString:@"hidden"]) {
+        self.leftPlayer.isActive = !self.leftPlayer.hidden;
+        
+    // handle changes in the visibility of the right player idle animation
+    } else if (object == self.rightPlayer
+               && [keyPath isEqualToString:@"hidden"]) {
+        self.rightPlayer.isActive = !self.rightPlayer.hidden;
+        
+    // handle
+    } else if (object == self.leftPlayerThrow
+               && [keyPath isEqualToString:@"currentFrame"]) {
+        
+    // handle
+    } else if (object == self.rightPlayerThrow
+               && [keyPath isEqualToString:@"currentFrame"]) {
+        
     }
 }
 
 - (void)dealloc {
     [self.playerOneScore removeObserver:self forKeyPath:@"score"];
     [self.playerTwoScore removeObserver:self forKeyPath:@"score"];
+    [self.leftPlayerThrow removeObserver:self forKeyPath:@"currentFrame"];
+    [self.rightPlayerThrow removeObserver:self forKeyPath:@"isAnimating"];
+    [self.rightPlayerThrow removeObserver:self forKeyPath:@"currentFrame"];
+    [self.rightPlayerThrow removeObserver:self forKeyPath:@"isAnimating"];
+    [self.leftPlayer removeObserver:self forKeyPath:@"hidden"];
+    [self.rightPlayer removeObserver:self forKeyPath:@"hidden"];
 }
 
 #pragma mark SSKState
@@ -235,9 +309,6 @@ typedef enum resourcePools {
         KPTargetNode* resource = (KPTargetNode*)node;
         [self setRandomSpawnLocation:resource];
         
-        // WEIRD FIX
-        [resource removeFromParent];
-        
         [self addNodeToLayer:LayerIDTargets node:resource];
         [resource.physicsBody
          applyForce:CGVectorMake([Random generateDouble:-self.scene.frame.size.height * 0.1302083333
@@ -265,11 +336,6 @@ typedef enum resourcePools {
     
     void (^targetGetLeftProj)(id) = ^(id node) {
         SSKSpriteAnimationNode* resource = (SSKSpriteAnimationNode*)node;
-        
-        
-        // WEIRD FIX
-        [resource removeFromParent];
-        
         
         resource.position = self.leftPlayer.position;
         [self addNodeToLayer:LayerIDProjectiles node:resource];
@@ -479,6 +545,31 @@ typedef enum resourcePools {
     [self.leftPlayer animate];
     [self addNodeToLayer:LayerIDPlayers node:self.leftPlayer];
     
+    [self.leftPlayer addObserver:self
+                      forKeyPath:@"hidden"
+                         options:NSKeyValueObservingOptionNew
+                         context:NULL];
+    
+    self.leftPlayerThrow =
+        [[SSKSpriteAnimationNode alloc]
+         initWithSpriteSheet:[self.textures getTexture:TextureIDPlayerOneAttack]
+         columns:7 rows:2 numFrames:12 horizontalOrder:YES timePerFrame:1.0/14.0];
+    self.leftPlayerThrow.position = CGPointMake(
+       [Coordinates convertXFromiPhone:IPHONE_LANDSCAPE_WIDTH_PTS * LEFT_PLAYER_REL_X
+                   scalesForWidescreen:NO],
+       [Coordinates convertYFromiPhone:IPHONE_LANDSCAPE_HEIGHT_PTS * LEFT_PLAYER_REL_Y]);
+    [self addNodeToLayer:LayerIDPlayers node:self.leftPlayerThrow];
+    self.leftPlayerThrow.hidden = YES;
+    
+    [self.leftPlayerThrow addObserver:self
+                           forKeyPath:@"isAnimating"
+                              options:NSKeyValueObservingOptionNew
+                              context:NULL];
+    [self.leftPlayerThrow addObserver:self
+                           forKeyPath:@"currentFrame"
+                              options:NSKeyValueObservingOptionNew
+                              context:NULL];
+    
     CGFloat const RIGHT_PLAYER_REL_X = 0.341796875;
     CGFloat const RIGHT_PLAYER_REL_Y = -0.2078645833;
     
@@ -493,6 +584,31 @@ typedef enum resourcePools {
         [Coordinates convertYFromiPhone:IPHONE_LANDSCAPE_HEIGHT_PTS * RIGHT_PLAYER_REL_Y]);
     [self.rightPlayer animate];
     [self addNodeToLayer:LayerIDPlayers node:self.rightPlayer];
+    
+    [self.rightPlayer addObserver:self
+                       forKeyPath:@"hidden"
+                          options:NSKeyValueObservingOptionNew
+                          context:NULL];
+    
+    self.rightPlayerThrow =
+    [[SSKSpriteAnimationNode alloc]
+     initWithSpriteSheet:[self.textures getTexture:TextureIDPlayerTwoAttack]
+     columns:7 rows:2 numFrames:12 horizontalOrder:YES timePerFrame:1.0/14.0];
+    self.rightPlayerThrow.position = CGPointMake(
+        [Coordinates convertXFromiPhone:IPHONE_LANDSCAPE_WIDTH_PTS * RIGHT_PLAYER_REL_X
+                    scalesForWidescreen:NO],
+        [Coordinates convertYFromiPhone:IPHONE_LANDSCAPE_HEIGHT_PTS * RIGHT_PLAYER_REL_Y]);
+    [self addNodeToLayer:LayerIDPlayers node:self.rightPlayerThrow];
+    self.rightPlayerThrow.hidden = YES;
+    
+    [self.rightPlayerThrow addObserver:self
+                            forKeyPath:@"isAnimating"
+                               options:NSKeyValueObservingOptionNew
+                               context:NULL];
+    [self.rightPlayerThrow addObserver:self
+                            forKeyPath:@"currentFrame"
+                               options:NSKeyValueObservingOptionNew
+                               context:NULL];
     
     // Initialise scenery layer
     CGFloat const LEFT_GRASS_REL_X = -0.33203125;
@@ -638,10 +754,13 @@ typedef enum resourcePools {
 #pragma mark KPPlayerSwipeHandler
 
 - (void)handleThrow:(CGVector)vector player:(unsigned int)player {
-    ResourcePoolID poolID = player ? ResourcePoolIDRightProjectile : ResourcePoolIDLeftProjectile;
-    KPProjectileNode* projectile = [self.poolManager retrieveFromPool:poolID];
-    [projectile.physicsBody applyForce:CGVectorMake(vector.dx * 25, vector.dy * 25)];
-    [self.audioDelegate playSound:SoundIDLollipopThrow];
+    if (player) {
+        self.rightPlayerThrowVector = vector;
+        [self.rightPlayerThrow animateOnce];
+    } else {
+        self.leftPlayerThrowVector = vector;
+        [self.leftPlayerThrow animateOnce];
+    }
 }
 
 #pragma mark Helper Methods
@@ -717,7 +836,11 @@ typedef enum resourcePools {
 @synthesize playerTwoScoreLabel;
 @synthesize playerTwoStats;
 @synthesize leftPlayer;
+@synthesize leftPlayerThrow;
+@synthesize leftPlayerThrowVector;
 @synthesize rightPlayer;
+@synthesize rightPlayerThrow;
+@synthesize rightPlayerThrowVector;
 @synthesize durationRemaining;
 
 - (void)setIsActive:(BOOL)isActive {

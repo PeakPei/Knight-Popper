@@ -71,6 +71,7 @@
                              timePerFrame:timePerFrame]) {
         _type = playerType;
         self.isTouched = NO;
+        self.isActive = YES;
     }
     
     return self;
@@ -112,7 +113,7 @@
     BOOL eventHandled = NO;
     CGPoint touchLocation = [touch locationInNode:[self parent]];
     
-    if ([self containsPoint:touchLocation]) {
+    if (self.isActive && [self containsPoint:touchLocation]) {
         self.isTouched = YES;
         self.touchBegin = touchLocation;
         eventHandled = YES;
@@ -126,7 +127,7 @@
     CGPoint touchLocation = [touch locationInNode:[self parent]];
     CGPoint previousTouchLocation = [touch previousLocationInNode:[self parent]];
     
-    if ([self containsPoint:previousTouchLocation]
+    if (self.isActive && [self containsPoint:previousTouchLocation]
             && ![self containsPoint:touchLocation] && self.isTouched) {
         self.isTouched = NO;
         self.touchEnd = touchLocation;
@@ -141,7 +142,7 @@
     BOOL eventHandled = NO;
     CGPoint touchLocation = [touch locationInNode:[self parent]];
     
-    if ([self containsPoint:touchLocation] && self.isTouched) {
+    if (self.isActive && [self containsPoint:touchLocation] && self.isTouched) {
         self.isTouched = NO;
         self.touchEnd = touchLocation;
         [self touchFinished];
@@ -155,7 +156,7 @@
     BOOL eventHandled = NO;
     CGPoint touchLocation = [touch locationInNode:[self parent]];
     
-    if ([self containsPoint:touchLocation] && self.isTouched) {
+    if (self.isActive && [self containsPoint:touchLocation] && self.isTouched) {
         self.isTouched = NO;
         eventHandled = YES;
     }
@@ -171,5 +172,11 @@
 @synthesize isTouched;
 @synthesize touchBegin;
 @synthesize touchEnd;
+@synthesize isActive = _isActive;
+
+- (void)setIsActive:(BOOL)isActive {
+    _isActive = isActive;
+    self.isTouched = _isActive;
+}
 
 @end

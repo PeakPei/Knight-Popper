@@ -49,16 +49,12 @@ typedef enum layers {
     return self;
 }
 
-- (BOOL)update:(CFTimeInterval)deltaTime {
-    BOOL activeThisFrame = self.isActive;
-    
-    if (activeThisFrame) {
+- (void)updateState:(CFTimeInterval)deltaTime {
+    if (self.isActive) {
         while (![self.actionQueue isEmpty]) {
             [self onAction:[self.actionQueue pop] deltaTime:deltaTime];
         }
     }
-    
-    return activeThisFrame;
 }
 
 - (void)buildState {

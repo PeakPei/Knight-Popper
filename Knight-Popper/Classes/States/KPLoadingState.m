@@ -50,10 +50,8 @@ typedef enum layers {
 
 #pragma mark SSKState
 
-- (BOOL)update:(CFTimeInterval)deltaTime {
-    BOOL activeThisFrame = self.isActive;
-    
-    if (activeThisFrame) {
+- (void)updateState:(CFTimeInterval)deltaTime {
+    if (self.isActive) {
         if (!self.startedLoading) {
             [self.audioDelegate stopSound:SoundInstanceIDMenuMusic];
             [self.audioDelegate playSound:SoundIDInGameMusic
@@ -64,8 +62,6 @@ typedef enum layers {
             self.startedLoading = YES;
         }
     }
-    
-    return activeThisFrame;
 }
 
 - (void)buildState {

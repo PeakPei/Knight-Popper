@@ -199,10 +199,8 @@ typedef enum resourcePools {
 
 #pragma mark SSKState
 
-- (BOOL)update:(CFTimeInterval)deltaTime {
-    BOOL activeThisFrame = self.isActive;
-    
-    if (activeThisFrame) {
+- (void)updateState:(CFTimeInterval)deltaTime {
+    if (self.isActive) {
         if (self.initialTime == -1) {
             self.initialTime = deltaTime;
             [self startCountdownTimer];
@@ -224,8 +222,6 @@ typedef enum resourcePools {
             [self onAction:[self.actionQueue pop] deltaTime:deltaTime];
         }
     }
-    
-    return activeThisFrame;
 }
 
 - (void)buildState {

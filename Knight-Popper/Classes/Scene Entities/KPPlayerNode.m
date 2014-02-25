@@ -107,7 +107,7 @@
     return ActionCategoryNone;
 }
 
-#pragma mark SSKEventHandler
+#pragma mark SSKEventProtocol
 
 - (BOOL)handleBeginEvent:(UIEvent*)event touch:(UITouch *)touch {
     BOOL eventHandled = NO;

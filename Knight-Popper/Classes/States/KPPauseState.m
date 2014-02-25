@@ -105,7 +105,7 @@ typedef enum layers {
     [self addNodeToLayer:LayerIDHUD node:menuButton];
 }
 
-#pragma mark SSKEventHandler
+#pragma mark SSKEventProtocol
 
 - (BOOL)handleBeginEvent:(UIEvent*)event touch:(UITouch*)touch {
     [super handleBeginEvent:event touch:touch];

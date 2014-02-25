@@ -30,6 +30,7 @@
 #import <SpriteStackKit/SSKButtonNode.h>
 #import "KPStateStack.h"
 #import "Coordinates.h"
+#import "KPPlayerAttackNode.h"
 
 #pragma mark - Interface
 
@@ -93,15 +94,19 @@ typedef enum resourcePools {
 
 @property KPPlayerNode* leftPlayer;
 
-@property SSKSpriteAnimationNode* leftPlayerThrow;
+@property KPPlayerAttackNode* leftPlayerThrow;
 
 @property CGVector leftPlayerThrowVector;
 
+@property BOOL leftProjectileThrown;
+
 @property KPPlayerNode* rightPlayer;
 
-@property SSKSpriteAnimationNode* rightPlayerThrow;
+@property KPPlayerAttackNode* rightPlayerThrow;
 
 @property CGVector rightPlayerThrowVector;
+
+@property BOOL rightProjectileThrown;
 
 @property double durationRemaining;
 
@@ -129,6 +134,8 @@ typedef enum resourcePools {
         self.timeUp = NULL;
         self.gameTime = NULL;
         self.gameEnded = NO;
+        self.leftProjectileThrown = NO;
+        self.rightProjectileThrown = NO;
         
         // initialise player score and stat tracking
         self.playerOneScore = [[KPPlayerScore alloc] init];
@@ -207,15 +214,9 @@ typedef enum resourcePools {
     } else if (object == self.leftPlayerThrow
                && [keyPath isEqualToString:@"isAnimating"]) {
         if (self.leftPlayerThrow.isAnimating) {
-            KPProjectileNode* projectile =
-                [self.poolManager retrieveFromPool:ResourcePoolIDLeftProjectile];
-            [projectile.physicsBody
-                applyForce:CGVectorMake(self.leftPlayerThrowVector.dx * 25,
-                                        self.leftPlayerThrowVector.dy * 25)];
-            [self.audioDelegate playSound:SoundIDLollipopThrow];
-            
             self.leftPlayer.hidden = YES;
             self.leftPlayerThrow.hidden = NO;
+            self.leftProjectileThrown = NO;
         } else {
             self.leftPlayer.hidden = NO;
             self.leftPlayerThrow.hidden = YES;
@@ -225,15 +226,9 @@ typedef enum resourcePools {
     } else if (object == self.rightPlayerThrow
                && [keyPath isEqualToString:@"isAnimating"]) {
         if (self.rightPlayerThrow.isAnimating) {
-            KPProjectileNode* projectile =
-            [self.poolManager retrieveFromPool:ResourcePoolIDRightProjectile];
-            [projectile.physicsBody
-             applyForce:CGVectorMake(self.rightPlayerThrowVector.dx * 25,
-                                     self.rightPlayerThrowVector.dy * 25)];
-            [self.audioDelegate playSound:SoundIDLollipopThrow];
-            
             self.rightPlayer.hidden = YES;
             self.rightPlayerThrow.hidden = NO;
+            self.rightProjectileThrown = NO;
         } else {
             self.rightPlayer.hidden = NO;
             self.rightPlayerThrow.hidden = YES;
@@ -248,24 +243,13 @@ typedef enum resourcePools {
     } else if (object == self.rightPlayer
                && [keyPath isEqualToString:@"hidden"]) {
         self.rightPlayer.isActive = !self.rightPlayer.hidden;
-        
-    // handle
-    } else if (object == self.leftPlayerThrow
-               && [keyPath isEqualToString:@"currentFrame"]) {
-        
-    // handle
-    } else if (object == self.rightPlayerThrow
-               && [keyPath isEqualToString:@"currentFrame"]) {
-        
     }
 }
 
 - (void)dealloc {
     [self.playerOneScore removeObserver:self forKeyPath:@"score"];
     [self.playerTwoScore removeObserver:self forKeyPath:@"score"];
-    [self.leftPlayerThrow removeObserver:self forKeyPath:@"currentFrame"];
     [self.rightPlayerThrow removeObserver:self forKeyPath:@"isAnimating"];
-    [self.rightPlayerThrow removeObserver:self forKeyPath:@"currentFrame"];
     [self.rightPlayerThrow removeObserver:self forKeyPath:@"isAnimating"];
     [self.leftPlayer removeObserver:self forKeyPath:@"hidden"];
     [self.rightPlayer removeObserver:self forKeyPath:@"hidden"];
@@ -280,6 +264,7 @@ typedef enum resourcePools {
             [self startCountdownTimer];
         }
         
+        // generate additional targets
         if (self.timeLastGeneration >= 60 && !self.gameEnded && self.gameStarted) {
             self.timeLastGeneration = 0;
             
@@ -290,8 +275,33 @@ typedef enum resourcePools {
             self.timeLastGeneration++;
         }
         
+        // generate projectiles if necessary
+        if (self.leftPlayerThrow.isAnimating && !self.leftProjectileThrown
+                && [self.leftPlayerThrow showingProjectileGenerationFrame]) {
+            KPProjectileNode* projectile =
+            [self.poolManager retrieveFromPool:ResourcePoolIDLeftProjectile];
+            [projectile.physicsBody
+             applyForce:CGVectorMake(self.leftPlayerThrowVector.dx * 25,
+                                     self.leftPlayerThrowVector.dy * 25)];
+            [self.audioDelegate playSound:SoundIDLollipopThrow];
+            self.leftProjectileThrown = YES;
+        }
+        
+        if (self.rightPlayerThrow.isAnimating && !self.rightProjectileThrown
+                && [self.rightPlayerThrow showingProjectileGenerationFrame]) {
+            KPProjectileNode* projectile =
+            [self.poolManager retrieveFromPool:ResourcePoolIDRightProjectile];
+            [projectile.physicsBody
+             applyForce:CGVectorMake(self.rightPlayerThrowVector.dx * 25,
+                                     self.rightPlayerThrowVector.dy * 25)];
+            [self.audioDelegate playSound:SoundIDLollipopThrow];
+            self.rightProjectileThrown = YES;
+        }
+        
+        // remove off-screen objects
         [self addRemoveTargetActionToQueue];
         
+        // execute actions on the scene graph
         while (![self.actionQueue isEmpty]) {
             [self onAction:[self.actionQueue pop] deltaTime:deltaTime];
         }
@@ -322,11 +332,20 @@ typedef enum resourcePools {
         resource.physicsBody.linearDamping = 0.0;
     };
     
+    CGFloat const RIGHT_PROJECTILE_OFFSET_X = -0.03;
+    CGFloat const RIGHT_PROJECTILE_OFFSET_Y = 0.25;
+    
     void (^targetGetRightProj)(id) = ^(id node) {
         SSKSpriteAnimationNode* resource = (SSKSpriteAnimationNode*)node;
-        resource.position = self.rightPlayer.position;
-        [resource removeFromParent];
+        
+        CGPoint rightProjectilePosition =
+            CGPointMake(self.rightPlayerThrow.position.x
+                            + self.rightPlayerThrow.size.width * RIGHT_PROJECTILE_OFFSET_X,
+                        self.rightPlayerThrow.position.y
+                            + self.rightPlayerThrow.size.height * RIGHT_PROJECTILE_OFFSET_Y);
+        resource.position = rightProjectilePosition;
         [self addNodeToLayer:LayerIDProjectiles node:resource];
+        
         resource.physicsBody.angularVelocity =
         [Random generateDouble:0.2 upperBound:0.4];
         resource.physicsBody.angularDamping =
@@ -334,11 +353,20 @@ typedef enum resourcePools {
         resource.physicsBody.linearDamping = 0.0;
     };
     
+    CGFloat const LEFT_PROJECTILE_OFFSET_X = 0.03;
+    CGFloat const LEFT_PROJECTILE_OFFSET_Y = 0.25;
+    
     void (^targetGetLeftProj)(id) = ^(id node) {
         SSKSpriteAnimationNode* resource = (SSKSpriteAnimationNode*)node;
         
-        resource.position = self.leftPlayer.position;
+        CGPoint leftProjectilePosition =
+        CGPointMake(self.leftPlayerThrow.position.x
+                        + self.leftPlayerThrow.size.width * LEFT_PROJECTILE_OFFSET_X,
+                    self.leftPlayerThrow.position.y
+                        + self.leftPlayerThrow.size.height * LEFT_PROJECTILE_OFFSET_Y);
+        resource.position = leftProjectilePosition;
         [self addNodeToLayer:LayerIDProjectiles node:resource];
+        
         resource.physicsBody.angularVelocity =
         [Random generateDouble:-0.4 upperBound:0.2];
         resource.physicsBody.angularDamping =
@@ -551,7 +579,7 @@ typedef enum resourcePools {
                          context:NULL];
     
     self.leftPlayerThrow =
-        [[SSKSpriteAnimationNode alloc]
+        [[KPPlayerAttackNode alloc]
          initWithSpriteSheet:[self.textures getTexture:TextureIDPlayerOneAttack]
          columns:7 rows:2 numFrames:12 horizontalOrder:YES timePerFrame:1.0/14.0];
     self.leftPlayerThrow.position = CGPointMake(
@@ -563,10 +591,6 @@ typedef enum resourcePools {
     
     [self.leftPlayerThrow addObserver:self
                            forKeyPath:@"isAnimating"
-                              options:NSKeyValueObservingOptionNew
-                              context:NULL];
-    [self.leftPlayerThrow addObserver:self
-                           forKeyPath:@"currentFrame"
                               options:NSKeyValueObservingOptionNew
                               context:NULL];
     
@@ -591,9 +615,9 @@ typedef enum resourcePools {
                           context:NULL];
     
     self.rightPlayerThrow =
-    [[SSKSpriteAnimationNode alloc]
-     initWithSpriteSheet:[self.textures getTexture:TextureIDPlayerTwoAttack]
-     columns:7 rows:2 numFrames:12 horizontalOrder:YES timePerFrame:1.0/14.0];
+        [[KPPlayerAttackNode alloc]
+         initWithSpriteSheet:[self.textures getTexture:TextureIDPlayerTwoAttack]
+         columns:7 rows:2 numFrames:12 horizontalOrder:YES timePerFrame:1.0/14.0];
     self.rightPlayerThrow.position = CGPointMake(
         [Coordinates convertXFromiPhone:IPHONE_LANDSCAPE_WIDTH_PTS * RIGHT_PLAYER_REL_X
                     scalesForWidescreen:NO],
@@ -603,10 +627,6 @@ typedef enum resourcePools {
     
     [self.rightPlayerThrow addObserver:self
                             forKeyPath:@"isAnimating"
-                               options:NSKeyValueObservingOptionNew
-                               context:NULL];
-    [self.rightPlayerThrow addObserver:self
-                            forKeyPath:@"currentFrame"
                                options:NSKeyValueObservingOptionNew
                                context:NULL];
     
@@ -838,9 +858,11 @@ typedef enum resourcePools {
 @synthesize leftPlayer;
 @synthesize leftPlayerThrow;
 @synthesize leftPlayerThrowVector;
+@synthesize leftProjectileThrown;
 @synthesize rightPlayer;
 @synthesize rightPlayerThrow;
 @synthesize rightPlayerThrowVector;
+@synthesize rightProjectileThrown;
 @synthesize durationRemaining;
 
 - (void)setIsActive:(BOOL)isActive {

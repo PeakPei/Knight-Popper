@@ -13,8 +13,6 @@
 
 @interface KPPlayerNode()
 
-- (void)touchFinished;
-
 /**
  * @brief Retrieve the unique texture identifier associated with a specific
  * player type.
@@ -32,9 +30,13 @@
 @property ActionCategory category;
 
 /**
- * @brief Indicates whether the node is touched (true) or not (false).
+ * @brief The UITouch object associated with the current touch interaction
+ * on the player. 
+ *
+ * @note A UITouch object is persistent throughout a touch interaction. This
+ * property is null if there is no current touch interaction on the player.
  */
-@property BOOL isTouched;
+@property UITouch* currentTouch;
 
 /**
  * @brief The initial position touched in a touch event involving the node.
@@ -70,8 +72,8 @@
                           horizontalOrder:HORIZONTAL_ORDER
                              timePerFrame:timePerFrame]) {
         _type = playerType;
-        self.isTouched = NO;
         self.isActive = YES;
+        self.currentTouch = NULL;
     }
     
     return self;
@@ -93,14 +95,6 @@
     return identifier;
 }
 
-#pragma mark Helper Methods
-
-- (void)touchFinished {
-    CGVector throwArc = CGVectorMake(self.touchEnd.x - self.touchBegin.x,
-                                    self.touchEnd.y - self.touchBegin.y);
-    [self.delegate handleThrow:throwArc player:self.type];
-}
-
 #pragma mark SSKSpriteNode
 
 - (unsigned int)getActionCategory {
@@ -114,8 +108,7 @@
     CGPoint touchLocation = [touch locationInNode:[self parent]];
     
     if (self.isActive && [self containsPoint:touchLocation]) {
-        self.isTouched = YES;
-        self.touchBegin = touchLocation;
+        [self touchBegan:event touch:touch];
         eventHandled = YES;
     }
     
@@ -125,43 +118,64 @@
 - (BOOL)handleMoveEvent:(UIEvent *)event touch:(UITouch *)touch {
     BOOL eventHandled = NO;
     CGPoint touchLocation = [touch locationInNode:[self parent]];
-    CGPoint previousTouchLocation = [touch previousLocationInNode:[self parent]];
+//    CGPoint previousTouchLocation = [touch previousLocationInNode:[self parent]];
     
-    if (self.isActive && [self containsPoint:previousTouchLocation]
-            && ![self containsPoint:touchLocation] && self.isTouched) {
-        self.isTouched = NO;
-        self.touchEnd = touchLocation;
-        [self touchFinished];
-        eventHandled = YES;
+    // handle touch event
+    if (self.isActive) {
+        
+        // handle new touch
+        if (!self.currentTouch && [self containsPoint:touchLocation]) {
+            [self touchBegan:event touch:touch];
+            eventHandled = YES;
+            
+        // handle existing touch
+        } else if (self.currentTouch == touch) {
+            
+            if ([self containsPoint:touchLocation]) {
+                // ongoing touch handling (stub)
+            } else {
+                [self touchEnded:event touch:touch];
+            }
+            eventHandled = YES;
+        }
     }
     
     return eventHandled;
 }
 
 - (BOOL)handleEndEvent:(UIEvent *)event touch:(UITouch *)touch {
+    return [self handleTouchEnd:event touch:touch];
+}
+
+- (BOOL)handleCancelEvent:(UIEvent *)event touch:(UITouch *)touch {
+    return [self handleTouchEnd:event touch:touch];
+}
+
+#pragma mark Helper Methods
+
+- (BOOL)handleTouchEnd:(UIEvent*)event touch:(UITouch*)touch {
     BOOL eventHandled = NO;
-    CGPoint touchLocation = [touch locationInNode:[self parent]];
     
-    if (self.isActive && [self containsPoint:touchLocation] && self.isTouched) {
-        self.isTouched = NO;
-        self.touchEnd = touchLocation;
-        [self touchFinished];
+    if (self.isActive && self.currentTouch == touch) {
+        [self touchEnded:event touch:touch];
         eventHandled = YES;
     }
     
     return eventHandled;
 }
 
-- (BOOL)handleCancelEvent:(UIEvent *)event touch:(UITouch *)touch {
-    BOOL eventHandled = NO;
-    CGPoint touchLocation = [touch locationInNode:[self parent]];
+- (void)touchBegan:(UIEvent*)event touch:(UITouch*) touch {
+    self.currentTouch = touch;
+    self.touchBegin = [touch locationInNode:[self parent]];
+}
+
+- (void)touchEnded:(UIEvent*)event touch:(UITouch*)touch {
+    self.currentTouch = NULL;
+    self.touchEnd = [touch locationInNode:[self parent]];
     
-    if (self.isActive && [self containsPoint:touchLocation] && self.isTouched) {
-        self.isTouched = NO;
-        eventHandled = YES;
-    }
-    
-    return eventHandled;
+    CGVector throwArc = CGVectorMake(self.touchEnd.x - self.touchBegin.x,
+                                     self.touchEnd.y - self.touchBegin.y);
+    [self.delegate handleThrow:throwArc player:self.type];
 }
 
 #pragma mark - Properties
@@ -169,14 +183,13 @@
 @synthesize type = _type;
 @synthesize category;
 @synthesize delegate;
-@synthesize isTouched;
 @synthesize touchBegin;
 @synthesize touchEnd;
 @synthesize isActive = _isActive;
 
 - (void)setIsActive:(BOOL)isActive {
     _isActive = isActive;
-    self.isTouched = _isActive;
+    self.currentTouch = NULL;
 }
 
 @end

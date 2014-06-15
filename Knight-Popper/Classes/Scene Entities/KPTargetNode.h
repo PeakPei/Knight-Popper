@@ -38,4 +38,9 @@ typedef enum targetType {
  */
 @property (readonly) TargetType type;
 
+/**
+ * @brief Denotes if the target has collided with a projectile.
+ */
+@property BOOL collided;
+
 @end

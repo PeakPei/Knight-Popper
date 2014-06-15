@@ -207,8 +207,8 @@ typedef enum resourcePools {
     // handle the balloon pop animation finishing
     } else if ([object isKindOfClass:[KPBalloonPopNode class]]
                && [keyPath isEqualToString:@"isAnimating"]) {
-        [object destroy];
         [object removeObserver:self forKeyPath:@"isAnimating"];
+        [object destroy];
     
     // respond to the throw animation being toggled for the left player
     } else if (object == self.leftPlayerThrow
@@ -312,14 +312,20 @@ typedef enum resourcePools {
     // Initialise resource pools
     void (^entityAdd)(id) = ^(id node) {
         SSKSpriteNode* resource = (SSKSpriteNode*)node;
+        [resource removeFromParent];
         resource.physicsBody.resting = YES;
     };
     
     void (^targetGet)(id) = ^(id node) {
         KPTargetNode* resource = (KPTargetNode*)node;
+        resource.collided = false;
+        
+        if (!resource.parent) {
+            [self addNodeToLayer:LayerIDTargets node:resource];
+        }
+        
         [self setRandomSpawnLocation:resource];
         
-        [self addNodeToLayer:LayerIDTargets node:resource];
         [resource.physicsBody
          applyForce:CGVectorMake([Random generateDouble:-self.scene.frame.size.height * 0.1302083333
                                              upperBound:-self.scene.frame.size.height * 0.1302083333],
@@ -338,13 +344,16 @@ typedef enum resourcePools {
     void (^targetGetRightProj)(id) = ^(id node) {
         SSKSpriteAnimationNode* resource = (SSKSpriteAnimationNode*)node;
         
+        if (!resource.parent) {
+            [self addNodeToLayer:LayerIDProjectiles node:resource];
+        }
+        
         CGPoint rightProjectilePosition =
             CGPointMake(self.rightPlayerThrow.position.x
                             + self.rightPlayerThrow.size.width * RIGHT_PROJECTILE_OFFSET_X,
                         self.rightPlayerThrow.position.y
                             + self.rightPlayerThrow.size.height * RIGHT_PROJECTILE_OFFSET_Y);
         resource.position = rightProjectilePosition;
-        [self addNodeToLayer:LayerIDProjectiles node:resource];
         
         resource.physicsBody.angularVelocity =
         [Random generateDouble:0.2 upperBound:0.4];
@@ -359,13 +368,16 @@ typedef enum resourcePools {
     void (^targetGetLeftProj)(id) = ^(id node) {
         SSKSpriteAnimationNode* resource = (SSKSpriteAnimationNode*)node;
         
+        if (!resource.parent) {
+            [self addNodeToLayer:LayerIDProjectiles node:resource];
+        }
+        
         CGPoint leftProjectilePosition =
         CGPointMake(self.leftPlayerThrow.position.x
                         + self.leftPlayerThrow.size.width * LEFT_PROJECTILE_OFFSET_X,
                     self.leftPlayerThrow.position.y
                         + self.leftPlayerThrow.size.height * LEFT_PROJECTILE_OFFSET_Y);
         resource.position = leftProjectilePosition;
-        [self addNodeToLayer:LayerIDProjectiles node:resource];
         
         resource.physicsBody.angularVelocity =
         [Random generateDouble:-0.4 upperBound:0.2];
@@ -374,53 +386,57 @@ typedef enum resourcePools {
         resource.physicsBody.linearDamping = 0.0;
     };
     
+    // initialise resource pool properties
+    int const TARGET_COUNT = 20;
+    int const PROJECTILE_COUNT = 20;
+    
     // Initialise blue target pool
-    [self.poolManager addResourcePool:15
+    [self.poolManager addResourcePool:TARGET_COUNT
                          resourceType:[KPTargetNode class]
                             addAction:entityAdd
                             getAction:targetGet
                        poolIdentifier:ResourcePoolIDBlueTarget];
     
-    for (int i = 0; i < 15; i++) {
+    for (int i = 0; i < TARGET_COUNT; i++) {
         KPTargetNode* node =
             [[KPTargetNode alloc] initWithType:TargetTypeBlueMonkey textures:self.textures];
         [self.poolManager addToPool:ResourcePoolIDBlueTarget resource:node];
     }
     
     // Initialise pink target pool
-    [self.poolManager addResourcePool:15
+    [self.poolManager addResourcePool:TARGET_COUNT
                          resourceType:[KPTargetNode class]
                             addAction:entityAdd
                             getAction:targetGet
                        poolIdentifier:ResourcePoolIDPinkTarget];
 
-    for (int i = 0; i < 15; i++) {
+    for (int i = 0; i < TARGET_COUNT; i++) {
         KPTargetNode* node =
             [[KPTargetNode alloc] initWithType:TargetTypePinkMonkey textures:self.textures];
         [self.poolManager addToPool:ResourcePoolIDPinkTarget resource:node];
     }
     
     // Initialise gold target pool
-    [self.poolManager addResourcePool:15
+    [self.poolManager addResourcePool:TARGET_COUNT
                          resourceType:[KPTargetNode class]
                             addAction:entityAdd
                             getAction:targetGet
                        poolIdentifier:ResourcePoolIDGoldTarget];
     
-    for (int i = 0; i < 15; i++) {
+    for (int i = 0; i < TARGET_COUNT; i++) {
         KPTargetNode* node =
         [[KPTargetNode alloc] initWithType:TargetTypeGoldMonkey textures:self.textures];
         [self.poolManager addToPool:ResourcePoolIDGoldTarget resource:node];
     }
     
     // Initialise left projectile pool
-    [self.poolManager addResourcePool:10
+    [self.poolManager addResourcePool:PROJECTILE_COUNT
                          resourceType:[KPProjectileNode class]
                             addAction:entityAdd
                             getAction:targetGetLeftProj
                        poolIdentifier:ResourcePoolIDLeftProjectile];
     
-    for (int i = 0; i < 10; i++) {
+    for (int i = 0; i < PROJECTILE_COUNT; i++) {
         KPProjectileNode* node =
             [[KPProjectileNode alloc] initWithType:ProjectileTypeLeft
             textures:self.textures];
@@ -428,13 +444,13 @@ typedef enum resourcePools {
     }
     
     // Initialise right projectile pool
-    [self.poolManager addResourcePool:10
+    [self.poolManager addResourcePool:PROJECTILE_COUNT
                          resourceType:[KPProjectileNode class]
                             addAction:entityAdd
                             getAction:targetGetRightProj
                        poolIdentifier:ResourcePoolIDRightProjectile];
     
-    for (int i = 0; i < 10; i++) {
+    for (int i = 0; i < PROJECTILE_COUNT; i++) {
         KPProjectileNode* node =
             [[KPProjectileNode alloc] initWithType:ProjectileTypeRight
             textures:self.textures];
@@ -675,31 +691,18 @@ typedef enum resourcePools {
             if (bodyACategory == ColliderTypeTarget) {
                 target = contact.bodyA.node;
                 projectile = (KPProjectileNode*)contact.bodyB.node;
-                
                 projType = projectile.type;
-                if (projType == ProjectileTypeLeft) {
-                    [self.poolManager addToPool:ResourcePoolIDLeftProjectile resource:projectile];
-                } else {
-                    [self.poolManager addToPool:ResourcePoolIDRightProjectile resource:projectile];
-                }
-                
             } else {
                 target = contact.bodyB.node;
                 projectile = (KPProjectileNode*)contact.bodyA.node;
-                
                 projType = projectile.type;
-                if (projType == ProjectileTypeLeft) {
-                    [self.poolManager addToPool:ResourcePoolIDLeftProjectile resource:projectile];
-                } else {
-                    [self.poolManager addToPool:ResourcePoolIDRightProjectile resource:projectile];
-                }
             }
             
             // handle the collision
             if ([target isKindOfClass:[KPTargetNode class]]
-                    && !((KPTargetNode*)target).isDestroyed
-                    && !projectile.isDestroyed) {
+                    && !((KPTargetNode*)target).collided) {
                 KPTargetNode* node = (KPTargetNode*)target;
+                node.collided = true;
                 CGPoint targetPosition = node.position;
                 PopType popType;
                 
@@ -748,6 +751,13 @@ typedef enum resourcePools {
                     break;
                 }
                 
+                // remove the projectile from the scene graph
+                if (projType == ProjectileTypeLeft) {
+                    [self.poolManager addToPool:ResourcePoolIDLeftProjectile resource:projectile];
+                } else {
+                    [self.poolManager addToPool:ResourcePoolIDRightProjectile resource:projectile];
+                }
+                
                 // display popping animation
                 KPBalloonPopNode* pop =
                     [[KPBalloonPopNode alloc] initWithType:popType
@@ -759,10 +769,6 @@ typedef enum resourcePools {
                       forKeyPath:@"isAnimating"
                          options:NSKeyValueObservingOptionNew
                          context:NULL];
-                
-                // destroy the objects involved in the collision
-                [target destroy];
-                [projectile destroy];
             }
     }
 }
@@ -810,8 +816,6 @@ typedef enum resourcePools {
                     [self.poolManager addToPool:ResourcePoolIDRightProjectile resource:node];
                 }
             }
-            
-            [node destroy];
         }
     };
     

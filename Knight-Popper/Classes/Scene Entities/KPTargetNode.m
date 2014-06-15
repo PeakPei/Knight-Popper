@@ -45,6 +45,7 @@
 
     if (self = [super initWithTexture:[textures getTexture:textureID]]) {
     
+        self.collided = false;
         _type = targetType;
         
         if (self.type == TargetTypeGoldMonkey) {
@@ -109,6 +110,7 @@
 #pragma mark - Properties
 
 @synthesize type = _type;
+@synthesize collided;
 @synthesize category;
 
 @end

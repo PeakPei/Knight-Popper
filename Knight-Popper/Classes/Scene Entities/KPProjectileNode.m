@@ -55,8 +55,6 @@
         
         SKPhysicsBody* physicsBody =
             [SKPhysicsBody bodyWithPolygonFromPath:(__bridge CGPathRef)(paths[0])];
-        physicsBody.dynamic = YES;
-        physicsBody.affectedByGravity = NO;
         physicsBody.mass = MASS;
         physicsBody.categoryBitMask = ColliderTypeProjectile;
         physicsBody.contactTestBitMask = ColliderTypeTarget | ColliderTypeProjectile;

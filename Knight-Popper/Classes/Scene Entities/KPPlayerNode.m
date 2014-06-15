@@ -197,15 +197,25 @@
     self.currentTouch = NULL;
     self.touchEnd = [touch locationInNode:[self parent]];
     
-    // determine the throw impulse force
-    float const FORCE_COEF = 1.0f;
+    // determine throw force
+    float const MIN_THROW_MAGNITUDE = 200.0f;
+    float const MAX_THROW_MAGNITUDE = 600.0f;
+    float const FORCE_COEF = 3.0f;
+    
     float swipeSpeed = self.touchDistance / self.touchDuration;
+    float throwMagnitude = swipeSpeed * FORCE_COEF;
+    if (throwMagnitude > MAX_THROW_MAGNITUDE) {
+        throwMagnitude = MAX_THROW_MAGNITUDE;
+    } else if (throwMagnitude < MIN_THROW_MAGNITUDE) {
+        throwMagnitude = MIN_THROW_MAGNITUDE;
+    }
+    
+    // apply impulse force
     CGVector swipeVector = CGVectorMake(self.touchEnd.x - self.touchBegin.x,
                                         self.touchEnd.y - self.touchBegin.y);
     CGVector impulseForce = [KPPlayerNode CGVectorNormalise:swipeVector];
-    impulseForce.dx = FORCE_COEF * impulseForce.dx * swipeSpeed;
-    impulseForce.dy = FORCE_COEF * impulseForce.dy * swipeSpeed;
-    
+    impulseForce.dx = throwMagnitude * impulseForce.dx;
+    impulseForce.dy = throwMagnitude * impulseForce.dy;
     [self.delegate handleThrow:impulseForce player:self.type];
     
     self.touchDuration = INITIAL_TOUCH_DURATION;

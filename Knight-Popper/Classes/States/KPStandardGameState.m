@@ -265,14 +265,14 @@ typedef enum resourcePools {
         }
         
         // generate additional targets
-        if (self.timeLastGeneration >= 60 && !self.gameEnded && self.gameStarted) {
+        if (self.timeLastGeneration >= 2.5f && !self.gameEnded && self.gameStarted) {
             self.timeLastGeneration = 0;
             
             [self.poolManager retrieveFromPool:ResourcePoolIDBlueTarget];
             [self.poolManager retrieveFromPool:ResourcePoolIDPinkTarget];
             [self.poolManager retrieveFromPool:ResourcePoolIDGoldTarget];
         } else {
-            self.timeLastGeneration++;
+            self.timeLastGeneration += deltaTime;
         }
         
         // generate projectiles if necessary

@@ -70,11 +70,11 @@ typedef enum resourcePools {
 
 - (void)updateState:(CFTimeInterval)deltaTime {
     if (self.isActive) {
-        if (self.timeLastGeneration >= 180) {
+        if (self.timeLastGeneration >= 3) {
             self.timeLastGeneration = 0;
             [self.poolManager retrieveFromPool:ResourcePoolIDProjectile];
         } else {
-            self.timeLastGeneration++;
+            self.timeLastGeneration += deltaTime;
         }
         
         [self addRemoveTargetActionToQueue];

@@ -9,6 +9,9 @@
 #import "TextureIDs.h"
 #import "KPProjectileNode.h"
 
+#define INITIAL_TOUCH_DURATION 0.0f
+#define INITIAL_TOUCH_DISTANCE 0.0f
+
 #pragma mark - Interface
 
 @interface KPPlayerNode()
@@ -48,6 +51,16 @@
  */
 @property CGPoint touchEnd;
 
+/**
+ * @brief The duration of the current touch.
+ */
+@property NSTimeInterval touchDuration;
+
+/**
+ * @brief The distance covered by the current touch.
+ */
+@property float touchDistance;
+
 @end
 
 #pragma mark - Implementation
@@ -74,6 +87,8 @@
         _type = playerType;
         self.isActive = YES;
         self.currentTouch = NULL;
+        self.touchDuration = INITIAL_TOUCH_DURATION;
+        self.touchDistance = INITIAL_TOUCH_DISTANCE;
     }
     
     return self;
@@ -101,6 +116,14 @@
     return ActionCategoryNone;
 }
 
+#pragma mark SSKUpdateProtocol
+
+- (void)update:(CFTimeInterval)deltaTime {
+    if (!self.currentTouch) {
+        self.touchDuration += deltaTime;
+    }
+}
+
 #pragma mark SSKEventProtocol
 
 - (BOOL)handleBeginEvent:(UIEvent*)event touch:(UITouch *)touch {
@@ -118,7 +141,6 @@
 - (BOOL)handleMoveEvent:(UIEvent *)event touch:(UITouch *)touch {
     BOOL eventHandled = NO;
     CGPoint touchLocation = [touch locationInNode:[self parent]];
-//    CGPoint previousTouchLocation = [touch previousLocationInNode:[self parent]];
     
     // handle touch event
     if (self.isActive) {
@@ -132,7 +154,7 @@
         } else if (self.currentTouch == touch) {
             
             if ([self containsPoint:touchLocation]) {
-                // ongoing touch handling (stub)
+                [self updateCurrentTouchDistance:touch];
             } else {
                 [self touchEnded:event touch:touch];
             }
@@ -144,10 +166,12 @@
 }
 
 - (BOOL)handleEndEvent:(UIEvent *)event touch:(UITouch *)touch {
+    [self updateCurrentTouchDistance:touch];
     return [self handleTouchEnd:event touch:touch];
 }
 
 - (BOOL)handleCancelEvent:(UIEvent *)event touch:(UITouch *)touch {
+    [self updateCurrentTouchDistance:touch];
     return [self handleTouchEnd:event touch:touch];
 }
 
@@ -173,9 +197,37 @@
     self.currentTouch = NULL;
     self.touchEnd = [touch locationInNode:[self parent]];
     
-    CGVector throwArc = CGVectorMake(self.touchEnd.x - self.touchBegin.x,
-                                     self.touchEnd.y - self.touchBegin.y);
-    [self.delegate handleThrow:throwArc player:self.type];
+    // determine the throw impulse force
+    float const FORCE_COEF = 1.0f;
+    float swipeSpeed = self.touchDistance / self.touchDuration;
+    CGVector swipeVector = CGVectorMake(self.touchEnd.x - self.touchBegin.x,
+                                        self.touchEnd.y - self.touchBegin.y);
+    CGVector impulseForce = [KPPlayerNode CGVectorNormalise:swipeVector];
+    impulseForce.dx = FORCE_COEF * impulseForce.dx * swipeSpeed;
+    impulseForce.dy = FORCE_COEF * impulseForce.dy * swipeSpeed;
+    
+    [self.delegate handleThrow:impulseForce player:self.type];
+    
+    self.touchDuration = INITIAL_TOUCH_DURATION;
+    self.touchDistance = INITIAL_TOUCH_DISTANCE;
+}
+
+- (void)updateCurrentTouchDistance:(UITouch*)touch {
+    CGPoint touchLocation = [touch locationInNode:[self parent]];
+    CGPoint previousTouchLocation = [touch previousLocationInNode:[self parent]];
+    self.touchDistance +=
+        [KPPlayerNode CGVectorMagnitude:
+         CGVectorMake(touchLocation.x - previousTouchLocation.x,
+                      touchLocation.y - previousTouchLocation.y)];
+}
+
++ (CGVector)CGVectorNormalise:(CGVector)vector {
+    float magnitude = [KPPlayerNode CGVectorMagnitude:vector];
+    return CGVectorMake(vector.dx / magnitude, vector.dy / magnitude);
+}
+
++ (float)CGVectorMagnitude:(CGVector)vector {
+    return sqrtf(vector.dx * vector.dx + vector.dy * vector.dy);
 }
 
 #pragma mark - Properties
@@ -186,6 +238,8 @@
 @synthesize touchBegin;
 @synthesize touchEnd;
 @synthesize isActive = _isActive;
+@synthesize touchDuration;
+@synthesize touchDistance;
 
 - (void)setIsActive:(BOOL)isActive {
     _isActive = isActive;

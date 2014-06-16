@@ -60,6 +60,8 @@ typedef enum resourcePools {
 
 - (void)setRandomSpawnLocation:(SKNode*)target;
 
+- (void)garbageCollectNode:(SKNode*)node;
+
 @property SSKActionQueue* actionQueue;
 
 @property SSKResourcePoolManager* poolManager;
@@ -798,23 +800,12 @@ typedef enum resourcePools {
         CGFloat minX = -maxX;
         CGFloat maxY = self.scene.frame.size.height/2.0 + node.frame.size.height/2.0;
         CGFloat minY = -maxY - 300;
-        if (node.position.x > maxX || node.position.x < minX ||
-            node.position.y > maxY || node.position.y < minY) {
-            
-            if ([node isKindOfClass:[KPTargetNode class]]) {
-                if ([(KPTargetNode*)node type] == TargetTypeBlueMonkey) {
-                    [self.poolManager addToPool:ResourcePoolIDBlueTarget resource:node];
-                } else if ([(KPTargetNode*)node type] == TargetTypePinkMonkey) {
-                    [self.poolManager addToPool:ResourcePoolIDPinkTarget resource:node];
-                } else if ([(KPTargetNode*)node type] == TargetTypeGoldMonkey){
-                    [self.poolManager addToPool:ResourcePoolIDGoldTarget resource:node];
-                }
-            } else if ([node isKindOfClass:[KPProjectileNode class]]) {
-                if ([(KPProjectileNode*)node type] == ProjectileTypeLeft) {
-                    [self.poolManager addToPool:ResourcePoolIDLeftProjectile resource:node];
-                } else if ([(KPProjectileNode*)node type] == ProjectileTypeRight) {
-                    [self.poolManager addToPool:ResourcePoolIDRightProjectile resource:node];
-                }
+        
+        if (node.position.x > maxX || node.position.x < minX) {
+            [self garbageCollectNode:node];
+        } else if (node.position.y > maxY || node.position.y < minY) {
+            if (![node isKindOfClass:[KPProjectileNode class]]) {
+                [self garbageCollectNode:node];
             }
         }
     };
@@ -823,6 +814,24 @@ typedef enum resourcePools {
         [[SSKAction alloc] initWithCategory:ActionCategoryProjectile | ActionCategoryTarget
                                      action:checkOffScreen];
     [self.actionQueue push:action];
+}
+
+- (void)garbageCollectNode:(SKNode*)node {
+    if ([node isKindOfClass:[KPTargetNode class]]) {
+        if ([(KPTargetNode*)node type] == TargetTypeBlueMonkey) {
+            [self.poolManager addToPool:ResourcePoolIDBlueTarget resource:node];
+        } else if ([(KPTargetNode*)node type] == TargetTypePinkMonkey) {
+            [self.poolManager addToPool:ResourcePoolIDPinkTarget resource:node];
+        } else if ([(KPTargetNode*)node type] == TargetTypeGoldMonkey){
+            [self.poolManager addToPool:ResourcePoolIDGoldTarget resource:node];
+        }
+    } else if ([node isKindOfClass:[KPProjectileNode class]]) {
+        if ([(KPProjectileNode*)node type] == ProjectileTypeLeft) {
+            [self.poolManager addToPool:ResourcePoolIDLeftProjectile resource:node];
+        } else if ([(KPProjectileNode*)node type] == ProjectileTypeRight) {
+            [self.poolManager addToPool:ResourcePoolIDRightProjectile resource:node];
+        }
+    }
 }
 
 - (void)startCountdownTimer {

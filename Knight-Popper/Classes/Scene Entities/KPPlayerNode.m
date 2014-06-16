@@ -9,7 +9,7 @@
 #import "TextureIDs.h"
 #import "KPProjectileNode.h"
 
-#define INITIAL_TOUCH_DURATION 0.0f
+#define INITIAL_TOUCH_DURATION 0.01f
 #define INITIAL_TOUCH_DISTANCE 0.0f
 
 #pragma mark - Interface
@@ -152,9 +152,10 @@
             
         // handle existing touch
         } else if (self.currentTouch == touch) {
+            [self updateCurrentTouchDistance:touch];
             
             if ([self containsPoint:touchLocation]) {
-                [self updateCurrentTouchDistance:touch];
+                // stub
             } else {
                 [self touchEnded:event touch:touch];
             }
@@ -166,12 +167,10 @@
 }
 
 - (BOOL)handleEndEvent:(UIEvent *)event touch:(UITouch *)touch {
-    [self updateCurrentTouchDistance:touch];
     return [self handleTouchEnd:event touch:touch];
 }
 
 - (BOOL)handleCancelEvent:(UIEvent *)event touch:(UITouch *)touch {
-    [self updateCurrentTouchDistance:touch];
     return [self handleTouchEnd:event touch:touch];
 }
 
@@ -181,6 +180,7 @@
     BOOL eventHandled = NO;
     
     if (self.isActive && self.currentTouch == touch) {
+        [self updateCurrentTouchDistance:touch];
         [self touchEnded:event touch:touch];
         eventHandled = YES;
     }
@@ -189,6 +189,9 @@
 }
 
 - (void)touchBegan:(UIEvent*)event touch:(UITouch*) touch {
+    self.touchDuration = INITIAL_TOUCH_DURATION;
+    self.touchDistance = INITIAL_TOUCH_DISTANCE;
+    
     self.currentTouch = touch;
     self.touchBegin = [touch locationInNode:[self parent]];
 }
@@ -199,16 +202,21 @@
     
     // determine throw force
     float const MIN_THROW_MAGNITUDE = 200.0f;
-    float const MAX_THROW_MAGNITUDE = 600.0f;
-    float const FORCE_COEF = 3.0f;
+    float const MAX_THROW_MAGNITUDE = 575.0f;
+    float const FORCE_COEF = 0.025f;
     
     float swipeSpeed = self.touchDistance / self.touchDuration;
+    
     float throwMagnitude = swipeSpeed * FORCE_COEF;
     if (throwMagnitude > MAX_THROW_MAGNITUDE) {
         throwMagnitude = MAX_THROW_MAGNITUDE;
+        NSLog(@"Max");
     } else if (throwMagnitude < MIN_THROW_MAGNITUDE) {
         throwMagnitude = MIN_THROW_MAGNITUDE;
+        NSLog(@"Min");
     }
+    
+    NSLog(@"Speed: %f", throwMagnitude);
     
     // apply impulse force
     CGVector swipeVector = CGVectorMake(self.touchEnd.x - self.touchBegin.x,
@@ -217,9 +225,6 @@
     impulseForce.dx = throwMagnitude * impulseForce.dx;
     impulseForce.dy = throwMagnitude * impulseForce.dy;
     [self.delegate handleThrow:impulseForce player:self.type];
-    
-    self.touchDuration = INITIAL_TOUCH_DURATION;
-    self.touchDistance = INITIAL_TOUCH_DISTANCE;
 }
 
 - (void)updateCurrentTouchDistance:(UITouch*)touch {
@@ -232,8 +237,29 @@
 }
 
 + (CGVector)CGVectorNormalise:(CGVector)vector {
+    CGFloat const MAGNITUDE_FACTOR = 100.0f;
+    CGFloat const INVALID_MAGNITUDE = 0.0f;
+    int const MAGNITUDE_GENERATION_ATTEMPTS = 3;
+    
+    // generate magnitude
+    int magnitudeGenAttempt = 1;
     float magnitude = [KPPlayerNode CGVectorMagnitude:vector];
-    return CGVectorMake(vector.dx / magnitude, vector.dy / magnitude);
+    while (magnitude != INVALID_MAGNITUDE
+           && magnitudeGenAttempt++ < MAGNITUDE_GENERATION_ATTEMPTS) {
+        vector.dx = vector.dx * MAGNITUDE_FACTOR;
+        vector.dy = vector.dy * MAGNITUDE_FACTOR;
+        magnitude = [KPPlayerNode CGVectorMagnitude:vector];
+    }
+    
+    // normalise vector
+    CGVector normalisedVector;
+    if (magnitude != INVALID_MAGNITUDE) {
+        normalisedVector = CGVectorMake(vector.dx / magnitude, vector.dy / magnitude);
+    } else {
+        normalisedVector = vector;
+    }
+    
+    return normalisedVector;
 }
 
 + (float)CGVectorMagnitude:(CGVector)vector {
